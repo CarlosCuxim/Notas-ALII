@@ -34,20 +34,24 @@
 Antes de empezar con las matrices y trasnformaciones lineales, hay que recordar algunas definiciones
 
 \begin{defi}
-  Sea $G$ un conjunto no vacío, una \emph{opración binaria} es cualquier función $\cdot \colon G \times G \to G$. Por convención tenemos que $\cdot(x,y) = x \cdot y = xy$. Además, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas
+  Sea $G$ un conjunto no vacío, una \emph{opración binaria} de $G$ es cualquier función $\cdot \colon G \times G \to G$. Por convención tenemos que $\cdot(x,y) = x \cdot y$. Además, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas
   \begin{enumerate}
-    \item (Asociatividad) Para todos $x, y, z \in G$ se cumple que $x(yz) = (xy)z$.
-    \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ se tiene que $xe = ex = x$.
-    \item (Exsitencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $xx^{-1} = x^{-1}x = e$.
+    \item (Asociatividad) Para todos $x, y, z \in G$ se cumple que $x\cdot(y\cdot z) = (x\cdot y)\cdot z$.
+    \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ se tiene que $x\cdot e = e\cdot x = x$.
+    \item (Exsitencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
   \end{enumerate}
 
-  Por ultimo, decimos que un grupo es \emph{abeliano} si para todos $x, y \in G$ se cumple que $xy = yx$ (conmutatividad).
+  Por ultimo, decimos que un grupo es \emph{abeliano} si para todos $x, y \in G$ se cumple que $x\cdot y = y\cdot x$ (conmutatividad).
 \end{defi}
 
 \begin{defi}
-  Sea $K$ un conjunto no vacío y $+, \cdot \colon K\times K \to K$, decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple que
+  Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas
   \begin{enumerate}
-    \item $+$ y $\cdot$ son 
+    \item $(K,+)$ es un grupo abeliano. Al elemento neutro lo denotaremos como $0$ y al inverso de $x \in K$ lo denotaremos como $-x$.
+    \item El la operación $\cdot$ es asociativa y conmutatividad sobre $K$.
+    \item (Existencia de neutro multiplicativo) Existe un elemento $1 \in K-\{0\}$ tal que para todo $x \in K$ se cumple que $1\cdot x = x\cdot 1 = x$.
+    \item (Existencia de inverso multiplicativo) Para todo $x \in K-\{0\}$ existe un elemento $ x^{-1} \in K$ tal que $x \cdot x^{-1} = x^{-1} \cdot x = 1$.
+    \item (Distributividad) Para todos $x, y, z \in K$ se cumple que $x \cdot (y + z) = x \cdot y + x \cdot z$.
   \end{enumerate}
 \end{defi}
 
