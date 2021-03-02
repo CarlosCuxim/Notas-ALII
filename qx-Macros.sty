@@ -1,0 +1,162 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{qx-Macros}
+
+
+% =========================================================================
+% -------------------- PAQUETE CREADO POR CARLOS CUXIM --------------------
+%
+% Este paquete contiene todos los macros creados para las notas de Álgebra
+% Lineal II.
+% =========================================================================
+
+
+% =========================================================================
+% CARGA DE PAQUETES AUXILIARES
+% -------------------------------------------------------------------------
+
+% ---------- PAQUETES MATEMÁTICAS ----------
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{calc}
+%\RequirePackage{cancel}
+
+% ---------- PAQUETES DIBUJOS Y CAJAS ----------
+%\RequirePackage{xcolor}
+
+%\RequirePackage{tikz}
+%  \usetikzlibrary{babel}
+%  \usetikzlibrary{intersections}
+%  \usetikzlibrary{arrows.meta}
+%  \usetikzlibrary{angles}
+%  \usetikzlibrary{quotes}
+%  \usetikzlibrary{decorations.pathmorphing}
+%  \usetikzlibrary{backgrounds}
+%  \usetikzlibrary{positioning}
+
+\RequirePackage{tcolorbox}
+  \tcbuselibrary{breakable}
+  \tcbuselibrary{theorems}
+  \tcbuselibrary{skins}
+
+%\RequirePackage{caption}
+
+% =========================================================================
+    
+
+
+
+
+% =========================================================================
+% MACROS DE LAS CAJAS
+% -------------------------------------------------------------------------
+
+\newtcolorbox{defi}
+  {
+    title = {Definición},
+    coltitle=black,
+    fonttitle = \bfseries,
+    colback = white,
+    colframe=\boxframecolor,
+    parbox = false,
+    sharp corners,
+    enhanced,
+    attach boxed title to top left={yshift=-\tcboxedtitleheight/2,xshift=4mm-0.5mm},
+    boxed title style = {
+                          colback=white,
+                          left=0.5mm,right=0.5mm,
+                          boxsep=1mm,
+                          %arc=2.5mm
+                          frame empty
+                        },
+    top=1.5mm+\tcboxedtitleheight/4,
+    before skip = \bigskipamount,
+    after skip = \medskipamount
+  }
+
+
+% Modo parskip local
+\newcommand*{\parskipmode}{\setlength{\parindent}{0pt}\setlength{\parskip}{4.5pt plus 2.0pt minus 1.0pt}}
+
+% =========================================================================
+
+
+
+
+
+% =========================================================================
+% ENTORNOS MATEMÁTICAS AMS
+% -------------------------------------------------------------------------
+
+% Lemas sin numeración
+%\newtheorem*{defi*}{Definición}
+\newtheorem{prop}{Proposición}
+\newtheorem{lema}{Lema}
+
+% =========================================================================
+
+
+
+
+
+% =========================================================================
+% MACROS MATEMÁTICAS
+% -------------------------------------------------------------------------
+
+% ---------- ENTORNOS -----------
+\newenvironment{spmatrix}[1]{\left(\begin{array}{@{ }#1@{ }}}{\end{array}\right)}
+
+% ---------- OPERADORES ----------
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Ima}{Im}
+    \renewcommand*{\Im}{\Ima}
+\DeclareMathOperator{\Rea}{Re}
+    \renewcommand*{\Re}{\Rea}
+
+
+% -------- RELACIONES ----------
+%\newcommand{\relR}{\,R\,}
+
+
+%   Cambio de epsilon
+\let\auxepsilon=\epsilon
+\let\epsilon=\varepsilon
+\let\varepsilon=\auxepsilon
+
+%   Cambio de phi
+%\let\auxphi\phi
+%\let\phi=\varphi
+%\let\varphi=\auxphi
+
+
+%   Conjuntos 
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\R}{\mathbb{R}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\F}{\mathbb{F}}
+
+
+
+
+% --- FUENTES MATEMÁTICAS ---
+
+%    Vectores en negrita
+\newcommand*{\bec}[1]{\mathbf{#1}}
+
+%   Display style rápido
+\newcommand*{\ds}{\displaystyle}
+
+% --- NUMERACIÓN DE ECUACIONES ---
+\newcommand*{\tagthis}{\refstepcounter{equation}\tag{\theequation}}
+\newcommand*{\Eqand}{\qquad\text{y}\qquad}
+\newcommand*{\eqand}{\quad\text{y}\quad}
+\newcommand*{\Eqor}{\qquad\text{o}\qquad}
+\newcommand*{\eqor}{\quad\text{o}\quad}
+
+% =========================================================================
+
+
+\endinput
