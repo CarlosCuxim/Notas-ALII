@@ -20,7 +20,7 @@
 \usepackage{qx-Delimiters}
 
 % Otros ---------------------------------------------------
-\title{Notas Algebra Lineal II}
+\title{Notas Álgebra Lineal II}
 \author{Pendiente}
 \date{\today}
 
@@ -31,20 +31,20 @@
 
 \section{Notación e ideas}
 
-Antes de empezar con las matrices y trasnformaciones lineales, hay que recordar algunas definiciones
+Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones
 
 \begin{defi}
-  Sea $G$ un conjunto no vacío, una \emph{opración binaria} de $G$ es cualquier función $\cdot \colon G \times G \to G$. Por convención tenemos que $\cdot(x,y) = x \cdot y$. Además, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas
+  Sea $G$ un conjunto no vacío, una \emph{operación binaria} de $G$ es cualquier función $\cdot \colon G \times G \to G$. Por convención tenemos que $\cdot(x,y) = x \cdot y$. Además, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas
   \begin{enumerate}
     \item (Asociatividad) Para todos $x, y, z \in G$ se cumple que $x\cdot(y\cdot z) = (x\cdot y)\cdot z$.
     \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ se tiene que $x\cdot e = e\cdot x = x$.
-    \item (Exsitencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
+    \item (Existencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
   \end{enumerate}
 
   Por ultimo, decimos que un grupo es \emph{abeliano} si para todos $x, y \in G$ se cumple que $x\cdot y = y\cdot x$ (conmutatividad).
 \end{defi}
 
-Por convención, cuando nos referiramos a un grupo, usualmente solo haremos mencion al conjunto de este, por ejemplo, cuando nos referiramos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el $\cdot$, es decir $x \cdot y = xy$.
+Por convención, cuando nos referiremos a un grupo, usualmente solo haremos mención al conjunto de este, por ejemplo, cuando nos referiremos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el $\cdot$, es decir $x \cdot y = xy$.
 
 \begin{defi}
   Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas
@@ -57,7 +57,7 @@ Por convención, cuando nos referiramos a un grupo, usualmente solo haremos menc
   \end{enumerate}
 \end{defi}
 
-De igual forma que con los grupos, por convención cuando nos referiramos al campo, usualmente solo haremos mencion al conjunto de este, para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
+De igual forma que con los grupos, por convención cuando nos referiremos al campo, usualmente solo haremos mención al conjunto de este, para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
 
 Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $\R$, los complejos $\C$ y todos los campos asociados a la aritmética de $\Z$ modulo un primo $p$, los cuales denotamos como $\F_p$.
 
@@ -65,15 +65,40 @@ Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $
   Sea $V$ un conjunto no vacío con una operación binaria $+$ (suma), $(\F, \oplus, \otimes)$ un campo y sea $\cdot\colon K \times V \to V$ una operación llamada \emph{producto escalar}. Decimos que $V$ es un $\F$-espacio vectorial si cumple los siguientes axiomas
   \begin{enumerate}
     \item $(V, +)$ es un grupo abeliano.
-    \item (Neutro escalar) Para todo $x \in V$ se cumple que $1_\F x = x$.
-    \item (Asocatividad escalar) Para todo $\lambda, \mu \in K$ y $x \in V$ se cumple que $\lambda (\mu x) = (\lambda \otimes \mu) x$
-    \item (Primera ley distributiva) Para todo $\lambda \in K$ y $x,y \in V$ se cumple que $\lambda(x + y) = \lambda x + \lambda y$.
-    \item (Segunda ley distributiva) Para todo $\lambda, \mu \in K$ y $x\in V$ se cumple que $(\lambda\oplus\mu)x = \lambda x + \mu y$.
+    \item (Neutro escalar) Para todo $v \in V$ se cumple que $1_\F v = v$.
+    \item (Asociatividad escalar) Para todo $\lambda, \mu \in \F$ y $v \in V$ se cumple que $\lambda (\mu v) = (\lambda \otimes \mu) v$
+    \item (Primera ley distributiva) Para todo $\lambda \in \F$ y $v,w \in V$ se cumple que $\lambda(v + w) = \lambda v + \lambda w$.
+    \item (Segunda ley distributiva) Para todo $\lambda, \mu \in \F$ y $v\in V$ se cumple que $(\lambda\oplus\mu)v = \lambda v + \mu v$.
   \end{enumerate}
 \end{defi}
 
+Por convención, si no existe confusión, a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo, de igual forma que con el producto del campo y el producto escalar.
 
+Existen varios ejemplos de espacio vectoriales. Uno de ellos es el conjunto de matrices de $n \times m $ con entradas en un campo $\F$, o el conjunto de polinomios $\F[x]$.
 
+\begin{defi}
+  Sea $S$ un subconjunto de un $\F$-espácio vectorial $V$, entonces al conjunto de combinaciones lineales de $S$ lo denotamos como
+  \[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in K,  v_i \in S, n \in \N  }. \]
+
+  Decimos que $S$ genera a $V$ si $\inner{S} = V$. De igual forma, $S$ es linealmente dependiente, si existe una combinación lineal de $S$ tal que
+  \[ \sum_{i=1}^n \lambda_i v_i = 0, \]
+  donde para al menos algún $i \in \{1,\ldots,n\}$ se cumple que $\lambda_i \neq 0_\F$. En caso que $S$ no sea linealmente dependiente, diremos que es linealmente independiente.
+\end{defi}
+
+Una de las características más interesantes de los espacios vectoriales son las bases, conjuntos linealmente independiente tales que generan a todo el espacio.
+\begin{defi}
+  Sea $V$ un $\F$-espacio vectorial, decimos que $B$ es una $\F$-base de $V$ si es linealmente independiente y genera a $V$.
+\end{defi}
+
+\begin{teor}
+  Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una $\F$-base. Además si $B_1$ y $B_2$ son $\F$-bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
+\end{teor}
+
+La características de que cada espacio vectorial tiene una base y que además la cardinalidad de estas son constante, nos permite definir la dimensión de un espacio vectorial.
+
+\begin{defi}
+  Sea $V$ un $\F$-espacio vectorial y entonces la $\F$-dimensión de $V$ es la cardinalidad en común de las $\F$-bases de $V$ y lo denotamos como $\dim_\F(V)$.
+\end{defi}
 
 
 \end{document}
