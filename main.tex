@@ -87,18 +87,27 @@ Existen varios ejemplos de espacio vectoriales. Uno de ellos es el conjunto de m
 
 Una de las características más interesantes de los espacios vectoriales son las bases, conjuntos linealmente independiente tales que generan a todo el espacio.
 \begin{defi}
-  Sea $V$ un $\F$-espacio vectorial, decimos que $B$ es una $\F$-base de $V$ si es linealmente independiente y genera a $V$.
+  Sea $V$ un $\F$-espacio vectorial, decimos que $B$ es una base de $V$ si es linealmente independiente y genera a $V$.
 \end{defi}
 
 \begin{teor}
-  Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una $\F$-base. Además si $B_1$ y $B_2$ son $\F$-bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
+  Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una base. Además si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
 \end{teor}
 
 La características de que cada espacio vectorial tiene una base y que además la cardinalidad de estas son constante, nos permite definir la dimensión de un espacio vectorial.
 
 \begin{defi}
-  Sea $V$ un $\F$-espacio vectorial y entonces la $\F$-dimensión de $V$ es la cardinalidad en común de las $\F$-bases de $V$ y lo denotamos como $\dim_\F(V)$.
+  Sea $V$ un $\F$-espacio vectorial y entonces la $\F$-dimensión de $V$ es la cardinalidad en común de las bases de $V$ y lo denotamos como $\dim_\F(V)$.
 \end{defi}
 
+Uno de los conceptos más importantes para el estudio de los espacios vectoriales son las transformaciones lineales, es decir funciones que preservan la linealidad.
+
+\begin{defi}
+  Sean $V$ y $W$ dos $\F$-espacios vectorial, se dice que la función $T\colon V\to W$ es una transformación $\F$-lineal si para todo $v,w \in V$ y $\lambda \in \F$ se cumple que 
+  \[ T(\lambda v + w) = \lambda T(v) + T(w).\]
+  Si $T$ es biyectiva, entonces es un isomorfismo de $\F$-espacios vectoriales.
+\end{defi}
+
+Usando los teoremas de la base y de la dimensión, es posible demostrar que si $V$ es un $\F$-espacio vectorial de dimensión $n$, entonces $V$ es isomorfo a $\F^n$.
 
 \end{document}
