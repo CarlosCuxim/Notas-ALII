@@ -52,13 +52,17 @@
 % MACROS DE LAS CAJAS
 % -------------------------------------------------------------------------
 
+% Contadores
+\newcounter{defi}[chapter]
+  \numberwithin{defi}{section}
+
 \newtcolorbox{defi}
   {
-    title = {Definición},
+    title = {Definición \refstepcounter{defi}\thedefi.},
     coltitle=black,
     fonttitle = \bfseries,
     colback = white,
-    colframe=\boxframecolor,
+    colframe=black,
     parbox = false,
     sharp corners,
     enhanced,
@@ -90,8 +94,8 @@
 % -------------------------------------------------------------------------
 
 % Lemas sin numeración
-%\newtheorem*{defi*}{Definición}
-\newtheorem{prop}{Proposición}
+  
+\newtheorem{prop}[defi]{Proposición}
 \newtheorem{lema}{Lema}
 
 % =========================================================================
