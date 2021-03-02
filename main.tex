@@ -44,16 +44,36 @@ Antes de empezar con las matrices y trasnformaciones lineales, hay que recordar 
   Por ultimo, decimos que un grupo es \emph{abeliano} si para todos $x, y \in G$ se cumple que $x\cdot y = y\cdot x$ (conmutatividad).
 \end{defi}
 
+Por convención, cuando nos referiramos a un grupo, usualmente solo haremos mencion al conjunto de este, por ejemplo, cuando nos referiramos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el $\cdot$, es decir $x \cdot y = xy$.
+
 \begin{defi}
   Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas
   \begin{enumerate}
-    \item $(K,+)$ es un grupo abeliano. Al elemento neutro lo denotaremos como $0$ y al inverso de $x \in K$ lo denotaremos como $-x$.
+    \item $(K,+)$ es un grupo abeliano. Al elemento neutro lo denotaremos como $0_K$ y al inverso de $x \in K$ lo denotaremos como $-x$.
     \item El la operación $\cdot$ es asociativa y conmutatividad sobre $K$.
-    \item (Existencia de neutro multiplicativo) Existe un elemento $1 \in K-\{0\}$ tal que para todo $x \in K$ se cumple que $1\cdot x = x\cdot 1 = x$.
+    \item (Existencia de neutro multiplicativo) Existe un elemento $1_K \in K-\{0\}$ tal que para todo $x \in K$ se cumple que $1_K\cdot x = x\cdot 1_K = x$.
     \item (Existencia de inverso multiplicativo) Para todo $x \in K-\{0\}$ existe un elemento $ x^{-1} \in K$ tal que $x \cdot x^{-1} = x^{-1} \cdot x = 1$.
     \item (Distributividad) Para todos $x, y, z \in K$ se cumple que $x \cdot (y + z) = x \cdot y + x \cdot z$.
   \end{enumerate}
 \end{defi}
+
+De igual forma que con los grupos, por convención cuando nos referiramos al campo, usualmente solo haremos mencion al conjunto de este, para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
+
+Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $\R$, los complejos $\C$ y todos los campos asociados a la aritmética de $\Z$ modulo un primo $p$, los cuales denotamos como $\F_p$.
+
+\begin{defi}
+  Sea $V$ un conjunto no vacío con una operación binaria $+$ (suma), $(\F, \oplus, \otimes)$ un campo y sea $\cdot\colon K \times V \to V$ una operación llamada \emph{producto escalar}. Decimos que $V$ es un $\F$-espacio vectorial si cumple los siguientes axiomas
+  \begin{enumerate}
+    \item $(V, +)$ es un grupo abeliano.
+    \item (Neutro escalar) Para todo $x \in V$ se cumple que $1_\F x = x$.
+    \item (Asocatividad escalar) Para todo $\lambda, \mu \in K$ y $x \in V$ se cumple que $\lambda (\mu x) = (\lambda \otimes \mu) x$
+    \item (Primera ley distributiva) Para todo $\lambda \in K$ y $x,y \in V$ se cumple que $\lambda(x + y) = \lambda x + \lambda y$.
+    \item (Segunda ley distributiva) Para todo $\lambda, \mu \in K$ y $x\in V$ se cumple que $(\lambda\oplus\mu)x = \lambda x + \mu y$.
+  \end{enumerate}
+\end{defi}
+
+
+
 
 
 \end{document}
