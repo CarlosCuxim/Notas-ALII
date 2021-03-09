@@ -2,20 +2,38 @@
 
 \section{Notación e ideas}
 
-Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones
+Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones así como las estructuras con las que vamos a estar trabajando.
+
+En primer lugar, recordemos que una estructura algebraica no es más que la combinación de un conjunto, funciones o relaciones asociadas a este y propiedades relacionadas a estas últimas.
+
+Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elementos del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$ una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir la primera estructura importante del curso, el grupo.
 
 \begin{defi}
-  Sea $G$ un conjunto no vacío, una \emph{operación binaria} de $G$ es cualquier función $\cdot \colon G \times G \to G$. Por convención tenemos que $\cdot(x,y) = x \cdot y$. Además, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas
+  Decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas:
+  los siguientes axiomas:
   \begin{enumerate}
     \item (Asociatividad) Para cualesquiera $x, y, z \in G$ se cumple que $x\cdot(y\cdot z) = (x\cdot y)\cdot z$.
     \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ cumple que $x\cdot e = e\cdot x = x$.
     \item (Existencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
   \end{enumerate}
 
-  Por último, decimos que un grupo es \emph{abeliano} si para todos $x, y \in G$ se cumple que $x\cdot y = y\cdot x$ (conmutatividad).
+  Por último, decimos que un grupo es \emph{abeliano} si  se cumple que  (conmutatividad).
 \end{defi}
 
-Por convención, cuando nos referiremos a un grupo, usualmente solo haremos mención al conjunto de éste, por ejemplo, cuando nos referiremos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el $\cdot$, es decir $x \cdot y = xy$.
+Por convención, cuando nos referiremos a un grupo, usualmente solo haremos mención al conjunto de éste, por ejemplo, cuando nos referiremos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el símbolo $\cdot$, es decir $x \cdot y = xy$.
+
+\begin{teor}
+  Sea $G$ un grupo, las siguientes propiedades se satisfacen.
+    \begin{enumerate}
+      \item El elemento neutro es único.
+      \item Para cada $a \in G$ el inverso es único.
+      \item Sean $a,b,c \in G$, si $ab=ac$ o $ba=ca$, entonces $b=c$.
+    \end{enumerate}
+\end{teor}
+
+Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y complejos con la suma. Otro ejemplo son las matrices de tamaño $n \times n$ con entradas en los reales junto con la suma de matrices. Estos ejemplos fueron de  grupos abelianos, un ejemplo de un grupo no abeliano son los conjunto de funciones biyectivas, como los grupos de permutación, con la composición usual de funciones  o el grupo lineal, conformado de las matrices invertibles con la multiplicación de matrices.
+
+Ahora, la siguiente estructura importante para el curso, es el campo.
 
 \begin{defi}
   Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas
