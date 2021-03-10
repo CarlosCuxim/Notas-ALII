@@ -31,7 +31,7 @@ Por convención, cuando nos referiremos a un grupo, usualmente solo haremos menc
     \end{enumerate}
 \end{teor}
 
-Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y complejos con la suma. Otro ejemplo son las matrices de tamaño $n \times n$ con entradas en los reales junto con la suma de matrices. Estos ejemplos fueron de  grupos abelianos, un ejemplo de un grupo no abeliano son los conjunto de funciones biyectivas, como los grupos de permutación, con la composición usual de funciones  o el grupo lineal, conformado de las matrices invertibles con la multiplicación de matrices.
+Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y complejos con la suma. Otro ejemplo son las matrices de tamaño $n \times n$ con entradas en los reales junto con la suma de matrices. Estos dos ejemplos fueron de  grupos abelianos, un ejemplo de un grupo no abeliano son los conjunto de funciones biyectivas, como los grupos de permutación, con la composición usual de funciones o el grupo lineal, conformado de las matrices invertibles con la multiplicación de matrices.
 
 Ahora, la siguiente estructura importante para el curso, es el campo.
 
@@ -46,9 +46,11 @@ Ahora, la siguiente estructura importante para el curso, es el campo.
   \end{enumerate}
 \end{defi}
 
-De igual forma que con los grupos, por convención cuando nos referiremos al campo, usualmente solo haremos mención al conjunto de éste. Para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
+De igual forma que con los grupos, por convención cuando nos referiremos al campo, usualmente solo haremos mención al conjunto de éste. Aunque usualmente se usa la letra $K$ para un campo, para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
 
 Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $\R$, los complejos $\C$ y todos los campos asociados a la aritmética de $\Z$ modulo un primo $p$, los cuales denotamos como $\F_p$.
+
+Estas dos estructura, se combinan para dar paso a los espacios vectoriales, estructura fundamental para este libro.
 
 \begin{defi}
   Sea $V$ un conjunto no vacío con una operación binaria $+$ (suma), $(\F, +_\F, \cdot_\F )$ un campo y sea $\cdot\colon K \times V \to V$ una operación llamada \emph{producto escalar}. Decimos que $V$ es un $\F$-espacio vectorial si cumple los siguientes axiomas:
@@ -61,7 +63,8 @@ Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $
   \end{enumerate}
 \end{defi}
 
-Por convención, si no existe confusión, a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo, de igual forma que con el producto del campo y el producto escalar.
+
+Por convención, a los elementos de $V$ les llamaremos vectores y a los del campo, escalares. De igual forma, si no existe confusión, a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo. Para el producto del campo y el producto escalar, por convención no se omitirá el símbolo $\cdot$, de esta forma $\lambda v$ hará referencia a la multiplicación del escalar $\lambda$ con el vector $v$.
 
 Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de matrices de $n \times m $ con entradas en un campo $\F$, o el conjunto de polinomios $\F[x]$.
 
