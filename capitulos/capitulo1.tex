@@ -78,7 +78,7 @@ Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de 
 
 Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el conjunto generado por todas las combinaciones lineales de $S \subset W$,  es al cual denotamos por
 \[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in \C, v_i \in S, n \in \N }. \]
-Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$.
+Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$. En el caso que $\inner{S} = V$, entonces decimos que $S$ es un \emph{conjunto generador}.
 
 \section{Independencia lineal y bases}
 
@@ -87,7 +87,7 @@ Además, este conjunto cumple que es el subespacio vectorial más pequeño tal q
   \[ \sum_{i=1}^n \lambda_i v_i = 0, \]
   donde para al menos algún $i \in \{1,\ldots,n\}$ se cumple que $\lambda_i \neq 0_\F$. En caso que $S$ no sea linealmente dependiente, diremos que es linealmente independiente.
 
-  Sea $B \subset V$ diremos que es una \emph{base} si es linealmente independiente y además genera a $V$.
+  Sea $B \subset V$ diremos que es una \emph{base} si es un conjunto generador linealmente independiente.
 \end{defi}
 
 Las bases son conjuntos muy importantes en los espacios vectoriales. En primer lugar nos permiten generalizar el concepto de coordenadas, ya que si $B$ es una base de cardinalidad $n \in \N$ de $V$, entonces para todo $v \in V$ existe una única combinación lineal tal que 
@@ -100,14 +100,30 @@ Esto nos permite crear una biyección entre los espacios $V$ y $\F^n$ de mediant
 \end{teor}
 
 Este teorema es uno de los resultados más importantes del Álgebra Lineal, este nos permite definir la \emph{dimensión} de un $\F$-espacio vectorial $F$ como la cardinalidad de cualquiera de las bases, es decir, si $B$ es una base de $V$, entonces
-\[ \dim_\F V = \abs{B}. \]
+\[ \dim_\F (V) = \abs{B}. \]
 
 \subsection{Transformaciones lineales}
 
 \begin{defi}
   Sean $V$ y $W$ dos $\F$-espacios vectoriales, se dice que la función $T\colon V\to W$ es una transformación $\F$-lineal si para todo $v,w \in V$ y $\lambda \in \F$ se cumple que 
   \[ T(\lambda v + w) = \lambda T(v) + T(w).\]
-  Si $T$ es biyectiva, entonces es un isomorfismo de $\F$-espacios vectoriales.
+
+  Si $T$ es biyectiva, entonces es un isomorfismo de $\F$-espacios vectoriales. En este caso decimos que $V$ y $W$ son isomorfos y lo denotamos como $V \cong W$.
 \end{defi}
 
-Usando los teoremas de la base y de la dimensión, es posible demostrar que si $V$ es un $\F$-espacio vectorial de dimensión $n$, entonces $V$ es isomorfo a $\F^n$.
+Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$. En el caso que $W = V$ entonces $T$ se dice que es un \emph{automorfismo} de $V$ y al conjunto de automorfismos de lo denotamos simplemente como $L(V)$.
+
+\begin{teor}
+  Sea $T\colon V \to W$ una transformación $\F$-lineal y $S$ un subconjunto de $V$.
+  \begin{enumerate}
+    \item Si $T$ es inyectiva y $S$ es linealmente independiente, entonces $T(S)$ es linealmente independiente.
+    \item Si $T$ es suprayectiva y $S$ es un conjunto generador, entonces $T(S)$ es un conjunto generador.
+    \item Si $T$ es biyectiva y $S$ es una base, entonces $T(S)$ es una base.
+    \item Si $T$ es inyectiva, entonces $\dim_\F (V) \leq \dim_\F(W)$.
+    \item Si $T$ es suprayectiva, entonces $\dim_\F (V) \geq \dim_\F(W)$.
+    \item Si $T$ es biyectiva, entonces $\dim_\F (V) = \dim_\F(W)$.
+  \end{enumerate}
+\end{teor}
+
+Las transformaciones lineales nos permiten enlazar transformaciones lineales, así como sus propiedades. Un ejemplo son los isomorfismos, estos nos permiten asegurar que dos espacios vectores se comportan de la misma forma, por lo que en esencia son el mismo espacio vectorial.
+
