@@ -87,21 +87,22 @@ Además, este conjunto cumple que es el subespacio vectorial más pequeño tal q
   \[ \sum_{i=1}^n \lambda_i v_i = 0, \]
   donde para al menos algún $i \in \{1,\ldots,n\}$ se cumple que $\lambda_i \neq 0_\F$. En caso que $S$ no sea linealmente dependiente, diremos que es linealmente independiente.
 
-  Además, decimos que $B$ es una base de $V$ si es linealmente independiente y genera a $V$.
+  Sea $B \subset V$ diremos que es una \emph{base} si es linealmente independiente y además genera a $V$.
 \end{defi}
 
+Las bases son conjuntos muy importantes en los espacios vectoriales. En primer lugar nos permiten generalizar el concepto de coordenadas, ya que si $B$ es una base de cardinalidad $n \in \N$ de $V$, entonces para todo $v \in V$ existe una única combinación lineal tal que 
+\[ v = \lambda 1 v_1 + \cdots + \lambda_n v_n, \qquad \lambda_1,\ldots,\lambda_n \in \F, v_1,\ldots,v_n \in V. \]
+Esto nos permite crear una biyección entre los espacios $V$ y $\F^n$ de mediante $B$, a la cual denotaremos como
+\[ [v]_B = (\lambda_1, \ldots, \lambda_n)^T \]
 
 \begin{teor}
-  Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una base. Además si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
+  Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una base. Además, si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
 \end{teor}
 
-Esta ultima propiedad es muy importante, dado que cada espacio vectorial tiene al menos una base y que además la cardinalidad de estas son constante, nos permite definir la dimensión de un espacio vectorial.
+Este teorema es uno de los resultados más importantes del Álgebra Lineal, este nos permite definir la \emph{dimensión} de un $\F$-espacio vectorial $F$ como la cardinalidad de cualquiera de las bases, es decir, si $B$ es una base de $V$, entonces
+\[ \dim_\F V = \abs{B}. \]
 
-\begin{defi}
-  Sea $V$ un $\F$-espacio vectorial y entonces la $\F$-dimensión de $V$ es la cardinalidad en común de las bases de $V$ y lo denotamos como $\dim_\F(V)$.
-\end{defi}
-
-Uno de los conceptos más importantes para el estudio de los espacios vectoriales son las transformaciones lineales, es decir funciones que preservan la linealidad.
+\subsection{Transformaciones lineales}
 
 \begin{defi}
   Sean $V$ y $W$ dos $\F$-espacios vectoriales, se dice que la función $T\colon V\to W$ es una transformación $\F$-lineal si para todo $v,w \in V$ y $\lambda \in \F$ se cumple que 
