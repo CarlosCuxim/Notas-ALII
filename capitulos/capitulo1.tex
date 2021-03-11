@@ -6,7 +6,9 @@ Antes de empezar con las matrices y transformaciones lineales, hay que recordar 
 
 En primer lugar, recordemos que una estructura algebraica no es más que la combinación de un conjunto, funciones o relaciones asociadas a este y propiedades relacionadas a estas últimas.
 
-Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elementos del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$ una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir la primera estructura importante del curso, el grupo.
+Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elementos del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$ una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso
+
+\subsection{Grupos}
 
 \begin{defi}
   Decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas:
@@ -33,7 +35,7 @@ Por convención, cuando nos referiremos a un grupo, usualmente solo haremos menc
 
 Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y complejos con la suma. Otro ejemplo son las matrices de tamaño $n \times n$ con entradas en los reales junto con la suma de matrices. Estos dos ejemplos fueron de  grupos abelianos, un ejemplo de un grupo no abeliano son los conjunto de funciones biyectivas, como los grupos de permutación, con la composición usual de funciones o el grupo lineal, conformado de las matrices invertibles con la multiplicación de matrices.
 
-Ahora, la siguiente estructura importante para el curso, es el campo.
+\subsection{Campos}
 
 \begin{defi}
   Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas
@@ -50,7 +52,7 @@ De igual forma que con los grupos, por convención cuando nos referiremos al cam
 
 Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $\R$, los complejos $\C$ y todos los campos asociados a la aritmética de $\Z$ modulo un primo $p$, los cuales denotamos como $\F_p$.
 
-Estas dos estructura, se combinan para dar paso a los espacios vectoriales, estructura fundamental para este libro.
+\subsection{Espacio vectoriales}
 
 \begin{defi}
   Sea $V$ un conjunto no vacío con una operación binaria $+$ (suma), $(\F, +_\F, \cdot_\F )$ un campo y sea $\cdot\colon K \times V \to V$ una operación llamada \emph{producto escalar}. Decimos que $V$ es un $\F$-espacio vectorial si cumple los siguientes axiomas:
@@ -64,23 +66,30 @@ Estas dos estructura, se combinan para dar paso a los espacios vectoriales, estr
 \end{defi}
 
 
-Por convención, a los elementos de $V$ les llamaremos vectores y a los del campo, escalares. De igual forma, si no existe confusión, a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo. Para el producto del campo y el producto escalar, por convención no se omitirá el símbolo $\cdot$, de esta forma $\lambda v$ hará referencia a la multiplicación del escalar $\lambda$ con el vector $v$.
+Por convención, a los elementos de $V$ les llamaremos vectores y a los del campo, escalares. De igual forma y si no existe confusión, a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo. Para el producto del campo y el producto escalar, por convención no se omitirá el símbolo $\cdot$, de esta forma $\lambda v$ hará referencia a la multiplicación del escalar $\lambda$ con el vector $v$.
 
 Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de matrices de $n \times m $ con entradas en un campo $\F$, o el conjunto de polinomios $\F[x]$.
 
-\begin{defi}
-  Sea $S$ un subconjunto de un $\F$-espacio vectorial $V$, entonces al conjunto de combinaciones lineales de $S$ lo denotamos como
-  \[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in K,  v_i \in S, n \in \N  }. \]
+\subsection{Subespacios vectoriales}
 
-  Decimos que $S$ genera a $V$ si $\inner{S} = V$. De igual forma, $S$ es linealmente dependiente, si existe una combinación lineal de $S$ tal que
+\begin{defi}
+  Sea $V$ un $\F$-espacios vectorial, decimos que $W \subseteq V$ es un $\F$-subespacios vectorial de $V$, si $W$ si al restringir la suma y producto escalar de $V$ a $W$ se cumple que $W$ es un $\F$-espacio vectorial.
+\end{defi}
+
+Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el conjunto generado por todas las combinaciones lineales de $S \subset W$,  es al cual denotamos por
+\[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in \C, v_i \in S, n \in \N }. \]
+Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$.
+
+\section{Independencia lineal y bases}
+
+\begin{defi}
+  Sea $S \subset W$, decimos que $S$ es linealmente dependiente, si existe una combinación lineal de $S$ tal que
   \[ \sum_{i=1}^n \lambda_i v_i = 0, \]
   donde para al menos algún $i \in \{1,\ldots,n\}$ se cumple que $\lambda_i \neq 0_\F$. En caso que $S$ no sea linealmente dependiente, diremos que es linealmente independiente.
+
+  Además, decimos que $B$ es una base de $V$ si es linealmente independiente y genera a $V$.
 \end{defi}
 
-Una de las características más interesantes de los espacios vectoriales son las bases, conjuntos linealmente independiente tales que generan a todo el espacio.
-\begin{defi}
-  Sea $V$ un $\F$-espacio vectorial, decimos que $B$ es una base de $V$ si es linealmente independiente y genera a $V$.
-\end{defi}
 
 \begin{teor}
   Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una base. Además si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
