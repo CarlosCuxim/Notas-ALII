@@ -30,3 +30,35 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
   \end{align*}
   Mostrando así, que es una transformación lineal. Para la inyectividad, es claro que si $[v]_B = (0,\cdots,0)$ entonces $v = 0v_1 + \cdots + 0v_n = 0$, por lo que $\ker([\cdot]_B) = \{0\}$. Para la suprayectividad, claramente tenemos que para todo $(\lambda_1, \ldots, \lambda_n)^T \in \F^n$ se cumple que $\lambda_1 v_1 + \cdots \lambda_n v_n \in V$ y  $[\lambda_1 v_1 + \cdots \lambda_n v_n]_B = (\lambda_1, \ldots, \lambda_n)^T$.
 \end{proof}
+
+
+\subsection{Cambio de base}
+
+Dadas dos bases ordenadas $B = (v_1,\cdots,v_n)$ y $B' = (v_1',\cdots,v_n')$ de $B$ una pregunta común sale a flote, dada la coordenadas de $v \in V$ con respecto a $B$ como obtenemos su coordenada con respecto a $B$. Resulta que para dos bases $B$ y $B'$ existe exactamente una matriz invertible $M$ tal que $M[v]_B = [v]_{B'}$ para todo $v \in V$, a esta matriz la denotaremos como $M_{B,B'}$.
+
+La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{B,B'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
+  \[ M_{B,B'} [v_i]_B = M_{B,B'} e_i = (M_{B,B'})_{*i} = [v_i]_{B'}. \]
+Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{B,B'}$, en otras palabras que
+  \[ M_{B,B'} = \begin{spmatrix}{c|c|c}  [v_1]_{B'} & \cdots & [v_n]_{B'}  \end{spmatrix}. \]
+
+\begin{teor}
+  Sea $V$ un $F$-espacio vectorial con bases ordenadas $B = (v_1,\cdots,v_n)$ y $B' = (v_1',\cdots,v_n')$, entonces existe una única matriz invertible $M_{B,B'}$ tal que para todo $v \in V$ se cumple que
+    \[ M_{B,B'}[v]_B = [v]_{B'} \Eqand M_{B,B'}^{-1}[v]_{B'} = [v]_B. \]
+  Además $(M_{B,B'})_{*i} = [v_i]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
+\end{teor}
+\begin{proof}
+  Primero, notemos que por propiedades conocidas y la definición de $M_{B,B'}$ es claro que 
+    \[ M_{B,B'}[v_i]_B = M_{B,B'} e_i =  (M_{B,B'})_{*i} = [v_i]_{B'}. \]
+
+  De este modo, sea $v \in V$ con $[v]_B = (\lambda_1,\ldots,\lambda_n)^T$, por la linealidad de $[\cdot]_{B'}$ y las propiedad ya mencionadas, tenemos que
+    \begin{align*}
+      v        &= \lambda_1 v_1 + \cdots + \lambda_n v_n, \\
+      [v]_{B'} &= \lambda_1 [v_1]_{B'} + \cdots + \lambda_n [v_n]_{B'} \\
+               &= \lambda_1 M_{B,B'}[v_1]_B + \cdots + \lambda_n M_{B,B'}[v_n]_B \\
+               &= M_{B,B'} [\lambda_1 v_1 + \cdots + \lambda_n v_n ]_B \\
+               &= M_{B,B'} [ v ]_B.
+    \end{align*}
+  De este modo $M_{B,B'}[v]_B = [v]_{B'}$ para toda $v \in B$. Es fácil ver que si $M_{B,B'}$ es invertible, entonces $M_{B,B'}^{-1}[v]_{B'} = [v]_B$, así solo nos queda demostrar que $M_{B,B'}$ es invertible.
+  
+  Consideremos el sistema de ecuaciones $M_{B,B'}x = \bec 0$, como $[\cdot]_B$ es suprayectivo, entonces existe $v \in V$ tal que $[v]_B = x$, de este modo $M_{B,B'}x = \bec 0$ implica que $M_{B,B'}[v]_B = [v]_{B'} = \bec 0$. Ahora, recordemos por inyectividad de $[\cdot]_{B'}$ que $[v]_{B'} = \bec 0$ si y solo si $v = 0$, de este modo $x = [v]_{B} = \bec 0$, pero esto implica que $M_{B,B'}x = \bec 0$ no tiene soluciones no triviales, así, por propiedades de las matrices, tenemos que $M_{B,B'}$ es invertible.
+\end{proof}
