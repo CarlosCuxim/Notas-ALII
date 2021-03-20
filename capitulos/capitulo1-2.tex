@@ -1,4 +1,4 @@
-\section{La matríz asociada de una transformación lineal}
+\section{Coordenadas y cambio de base}
 
 Como ya mencionamos en la sección anterior, dada una base existe una única combinación lineal de elementos de la base para cada vector del espacio, esto nos permite generalizar el concepto de coordenadas. En esta sección abordaremos a más detalle este tema.
 
@@ -61,4 +61,27 @@ Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{B,B'}$,
   De este modo $M_{B,B'}[v]_B = [v]_{B'}$ para toda $v \in B$. Es fácil ver que si $M_{B,B'}$ es invertible, entonces $M_{B,B'}^{-1}[v]_{B'} = [v]_B$, así solo nos queda demostrar que $M_{B,B'}$ es invertible.
   
   Consideremos el sistema de ecuaciones $M_{B,B'}x = \bec 0$, como $[\cdot]_B$ es suprayectivo, entonces existe $v \in V$ tal que $[v]_B = x$, de este modo $M_{B,B'}x = \bec 0$ implica que $M_{B,B'}[v]_B = [v]_{B'} = \bec 0$. Ahora, recordemos por inyectividad de $[\cdot]_{B'}$ que $[v]_{B'} = \bec 0$ si y solo si $v = 0$, de este modo $x = [v]_{B} = \bec 0$, pero esto implica que $M_{B,B'}x = \bec 0$ no tiene soluciones no triviales, así, por propiedades de las matrices, tenemos que $M_{B,B'}$ es invertible.
+
+  La unicidad se da por el análisis hecho al principio. Si existiera otra matriz $P$ con las mismas cualidades, entonces para todo $i \in \{1,\ldots, n\}$ cumple que
+  \[ (M_{B,B'})_{*i} = [v_i]_{B'} = P[v_i]_{B} = Pe_i = P_{*i},\]
+  de este modo, dado que todas las columnas son iguales, se cumple que $P = M_{B,B'}$.
+\end{proof}
+
+Este teorema nos afirma que si tenemos una base ordenada $B$ y entonces para cualquier otra base ordenada $B'$ existe una matriz invertible asociada que realiza el cambio de coordenadas. La vuelta de esta proposición también es cierta, de este modo existe una biyección entre el conjunto de bases ordenadas y el conjunto de matrices invertibles.
+
+\begin{prop}
+  Sea $P$ una matriz de $n\times n$ con entradas en $\F$, $V$ un $\F$-espacio vectorial y $B = (v_1, \ldots, v_n)$ una base ordenada, entonces existe una única base ordenada $B'$ tal que $M_{B',B} = P$.
+\end{prop}
+\begin{proof}
+  Si $P = (p_{ij})$ entonces definamos $B' = (v_1', \ldots, v_n')$ donde
+    \[ v_j' = p_{1j}v_1 + \cdots +  p_{nj}v_n,     \qquad j \in \{1,\ldots, n\}. \]
+  Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B',B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
+
+  Sea $T(v) = Pv$ y $S(v) = [v]_B$ por propiedades conocidas y recordando que $P$ es invertible, tenemos que $T$ y $S$ son transformaciones lineales biyectivas, así notemos, para toda $i \in \{1,\cdots,n\}$, que
+    \[ v_i' = S^{-1}(P_{*i}) = S^{-1} \bigl( Pe_i \bigr) = (S^{-1} \circ T)(e_i) = (S^{-1} \circ T)([v_i]_B ) = (S^{-1} \circ T \circ S) (v_i).\]
+  Como $T$ y $S$ son transformaciones lineales biyectivas, entonces $S^{-1} \circ T \circ S$ es una transformación lineal biyectiva, así, por propiedades conocidas y recordando que $\{ v_1,\ldots,v_n \}$ es una base, entonces $\{ (S^{-1} \circ T \circ S)(v_i), \ldots, (S^{-1} \circ T \circ S)(v_n) \} = \{v_1', \ldots, v_n'\}$ también será una base. De este modo, por definición $B'$ es una base ordenada.
+
+  Ahora, supongamos que existe otra base ordenada $B'' = (v_1'', \ldots, v_n'')$ tal que $P = M_{B'',B}$ entonces, para toda $i \in \{1,\ldots,n\}$ se cumple que
+  \[ [v_i'']_B =  P[v_i'']_{B''} = Pe_i = P[v_i']_{B'} = [v_i']_B, \]
+  así, por la biyectividad de $[\cdot]_B$, tenemos que $v_i'' = v_i'$ para toda $i \in \{1,\ldots,n\}$, mostrando así que $B'' = B'$.
 \end{proof}
