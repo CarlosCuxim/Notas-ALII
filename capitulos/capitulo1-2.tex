@@ -77,9 +77,13 @@ Este teorema nos afirma que si tenemos una base ordenada $B$ y entonces para cua
     \[ v_j' = p_{1j}v_1 + \cdots +  p_{nj}v_n,     \qquad j \in \{1,\ldots, n\}. \]
   Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B',B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
 
-  Sea $T(v) = Pv$ y $S(v) = [v]_B$ por propiedades conocidas y recordando que $P$ es invertible, tenemos que $T$ y $S$ son transformaciones lineales biyectivas, así notemos, para toda $i \in \{1,\cdots,n\}$, que
-    \[ v_i' = S^{-1}(P_{*i}) = S^{-1} \bigl( Pe_i \bigr) = (S^{-1} \circ T)(e_i) = (S^{-1} \circ T)([v_i]_B ) = (S^{-1} \circ T \circ S) (v_i).\]
-  Como $T$ y $S$ son transformaciones lineales biyectivas, entonces $S^{-1} \circ T \circ S$ es una transformación lineal biyectiva, así, por propiedades conocidas y recordando que $\{ v_1,\ldots,v_n \}$ es una base, entonces $\{ (S^{-1} \circ T \circ S)(v_i), \ldots, (S^{-1} \circ T \circ S)(v_n) \} = \{v_1', \ldots, v_n'\}$ también será una base. De este modo, por definición $B'$ es una base ordenada.
+  Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \cdots, \lambda_n)^T$, entonces
+  \begin{align*}
+    \lambda_1 [v_i']_B + \cdots + \lambda_n [v_n']_B &= \bec 0 ,\\
+    \lambda_1 P_{*1} + \cdots + \lambda_n P_{*n} &= \bec 0 ,\\
+    P\lambda &= \bec 0.
+  \end{align*}
+  Ahora, como $P$ es invertible por hipótesis, entonces la única solución al sistema $Px = \bec 0$ es la trivial, de este modo $\lambda = \bec 0$ y por tanto $B'$ es una base ordenada.
 
   Ahora, supongamos que existe otra base ordenada $B'' = (v_1'', \ldots, v_n'')$ tal que $P = M_{B'',B}$ entonces, para toda $i \in \{1,\ldots,n\}$ se cumple que
   \[ [v_i'']_B =  P[v_i'']_{B''} = Pe_i = P[v_i']_{B'} = [v_i']_B, \]
