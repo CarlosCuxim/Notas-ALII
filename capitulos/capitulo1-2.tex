@@ -1,1 +1,32 @@
 \section{La matríz asociada de una transformación lineal}
+
+Como ya mencionamos en la sección anterior, dada una base existe una única combinación lineal de elementos de la base para cada vector del espacio, esto nos permite generalizar el concepto de coordenadas. En esta sección abordaremos a más detalle este tema.
+
+
+\begin{defi}
+  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots \lambda_n v_n$, definiremos su \emph{coordenada con respecto a $B$} como
+    \[ [v]_B = \begin{pmatrix}
+      v_1 \\ \vdots \\ v_n
+    \end{pmatrix}.\]
+\end{defi}
+
+Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots, v_n)$ son dos bases ordenadas distintas, al igual que cualquier otra permutación, aunque provengan de la misma base. De este modo nos aseguraremos que la coordenada de cualquier elementos sea única. Una propiedad interesante es que esta asociación de vectores de $V$ con $n$-tuplas de $\F^n$ forma una transformación lineal biyectiva.
+
+\begin{prop}
+  Sea $B$ una base ordenada del $\F$-espacio vectorial $V$, entonces la función $[\cdot]_B\colon V \to \F^n$ es un isomorfismo.
+\end{prop}
+\begin{proof}
+  Sea $v,w \in V$ con $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, $w = \mu_1 v_1 + \cdots + \mu_n v_n$ y $\alpha \in K$, entonces veamos que
+  \[
+  \alpha v+w =  (\alpha\lambda_1+\mu_1) v_1 + \cdots + (\alpha\lambda_n+\mu_n) v_n,
+  \]
+  de esta forma es claro que
+  \begin{align*}
+    [v+w]_B 
+      &= \begin{pmatrix} \alpha\lambda_1+\mu_n \\ \vdots \\ \alpha\lambda_n+\mu_n \end{pmatrix} \\
+      &= \alpha\begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}
+       + \begin{pmatrix} \mu_n \\ \vdots \\ \mu_n  \end{pmatrix} \\
+      &= \alpha[v]_B + [w]_B.
+  \end{align*}
+  Mostrando así, que es una transformación lineal. Para la inyectividad, es claro que si $[v]_B = (0,\cdots,0)$ entonces $v = 0v_1 + \cdots + 0v_n = 0$, por lo que $\ker([\cdot]_B) = \{0\}$. Para la suprayectividad, claramente tenemos que para todo $(\lambda_1, \ldots, \lambda_n)^T \in \F^n$ se cumple que $\lambda_1 v_1 + \cdots \lambda_n v_n \in V$ y  $[\lambda_1 v_1 + \cdots \lambda_n v_n]_B = (\lambda_1, \ldots, \lambda_n)^T$.
+\end{proof}
