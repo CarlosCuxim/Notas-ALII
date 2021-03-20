@@ -1,5 +1,6 @@
 .vscode
 revisiones
+libros
 *.pdf
 *.log
 *.aux
