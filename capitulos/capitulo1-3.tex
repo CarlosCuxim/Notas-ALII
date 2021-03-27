@@ -9,3 +9,29 @@ La idea es análoga al de cambio de base, dado que $[v_i] = e_i$ y $T_{B,B'}e_i 
 Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{B,B'}$, y por lo tanto
   \[ T_{B,B'} = \begin{spmatrix}{c|c|c}  [T(v_1)]_{B'} & \cdots & [T(v_n)]_{B'}  \end{spmatrix}. \]
 
+\begin{teor}
+  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces existe una única matriz $T_{B,B'}$ de tamaño $m\times n$ tal que para toda $v \in V$ se cumple que
+    \[ T_{B,B'} [v]_B = [T(v)]_{B'} \]
+  Además $(T_{B,B'})_{*i} = [T(v_i)]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
+\end{teor}
+\begin{proof}
+  Por el análisis hecho con anterioridad y definición, se cumple que
+  \[ T_{B,B'} [v_i]_B = T_{B,B'} e_i = (T_{B,B'})_{*i} = [T(v_i)]_{B'}. \]
+  
+  De este modo sea $v \in V$ tal que $[v]_B = (\lambda_1,\ldots,\lambda_n)^t$, por la linealidad de $[\cdot]_B$ y las propiedades de las matrices, tenemos que
+  \begin{align*}
+    T_{B,B'}[v]_B &= T_{B,B'}[\lambda_1v_1 + \cdots + \lambda_n v_n]_B \\
+      &= \lambda_1 T_{B,B'} [v_1]_B + \cdots + \lambda_n T_{B,B'} [v_n]_B \\
+      &= \lambda_1 [T(v_1)]_{B'} + \cdots + \lambda_n [T(v_n)]_{B'} \\
+      &= [T(\lambda v_1  + \cdots + \lambda_n v_n )]_{B'} \\
+      &= [T(v)]_{B'}.
+  \end{align*}
+  Así tenemos que $T_{B,B'} [v]_B = [T(v)]_{B'}$ toda $v \in V$. Ahora, supongamos que existe otra matriz $P$ con la misma propiedad. Por el análisis del principio, para toda $i \in \{1,\ldots,n\}$ tenemos que
+  \[ (T_{B,B'})_{*i} = [T(v_i)]_B = P[v_i]_B = Pe_i = P_{*i}, \]
+  y dado que todas sus columnas son iguales, es claro que $P = T_{B,B'}$.
+\end{proof}
+
+Una consecuencia directa de este teorema, es que si consideramos las bases canónicas de $\F^n$ y $\F^m$, entonces toda transformación lineal $T\colon \F^n \to \F^m$ es de la forma $T(v) = M_T v$ donde
+  \[ M_T = \begin{spmatrix}{c|c|c} T(e_i) & \cdots & T(e_n) \end{spmatrix}, \]
+mostrando que toda transformación lineal es inducida por alguna matriz.
+

@@ -28,7 +28,7 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
        + \begin{pmatrix} \mu_n \\ \vdots \\ \mu_n  \end{pmatrix} \\
       &= \alpha[v]_B + [w]_B.
   \end{align*}
-  Mostrando así, que es una transformación lineal. Para la inyectividad, es claro que si $[v]_B = (0,\cdots,0)$ entonces $v = 0v_1 + \cdots + 0v_n = 0$, por lo que $\ker([\cdot]_B) = \{0\}$. Para la suprayectividad, claramente tenemos que para todo $(\lambda_1, \ldots, \lambda_n)^T \in \F^n$ se cumple que $\lambda_1 v_1 + \cdots + \lambda_n v_n \in V$ y  $[\lambda_1 v_1 + \cdots  + \lambda_n v_n]_B = (\lambda_1, \ldots, \lambda_n)^T$.
+  Mostrando así, que es una transformación lineal. Para la inyectividad, es claro que si $[v]_B = (0,\cdots,0)$ entonces $v = 0v_1 + \cdots + 0v_n = 0$, por lo que $\ker([\cdot]_B) = \{0\}$. Para la suprayectividad, claramente tenemos que para todo $(\lambda_1, \ldots, \lambda_n)^t \in \F^n$ se cumple que $\lambda_1 v_1 + \cdots + \lambda_n v_n \in V$ y  $[\lambda_1 v_1 + \cdots  + \lambda_n v_n]_B = (\lambda_1, \ldots, \lambda_n)^t$.
 \end{proof}
 
 
@@ -42,7 +42,7 @@ Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{B,B'}$,
   \[ M_{B,B'} = \begin{spmatrix}{c|c|c}  [v_1]_{B'} & \cdots & [v_n]_{B'}  \end{spmatrix}. \]
 
 \begin{teor}
-  Sea $V$ un $F$-espacio vectorial con bases ordenadas $B = (v_1,\cdots,v_n)$ y $B' = (v_1',\cdots,v_n')$, entonces existe una única matriz invertible $M_{B,B'}$ tal que para todo $v \in V$ se cumple que
+  Sea $V$ un $F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$, entonces existe una única matriz invertible $M_{B,B'}$ tal que para todo $v \in V$ se cumple que
     \[ M_{B,B'}[v]_B = [v]_{B'} \Eqand M_{B,B'}^{-1}[v]_{B'} = [v]_B. \]
   Además $(M_{B,B'})_{*i} = [v_i]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
 \end{teor}
@@ -50,7 +50,7 @@ Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{B,B'}$,
   Primero, notemos que por propiedades conocidas y la definición de $M_{B,B'}$ es claro que 
     \[ M_{B,B'}[v_i]_B = M_{B,B'} e_i =  (M_{B,B'})_{*i} = [v_i]_{B'}. \]
 
-  De este modo, sea $v \in V$ con $[v]_B = (\lambda_1,\ldots,\lambda_n)^T$, por la linealidad de $[\cdot]_{B'}$ y las propiedad ya mencionadas, tenemos que
+  De este modo, sea $v \in V$ con $[v]_B = (\lambda_1,\ldots,\lambda_n)^t$, por la linealidad de $[\cdot]_{B'}$ y las propiedad ya mencionadas, tenemos que
     \begin{align*}
       v        &= \lambda_1 v_1 + \cdots + \lambda_n v_n, \\
       [v]_{B'} &= \lambda_1 [v_1]_{B'} + \cdots + \lambda_n [v_n]_{B'} \\
@@ -77,7 +77,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$ y entonces para cua
     \[ v_j' = p_{1j}v_1 + \cdots +  p_{nj}v_n,     \qquad j \in \{1,\ldots, n\}. \]
   Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B',B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
 
-  Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \ldots, \lambda_n)^T$, entonces
+  Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \ldots, \lambda_n)^t$, entonces
   \begin{align*}
     \lambda_1 [v_1']_B + \cdots + \lambda_n [v_n']_B &= \bec 0 ,\\
     \lambda_1 P_{*1} + \cdots + \lambda_n P_{*n} &= \bec 0 ,\\
