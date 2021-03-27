@@ -4,22 +4,21 @@
 
 Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones así como las estructuras con las que vamos a estar trabajando.
 
-En primer lugar, recordemos que una estructura algebraica no es más que la combinación de un conjunto, funciones o relaciones asociadas a este y propiedades relacionadas a estas últimas.
+En primer lugar, recordemos que una estructura algebraica no es más que la combinación de un conjunto, funciones o relaciones asociadas a éste y propiedades relacionadas a estas últimas.
 
-Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elementos del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$ una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso
+Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elemento del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$, entonces una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso
 
 \subsection{Grupos}
 
 \begin{defi}
-  Decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas:
-  los siguientes axiomas:
+  Si $G$ es un conjunto no vacío y $+$ una operación binaria de éste, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas:
   \begin{enumerate}
     \item (Asociatividad) Para cualesquiera $x, y, z \in G$ se cumple que $x\cdot(y\cdot z) = (x\cdot y)\cdot z$.
     \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ cumple que $x\cdot e = e\cdot x = x$.
     \item (Existencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
   \end{enumerate}
 
-  Por último, decimos que un grupo es \emph{abeliano} si  se cumple que  (conmutatividad).
+  Por último, decimos que un grupo es \emph{abeliano} si para cualesquiera $x,y \in G$ se cumple que $x\cdot y = y \cdot y$ (conmutatividad).
 \end{defi}
 
 Por convención, cuando nos referiremos a un grupo, usualmente solo haremos mención al conjunto de éste, por ejemplo, cuando nos referiremos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el símbolo $\cdot$, es decir $x \cdot y = xy$.
@@ -28,12 +27,12 @@ Por convención, cuando nos referiremos a un grupo, usualmente solo haremos menc
   Sea $G$ un grupo, las siguientes propiedades se satisfacen.
     \begin{enumerate}
       \item El elemento neutro es único.
-      \item Para cada $a \in G$ el inverso es único.
+      \item Para cada $a \in G$ el inverso de $a$ es único.
       \item Sean $a,b,c \in G$, si $ab=ac$ o $ba=ca$, entonces $b=c$.
     \end{enumerate}
 \end{teor}
 
-Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y complejos con la suma. Otro ejemplo son las matrices de tamaño $n \times n$ con entradas en los reales junto con la suma de matrices. Estos dos ejemplos fueron de  grupos abelianos, un ejemplo de un grupo no abeliano son los conjunto de funciones biyectivas, como los grupos de permutación, con la composición usual de funciones o el grupo lineal, conformado de las matrices invertibles con la multiplicación de matrices.
+Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y complejos con la suma. Otro ejemplo son las matrices de tamaño $n \times n$ con entradas en los reales junto con la suma de matrices. Estos dos ejemplos fueron de  grupos abelianos, un ejemplo de un grupo no abeliano son los conjuntos de funciones biyectivas, como los grupos de permutación, con la composición usual de funciones o el grupo lineal, conformado de las matrices invertibles con la multiplicación de matrices.
 
 \subsection{Campos}
 
@@ -48,7 +47,7 @@ Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y
   \end{enumerate}
 \end{defi}
 
-De igual forma que con los grupos, por convención cuando nos referiremos al campo, usualmente solo haremos mención al conjunto de éste. Aunque usualmente se usa la letra $K$ para un campo, para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
+De igual forma que con los grupos, por convención cuando nos referiremos al campo, usualmente solo haremos mención al conjunto de éste, para la notación de este libro usaremos $\F$ para denotar un campo. Si no existe confusión, nos referiremos simplemente como 0 y 1 a los neutros aditivo y multiplicativo de un campo.
 
 Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $\R$, los complejos $\C$ y todos los campos asociados a la aritmética de $\Z$ modulo un primo $p$, los cuales denotamos como $\F_p$.
 
@@ -58,7 +57,7 @@ Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $
   Sea $V$ un conjunto no vacío con una operación binaria $+$ (suma), $(\F, +_\F, \cdot_\F )$ un campo y sea $\cdot\colon K \times V \to V$ una operación llamada \emph{producto escalar}. Decimos que $V$ es un $\F$-espacio vectorial si cumple los siguientes axiomas:
   \begin{enumerate}
     \item $(V, +)$ es un grupo abeliano.
-    \item (Neutro escalar) Para todo $v \in V$ se cumple que $1_\F v = v$.
+    \item (Neutro escalar) Para todo $v \in V$ se cumple que $1_\F \cdot v = v$.
     \item (Asociatividad escalar) Para todo $\lambda, \mu \in \F$ y $v \in V$ se cumple que $\lambda \cdot (\mu \cdot v) = (\lambda \cdot_\F \mu)  \cdot v$.
     \item (Primera ley distributiva) Para todo $\lambda \in \F$ y $v,w \in V$ se cumple que $\lambda \cdot (v + w) = \lambda \cdot v + \lambda \cdot w$.
     \item (Segunda ley distributiva) Para todo $\lambda, \mu \in \F$ y $v\in V$ se cumple que $(\lambda +_\F \mu)\cdot v = \lambda \cdot v + \mu \cdot v$.
@@ -66,19 +65,19 @@ Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $
 \end{defi}
 
 
-Por convención, a los elementos de $V$ les llamaremos vectores y a los del campo, escalares. De igual forma y si no existe confusión, a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo. Para el producto del campo y el producto escalar, por convención no se omitirá el símbolo $\cdot$, de esta forma $\lambda v$ hará referencia a la multiplicación del escalar $\lambda$ con el vector $v$.
+Por convención, a los elementos de $V$ les llamaremos vectores y a los del campo, escalares. De igual forma y si no existe confusión, a partir de ahora a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo. Para el producto del campo y el producto escalar, por convención a partir de ahora se omitirá el símbolo $\cdot$, de esta forma $\lambda v$ hará referencia a la multiplicación del escalar $\lambda$ con el vector $v$.
 
 Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de matrices de $n \times m $ con entradas en un campo $\F$, o el conjunto de polinomios $\F[x]$.
 
 \subsection{Subespacios vectoriales}
 
 \begin{defi}
-  Sea $V$ un $\F$-espacios vectorial, decimos que $W \subseteq V$ es un $\F$-subespacios vectorial de $V$, si $W$ si al restringir la suma y producto escalar de $V$ a $W$ se cumple que $W$ es un $\F$-espacio vectorial.
+  Sea $V$ un $\F$-espacio vectorial. Decimos que $W \subseteq V$ es un $\F$-subespacio vectorial de $V$, si al restringir la suma y producto escalar de $V$ a $W$ se cumple que $W$ es un $\F$-espacio vectorial.
 \end{defi}
 
-Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el conjunto generado por todas las combinaciones lineales de $S \subset W$,  es al cual denotamos por
-\[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in \C, v_i \in S, n \in \N }. \]
-Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$. En el caso que $\inner{S} = V$, entonces decimos que $S$ es un \emph{conjunto generador}.
+Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el conjunto generado por todas las combinaciones lineales de $S \subset W$,  al cual denotamos por
+\[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in \F, v_i \in S, n \in \N }. \]
+Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir que si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$. En el caso en que $\inner{S} = V$, entonces decimos que $S$ es un \emph{conjunto generador}.
 
 \begin{teor}
   Sean $V$ un $\F$-espacio vectorial, la intersección de cualquier colección de subespacios de $V$ es un subespacio de $V$.
@@ -95,30 +94,32 @@ Además, este conjunto cumple que es el subespacio vectorial más pequeño tal q
 \end{defi}
 
 Las bases son conjuntos muy importantes en los espacios vectoriales por que nos permiten generalizar el concepto de coordenadas. En primer lugar, todo conjunto linealmente independiente cumple que la expresión como combinación lineal de todo $v \in \inner{S}$ es única, de esta forma si $B$ es una base de cardinalidad $n \in \N$ de $V$, entonces para todo $v \in V$ existe una única combinación lineal tal que 
-\[ v = \lambda 1 v_1 + \cdots + \lambda_n v_n, \qquad \lambda_1,\ldots,\lambda_n \in \F, v_1,\ldots,v_n \in V. \]
-Esto nos permite crear una biyección entre los espacios $V$ y $\F^n$ de mediante $B$, a la cual denotaremos como
-\[ [v]_B = (\lambda_1, \ldots, \lambda_n)^T.\]
+\[ v = \lambda_1 v_1 + \cdots + \lambda_n v_n, \qquad \lambda_1,\ldots,\lambda_n \in \F, v_1,\ldots,v_n \in V. \]
+Esto nos permite crear una biyección entre los espacios $V$ y $\F^n$ mediante $B$, a la cual denotaremos como
+\[ [v]_B = (\lambda_1, \ldots, \lambda_n)^t.\]
 
 \begin{teor}
   Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una base. Además, si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
 \end{teor}
 
-Este teorema es uno de los resultados más importantes del Álgebra Lineal, este nos permite definir la \emph{dimensión} de un $\F$-espacio vectorial $F$ como la cardinalidad de cualquiera de las bases, es decir, si $B$ es una base de $V$, entonces
+Este teorema es uno de los resultados más importantes del Álgebra Lineal, éste nos permite definir la \emph{dimensión} de un $\F$-espacio vectorial $V$ como la cardinalidad de cualquiera de las bases, es decir, si $B$ es una base de $V$, entonces
 \[ \dim_\F (V) = \abs{B}. \]
 
 
 \subsection{Suma y suma directa}
+
 \begin{defi}
-  Sean $W_1$ y $W_2$ dos $\F$-subespacios vectoriales de $V$, definimos la suma de $W_1$ con $W_k$ como
-  \[ W_1 + W_2 = \{ v_1 + v_2 : v_1 \in W_1, v_2 \in W_2 \}.\]
+  Sean $W_1$ y $W_2$ dos $\F$-subespacios vectoriales de $V$, definimos la suma de $W_1$ con $W_2$ como
+  \[ W_1 + W_2 = \{ w_1 + w_2 : w_1 \in W_1, w_2 \in W_2 \}.\]
   De manera general, si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales de $V$, entonces la suma $W_1, \ldots, W_k$  la definimos como
-  \[ W_1 + \cdots + W_k = \{ v_1 + \cdots + v_k : v_1 \in W_1, \ldots ,v_k \in W_2 \}.\]
+  \[ W_1 + \cdots + W_k = \{ w_1 + \cdots + w_k : w_1 \in W_1, \ldots ,w_k \in W_2 \}.\]
 \end{defi}
 
 Recordemos que la suma de subespacios vectorial genera un nuevo subespacio vectorial que además es el subespacio generado por la unión de estos, es decir
   \[ W_1 + \cdots + W_k = \inner{ W_1 \cup \cdots \cup W_k }. \]
-Además, es posible conocer la dimensión de la suma de dos subespacios vectoriales, esta fórmula es conocida como la fórmula de Grassmann.
-\begin{teor}
+Hay una expresión bien conocida para la dimensión de la suma de dos subespacio vectoriales, esta fórmula es conocida como la fórmula de Grassmann.
+
+\begin{teor}[fórmula de Grassmann]
   Si $W_1$ y $W_2$ son subespacios de un $\F$-espacio vectorial $V$ de dimensión finita, entonces
     \[ \dim_\F (W_1 + W_2) = \dim_\F (W_1) + \dim_\F (W_2) - \dim_\F (W_1 \cap W_2).\]
 \end{teor}
@@ -130,20 +131,19 @@ Así como en los espacios vectoriales existe la independencia de vectores, podem
   Si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales de $V$ y $W = W_1 + \cdots + W_k$, decimos que  $W_1, \ldots, W_k$ son independientes si $w_1 + \cdots + w_k = 0$ con $w_i \in W_i$ implica que $w_i = 0$, donde $i \in \{1,\ldots,k\}$.
 \end{defi}
 
-Así como la expresión de un vector como combinación lineal de un conjunto linealmente independiente es única, la independencia de subespacio nos permite afirmar que para todo $v \in W_1 + \cdots + W_k$ la expresión $v = w_1 + \cdots + w_k$ con $w_i \in W_i$ y $i \in \{1, \ldots, k\}$ es única.
-
+Así como la expresión de un vector como combinación lineal de un conjunto linealmente independiente es única, la independencia de subespacios nos permite afirmar que para todo $v \in W_1 + \cdots + W_k$ la expresión $v = w_1 + \cdots + w_k$, con $w_i \in W_i$ y $i \in \{1, \ldots, k\}$, es única.
 \begin{teor}
   Sean $W_1, \ldots, W_k$ subespacios de un $\F$-espacio vectorial $V$ de dimensión finita y $W = W_1 + \cdots + W_k$, entonces las siguientes propiedades son equivalentes:
   \begin{enumerate}
     \item $W_1, \ldots, W_k$ son independientes.
     \item Para todo $i \in \{2, \ldots, k\}$ se tiene que
-            \[ W_i \cap (W_1 + \cdots W_{j-1})  = \{0\}. \]
+            \[ W_i \cap (W_1 + \cdots W_{i-1})  = \{0\}. \]
     \item Si $B_i$ es una base de $W_i$ con $i \in \{1, \ldots, k\}$, entonces $B = B_1 \cup  \cdots \cup  B_k$ es una base de $W$.
   \end{enumerate}
 \end{teor}
 
 \begin{defi}
-  Si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales independientes se dice que la suma $W = W_1 + \cdots + W_k$ es \emph{directa} o que $W$ es la \emph{suma directa} de  $W_1, \ldots, W_k$ y se denotará como.
+  Si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales independientes se dice que la suma $W = W_1 + \cdots + W_k$ es \emph{directa} o que $W$ es la \emph{suma directa} de  $W_1, \ldots, W_k$ y se denotará como:
     \[ W =  W_1 \oplus \cdots \oplus W_k.\]
 \end{defi}
 
@@ -159,7 +159,7 @@ Notemos que si escribimos $W_1 \oplus \cdots \oplus W_k$, entonces por definici�
   Si $T$ es biyectiva, entonces es un isomorfismo de $\F$-espacios vectoriales. En este caso decimos que $V$ y $W$ son isomorfos y lo denotamos como $V \cong W$.
 \end{defi}
 
-Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$. En el caso que $W = V$ entonces $T$ se dice que es un \emph{automorfismo} de $V$ y al conjunto de automorfismos de lo denotamos simplemente como $L(V)$.
+Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$. En el caso que $W = V$ entonces $T$ se dice que es un \emph{endomorfismo} de $V$ y al conjunto de endomorfismos de lo denotamos simplemente como $L(V)$.
 
 \begin{teor}
   Sea $T\colon V \to W$ una transformación $\F$-lineal y $S$ un subconjunto de $V$.
@@ -176,13 +176,13 @@ Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$
 Las transformaciones lineales nos permiten enlazar transformaciones lineales, así como sus propiedades. Un ejemplo son los isomorfismos, estos nos permiten asegurar que dos espacios vectores se comportan de la misma forma, por lo que en esencia son el mismo espacio vectorial.
 
 \begin{defi}
-  Sea $T\colon V \to W$ una transformación $\F$-lineal entonces definimos el \emph{núcleo} o \emph{kernel}  de $T$ como
+  Sea $T\colon V \to W$ una transformación $\F$-lineal, entonces definimos el \emph{núcleo} o \emph{kernel}  de $T$ como
     \[ \ker(T) = \{ v \in V : T(v) = 0_W \}.\]
   De manera análoga, definimos la imagen de $T$ como el conjunto
     \[ \Im(T) = \{w \in W : w = T(v) \text{ para alguna } v \in V \}. \]
 \end{defi}
 
-Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el núcleo y la imagen son subespacios de $V$ y $W$,respectivamente. $T$ será inyectiva si y solo si $\ker(T) = \{0_V\}$. Además de uno de los resultados más importantes de las Transformaciones lineales.
+Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el núcleo y la imagen son subespacios de $V$ y $W$, respectivamente. $T$ será inyectiva si y solo si $\ker(T) = \{0_V\}$. Además de uno de los resultados más importantes de las transformaciones lineales.
 \begin{teor}
   Sea $T \colon V \to W$ una transformación $\F$-lineal. Si $V$ es de dimensión finita, entonces
     \[  \dim_\F( \ker T )  + \dim_\F( \Im T) = \dim_\F (V). \]

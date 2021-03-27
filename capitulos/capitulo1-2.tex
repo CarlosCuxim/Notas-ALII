@@ -4,7 +4,7 @@ Como ya mencionamos en la sección anterior, dada una base existe una única com
 
 
 \begin{defi}
-  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots \lambda_n v_n$, definiremos su \emph{coordenada con respecto a $B$} como
+  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, definiremos su \emph{coordenada con respecto a $B$} como
     \[ [v]_B = \begin{pmatrix}
       v_1 \\ \vdots \\ v_n
     \end{pmatrix}.\]
@@ -28,13 +28,13 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
        + \begin{pmatrix} \mu_n \\ \vdots \\ \mu_n  \end{pmatrix} \\
       &= \alpha[v]_B + [w]_B.
   \end{align*}
-  Mostrando así, que es una transformación lineal. Para la inyectividad, es claro que si $[v]_B = (0,\cdots,0)$ entonces $v = 0v_1 + \cdots + 0v_n = 0$, por lo que $\ker([\cdot]_B) = \{0\}$. Para la suprayectividad, claramente tenemos que para todo $(\lambda_1, \ldots, \lambda_n)^T \in \F^n$ se cumple que $\lambda_1 v_1 + \cdots \lambda_n v_n \in V$ y  $[\lambda_1 v_1 + \cdots \lambda_n v_n]_B = (\lambda_1, \ldots, \lambda_n)^T$.
+  Mostrando así, que es una transformación lineal. Para la inyectividad, es claro que si $[v]_B = (0,\cdots,0)$ entonces $v = 0v_1 + \cdots + 0v_n = 0$, por lo que $\ker([\cdot]_B) = \{0\}$. Para la suprayectividad, claramente tenemos que para todo $(\lambda_1, \ldots, \lambda_n)^T \in \F^n$ se cumple que $\lambda_1 v_1 + \cdots + \lambda_n v_n \in V$ y  $[\lambda_1 v_1 + \cdots  + \lambda_n v_n]_B = (\lambda_1, \ldots, \lambda_n)^T$.
 \end{proof}
 
 
 \subsection{Cambio de base}
 
-Dadas dos bases ordenadas $B = (v_1,\cdots,v_n)$ y $B' = (v_1',\cdots,v_n')$ de $B$ una pregunta común sale a flote, dada la coordenadas de $v \in V$ con respecto a $B$ como obtenemos su coordenada con respecto a $B$. Resulta que para dos bases $B$ y $B'$ existe exactamente una matriz invertible $M$ tal que $M[v]_B = [v]_{B'}$ para todo $v \in V$, a esta matriz la denotaremos como $M_{B,B'}$.
+Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacío, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$, a esta matriz la denotaremos como $M_{B,B'}$.
 
 La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{B,B'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
   \[ M_{B,B'} [v_i]_B = M_{B,B'} e_i = (M_{B,B'})_{*i} = [v_i]_{B'}. \]
@@ -77,15 +77,15 @@ Este teorema nos afirma que si tenemos una base ordenada $B$ y entonces para cua
     \[ v_j' = p_{1j}v_1 + \cdots +  p_{nj}v_n,     \qquad j \in \{1,\ldots, n\}. \]
   Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B',B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
 
-  Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \cdots, \lambda_n)^T$, entonces
+  Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \ldots, \lambda_n)^T$, entonces
   \begin{align*}
-    \lambda_1 [v_i']_B + \cdots + \lambda_n [v_n']_B &= \bec 0 ,\\
+    \lambda_1 [v_1']_B + \cdots + \lambda_n [v_n']_B &= \bec 0 ,\\
     \lambda_1 P_{*1} + \cdots + \lambda_n P_{*n} &= \bec 0 ,\\
     P\lambda &= \bec 0.
   \end{align*}
   Ahora, como $P$ es invertible por hipótesis, entonces la única solución al sistema $Px = \bec 0$ es la trivial, de este modo $\lambda = \bec 0$ y por tanto $B'$ es una base ordenada.
 
-  Ahora, supongamos que existe otra base ordenada $B'' = (v_1'', \ldots, v_n'')$ tal que $P = M_{B'',B}$ entonces, para toda $i \in \{1,\ldots,n\}$ se cumple que
+  Ahora, para la unicidad, supongamos que existe otra base ordenada $B'' = (v_1'', \ldots, v_n'')$ tal que $P = M_{B'',B}$, entonces, para toda $i \in \{1,\ldots,n\}$ se cumple que
   \[ [v_i'']_B =  P[v_i'']_{B''} = Pe_i = P[v_i']_{B'} = [v_i']_B, \]
   así, por la biyectividad de $[\cdot]_B$, tenemos que $v_i'' = v_i'$ para toda $i \in \{1,\ldots,n\}$, mostrando así que $B'' = B'$.
 \end{proof}
