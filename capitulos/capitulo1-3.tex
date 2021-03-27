@@ -87,3 +87,24 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
     \[ (S \circ T)_{B,B'} =  S_{B,B'}T_{B,B'} = I_n = (1_{L(V,W)})_{B,B'}. \]
   De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = 1_{L(V,W)}$ y análogamente se tiene que $T \circ S = 1_{L(V,W)}$, mostrando así que $T$ es invertible.
 \end{proof}
+
+
+
+\section{Semejanza de matrices y transformaciones lineales}
+
+Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. Sl siguiente paso, es ver como obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
+
+\begin{teor}
+  Sea $V$ y $W$ dos $\F$-espacios vectoriales y $T \colon V \to W$ una transformación lineal. Si $B_1$ y $B_2$ son bases ordenadas de $V$, $B_1'$ y $B_2'$ son bases ordenadas de $W$ entonces
+  \[T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}. \]
+\end{teor}
+\begin{proof}
+  Sea $v \in V$, notemos, por definición y propiedades conocidas, que
+  \begin{align*}
+    M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1} [v]_{B_2} &= M_{B_1', B_2'} T_{B_1,B_1'} [v]_{B_1} \\
+      &= M_{B_1', B_2'} [T(v)]_{B_1'} \\
+      &= [T(v)]_{B_2'}.
+  \end{align*}
+  Y por la unicidad de la matriz asociada, tenemos que $T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}$.
+\end{proof}
+
