@@ -35,7 +35,7 @@ Una consecuencia directa de este teorema, es que si consideramos las bases canó
   \[ M_T = \begin{spmatrix}{c|c|c} T(e_i) & \cdots & T(e_n) \end{spmatrix}, \]
 mostrando que toda transformación lineal es inducida por alguna matriz.
 
-\begin{teor}
+\begin{teor}\label{teo:isomTrMat}
   Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si si consideramos la función $\Psi_{B,B'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{B,B'}(T) = T_{B,B'}$, entonces $\Psi_{B,B'}$ es un isomorfismo de $V$ y $W$.
 \end{teor}
 \begin{proof}
@@ -74,3 +74,16 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
   Pero por la unicidad de la matriz asociada, esto implica que $(S \circ T)_{B,B''} = S_{B',B''} T_{B,B'}$.
 \end{proof}
 
+\begin{coro}
+  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces $T$ es invertible si y solo sí $T_{B,B'}$ es invertible, además
+    \[ T_{B,B'}^{-1} = (T_{B,B'})^{-1}. \]
+\end{coro}
+\begin{proof}
+  Dado que $T$ es invertible entonces es biyectiva, por lo que $m = n$. Así, por el teorema anterior, tenemos que
+  \[ T^{-1}_{B',B} T_{B,B'} = (T^{-1}\circ T)_{B,B} = (1_{L(V,W)})_{B,B} = I_n, \]
+  pero esto impĺica que $T_{B,B'}^{-1} = (T_{B,B'})^{-1}$ por definición.
+
+  Ahora, si $T_{B,B'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B,B'} =  (T_{B,B'})^{-1}$. Aplicando el teorema anterior, esto implica que
+    \[ (S \circ T)_{B,B'} =  S_{B,B'}T_{B,B'} = I_n = (1_{L(V,W)})_{B,B'}. \]
+  De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = 1_{L(V,W)}$ y análogamente se tiene que $T \circ S = 1_{L(V,W)}$, mostrando así que $T$ es invertible.
+\end{proof}
