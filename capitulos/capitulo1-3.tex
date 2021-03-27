@@ -35,3 +35,25 @@ Una consecuencia directa de este teorema, es que si consideramos las bases canó
   \[ M_T = \begin{spmatrix}{c|c|c} T(e_i) & \cdots & T(e_n) \end{spmatrix}, \]
 mostrando que toda transformación lineal es inducida por alguna matriz.
 
+\begin{teor}
+  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si si consideramos la función $\Psi_{B,B'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{B,B'}(T) = T_{B,B'}$, entonces $\Psi_{B,B'}$ es un isomorfismo de $V$ y $W$.
+\end{teor}
+\begin{proof}
+  Primero demostremos que la función $\Psi_{B,B'}$ es una transformación lineal. Sean $T, S \in L(V,W)$ y $\lambda \in \F$, notemos que para todo $v \in V$ se cumple que
+  \begin{align*}
+    (T_{B,B'} + \lambda S_{B,B'})[v]_B &= T_{B,B'}[v]_B + \lambda S_{B,B'} [v]_B \\
+      &= [T(v)]_{B'} + \lambda [S(v)]_{B'} \\
+      &= [T(v) + \lambda S(v)]_{B'} \\
+      &= [ (T + \lambda S)(v)]_{B'}.
+  \end{align*}
+  Pero por la unicidad de la matriz asociada, esto implica que $(T + \lambda S)_{B,B'} = T_{B,B'} + \lambda S_{B,B'}$, en otras palabras, que
+  \[ \Psi_{B,B'}(T + \lambda S) = \Psi_{B,B'}(T) + \lambda \Psi_{B,B'}(S). \]
+
+  Ahora, notemos que si $\Psi_{B,B'}(T) = \bec 0_{m\times n}$, entonces, por el teorema anterior, tenemos para todo $v \in V$ que  
+    \[ T_{B,B'}[v]_B  = [T(v)]_{B'} = \bec 0_m,\]
+  pero por propiedades conocidas sabemos que $[v]_{B'} = \bec 0_m$ si y solo si $v = 0_W$, de esta forma $T(v) = 0_W$, pero esto implica que $\ker(\Psi_{B,B'}) = \{  0_{L(V,W)} \}$, mostrando así que $\Psi_{B,B'}$ es inyectiva.
+
+  Por ultimo, si $M \in \M_{m\times n}(\F)$ donde $M = (m_{ij})$, dado que podemos definir una transformación lineal unicamente dando los valores para una base, consideremos la transformación $T\colon V \to W$ dada por
+  \[ T(v_i) =  m_{1i}w_1 + \cdots + m_{mi}w_m, \]
+  para todo $i \in \{1,\ldots,m\}$, pero por el teorema anterior $(T_{B,B'})_{*i} = M_{*i}$, de este modo tenemos que $\Psi_{B,B'}(T) = T_{B,B'}$, mostrando así que $\Psi_{B,B'}$ es sobreyectiva y por tanto un isomorfismo de $L(V,W)$ a $\M_{m\times n}(\F)$.
+\end{proof}
