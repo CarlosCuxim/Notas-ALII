@@ -34,7 +34,7 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
 
 \subsection{Cambio de base}
 
-Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacío, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$, a esta matriz la denotaremos como $M_{B,B'}$.
+Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacío, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{B,B'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
 
 La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{B,B'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
   \[ M_{B,B'} [v_i]_B = M_{B,B'} e_i = (M_{B,B'})_{*i} = [v_i]_{B'}. \]

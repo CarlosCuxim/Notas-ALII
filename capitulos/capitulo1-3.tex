@@ -1,1 +1,11 @@
 \section{Matriz asociada a una transformación lineal}
+
+Hemos visto que para cualquier espacio vectorial podemos crear un sistema de coordenadas a partir de una base ordenada, esto nos permite trabajar con los elementos del espacio de una forma más simple. El siguiente paso es poder hacer lo mismo con las transformaciones lineales.
+
+Sabemos que dada una matriz $M$ de $m \times n$ entonces la función $T_M \colon \F^n \to \F^m$ dada por $T(v) = Mv$  es una transformación lineal, a la cual llamaremos la transformación \emph{inducida} por $M$. Ahora, buscamos hacer el mismo proceso pero de manera inversa, es decir, si consideremos dos $\F$-espacios vectoriales $V$ y $W$ con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (w_1,\ldots,w_m)$, respectivamente, si $T\colon V \to W$ es una transformación lineal, lo que buscamos es una matriz $M$ de tamaño $m\times n$ tal que $M[v]_B = [T(v)]_{B'}$, para todo $v \in V$. A esta matriz la denotaremos como $T_{B,B'}$ y diremos que es la matriz \emph{asociada} a $T$.
+
+La idea es análoga al de cambio de base, dado que $[v_i] = e_i$ y $T_{B,B'}e_i = (T_{B,B''})_{*i}$ para todo $i \in \{1,\ldots,n\}$, como $T_{B,B''}[v]_B = [T(v)]_{B'}$ para todo $v \in V$, entonces tenemos que
+  \[ T_{B,B'} [v_i]_B = T_{B,B'} e_i = (T_{B,B'})_{*i} = [T(v_i)]_{B'}. \]
+Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{B,B'}$, y por lo tanto
+  \[ T_{B,B'} = \begin{spmatrix}{c|c|c}  [T(v_1)]_{B'} & \cdots & [T(v_n)]_{B'}  \end{spmatrix}. \]
+
