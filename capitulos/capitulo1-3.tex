@@ -119,3 +119,24 @@ y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matri
 \begin{defi}
   Sean $M$ y $N$ dos matrices de $n \times n$ con elementos en $\F$, se dice que $M$ es \emph{semejante} a $N$ si existe una matriz invertible $P$ tal que $M = P^{-1}NP$, y lo denotaremos como $M \sim N$.
 \end{defi}
+
+\begin{prop}
+  Sean $M,N \in \M_n(\F)$ tal que $M \sim N$, entonces $\det(M) = \det(N)$ y $\tr(M) = \tr(N)$.
+\end{prop}
+\begin{proof}
+  Por definición, existe una matriz invertible $P$ tal que $M = P^{-1}NP$. La primera igualdad es fácil de probar, ya que por por propiedad de la determinante tenemos  que
+  \begin{align*}
+    \det(M) &= \det(P^{-1}NP) = \det(P^{-1})\det(N) \det(P)  \\
+      &= \bigl(\det(P)\bigr)^{-1} \det(N) \det(P) = \bigl(\det(P)\bigr)^{-1}\det(P)\det(N)  \\
+      &= \det(N).
+  \end{align*}
+  
+  Para la segunda propiedad, notemos que si $A,B \in \M_n(\F)$ dado por $A = (a_{ij})$ y $B = (b_{ij})$ entonces
+  \begin{align*}
+    \tr(AB) &= \sum_{i=1}^n (AB)_{ii} = \sum_{i=1}^n \sum_{j=1}^n a_{ij} b_{ji} \\
+      &=  \sum_{j=1}^n \sum_{i=1}^n b_{ji} a_{ij} = \sum_{j=1}^n (BA)_{jj} \\
+      &= \tr(BA).
+  \end{align*}
+  De esta forma, tenemos que por definición y la propiedad anterior
+  \[ \tr(M) = \tr(P^{-1}NP) = \tr([P^{-1}N]P) = \tr(P[P^{-1}N]) = \tr(I_n N) = \tr(N). \]
+\end{proof}
