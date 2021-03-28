@@ -76,21 +76,21 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
 
 \begin{coro}
   Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces $T$ es invertible si y solo sí $T_{B,B'}$ es invertible, además
-    \[ T_{B,B'}^{-1} = (T_{B,B'})^{-1}. \]
+    \[ T_{B',B}^{-1} = (T_{B,B'})^{-1}. \]
 \end{coro}
 \begin{proof}
   Dado que $T$ es invertible entonces es biyectiva, por lo que $m = n$. Así, por el teorema anterior, tenemos que
-  \[ T^{-1}_{B',B} T_{B,B'} = (T^{-1}\circ T)_{B,B} = (1_{L(V,W)})_{B,B} = I_n, \]
-  pero esto impĺica que $T_{B,B'}^{-1} = (T_{B,B'})^{-1}$ por definición.
+  \[ T^{-1}_{B',B} T_{B,B'} = (T^{-1}\circ T)_{B,B} = (\Id_{V,W})_{B,B} = I_n, \]
+  pero esto impĺica que $T_{B',B}^{-1} = (T_{B,B'})^{-1}$, por definición.
 
-  Ahora, si $T_{B,B'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B,B'} =  (T_{B,B'})^{-1}$. Aplicando el teorema anterior, esto implica que
-    \[ (S \circ T)_{B,B'} =  S_{B,B'}T_{B,B'} = I_n = (1_{L(V,W)})_{B,B'}. \]
-  De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = 1_{L(V,W)}$ y análogamente se tiene que $T \circ S = 1_{L(V,W)}$, mostrando así que $T$ es invertible.
+  Ahora, si $T_{B,B'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B',B} =  (T_{B,B'})^{-1}$. Aplicando el teorema anterior, esto implica que
+    \[ (S \circ T)_{B,B} =  S_{B',B}T_{B,B'} = I_n = (\Id_{V,W})_{B,B}. \]
+  De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = \Id_{V,W}$ y análogamente se tiene que $T \circ S = \Id_{V,W}$, mostrando así que $T$ es invertible.
 \end{proof}
 
 
 
-\section{Semejanza de matrices y transformaciones lineales}
+\section{Semejanza de matrices}
 
 Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. Sl siguiente paso, es ver como obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
 
@@ -108,3 +108,14 @@ Hemos visto que podemos asociar una matriz a cada transformación siempre que de
   Y por la unicidad de la matriz asociada, tenemos que $T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}$.
 \end{proof}
 
+Notemos que en el teorema anterior las matrices $T_{B_1,B_1'}$ y $T_{B_2,B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B$ son os bases ordenadas de $V$ entonces $[\Id_V]_{B,B'}[v]_B = [v]_B'$ por lo tanto $[\Id_V]_{B,B'} = M_{B,B'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertible están asociada a la transformación identidad, bajo unas ciertas bases.
+
+Esta idea se puede generalizar, si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tal que $M = T_{B_2, B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{B,B'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$.
+
+Un caso de especial interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{B,B}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{B,B'} = (M_{B',B})^{-1}$ entonces 
+  \[ T_{B'} = (M_{B',B})^{-1} T_B M_{B',B} \]
+y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matrices $P^{-1}T_{B}P$, donde $P$ es una matriz invertible, están asociadas a la misma transformación. Des esta forma, la meta será agrupar todas las matrices que están asociadas a una misma transformación lineal.
+
+\begin{defi}
+  Sean $M$ y $N$ dos matrices de $n \times n$ con elementos en $\F$, se dice que $M$ es \emph{semejante} a $N$ si existe una matriz invertible $P$ tal que $M = P^{-1}NP$, y lo denotaremos como $M \sim N$.
+\end{defi}
