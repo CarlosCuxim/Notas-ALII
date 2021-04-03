@@ -1,0 +1,57 @@
+\section{Semejanza de matrices}
+
+Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. Sl siguiente paso, es ver como obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
+
+\begin{teor}
+  Sea $V$ y $W$ dos $\F$-espacios vectoriales y $T \colon V \to W$ una transformación lineal. Si $B_1$ y $B_2$ son bases ordenadas de $V$, $B_1'$ y $B_2'$ son bases ordenadas de $W$ entonces
+  \[T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}. \]
+\end{teor}
+\begin{proof}
+  Sea $v \in V$, notemos, por definición y propiedades conocidas, que
+  \begin{align*}
+    M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1} [v]_{B_2} &= M_{B_1', B_2'} T_{B_1,B_1'} [v]_{B_1} \\
+      &= M_{B_1', B_2'} [T(v)]_{B_1'} \\
+      &= [T(v)]_{B_2'}.
+  \end{align*}
+  Y por la unicidad de la matriz asociada, tenemos que $T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}$.
+\end{proof}
+
+Notemos que en el teorema anterior las matrices $T_{B_1,B_1'}$ y $T_{B_2,B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B$ son os bases ordenadas de $V$ entonces $[\Id_V]_{B,B'}[v]_B = [v]_B'$ por lo tanto $[\Id_V]_{B,B'} = M_{B,B'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertible están asociada a la transformación identidad, bajo unas ciertas bases.
+
+Esta idea se puede generalizar, si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tal que $M = T_{B_2, B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{B,B'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$.
+
+Un caso de especial interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{B,B}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{B,B'} = (M_{B',B})^{-1}$ entonces 
+  \[ T_{B'} = (M_{B',B})^{-1} T_B M_{B',B} \]
+y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matrices $P^{-1}T_{B}P$, donde $P$ es una matriz invertible, están asociadas a la misma transformación. De esta forma, la meta será agrupar todas las matrices que están asociadas a una misma transformación lineal.
+
+\begin{defi}
+  Sean $M$ y $N$ dos matrices de $n \times n$ con elementos en $\F$, se dice que $M$ es \emph{semejante} a $N$ si existe una matriz invertible $P$ tal que $M = P^{-1}NP$, y lo denotaremos como $M \sim N$.
+\end{defi}
+
+Como se puede intuir, la semejanza de matrices es una relación de equivalencia. Todas las clases de equivalencia tienen como común que las matrices que las componen están asociadas a una misma transformación lineal, además las clases de equivalencia de la matriz $0_n$ y la identidad $I_n$ están compuestas unicamente de estas. 
+
+\begin{prop}
+  Sean $M,N \in \M_n(\F)$ tal que $M \sim N$, entonces $\det(M) = \det(N)$ y $\tr(M) = \tr(N)$.
+\end{prop}
+\begin{proof}
+  Por definición, existe una matriz invertible $P$ tal que $M = P^{-1}NP$. La primera igualdad es fácil de probar, ya que por por propiedad de la determinante tenemos  que
+  \begin{align*}
+    \det(M) &= \det(P^{-1}NP) = \det(P^{-1})\det(N) \det(P)  \\
+      &= \bigl(\det(P)\bigr)^{-1} \det(N) \det(P) = \bigl(\det(P)\bigr)^{-1}\det(P)\det(N)  \\
+      &= \det(N).
+  \end{align*}
+  
+  Para la segunda propiedad, notemos que si $A,B \in \M_n(\F)$ dado por $A = (a_{ij})$ y $B = (b_{ij})$ entonces
+  \begin{align*}
+    \tr(AB) &= \sum_{i=1}^n (AB)_{ii} = \sum_{i=1}^n \sum_{j=1}^n a_{ij} b_{ji} \\
+      &=  \sum_{j=1}^n \sum_{i=1}^n b_{ji} a_{ij} = \sum_{j=1}^n (BA)_{jj} \\
+      &= \tr(BA).
+  \end{align*}
+  De esta forma, tenemos que por definición y la propiedad anterior
+  \[ \tr(M) = \tr(P^{-1}NP) = \tr([P^{-1}N]P) = \tr(P[P^{-1}N]) = \tr(I_n N) = \tr(N). \]
+\end{proof}
+
+Esta propiedad nos muestra que todas las matrices asociadas a una transformación lineal, y por tanto pertenecientes a la misma clases de equivalencia, tienen la misma determinante y traza, en otras palabras, la traza y determinante son invariantes ante el cambio de base.
+
+
+
