@@ -6,7 +6,7 @@ Antes de empezar con las matrices y transformaciones lineales, hay que recordar 
 
 En primer lugar, recordemos que una estructura algebraica no es más que la combinación de un conjunto, funciones o relaciones asociadas a éste y propiedades relacionadas a estas últimas.
 
-Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elemento del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$, entonces una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso
+Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elemento del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$, entonces una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso.
 
 \subsection{Grupos}
 
@@ -18,7 +18,7 @@ Las funciones pueden ser de varios tipos, pero la más común son las llamadas \
     \item (Existencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
   \end{enumerate}
 
-  Por último, decimos que un grupo es \emph{abeliano} si para cualesquiera $x,y \in G$ se cumple que $x\cdot y = y \cdot y$ (conmutatividad).
+  Por último, decimos que un grupo es \emph{abeliano} si para cualesquiera $x,y \in G$ se cumple que $x\cdot y = y \cdot x$ (conmutatividad).
 \end{defi}
 
 Por convención, cuando nos referiremos a un grupo, usualmente solo haremos mención al conjunto de éste, por ejemplo, cuando nos referiremos al grupo $(G, \cdot)$ lo haremos solo como ``el grupo $G$''. De igual forma, siempre que hablemos de una ``multiplicación'' podemos omitir el símbolo $\cdot$, es decir $x \cdot y = xy$.
@@ -90,7 +90,7 @@ Además, este conjunto cumple que es el subespacio vectorial más pequeño tal q
   \[ \sum_{i=1}^n \lambda_i v_i = 0, \]
   donde para al menos algún $i \in \{1,\ldots,n\}$ se cumple que $\lambda_i \neq 0_\F$. En caso que $S$ no sea linealmente dependiente, diremos que es linealmente independiente.
 
-  Sea $B \subset V$ diremos que es una \emph{base} si es un conjunto generador linealmente independiente.
+  Dado $B \subset V$ diremos que $B$ es una \emph{base} de $V$ si es un conjunto generador linealmente independiente.
 \end{defi}
 
 Las bases son conjuntos muy importantes en los espacios vectoriales por que nos permiten generalizar el concepto de coordenadas. En primer lugar, todo conjunto linealmente independiente cumple que la expresión como combinación lineal de todo $v \in \inner{S}$ es única, de esta forma si $B$ es una base de cardinalidad $n \in \N$ de $V$, entonces para todo $v \in V$ existe una única combinación lineal tal que 
@@ -99,7 +99,7 @@ Esto nos permite crear una biyección entre los espacios $V$ y $\F^n$ mediante $
 \[ [v]_B = (\lambda_1, \ldots, \lambda_n)^t.\]
 
 \begin{teor}
-  Sea $V$ un $\F$-espacio vectorial, $V$ tiene al menos una base. Además, si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
+  Sea $V$ un $\F$-espacio vectorial, entonces $V$ tiene al menos una base. Además, si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
 \end{teor}
 
 Este teorema es uno de los resultados más importantes del Álgebra Lineal, éste nos permite definir la \emph{dimensión} de un $\F$-espacio vectorial $V$ como la cardinalidad de cualquiera de las bases, es decir, si $B$ es una base de $V$, entonces
@@ -111,11 +111,11 @@ Este teorema es uno de los resultados más importantes del Álgebra Lineal, ést
 \begin{defi}
   Sean $W_1$ y $W_2$ dos $\F$-subespacios vectoriales de $V$, definimos la suma de $W_1$ con $W_2$ como
   \[ W_1 + W_2 = \{ w_1 + w_2 : w_1 \in W_1, w_2 \in W_2 \}.\]
-  De manera general, si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales de $V$, entonces la suma $W_1, \ldots, W_k$  la definimos como
-  \[ W_1 + \cdots + W_k = \{ w_1 + \cdots + w_k : w_1 \in W_1, \ldots ,w_k \in W_2 \}.\]
+  De manera general, si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales de $V$, entonces la suma de $W_1, \ldots, W_k$  la definimos como
+  \[ W_1 + \cdots + W_k = \{ w_1 + \cdots + w_k : w_1 \in W_1, \ldots ,w_k \in W_k \}.\]
 \end{defi}
 
-Recordemos que la suma de subespacios vectorial genera un nuevo subespacio vectorial que además es el subespacio generado por la unión de estos, es decir
+Recordemos que la suma de subespacios vectoriales genera un nuevo subespacio vectorial que además es el subespacio generado por la unión de estos, es decir
   \[ W_1 + \cdots + W_k = \inner{ W_1 \cup \cdots \cup W_k }. \]
 Hay una expresión bien conocida para la dimensión de la suma de dos subespacio vectoriales, esta fórmula es conocida como la fórmula de Grassmann.
 
@@ -137,7 +137,7 @@ Así como la expresión de un vector como combinación lineal de un conjunto lin
   \begin{enumerate}
     \item $W_1, \ldots, W_k$ son independientes.
     \item Para todo $i \in \{2, \ldots, k\}$ se tiene que
-            \[ W_i \cap (W_1 + \cdots W_{i-1})  = \{0\}. \]
+            \[ W_i \cap (W_1 + \cdots + W_{i-1})  = \{0\}. \]
     \item Si $B_i$ es una base de $W_i$ con $i \in \{1, \ldots, k\}$, entonces $B = B_1 \cup  \cdots \cup  B_k$ es una base de $W$.
   \end{enumerate}
 \end{teor}
@@ -147,7 +147,7 @@ Así como la expresión de un vector como combinación lineal de un conjunto lin
     \[ W =  W_1 \oplus \cdots \oplus W_k.\]
 \end{defi}
 
-Notemos que si escribimos $W_1 \oplus \cdots \oplus W_k$, entonces por definición entendemos que los subespacios $W_1, \ldots, W_k$ son independientes. De igual forma, por la fórmula de Grassmann, se puede comprobar que 
+Notemos que si escribimos $W_1 \oplus \cdots \oplus W_k$, entonces por definición entendemos que los subespacios $W_1, \ldots, W_k$ son independientes. De igual forma, por la fórmula de Grassmann, se puede comprobar que en este caso
 \[ \dim_\F (W_1 \oplus \cdots \oplus W_k) = \dim_\F (W_1) + \cdots + \dim_\F (W_k).\]
 
 \subsection{Transformaciones lineales}
@@ -173,7 +173,7 @@ Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$
   \end{enumerate}
 \end{teor}
 
-Las transformaciones lineales nos permiten enlazar transformaciones lineales, así como sus propiedades. Un ejemplo son los isomorfismos, estos nos permiten asegurar que dos espacios vectores se comportan de la misma forma, por lo que en esencia son el mismo espacio vectorial.
+Las transformaciones lineales nos permiten enlazar espacios vectoriales, así como sus propiedades. Un ejemplo son los isomorfismos, estos nos permiten asegurar que dos espacios vectores se comportan de la misma forma, por lo que en esencia son el mismo espacio vectorial.
 
 \begin{defi}
   Sea $T\colon V \to W$ una transformación $\F$-lineal, entonces definimos el \emph{núcleo} o \emph{kernel}  de $T$ como
@@ -182,7 +182,7 @@ Las transformaciones lineales nos permiten enlazar transformaciones lineales, as
     \[ \Im(T) = \{w \in W : w = T(v) \text{ para alguna } v \in V \}. \]
 \end{defi}
 
-Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el núcleo y la imagen son subespacios de $V$ y $W$, respectivamente. $T$ será inyectiva si y solo si $\ker(T) = \{0_V\}$. Además de uno de los resultados más importantes de las transformaciones lineales.
+Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el núcleo y la imagen son subespacios de $V$ y $W$, respectivamente. Otra propiedad, es que $T$ será inyectiva si y solo si $\ker(T) = \{0_V\}$. Y por último, tenemos uno de los resultados más importantes de las transformaciones lineales.
 \begin{teor}
   Sea $T \colon V \to W$ una transformación $\F$-lineal. Si $V$ es de dimensión finita, entonces
     \[  \dim_\F( \ker T )  + \dim_\F( \Im T) = \dim_\F (V). \]

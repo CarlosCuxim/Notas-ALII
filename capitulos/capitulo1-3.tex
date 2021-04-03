@@ -53,7 +53,7 @@ mostrando que toda transformación lineal es inducida por alguna matriz.
     \[ T_{B,B'}[v]_B  = [T(v)]_{B'} = \bec 0_m,\]
   pero por propiedades conocidas sabemos que $[v]_{B'} = \bec 0_m$ si y solo si $v = 0_W$, de esta forma $T(v) = 0_W$, pero esto implica que $\ker(\Psi_{B,B'}) = \{  0_{L(V,W)} \}$, mostrando así que $\Psi_{B,B'}$ es inyectiva.
 
-  Por ultimo, si $P \in \M_{m\times n}(\F)$ donde $P = (p_{ij})$, dado que podemos definir una transformación lineal unicamente dando los valores para una base, consideremos la transformación $T\colon V \to W$ dada por
+  Por ultimo, si $P \in \M_{m\times n}(\F)$ donde $P = (p_{ij})$, dado que podemos definir una transformación lineal únicamente dando los valores para una base, consideremos la transformación $T\colon V \to W$ dada por
   \[ T(v_i) =  p_{1i}w_1 + \cdots + p_{mi}w_m, \]
   para todo $i \in \{1,\ldots,m\}$. Aplicando el teorema anterior tenemos que $T_{B,B'} = P$, de este modo $\Psi_{B,B'}(T) = P$, mostrando así que $\Psi_{B,B'}$ es sobreyectiva y por tanto un isomorfismo de $L(V,W)$ a $\M_{m\times n}(\F)$.
 \end{proof}
@@ -75,7 +75,7 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
 \end{proof}
 
 \begin{coro}
-  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces $T$ es invertible si y solo sí $T_{B,B'}$ es invertible, además
+  Sean $V$ y $W$ dos $\F$-espacios vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces $T$ es invertible si y solo si $T_{B,B'}$ es invertible, además
     \[ T_{B',B}^{-1} = (T_{B,B'})^{-1}. \]
 \end{coro}
 \begin{proof}
@@ -114,7 +114,7 @@ Esta idea se puede generalizar, si $V$ y $W$ son $\F$-espacios vectoriales con b
 
 Un caso de especial interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{B,B}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{B,B'} = (M_{B',B})^{-1}$ entonces 
   \[ T_{B'} = (M_{B',B})^{-1} T_B M_{B',B} \]
-y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matrices $P^{-1}T_{B}P$, donde $P$ es una matriz invertible, están asociadas a la misma transformación. Des esta forma, la meta será agrupar todas las matrices que están asociadas a una misma transformación lineal.
+y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matrices $P^{-1}T_{B}P$, donde $P$ es una matriz invertible, están asociadas a la misma transformación. De esta forma, la meta será agrupar todas las matrices que están asociadas a una misma transformación lineal.
 
 \begin{defi}
   Sean $M$ y $N$ dos matrices de $n \times n$ con elementos en $\F$, se dice que $M$ es \emph{semejante} a $N$ si existe una matriz invertible $P$ tal que $M = P^{-1}NP$, y lo denotaremos como $M \sim N$.

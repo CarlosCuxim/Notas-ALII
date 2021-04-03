@@ -4,7 +4,7 @@ Como ya mencionamos en la sección anterior, dada una base existe una única com
 
 
 \begin{defi}
-  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, definiremos su \emph{coordenada con respecto a $B$} como
+  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, definiremos su \emph{vector coordenada con respecto a $B$} como
     \[ [v]_B = \begin{pmatrix}
       v_1 \\ \vdots \\ v_n
     \end{pmatrix}.\]
@@ -34,7 +34,7 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
 
 \subsection{Cambio de base}
 
-Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacío, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{B,B'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
+Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacio, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{B,B'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
 
 La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{B,B'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
   \[ M_{B,B'} [v_i]_B = M_{B,B'} e_i = (M_{B,B'})_{*i} = [v_i]_{B'}. \]
@@ -67,7 +67,7 @@ Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{B,B'}$,
   de este modo, dado que todas las columnas son iguales, se cumple que $P = M_{B,B'}$.
 \end{proof}
 
-Este teorema nos afirma que si tenemos una base ordenada $B$ y entonces para cualquier otra base ordenada $B'$ existe una matriz invertible asociada que realiza el cambio de coordenadas. La vuelta de esta proposición también es cierta, de este modo existe una biyección entre el conjunto de bases ordenadas y el conjunto de matrices invertibles.
+Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cualquier otra base ordenada $B'$ existe una matriz invertible asociada que realiza el cambio de coordenadas. La vuelta de esta proposición también es cierta, de este modo existe una biyección entre el conjunto de bases ordenadas y el conjunto de matrices invertibles.
 
 \begin{prop}\label{prop:ExBase}
   Sea $P$ una matriz de $n\times n$ con entradas en $\F$, $V$ un $\F$-espacio vectorial y $B = (v_1, \ldots, v_n)$ una base ordenada, entonces existe una única base ordenada $B'$ tal que $M_{B',B} = P$.
