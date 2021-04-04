@@ -1,0 +1,46 @@
+\section{Matrices triangularizables y diagonalizables}
+
+Uno de los objetivos de la semejanza de matrices es encontrar la matriz más ``simple'' asociada a una transformación lineal, para realizar operaciones con las matrices de manera más sencilla. Un especial interés se da a las matrices semejantes a matrices triangulares o diagonales.
+
+\begin{defi}
+  Sea $M$ una matriz, decimos que es \emph{triangularizable} (\emph{diagonalizable}) si existe una matriz $T$ triangular (diagonal) tal que $M \sim T$.
+\end{defi}
+
+A priori, no tenemos una forma de saber si una matriz es triangularizable o diagonalizable. Hasta ahora, solo sabemos que dentro de una misma clase se preserva la determinante y traza, pero la vuelta no es cierta, aunque dos matrices compartan traza y determinante no necesariamente son semejantes. Aun necesitamos herramientas más sofisticadas para saber cuando una matriz es triangularizable o diagonalizable.
+
+\subsection{Clasificación de matrices de $2\times 2$}
+
+Con los conocimientos que tenemos hasta este punto podemos clasificar las clases de equivalencia de $\M_2(\C)$. Por lo que en lo que resta de esta sección, nos dedicaremos a determinar cuando una matriz compleja de $2\times 2$ es triangularizable o diagonalizable.
+
+Para ello, calculemos algunas conjugaciones. La primera conjugación nos permite ``invertir'' los elementos de una matriz.
+\begin{equation}
+  \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+  \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+    = \begin{pmatrix} d & c \\ b & a \end{pmatrix}. \label{eq:ConjI}
+\end{equation}
+Notemos que si $c = 0$ entonces la matriz es triangular superior, y aplicando esta conjugación obtenemos que es semejante a una matriz triangular inferior. Aplicando una conjugación similar es posible demostrar que toda matriz semejante a una matriz triangular superior es semejante a una matriz triangular inferior y viceversa. De este modo, para que una matriz sea triangularizable no importa si es semejante a una matriz triangular inferior o superior.
+
+Para la siguiente conjugación, tomemos a cualquier $s \in \C$ y veamos que
+\begin{equation}
+  \begin{pmatrix} 1 & 0 \\ s & 1 \end{pmatrix}
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+  \begin{pmatrix} 1 & 0 \\ -s & 1 \end{pmatrix}
+    = \begin{pmatrix} -bs+a & b \\ -bs^2 + (a-d)s + c  & bs+d \end{pmatrix}. \label{eq:ConjII}
+\end{equation}
+Ya que estamos trabajando sobre $\C$, notemos que si $b \neq 0$ entonces existe $s \in \C$ tal que $-bs^2 + (a-d)s + c = 0$, por lo que la matriz sería semejante a una triangular superior. En el caso que $b = 0$, la matriz ya es triangularizable y por lo ya comentando en la conjugación anterior podemos concluir que toda matriz de $\M_2(\C)$ es semejante a una matriz triangular superior. En otras palabras
+\[ 
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & v \\ 0 & w \end{pmatrix}
+\]
+
+\begin{align}
+  \begin{pmatrix} 1 & s \\ 0 & 1 \end{pmatrix}
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+  \begin{pmatrix} 1 & -s \\ 0 & 1 \end{pmatrix}
+    &= \begin{pmatrix} cs+a & -cs^2 + (d-a)s + b \\ c & -cs+d \end{pmatrix}
+      \\
+  \begin{pmatrix} s & 0 \\ 0 & t \end{pmatrix}
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+  \begin{pmatrix} s^{-1} & 0 \\ 0 & t^{-1} \end{pmatrix}
+    &= \begin{pmatrix} a & b(s/t) \\ c(t/s) & d \end{pmatrix}
+\end{align}
