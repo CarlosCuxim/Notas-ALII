@@ -30,17 +30,52 @@ Para la siguiente conjugación, tomemos a cualquier $s \in \C$ y veamos que
 \end{equation}
 Ya que estamos trabajando sobre $\C$, notemos que si $b \neq 0$ entonces existe $s \in \C$ tal que $-bs^2 + (a-d)s + c = 0$, por lo que la matriz sería semejante a una triangular superior. En el caso que $b = 0$, la matriz ya es triangularizable y por lo ya comentando en la conjugación anterior podemos concluir que toda matriz de $\M_2(\C)$ es semejante a una matriz triangular superior. En otras palabras
 \[ 
-    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & v \\ 0 & w \end{pmatrix}
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & v \\ 0 & w \end{pmatrix}.
 \]
 
-\begin{align}
+Para la siguiente conjugación, consideremos a $s \in \C$ y para cualquier matriz triangular superior veamos que
+\begin{equation}
   \begin{pmatrix} 1 & s \\ 0 & 1 \end{pmatrix}
-  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+  \begin{pmatrix} u & v \\ 0 & w \end{pmatrix}
   \begin{pmatrix} 1 & -s \\ 0 & 1 \end{pmatrix}
-    &= \begin{pmatrix} cs+a & -cs^2 + (d-a)s + b \\ c & -cs+d \end{pmatrix}
-      \\
-  \begin{pmatrix} s & 0 \\ 0 & t \end{pmatrix}
-  \begin{pmatrix} a & b \\ c & d \end{pmatrix}
-  \begin{pmatrix} s^{-1} & 0 \\ 0 & t^{-1} \end{pmatrix}
-    &= \begin{pmatrix} a & b(s/t) \\ c(t/s) & d \end{pmatrix}
-\end{align}
+    = \begin{pmatrix} u & (w-u)s + v \\ 0 & w \end{pmatrix}.
+\end{equation}
+Notemos que si $u \neq w$  entonces existe $s \in \C$ tal que $(w-u)s + v = 0$, de este modo tenemos que las matrices pueden ser semejantes a una matriz diagonal con elementos distintos en la diagonal, o una matriz triangular con elementos en la diagonal iguales. Es decir, si $u,w \in \C$ entonces
+\[
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix}
+    \Eqor
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & w \\ 0 & u \end{pmatrix}.
+\]
+Ahora, en la segunda equivalencia, si $w \neq 0$ entonces notemos que
+
+\begin{equation}
+  \begin{pmatrix} 1 & 0 \\ 0 & w \end{pmatrix}
+  \begin{pmatrix} u & w \\ 0 & u \end{pmatrix}
+  \begin{pmatrix} 1 & 0 \\ 0 & w^{-1} \end{pmatrix}
+    = \begin{pmatrix} u & 1 \\ 0 & u \end{pmatrix}.
+\end{equation}
+
+De esta forma, tenemos que toda matriz compleja de $2 \times 2$ es semejante a alguna de estas matrices
+\[
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix}
+    \Eqor
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & 1 \\ 0 & u \end{pmatrix}.
+\]
+con $u$ y $w$ arbitrarios. Aunque aun queda determinar si estas matrices son los representantes de las clases de equivalencia o si hay repeticiones.
+
+Primero notemos que si $M = P^{-1} N P$ entonces $M^2 = (P^{-1} N P)(P^{-1} N P) = P^{-1}N^2 P$, de igual forma $M^3 = (P^{-1}N^2 P) (P^{-1} N P) = P^{-1}N^3 P$, de manera inductiva se puede ver que para todo $k \in \N$ se cumple que
+\[
+  M^k = P^{-1} N^k P
+\]
+Usando esta propiedad, notemos que si $c_k M^k + \cdots + c_2 M^2 + c_1 M + c_0 I = \bec 0$ entonces
+\begin{align*}
+  \bec 0 &= c_k M^k + \cdots + c_2 M^2 + c_1 M + c_0 I \\
+    &= c_k P^{-1}N^k P + \cdots + c_2 P^{-1}N^2 P + c_1 P^{-1}N P + c_0 I \\
+    &= P^{-1} (c_k N^k + \cdots + c_2 N^2 + c_1 N + c_0 I) P.
+\end{align*}
+De aquí es claro que $c_k N^k + \cdots + c_2 N^2 + c_1 N + c_0 I$, lo que nos deja con la siguiente proposición.
+
+\begin{prop}
+  Sean $M, N \in \M_n(\F) - \{\bec 0\}$ si $M \sim N$ entonces $\sum_{i=0}^k c_k M^k = \bec 0$ si y solo si $\sum_{i=0}^k c_k N^k = \bec 0$, donde $M^0 = I_n$. \qed
+\end{prop}
+
