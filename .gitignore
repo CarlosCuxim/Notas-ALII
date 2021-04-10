@@ -8,3 +8,4 @@ libros
 *.fls
 *.gz
 *.toc
+*.out
