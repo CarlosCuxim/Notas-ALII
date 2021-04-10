@@ -111,3 +111,15 @@ pero la proposición \ref{prop:MPolySem}, esto implicaría que $T_v - vI  = \bec
     0 & 1 \\ 0 & 0 \end{pmatrix},
 \]
 pero claramente esto es una contradicción. De esta forma la clase de equivalencia de $D_{u,w}$ es ajena a la clase de equivalencia de $T_v$ para cualesquiera $u,v,w \in \C$.
+
+Ahora, qué pasa con las semejanza de matrices del mismo tipo. Supongamos que existen $u, v, w, u', v', w' \in \C$ tal que $D_{u,w} \sim D_{u',w'}$ o $T_v \sim T_{v'}$. Aplicando el mismo proceso anterior tenemos que $(T_v - vI)^2 = \bec 0$ y $(D_{u,w} - uI)(D_{u,w} - wI) = \bec 0$, aplicando la proposición \ref{prop:MPolySem} sobre $D_{u',w'}$ y $T_{v'}$ y simplificando, se tiene que 
+\[
+  D_{u,w} \sim D_{u',w'} \iff \{u,v\} = \{u',v'\}
+    \Eqand
+  T_v \sim T_{v'} \iff v = v'.
+\]
+
+Resumiendo todo el proceso hecho hasta ahora, tenemos el siguiente teorema.
+\begin{teor}
+  Toda matriz $M \in \M_2(\C)$ es semejante a una matriz de la forma $D_{u,w}$ o $T_v$ con $u,v,w \in \C$. Además, $D_{u,w} \nsim T_v$ para cualesquiera $u,v,w \in \C$. Y por ultimo, $D_{u,w} \sim D_{u',w'}$ si y solo si $\{u,v\} = \{u',v'\}$ y $T_v \sim T_{v'}$ si y solo si $v = v'$. \qed
+\end{teor}
