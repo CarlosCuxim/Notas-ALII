@@ -1,0 +1,79 @@
+\section{Proyecto -- Sucesión de Fibonacci}
+
+
+Esta sección esta dedicada a desarrollar un ejemplo de uso de todos los temas que hemos visto hasta el momento y una introducción al siguiente capítulo.
+
+Una sucesión muy conocida en las matemáticas es la llamada, sucesión de Fibonacci. Esta sucesión se define de manera recursiva como
+\[
+  F_0 = 0, \quad F_1 = 1, \quad F_{i+1} = F_i + F_{i-1}.
+\]
+
+Un problema con las sucesiones recursivas, es que para calcular un término hay que calcular todos los términos anteriores, de este modo, para este tipo de sucesiones siempre se busca un fórmula que nos permita calcular un término de manera directa. En el caso de la sucesión de Fibonacci, esta fórmula existe y es conocida como la \emph{fórmula de Binet}. El fin de este proyecto es encontrar la fórmula a partir de los que conocemos hasta ahora.
+
+En primer lugar, notemos que podemos ver la sucesiones de Fibonacci como un sistema de ecuaciones dado por
+\begin{equation}
+  \left\{\begin{aligned}
+    f_{n} + f_{n-1} &= f_{n+1} \\
+    f_n             &= f_n
+  \end{aligned}\right. 
+    \implies
+  \begin{pmatrix}
+   1 & 1 \\ 1 & 0
+  \end{pmatrix} \begin{pmatrix}  F_n \\ F_{n-1} \end{pmatrix}
+    = \begin{pmatrix}  F_{n+1} \\ F_n \end{pmatrix}.
+    \label{eq:FibMtx}
+\end{equation}
+Definamos como $M$ a la matriz asociada al sistema de ecuaciones de \eqref{eq:FibMtx}. Notemos que por definición, este cumple que
+\[
+  M^n \begin{pmatrix}  F_1 \\ F_0 \end{pmatrix} 
+    = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^n  \begin{pmatrix}  1 \\ 0 \end{pmatrix}
+    = \begin{pmatrix}  F_{n+1} \\ F_n \end{pmatrix}.
+\]
+
+De esta forma tenemos una forma, relativamente directa, de calcular el $n$-ésimo término de la sucesión de Fibonacci. El problema entonces es calcular cuanto vale $M^n$. Por la proposición \ref{prop:MPolySem}, sabemos que si $M = P^{-1}NP$, entonces $M^n = P^{-1} N^n P$, para hacer más sencillos los cálculos busquemos la matriz $D_{u,w}$ o $T_v$ a la que es semejante $M$.
+
+Como ya dijimos antes, los valores de la diagonal de su matriz $D_{u,w}$ o $T_v$ son llamados los valores propios de la matriz, aunque hasta la siguiente capítulo se explicará con más detalle lo que esto significa, podemos adelantar que la forma más eficiente de encontrarlos, es ver que valores $\lambda \in \C$ cumplen que $\det(M-\lambda I) = 0$. Así tenemos que los valores propios de $M$ son los $\lambda \in \C$ tal que
+\[
+  \det\begin{pmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{pmatrix} = \lambda^2 - \lambda - 1 = 0.
+\]
+Aplicando la fórmula general, tenemos que las raíces del polinomio son $\phi = (1+\sqrt{5})/2$ y $-\phi^{-1} = (1-\sqrt{5})/2$. Dado que son dos valores distintos, por el teorema \ref{teor:TDMat2x2}, entonces tenemos que $M \sim D$, donde
+\[
+  D = \begin{pmatrix}
+    \phi & 0 \\
+    0 & -\phi^{-1}
+  \end{pmatrix}
+\]
+
+Ahora, dado que $M \sim D$, entonces debe existir una matriz invertible $P$ tal que $D = P^{-1} M P$. Para encontrar esta matriz $P$ notemos que
+\begin{align*}
+  De_1 &=  P^{-1} M Pe_1, \\
+  \phi P_{*1} &= M P_{*1}, \\
+  (M - \phi I)P_{*1} &= \bec 0.
+\end{align*}
+De manera análoga, se puede ver que $(M + \phi^{-1} I)P_{*2} = \bec 0.$ Si recordamos como obtuvimos a $\phi$ y $-\phi^{-1}$ es fácil ver que las ecuaciones $(M - \phi I)x = \bec 0$ y $(M + \phi^{-1} I)x = \bec 0$ tienen infinitas soluciones no triviales, en el capitulo 2 veremos que estos vectores son llamados los \emph{vectores propios} de $M$ asociados al valor propio. Cualquiera de estos vectores propios sirve, así que podemos elegir líbremente que $P_{*1} = (1, \phi^{-1})^t$ y $P_{*2} = (1, -\phi)^t$. Un cálculo rápido nos puede confirmar que $P$ es invertible y que
+\[
+  P^{-1} M P = 
+  \frac{1}{\sqrt{5}}\begin{pmatrix} \phi & 1 \\ \phi^{-1} & -1 \end{pmatrix}
+  \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}
+  \begin{pmatrix} 1 & 1 \\ \phi^{-1} & -\phi \end{pmatrix} =
+  \begin{pmatrix} \phi & 0 \\ 0 & -\phi^{-1} \end{pmatrix} = D
+\]
+
+De aquí, y aplicando todo lo mencionado con anterioridad, tenemos que
+\begin{align*}
+  \begin{pmatrix} F_{n+1} \\ F_n \end{pmatrix}
+    &= M^n \begin{pmatrix} 1 \\ 0 \end{pmatrix}  = P D^n P^{-1} \begin{pmatrix} 1 \\ 0 \end{pmatrix} \\
+    &= \frac{1}{\sqrt{5}} \begin{pmatrix} 1 & 1 \\ \phi^{-1} & -\phi \end{pmatrix}
+        \begin{pmatrix} \phi^n & 0 \\ 0 & (-\phi^{-1})^n \end{pmatrix}
+        \begin{pmatrix} \phi \\ \phi^{-1} \end{pmatrix} \\
+    &= \frac{1}{\sqrt{5}} \begin{pmatrix} 1 & 1 \\ \phi^{-1} & -\phi \end{pmatrix}
+        \begin{pmatrix} \phi^{n+1} \\ (-1)^n \phi^{-(n+1)} \end{pmatrix} \\
+    &= \frac{1}{\sqrt{5}} \begin{pmatrix}
+          \phi^{n+1} + (-1)^n \phi^{-(n+1)} \\
+          \phi^n + (-1)^{n+1} \phi^{-n}
+        \end{pmatrix}.
+\end{align*}
+De todo lo anterior, finalmente hemos deducido que la Formula de Binet es
+\[
+  F_n = \frac{\phi^n + (-1)^{n+1} \phi^{-n} }{\sqrt{5}}.
+\]
