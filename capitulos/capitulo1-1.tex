@@ -2,9 +2,9 @@
 
 \section{Notación e ideas}
 
-Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones así como las estructuras con las que vamos a estar trabajando.
+Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones importantes así como las estructuras con las que vamos a estar trabajando.
 
-En primer lugar, recordemos que una estructura algebraica no es más que la combinación de un conjunto, funciones o relaciones asociadas a éste y propiedades relacionadas a estas últimas.
+En primer lugar, recordemos que una \emph{estructura algebraica} no es más que la combinación de un conjunto, funciones o relaciones asociadas a éste y propiedades relacionadas a estas últimas.
 
 Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elemento del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$, entonces una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso.
 
@@ -67,7 +67,7 @@ Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $
 
 Por convención, a los elementos de $V$ les llamaremos vectores y a los del campo, escalares. De igual forma y si no existe confusión, a partir de ahora a la suma del campo $\F$ y de $V$ lo denotaremos con el mismo símbolo. Para el producto del campo y el producto escalar, por convención a partir de ahora se omitirá el símbolo $\cdot$, de esta forma $\lambda v$ hará referencia a la multiplicación del escalar $\lambda$ con el vector $v$.
 
-Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de matrices de $n \times m $ con entradas en un campo $\F$, o el conjunto de polinomios $\F[x]$.
+Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de matrices de $n \times m $ con entradas en un campo $\F$, o el anillo de polinomios $\F[x]$.
 
 \subsection{Subespacios vectoriales}
 
@@ -187,3 +187,100 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   Sea $T \colon V \to W$ una transformación $\F$-lineal. Si $V$ es de dimensión finita, entonces
     \[  \dim_\F( \ker T )  + \dim_\F( \Im T) = \dim_\F (V). \]
 \end{teor}
+
+
+
+
+\ExerciseSection
+
+
+\begin{enumerate}
+  \item Si $V$ es un $\F$-espacio vectorial, demuestre que $0_\F \cdot v = 0$ y $(-1_\F) \cdot v = -v$ para todo vector $v \in V$.
+
+  \item El conjunto $\{0\}$ tiene una estructura canónica de $\F$-espacio vectorial para cada campo $\F$: indique cuál es y verifique los axiomas. A tal espacio vectorial se le denomina \emph{trivial}.
+  
+  \item Sea $\F$ un campo dado. Indique cuál es la estructura canónica de $\F$ como $\F$-espacio vectorial y verifique los axiomas.
+  
+  \item Indique, en el campo de los complejos, sus estructuras canónicas como $\C$-espacio vectorial, como $\R$-espacio vectorial y como $\Q$-espacio vectorial. Verifique los axiomas.
+  
+  \item Sea $A$ un anillo con unidad $1_A \neq 0_A$ , y sean $\F$ un campo y $\phi\colon \F \to A$ un homomorfismo de anillos unitarios (es decir que $\phi(1_\F) = 1_A$ ). Demuestre que via $\phi$ se cumple que $A$ es un $\F$-espacio vectorial.
+  
+  \item Sea $\F[x]$ el anillo de polinomios con coeficientes en $\F$. Demuestre que $\F[x]$ es un $\F$-espacio vectorial.
+  
+  \item Sean $I$ un conjunto no vacío y $\F$ un campo dado. Denotemos como $\F^I$ al conjunto de las funciones $f\colon I \to \F$. Definimos la suma en $\F^I$ de la siguiente manera: dados $f, g \in \F^I$ se establece que $(f + g)(i) = f(i) + g(i)$. Definimos el producto por un escalar de la siguiente manera: dado $f \in \F^I$ y $c \in \F$, establecemos que $(c \cdot f )(i) = c \bigl( f(i) \bigr)$. Demuestre que con las operaciones definidas $\F^I$ tiene una estructura de $\F$-espacio vectorial.
+  
+  \item Considere a los números complejos. Dado $\alpha \in \C$ demuestre que $\alpha \R$ es un $\R$-subespacio vectorial de $\C$, pero que no es un $\C$-espacio vectorial.
+  
+  \item Denotemos como $\F[x]_{\leq n}$ al conjunto de polinomios con coeficientes en $\F$ y que tienen grado menor o igual a $n$. Demuestre que $\F[x]_{\leq n}$ es un $\F$-subespacio vectorial de $\F[x]$.
+  
+  \item Sea $U$ un $\F$-subespacio vectorial de $V$, demuestre que $0 \in U$.
+  
+  \item Sea $U$ un subconjunto no vacío del $\F$-espacio vectorial $V$. Demuestre que $U$ es un $\F$-subespacio vectorial si y solo si se cumplen las siguientes dos condiciones:
+    \begin{enumerate}
+      \item $\F U \subseteq \F[U]$, donde $\F U = \{cu : c \in \F \land u \in U\}$.
+      \item $(U + U) \subseteq U$, donde $U+U = \{u_1 + u_2 \colon u_1, u_2 \in U\}$.
+    \end{enumerate}
+
+  \item Sea $U$ un $\F$-subespacio vectorial de $V$ y sea $W$ un $\F$-subespacio vectorial de $U$, demuestre que $W$ es un $\F$-subespacio vectorial de $V$.
+  
+  \item Considere al $\F$-espacio vectorial $\M_{n,n} ( \F )$, al que denotaremos (solo un subíndice) $\M_n(\F)$. Sea $\bec U$ el subconjunto de todas las matrices triangulares superiores de $\M_n(\F)$, es decir que si $(a_{ij}) \in \bec U$ entonces $i > j$ implica que $a_{ij} = 0$. Similarmente sea $\bec L$ el subconjunto de todas las matrices triangulares inferiores de $\M_n(\F)$, y con $\bec D$ denotemos a las matrices diagonales. Demuestre que $\bec U$, $\bec L$ y $\bec D$ son $\F$-subespacios vectoriales de $\M_n(\F)$.
+  
+  \item Sea $V$ un $\F$-espacio vectorial, y sea $U_i$ un $\F$-subespacio vectorial de $V$ para cada $i \in I$, donde $I$ es un conjunto de índices no vacío. Demuestre que $U = \bigcap_{i \in I} U_i$ es un $\F$-subespacio vectorial de $V$ y un $\F$-subespacio vectorial de cada $U_i$.
+  
+  \item Sea $S$ un subconjunto del $\F$-espacio vectorial $V$, y denote por $\inner{S}$ a la intersección de todos los $\F$-subespacios vectoriales de $V$ que contienen a $S$. Por el ejercicio previo sabemos que $\inner{S}$ es un $\F$-subespacio vectorial de $V$, y notemos que si $S$ es el conjunto vacío entonces $\inner{S} = \{ 0 \}.$ Demuestre que $\inner{S}$ es el mínimo $\F$-subespacio vectorial de $V$ que contiene a $S$.
+  
+  \item Sea $S$ un subconjunto no vacío del $\F$-espacio vectorial $V$. Demuestre que para cualquier $v \in \inner{S}$ existen algún entero $n$, vectores $s_1, s_2, \ldots, s_n \in S$ y coeficientes $c_1, c_2, \ldots, c_n \in \F$ tales que $v = \sum _{i=1}^n c_i s_i$. Es por la propiedad mencionada que $\inner{S}$ es llamado el \emph{$\F$-subespacio vectorial generado por $S$.}
+  
+
+  \item Consideremos los $\F$-subespacios vectoriales $U_1$ y $U_2$ de $V$. Demuestre que $U_1 + U_2$ es un $\F$-subespacio vectorial de $V$, donde $U_1 + U_2 = \{ u_1 + u_2 : u_1 \in U_1 \land u_2 \in U_2 \}.$
+  
+  \item Sea $\F^{I}$ como se mencionó anteriormente, y sea $\F^{(I)}$ el subconjunto de funciones que a evaluarse son cero en casi todos sus valores, es decir que si $f \in \F^{(I)}$ entonces $f(i) \neq 0_\F$ solo para una cantidad finitas de elementos $i \in I$. Demuestre que $\F^{(I)}$ es un $\F$-subespacio vectorial de $\F^{I}$.
+  
+  \item Determine $\dim_\F(\F)$; justifique su respuesta.
+  
+  \item Sea $\F[x]_{\leq n}$ como se mencionó anteriormente: determine su dimensión exhibiendo una base.
+  
+  \item El campo de los complejos tiene una estructura canónica como $\C$-espacio vectorial, como $\R$-espacio vectorial
+  y como $\Q$-espacio vectorial. Determine la dimensión de $\C$ como $\C$-espacio vectorial y como $\R$-espacio vectorial exhibiendo bases correspondientes a cada caso.
+  
+  \emph{Reto:} Demuestre que la dimensión de $\C$ como $\Q$-espacio vectorial no es finita.
+  
+  \item Determine $\dim_{\F}\bigl( \M_{n,m}(\F) \bigr)$.
+  
+  \item Sean $\M_n(\F)$, $\bec U$, $\bec L$ y $\bec D$ como se mencionó anteriormente. Calcule la dimensión de cada uno de los $\F$-subespacios vectoriales.
+
+  \item Considere el contexto del ejercicio previo. Demuestre que $\bec U + \bec L = \M_n(\F)$.
+  
+  \item Sea $\bec U_e$ el $\F$-subespacio vectorial de las matrices triangulares estrictamente superiores, es decir que si  $(a_{ij}) \in \bec U_e$ entonces $i \geq j$ implica $a_{ij} = 0$ y similarmente $\bec L_e$ denota al $\F$-subespacio vectorial de las matrices triangulares estrictamente inferiores, demuestre que $\bec U_e \oplus \bec D \oplus \bec L_e = \M_n(\F)$.
+  
+  \item Sea $V$ un $\F$-espacio vectorial de dimensión finita y sean $U_1, U_2, \ldots, U_k$ un conjunto de $\F$-subespacios vectoriales de $V$. Supongamos que $V = U_1 \oplus U_2 \oplus \cdots \oplus U_k$; demuestre que $\dim_\F(V) = \sum _{i=1}^k \dim_\F(U_i)$.
+  
+  \item Provea un ejemplo de la siguiente situación: $U_1$, $U_2$, $U_3$ son $\F$-subespacios vectoriales de $V$ tales que $i \neq j$ implica $U_i \cap U_j = \{0\}$, pero $U_1 + U_2 + U_3$ no es una suma directa.
+  
+  \item Sea $\F^I$ como se mencionó anteriormente: para el caso $I$ finito exhiba alguna base y determine su dimensión.
+  
+  \item Sea $\F^{(I)}$ como se mencionó anteriormente: exhiba alguna base y determine su dimensión (para cualquier $I$).
+  
+  \item Sea $f \colon \N \to \Q$ una biyección. Considere los siguientes subconjuntos de $\Q$: $G_1 = \Q - \{ f(1)\}$, $G_2 = \{ f(1), f(2) \}$, \dots, $G_n = \Q - \{ f(1), f(2), \ldots, f(n) \}$, etc. Demuestre que cada $G_i$ es un conjunto generador de $\Q$ como $\Q$-espacio vectorial. Demuestre que $\bigcap _{i \in \mathbb{N}} G_i = \emptyset$.
+  
+  \item Sea $G$ un subconjunto generador finito del $\F$-espacio vectorial $V \neq \{0\}$ (es decir que $V$ es no trivial). Demuestre que existe algún subconjunto de $G$ que es una base de $V$.
+  
+  \item Sea $T\colon V \to W$ una transformación $\F$-lineal.
+    \begin{enumerate}
+      \item Demuestre que $\ker(T)$ es un $\F$-subespacio vectorial de $V$.
+      \item Demuestre que $T$ es inyectiva si y solo si $\ker(T) = \{0\}$.
+      \item Demuestre que $\Im(T)$ es un $\F$-subespacio vectorial de $W$.
+    \end{enumerate}
+
+  \item Sea $T\colon V \to W$ una transformación $\F$-lineal y sean $U_1$ y $U_2$ $\F$-subespacios vectoriales de $V$. Demuestre que:
+    \begin{enumerate}
+      \item $T(U_1 + U_2) = T(U_1) + T(U_2)$.
+      \item Supongamos que $T$ es inyectiva y que $U_1 \oplus U_2$. Entonces $T(U_1) \oplus T(U_2)$.
+    \end{enumerate}
+
+  \item Sean $T_1\colon V \to W$ y $T_2\colon W \to U$ transformaciones $\F$-lineales. Demuestre que $T_2 \circ T_1 \colon V \to U$ es una transformación $\F$-lineal.
+  
+  \item Sea $T\colon V \to W$ una transformación $\F$-lineal biyectiva: demuestre que $T^{-1}\colon W \to V$ es una transformación $\F$-lineal biyectiva.
+  
+  \item Demuestra que $L(V,W)$ es un $\F$-espacio vectorial.
+\end{enumerate}
