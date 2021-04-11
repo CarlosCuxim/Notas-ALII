@@ -194,7 +194,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
 \ExerciseSection
 
 
-\begin{enumerate}
+\begin{exerciselist}
   \item Si $V$ es un $\F$-espacio vectorial, demuestre que $0_\F \cdot v = 0$ y $(-1_\F) \cdot v = -v$ para todo vector $v \in V$.
 
   \item El conjunto $\{0\}$ tiene una estructura canónica de $\F$-espacio vectorial para cada campo $\F$: indique cuál es y verifique los axiomas. A tal espacio vectorial se le denomina \emph{trivial}.
@@ -207,11 +207,11 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item Sea $\F[x]$ el anillo de polinomios con coeficientes en $\F$. Demuestre que $\F[x]$ es un $\F$-espacio vectorial.
   
-  \item Sean $I$ un conjunto no vacío y $\F$ un campo dado. Denotemos como $\F^I$ al conjunto de las funciones $f\colon I \to \F$. Definimos la suma en $\F^I$ de la siguiente manera: dados $f, g \in \F^I$ se establece que $(f + g)(i) = f(i) + g(i)$. Definimos el producto por un escalar de la siguiente manera: dado $f \in \F^I$ y $c \in \F$, establecemos que $(c \cdot f )(i) = c \bigl( f(i) \bigr)$. Demuestre que con las operaciones definidas $\F^I$ tiene una estructura de $\F$-espacio vectorial.
+  \item \label{exer:F^I} Sean $I$ un conjunto no vacío y $\F$ un campo dado. Denotemos como $\F^I$ al conjunto de las funciones $f\colon I \to \F$. Definimos la suma en $\F^I$ de la siguiente manera: dados $f, g \in \F^I$ se establece que $(f + g)(i) = f(i) + g(i)$. Definimos el producto por un escalar de la siguiente manera: dado $f \in \F^I$ y $c \in \F$, establecemos que $(c \cdot f )(i) = c \bigl( f(i) \bigr)$. Demuestre que con las operaciones definidas $\F^I$ tiene una estructura de $\F$-espacio vectorial.
   
   \item Considere a los números complejos. Dado $\alpha \in \C$ demuestre que $\alpha \R$ es un $\R$-subespacio vectorial de $\C$, pero que no es un $\C$-espacio vectorial.
   
-  \item Denotemos como $\F[x]_{\leq n}$ al conjunto de polinomios con coeficientes en $\F$ y que tienen grado menor o igual a $n$. Demuestre que $\F[x]_{\leq n}$ es un $\F$-subespacio vectorial de $\F[x]$.
+  \item \label{exer:PolyGradLeqn} Denotemos como $\F[x]_{\leq n}$ al conjunto de polinomios con coeficientes en $\F$ y que tienen grado menor o igual a $n$. Demuestre que $\F[x]_{\leq n}$ es un $\F$-subespacio vectorial de $\F[x]$.
   
   \item Sea $U$ un $\F$-subespacio vectorial de $V$, demuestre que $0 \in U$.
   
@@ -223,7 +223,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
 
   \item Sea $U$ un $\F$-subespacio vectorial de $V$ y sea $W$ un $\F$-subespacio vectorial de $U$, demuestre que $W$ es un $\F$-subespacio vectorial de $V$.
   
-  \item Considere al $\F$-espacio vectorial $\M_{n,n} ( \F )$, al que denotaremos (solo un subíndice) $\M_n(\F)$. Sea $\bec U$ el subconjunto de todas las matrices triangulares superiores de $\M_n(\F)$, es decir que si $(a_{ij}) \in \bec U$ entonces $i > j$ implica que $a_{ij} = 0$. Similarmente sea $\bec L$ el subconjunto de todas las matrices triangulares inferiores de $\M_n(\F)$, y con $\bec D$ denotemos a las matrices diagonales. Demuestre que $\bec U$, $\bec L$ y $\bec D$ son $\F$-subespacios vectoriales de $\M_n(\F)$.
+  \item \label{exer:MatULD} Considere al $\F$-espacio vectorial $\M_{n,n} ( \F )$, al que denotaremos (solo un subíndice) $\M_n(\F)$. Sea $\bec U$ el subconjunto de todas las matrices triangulares superiores de $\M_n(\F)$, es decir que si $(a_{ij}) \in \bec U$ entonces $i > j$ implica que $a_{ij} = 0$. Similarmente sea $\bec L$ el subconjunto de todas las matrices triangulares inferiores de $\M_n(\F)$, y con $\bec D$ denotemos a las matrices diagonales. Demuestre que $\bec U$, $\bec L$ y $\bec D$ son $\F$-subespacios vectoriales de $\M_n(\F)$.
   
   \item Sea $V$ un $\F$-espacio vectorial, y sea $U_i$ un $\F$-subespacio vectorial de $V$ para cada $i \in I$, donde $I$ es un conjunto de índices no vacío. Demuestre que $U = \bigcap_{i \in I} U_i$ es un $\F$-subespacio vectorial de $V$ y un $\F$-subespacio vectorial de cada $U_i$.
   
@@ -234,11 +234,11 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
 
   \item Consideremos los $\F$-subespacios vectoriales $U_1$ y $U_2$ de $V$. Demuestre que $U_1 + U_2$ es un $\F$-subespacio vectorial de $V$, donde $U_1 + U_2 = \{ u_1 + u_2 : u_1 \in U_1 \land u_2 \in U_2 \}.$
   
-  \item Sea $\F^{I}$ como se mencionó anteriormente, y sea $\F^{(I)}$ el subconjunto de funciones que a evaluarse son cero en casi todos sus valores, es decir que si $f \in \F^{(I)}$ entonces $f(i) \neq 0_\F$ solo para una cantidad finitas de elementos $i \in I$. Demuestre que $\F^{(I)}$ es un $\F$-subespacio vectorial de $\F^{I}$.
+  \item \label{exer:F^IFinito} Sea $\F^{I}$ como se mencionó en el ejercicio \ref{exer:F^I}, y sea $\F^{(I)}$ el subconjunto de funciones que a evaluarse son cero en casi todos sus valores, es decir que si $f \in \F^{(I)}$ entonces $f(i) \neq 0_\F$ solo para una cantidad finitas de elementos $i \in I$. Demuestre que $\F^{(I)}$ es un $\F$-subespacio vectorial de $\F^{I}$.
   
   \item Determine $\dim_\F(\F)$; justifique su respuesta.
   
-  \item Sea $\F[x]_{\leq n}$ como se mencionó anteriormente: determine su dimensión exhibiendo una base.
+  \item Sea $\F[x]_{\leq n}$ como se mencionó en el ejercicio \ref{exer:PolyGradLeqn}: determine su dimensión exhibiendo una base.
   
   \item El campo de los complejos tiene una estructura canónica como $\C$-espacio vectorial, como $\R$-espacio vectorial
   y como $\Q$-espacio vectorial. Determine la dimensión de $\C$ como $\C$-espacio vectorial y como $\R$-espacio vectorial exhibiendo bases correspondientes a cada caso.
@@ -247,7 +247,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item Determine $\dim_{\F}\bigl( \M_{n,m}(\F) \bigr)$.
   
-  \item Sean $\M_n(\F)$, $\bec U$, $\bec L$ y $\bec D$ como se mencionó anteriormente. Calcule la dimensión de cada uno de los $\F$-subespacios vectoriales.
+  \item Sean $\M_n(\F)$, $\bec U$, $\bec L$ y $\bec D$ como se mencionó en el ejercicio \ref{exer:MatULD}. Calcule la dimensión de cada uno de los $\F$-subespacios vectoriales.
 
   \item Considere el contexto del ejercicio previo. Demuestre que $\bec U + \bec L = \M_n(\F)$.
   
@@ -257,9 +257,9 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item Provea un ejemplo de la siguiente situación: $U_1$, $U_2$, $U_3$ son $\F$-subespacios vectoriales de $V$ tales que $i \neq j$ implica $U_i \cap U_j = \{0\}$, pero $U_1 + U_2 + U_3$ no es una suma directa.
   
-  \item Sea $\F^I$ como se mencionó anteriormente: para el caso $I$ finito exhiba alguna base y determine su dimensión.
+  \item Sea $\F^I$ como se mencionó en el ejercicio \ref{exer:F^I}: para el caso $I$ finito exhiba alguna base y determine su dimensión.
   
-  \item Sea $\F^{(I)}$ como se mencionó anteriormente: exhiba alguna base y determine su dimensión (para cualquier $I$).
+  \item Sea $\F^{(I)}$ como se mencionó en el ejercicio \ref{exer:F^IFinito}: exhiba alguna base y determine su dimensión (para cualquier $I$).
   
   \item Sea $f \colon \N \to \Q$ una biyección. Considere los siguientes subconjuntos de $\Q$: $G_1 = \Q - \{ f(1)\}$, $G_2 = \{ f(1), f(2) \}$, \dots, $G_n = \Q - \{ f(1), f(2), \ldots, f(n) \}$, etc. Demuestre que cada $G_i$ es un conjunto generador de $\Q$ como $\Q$-espacio vectorial. Demuestre que $\bigcap _{i \in \mathbb{N}} G_i = \emptyset$.
   
@@ -283,4 +283,4 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   \item Sea $T\colon V \to W$ una transformación $\F$-lineal biyectiva: demuestre que $T^{-1}\colon W \to V$ es una transformación $\F$-lineal biyectiva.
   
   \item Demuestra que $L(V,W)$ es un $\F$-espacio vectorial.
-\end{enumerate}
+\end{exerciselist}

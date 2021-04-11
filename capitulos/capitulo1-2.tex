@@ -4,13 +4,37 @@ Como ya mencionamos en la sección anterior, dada una base existe una única com
 
 
 \begin{defi}
-  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, definiremos su \emph{vector coordenada con respecto a $B$} como
+  Sea $V$ un $\F$-espacio vectorial de dimensión $n$, decimos que $B = (v_1, v_2, \ldots, v_n)$ es una \emph{base ordenada} si $\{v_1, v_2, \ldots, v_n\}$ es una base de $V$. Además, para todo $v \in V$ donde $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, definiremos su \emph{vector coordenada con respecto a $B$} como
     \[ [v]_B = \begin{pmatrix}
       v_1 \\ \vdots \\ v_n
     \end{pmatrix}.\]
 \end{defi}
 
-Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots, v_n)$ son dos bases ordenadas distintas, al igual que cualquier otra permutación, aunque provengan de la misma base. De este modo nos aseguraremos que la coordenada de cualquier elementos sea única. Una propiedad interesante es que esta asociación de vectores de $V$ con $n$-tuplas de $\F^n$ forma una transformación lineal biyectiva.
+Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots, v_n)$ son dos bases ordenadas distintas, al igual que cualquier otra permutación, aunque provengan de la misma base. De este modo nos aseguraremos que la coordenada de cualquier elementos sea única.
+
+\begin{example}
+  Consideremos el espacio vectorial $\R[x]_{\leq 2}$ junto la base ordenada $B = (1, x+1, x^2+1)$ y calculemos los vectores coordenadas con respecto a $B$ de: $x^2+5x-1$, $x^2 + 2x+1$ y $ax^2 + bx + c$.
+
+  \examplesolution 
+  Para el primero, recordemos que por definición la coordenada de $x^2+5x-1$ sobre $B$ es el vector $(\lambda_1, \lambda_2, \lambda_3)^t \in \R^3$ tal que
+    \begin{align*}
+      x^2+5x-1 &= \lambda_1 (1) + \lambda_2(x+1) + \lambda_3(x^2+1) \\
+        &= \lambda_3 x^2 + \lambda_2x + (\lambda_1 + \lambda_2 + \lambda_3).
+    \end{align*}  
+    Igualando los coeficientes obtenemos un sistema de ecuaciones, resolviéndolo tenemos que $\lambda_3 = 1$, $\lambda_2 = 5$ y $\lambda_1 = -1 - \lambda_2 - \lambda_3 = -7$, así tenemos que
+      \[
+        [x^2+5x-1]_B = \begin{pmatrix} -7 \\ 5 \\ 1 \end{pmatrix},
+      \]
+    
+    El proceso es el mismo para los polinomios $x^2 + 2x+1$ y $ax^2 + bx + c$, por lo que sus coordenadas son
+    \[
+        [x^2+2x+1]_B = \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}
+          \Eqand
+        [ax^2+bx+c]_B = \begin{pmatrix} c-a-b \\b \\ a \end{pmatrix}.
+      \]
+\end{example}
+
+Una propiedad interesante es que esta asociación de vectores de $V$ con las $n$-tuplas de $\F^n$ forma una transformación lineal biyectiva.
 
 \begin{prop}
   Sea $B$ una base ordenada del $\F$-espacio vectorial $V$, entonces la función $[\cdot]_B\colon V \to \F^n$ es un isomorfismo.
@@ -34,48 +58,48 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
 
 \subsection{Cambio de base}
 
-Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacio, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{B,B'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
+Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacio, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{BB'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
 
-La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{B,B'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
-  \[ M_{B,B'} [v_i]_B = M_{B,B'} e_i = (M_{B,B'})_{*i} = [v_i]_{B'}. \]
-Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{B,B'}$, en otras palabras que
-  \[ M_{B,B'} = \begin{spmatrix}{c|c|c}  [v_1]_{B'} & \cdots & [v_n]_{B'}  \end{spmatrix}. \]
+La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{BB'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
+  \[ M_{BB'} [v_i]_B = M_{BB'} e_i = (M_{BB'})_{*i} = [v_i]_{B'}. \]
+Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{BB'}$, en otras palabras que
+  \[ M_{BB'} = \begin{spmatrix}{c|c|c}  [v_1]_{B'} & \cdots & [v_n]_{B'}  \end{spmatrix}. \]
 
-\begin{teor}
-  Sea $V$ un $F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$, entonces existe una única matriz invertible $M_{B,B'}$ tal que para todo $v \in V$ se cumple que
-    \[ M_{B,B'}[v]_B = [v]_{B'} \Eqand M_{B,B'}^{-1}[v]_{B'} = [v]_B. \]
-  Además $(M_{B,B'})_{*i} = [v_i]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
+\begin{teor} \label{teor:CambioBase}
+  Sea $V$ un $F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$, entonces existe una única matriz invertible $M_{BB'}$ tal que para todo $v \in V$ se cumple que
+    \[ M_{BB'}[v]_B = [v]_{B'} \Eqand M_{BB'}^{-1}[v]_{B'} = [v]_B. \]
+  Además $(M_{BB'})_{*i} = [v_i]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
 \end{teor}
 \begin{proof}
-  Primero, notemos que por propiedades conocidas y la definición de $M_{B,B'}$ es claro que 
-    \[ M_{B,B'}[v_i]_B = M_{B,B'} e_i =  (M_{B,B'})_{*i} = [v_i]_{B'}. \]
+  Primero, notemos que por propiedades conocidas y la definición de $M_{BB'}$ es claro que 
+    \[ M_{BB'}[v_i]_B = M_{BB'} e_i =  (M_{BB'})_{*i} = [v_i]_{B'}. \]
 
   De este modo, sea $v \in V$ con $[v]_B = (\lambda_1,\ldots,\lambda_n)^t$, por la linealidad de $[\cdot]_{B'}$ y las propiedad ya mencionadas, tenemos que
     \begin{align*}
       v        &= \lambda_1 v_1 + \cdots + \lambda_n v_n, \\
       [v]_{B'} &= \lambda_1 [v_1]_{B'} + \cdots + \lambda_n [v_n]_{B'} \\
-               &= \lambda_1 M_{B,B'}[v_1]_B + \cdots + \lambda_n M_{B,B'}[v_n]_B \\
-               &= M_{B,B'} [\lambda_1 v_1 + \cdots + \lambda_n v_n ]_B \\
-               &= M_{B,B'} [ v ]_B.
+               &= \lambda_1 M_{BB'}[v_1]_B + \cdots + \lambda_n M_{BB'}[v_n]_B \\
+               &= M_{BB'} [\lambda_1 v_1 + \cdots + \lambda_n v_n ]_B \\
+               &= M_{BB'} [ v ]_B.
     \end{align*}
-  De este modo $M_{B,B'}[v]_B = [v]_{B'}$ para toda $v \in B$. Es fácil ver que si $M_{B,B'}$ es invertible, entonces $M_{B,B'}^{-1}[v]_{B'} = [v]_B$, así solo nos queda demostrar que $M_{B,B'}$ es invertible.
+  De este modo $M_{BB'}[v]_B = [v]_{B'}$ para toda $v \in B$. Es fácil ver que si $M_{BB'}$ es invertible, entonces $M_{BB'}^{-1}[v]_{B'} = [v]_B$, así solo nos queda demostrar que $M_{BB'}$ es invertible.
   
-  Consideremos el sistema de ecuaciones $M_{B,B'}x = \bec 0$, como $[\cdot]_B$ es suprayectivo, entonces existe $v \in V$ tal que $[v]_B = x$, de este modo $M_{B,B'}x = \bec 0$ implica que $M_{B,B'}[v]_B = [v]_{B'} = \bec 0$. Ahora, recordemos por inyectividad de $[\cdot]_{B'}$ que $[v]_{B'} = \bec 0$ si y solo si $v = 0$, de este modo $x = [v]_{B} = \bec 0$, pero esto implica que $M_{B,B'}x = \bec 0$ no tiene soluciones no triviales, así, por propiedades de las matrices, tenemos que $M_{B,B'}$ es invertible.
+  Consideremos el sistema de ecuaciones $M_{BB'}x = \bec 0$, como $[\cdot]_B$ es suprayectivo, entonces existe $v \in V$ tal que $[v]_B = x$, de este modo $M_{BB'}x = \bec 0$ implica que $M_{BB'}[v]_B = [v]_{B'} = \bec 0$. Ahora, recordemos por inyectividad de $[\cdot]_{B'}$ que $[v]_{B'} = \bec 0$ si y solo si $v = 0$, de este modo $x = [v]_{B} = \bec 0$, pero esto implica que $M_{BB'}x = \bec 0$ no tiene soluciones no triviales, así, por propiedades de las matrices, tenemos que $M_{BB'}$ es invertible.
 
   La unicidad se da por el análisis hecho al principio. Si existiera otra matriz $P$ con las mismas cualidades, entonces para todo $i \in \{1,\ldots, n\}$ cumple que
-  \[ (M_{B,B'})_{*i} = [v_i]_{B'} = P[v_i]_{B} = Pe_i = P_{*i},\]
-  de este modo, dado que todas las columnas son iguales, se cumple que $P = M_{B,B'}$.
+  \[ (M_{BB'})_{*i} = [v_i]_{B'} = P[v_i]_{B} = Pe_i = P_{*i},\]
+  de este modo, dado que todas las columnas son iguales, se cumple que $P = M_{BB'}$.
 \end{proof}
 
 Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cualquier otra base ordenada $B'$ existe una matriz invertible asociada que realiza el cambio de coordenadas. La vuelta de esta proposición también es cierta, de este modo existe una biyección entre el conjunto de bases ordenadas y el conjunto de matrices invertibles.
 
 \begin{prop}\label{prop:ExBase}
-  Sea $P$ una matriz de $n\times n$ con entradas en $\F$, $V$ un $\F$-espacio vectorial y $B = (v_1, \ldots, v_n)$ una base ordenada, entonces existe una única base ordenada $B'$ tal que $M_{B',B} = P$.
+  Sea $P$ una matriz de $n\times n$ con entradas en $\F$, $V$ un $\F$-espacio vectorial y $B = (v_1, \ldots, v_n)$ una base ordenada, entonces existe una única base ordenada $B'$ tal que $M_{B'B} = P$.
 \end{prop}
 \begin{proof}
   Si $P = (p_{ij})$ entonces definamos $B' = (v_1', \ldots, v_n')$ donde
     \[ v_j' = p_{1j}v_1 + \cdots +  p_{nj}v_n,     \qquad j \in \{1,\ldots, n\}. \]
-  Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B',B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
+  Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B'B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
 
   Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \ldots, \lambda_n)^t$, entonces
   \begin{align*}
@@ -85,7 +109,74 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
   \end{align*}
   Ahora, como $P$ es invertible por hipótesis, entonces la única solución al sistema $Px = \bec 0$ es la trivial, de este modo $\lambda = \bec 0$ y por tanto $B'$ es una base ordenada.
 
-  Ahora, para la unicidad, supongamos que existe otra base ordenada $B'' = (v_1'', \ldots, v_n'')$ tal que $P = M_{B'',B}$, entonces, para toda $i \in \{1,\ldots,n\}$ se cumple que
+  Ahora, para la unicidad, supongamos que existe otra base ordenada $B'' = (v_1'', \ldots, v_n'')$ tal que $P = M_{B''B}$, entonces, para toda $i \in \{1,\ldots,n\}$ se cumple que
   \[ [v_i'']_B =  P[v_i'']_{B''} = Pe_i = P[v_i']_{B'} = [v_i']_B, \]
   así, por la biyectividad de $[\cdot]_B$, tenemos que $v_i'' = v_i'$ para toda $i \in \{1,\ldots,n\}$, mostrando así que $B'' = B'$.
 \end{proof}
+
+\begin{example}
+  Consideremos las bases ordenadas $B = ( 1, it )$ y $B' = (t+1, t-1)$ de $\C[t]_{\leq 1}$, calculemos la matriz de cambio de coordenadas $M_{BB'}$.
+
+  \examplesolution
+  Por el teorema \ref{teor:CambioBase} sabemos que $M_{BB'} = \bigl( [1]_{B'} \mid [it]_{B'} \bigr)$, para ello notemos que
+  \[
+    1 = \frac{1}{2} (t+1) - \frac{1}{2}(t-1)
+      \Eqand
+    it =  \frac{i}{2}(t+1) + \frac{i}{2}(t-1),
+  \]
+  de esta forma tenemos que 
+  \[ M_{BB'} = \begin{pmatrix}
+    1/2  & i/2 \\
+    -1/2 & i/2 \\
+  \end{pmatrix}. \]
+\end{example}
+
+\begin{example}
+  Consideremos las bases ordenadas $B = \bigl( (0,0,1)^t, (0,1,0)^t, (1,0,0)^t \bigr)$ y $B' = \bigl( (1,1,0)^t, (-1, 1, 0)^t, (0,0,-1)^t \bigr)$ de $\R^3$, calculemos la matriz de cambio de coordenadas $M_{BB'}$.
+
+  \examplesolution
+  Aunque podríamos calcular de manera tradicional la matriz de cambio de coordenadas usando la definición de coordenada, existe un método más sencillo en este caso. Consideremos la base ordenada canónica $C = (e_1, e_2, e_3)$, es bastante claro que si $v \in \R^3$ entonces $[v]_C = v$, de esta forma tenemos que
+  \[
+    M_{BC} = \begin{pmatrix}
+      0 & 0 & 1 \\
+      0 & 1 & 0 \\
+      1 & 0 & 0
+    \end{pmatrix} \Eqand
+    M_{B'C} = \begin{pmatrix}
+      1 & -1 & 0 \\
+      1 & 1  & 0 \\
+      0 & 0  & 1
+    \end{pmatrix}
+  \]
+
+  Ahora, dado que $M_{CB'} = M_{B'C}^{-1}$ veamos que $M_{B'C}^{-1} M_{BC}[v]_B = M_{B'C}^{-1}[v]_C = [v]_{B'}$, y por la unicidad de la matriz de cambio de base, entonces
+  \begin{align*}
+    M_{BB'} &= M_{B'C}^{-1} M_{BC} \\
+      &= \begin{pmatrix}
+        1 & -1 & 0 \\
+        1 & 1  & 0 \\
+        0 & 0  & 1
+        \end{pmatrix}^{-1}
+        \begin{pmatrix}
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 0
+        \end{pmatrix}  \\
+      &= \begin{pmatrix}
+        1/2  & 1/2 & 0 \\
+        -1/2 & 1/2 & 0 \\
+        0    & 0   & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        1 & 0 & 0
+        \end{pmatrix} \\
+      &= \begin{pmatrix}
+        0 & 1/2  & 1/2  \\
+        0 & 1/2  & -1/2 \\
+        1 & 0    & 0
+        \end{pmatrix}
+  \end{align*}
+\end{example}
+

@@ -52,17 +52,18 @@
 % MACROS DE LAS CAJAS
 % -------------------------------------------------------------------------
 
-% Contadores
-\newcounter{defi}[chapter]
-  \numberwithin{defi}{section}
+% Colores
+\definecolor{LighBlue}{HTML}{51C4D3}
+\definecolor{MainBlue}{HTML}{126E82}
+\definecolor{DarkBlue}{HTML}{132C33}
 
 \newtcolorbox{defi}
   {
-    title = {Definición \refstepcounter{defi}\thedefi.},
+    title = {Definición \refstepcounter{teor}\theteor.},
     coltitle=black,
     fonttitle = \bfseries,
     colback = white,
-    colframe=black,
+    colframe=MainBlue,
     parbox = false,
     sharp corners,
     enhanced,
@@ -77,8 +78,32 @@
     top=1.5mm+\tcboxedtitleheight/4,
     before skip = \bigskipamount,
     after skip = \bigskipamount,
-    parbox = true
+    breakable
+    %parbox = false
   }
+
+
+% Caja de ejemplos
+\tcolorboxenvironment{example}{
+  colback = white,
+  frame hidden,
+  top = 0mm,
+  bottom = 0mm,
+  boxsep = 0mm,
+  enhanced,
+  borderline west={2mm}{0pt}{MainBlue},
+  parbox = false,
+  breakable
+}
+
+% Caja de teoremas
+\tcolorboxenvironment{teor}{
+  colback = white,
+  colframe = MainBlue,
+  sharp corners,
+  boxrule = 1pt,
+  breakable
+}
 
 
 % Modo parskip local
@@ -93,13 +118,17 @@
 % =========================================================================
 % ENTORNOS MATEMÁTICAS AMS
 % -------------------------------------------------------------------------
-
-% Lemas sin numeración
   
-\newtheorem{prop}[defi]{Proposición}
-\newtheorem{teor}[defi]{Teorema}
-\newtheorem{lema}[defi]{Lema}
-\newtheorem{coro}[defi]{Corolario}
+\newtheorem{teor}{Teorema}[section]
+\newtheorem{prop}[teor]{Proposición}
+\newtheorem{lema}[teor]{Lema}
+\newtheorem{coro}[teor]{Corolario}
+
+
+\theoremstyle{definition}
+\newtheorem{example}{Ejemplo}[section]
+
+
 
 % =========================================================================
 
@@ -111,7 +140,7 @@
 % MACROS MATEMÁTICAS
 % -------------------------------------------------------------------------
 
-% Contadores
+% Contadores Ecuación
 \renewcommand*{\theequation}{\arabic{section}.\arabic{equation}}
 
 % ---------- ENTORNOS -----------
@@ -188,6 +217,9 @@
   \addcontentsline{toc}{subsection}{\ExerciseSectionLabel}%
   }
 
+\newenvironment{exerciselist}{\begin{enumerate}}{\end{enumerate}}
+
+\newcommand*{\examplesolution}{\medskip}
 
 % =========================================================================
 \endinput
