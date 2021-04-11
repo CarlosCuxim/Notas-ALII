@@ -101,11 +101,11 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
 \end{coro}
 \begin{proof}
   Dado que $T$ es invertible entonces es biyectiva, por lo que $m = n$. Así, por el teorema anterior, tenemos que
-  \[ T^{-1}_{B'B} T_{BB'} = (T^{-1}\circ T)_{B,B} = (\Id_{V,W})_{B,B} = I_n, \]
+  \[ T^{-1}_{B'B} T_{BB'} = (T^{-1}\circ T)_{BB} = (\Id_{V,W})_{BB} = I_n, \]
   pero esto impĺica que $T_{B'B}^{-1} = (T_{BB'})^{-1}$, por definición.
 
   Ahora, si $T_{BB'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B'B} =  (T_{BB'})^{-1}$. Aplicando el teorema anterior, esto implica que
-    \[ (S \circ T)_{B,B} =  S_{B'B}T_{BB'} = I_n = (\Id_{V,W})_{B,B}. \]
+    \[ (S \circ T)_{BB} =  S_{B'B}T_{BB'} = I_n = (\Id_{V,W})_{BB}. \]
   De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = \Id_{V,W}$ y análogamente se tiene que $T \circ S = \Id_{V,W}$, mostrando así que $T$ es invertible.
 \end{proof}
 

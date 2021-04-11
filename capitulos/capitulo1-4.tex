@@ -1,27 +1,27 @@
 \section{Semejanza de matrices}
 
-Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. Sl siguiente paso, es ver como obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
+Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. Si siguiente paso, es ver como obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
 
 \begin{teor}
   Sea $V$ y $W$ dos $\F$-espacios vectoriales y $T \colon V \to W$ una transformación lineal. Si $B_1$ y $B_2$ son bases ordenadas de $V$, $B_1'$ y $B_2'$ son bases ordenadas de $W$ entonces
-  \[T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}. \]
+  \[T_{B_2 B_2'} = M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1}. \]
 \end{teor}
 \begin{proof}
   Sea $v \in V$, notemos, por definición y propiedades conocidas, que
   \begin{align*}
-    M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1} [v]_{B_2} &= M_{B_1', B_2'} T_{B_1,B_1'} [v]_{B_1} \\
-      &= M_{B_1', B_2'} [T(v)]_{B_1'} \\
+    M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1} [v]_{B_2} &= M_{B_1' B_2'} T_{B_1 B_1'} [v]_{B_1} \\
+      &= M_{B_1' B_2'} [T(v)]_{B_1'} \\
       &= [T(v)]_{B_2'}.
   \end{align*}
-  Y por la unicidad de la matriz asociada, tenemos que $T_{B_2,B_2'} = M_{B_1', B_2'} T_{B_1,B_1'}M_{B_2,B_1}$.
+  Y por la unicidad de la matriz asociada, tenemos que $T_{B_2 B_2'} = M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1}$.
 \end{proof}
 
-Notemos que en el teorema anterior las matrices $T_{B_1,B_1'}$ y $T_{B_2,B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B$ son os bases ordenadas de $V$ entonces $[\Id_V]_{B,B'}[v]_B = [v]_B'$ por lo tanto $[\Id_V]_{B,B'} = M_{B,B'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertible están asociada a la transformación identidad, bajo unas ciertas bases.
+Notemos que en el teorema anterior las matrices $T_{B_1B_1'}$ y $T_{B_2B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B$ son os bases ordenadas de $V$ entonces $[\Id_V]_{BB'}[v]_B = [v]_B'$ por lo tanto $[\Id_V]_{BB'} = M_{BB'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertible están asociada a la transformación identidad, bajo unas ciertas bases.
 
-Esta idea se puede generalizar, si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tal que $M = T_{B_2, B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{B,B'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$.
+Esta idea se puede generalizar, si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tal que $M = T_{B_2 B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{BB'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$.
 
-Un caso de especial interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{B,B}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{B,B'} = (M_{B',B})^{-1}$ entonces 
-  \[ T_{B'} = (M_{B',B})^{-1} T_B M_{B',B} \]
+Un caso de especial interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{BB}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{BB'} = (M_{B'B})^{-1}$ entonces 
+  \[ T_{B'} = (M_{B'B})^{-1} T_B M_{B'B} \]
 y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matrices $P^{-1}T_{B}P$, donde $P$ es una matriz invertible, están asociadas a la misma transformación. De esta forma, la meta será agrupar todas las matrices que están asociadas a una misma transformación lineal.
 
 \begin{defi}
@@ -54,4 +54,21 @@ Como se puede intuir, la semejanza de matrices es una relación de equivalencia.
 Esta propiedad nos muestra que todas las matrices asociadas a una transformación lineal, y por tanto pertenecientes a la misma clases de equivalencia, tienen la misma determinante y traza, en otras palabras, la traza y determinante son invariantes ante el cambio de base.
 
 
+\ExerciseSection
 
+\begin{exerciselist}
+  \item Sea $T$ la transformación lineal de $\R^3$ a $\R^2$ dada por $T\bigl((x_1, x_2, x_3)^t\bigr) = (x_1 - x_2, x_2 - x_3)^t$
+    \begin{enumerate}
+      \item Encuentre la matriz asociada a $T$ sobre la bases canónicas de $\R^3$ y $\R^2$.
+      \item A partir de la matriz encontrada en el inciso anterior, encuentre la matriz asociada a $T$ con respecto a las bases $B = \bigl( (0, 1, 1)^t, (1, 0, 1)^t, (1, 1, 0)^t \bigr)$ y $B' = \bigl( (1, 0)^t, (1, 1)^t \bigr)$.
+    \end{enumerate}
+
+  \item Demuestra que la semejanza de matrices es una relación de simetría. Es decir, demuestra las siguientes propiedades
+    \begin{enumerate}
+      \item (Reflexividad) $M \sim M$ para todo $M \in \M_n(\F)$.
+      \item (Simetría) Para cualesquiera $M,N \in \M_n(\F)$ si $M \sim N$ entonces $N \sim M$.
+      \item (Transitividad) Para cualesquiera $M,N,P \in \M_n(\F)$ si $M \sim N$ y $N \sim P$ entonces $M \sim P$.
+    \end{enumerate}
+  
+  \item Demuestra que las clases de equivalencia de la matriz cero e identidad solo contienen a estas.
+\end{exerciselist}

@@ -30,43 +30,43 @@ Para la siguiente conjugación, tomemos a cualquier $s \in \C$ y veamos que
 \end{equation}
 Ya que estamos trabajando sobre $\C$, notemos que si $b \neq 0$ entonces existe $s \in \C$ tal que $-bs^2 + (a-d)s + c = 0$, por lo que la matriz sería semejante a una triangular superior. En el caso que $b = 0$, la matriz ya es triangularizable y por lo ya comentando en la conjugación anterior podemos concluir que toda matriz de $\M_2(\C)$ es semejante a una matriz triangular superior. En otras palabras
 \[ 
-    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & v \\ 0 & w \end{pmatrix}.
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix}.
 \]
 
 Para la siguiente conjugación, consideremos a $s \in \C$ y para cualquier matriz triangular superior veamos que
 \begin{equation}
   \begin{pmatrix} 1 & s \\ 0 & 1 \end{pmatrix}
-  \begin{pmatrix} u & v \\ 0 & w \end{pmatrix}
+  \begin{pmatrix} \alpha & \beta \\ 0 & \gamma \end{pmatrix}
   \begin{pmatrix} 1 & -s \\ 0 & 1 \end{pmatrix}
-    = \begin{pmatrix} u & (w-u)s + v \\ 0 & w \end{pmatrix}.
+    = \begin{pmatrix} \alpha & (\gamma-\alpha)s + \beta \\ 0 & \gamma \end{pmatrix}.
 \end{equation}
-Notemos que si $u \neq w$  entonces existe $s \in \C$ tal que $(w-u)s + v = 0$, de este modo tenemos que las matrices pueden ser semejantes a una matriz diagonal con elementos distintos en la diagonal, o una matriz triangular con elementos en la diagonal iguales. Es decir, si $u,w \in \C$ entonces
+Notemos que si $\alpha \neq \gamma$  entonces existe $s \in \C$ tal que $(\gamma-\alpha)s + \beta = 0$, de este modo tenemos que las matrices pueden ser semejantes a una matriz diagonal con elementos distintos en la diagonal, o una matriz triangular con elementos en la diagonal iguales. Es decir, si $\alpha, \beta, \gamma \in \C$ entonces
 \[
-  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix}
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & 0 \\ 0 & \gamma \end{pmatrix}
     \Eqor
-    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & w \\ 0 & u \end{pmatrix}.
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & \beta \\ 0 & \alpha \end{pmatrix}.
 \]
-Ahora, en la segunda equivalencia, si $w \neq 0$ entonces notemos que
+Ahora, en la segunda equivalencia, si $\beta \neq 0$ entonces notemos que
 
 \begin{equation}
-  \begin{pmatrix} 1 & 0 \\ 0 & w \end{pmatrix}
-  \begin{pmatrix} u & w \\ 0 & u \end{pmatrix}
-  \begin{pmatrix} 1 & 0 \\ 0 & w^{-1} \end{pmatrix}
-    = \begin{pmatrix} u & 1 \\ 0 & u \end{pmatrix}.
+  \begin{pmatrix} 1 & 0 \\ 0 & \beta \end{pmatrix}
+  \begin{pmatrix} \alpha & \beta \\ 0 & \alpha \end{pmatrix}
+  \begin{pmatrix} 1 & 0 \\ 0 & \beta^{-1} \end{pmatrix}
+    = \begin{pmatrix} \alpha & 1 \\ 0 & \alpha \end{pmatrix}.
 \end{equation}
 
 De esta forma, tenemos que toda matriz compleja de $2 \times 2$ es semejante a alguna de estas matrices
 \begin{equation}
-  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix}
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & 0 \\ 0 & \gamma \end{pmatrix}
     \Eqor
-    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} u & 1 \\ 0 & u \end{pmatrix}.
+    \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & 1 \\ 0 & \alpha \end{pmatrix}.
       \label{eq:M2Form}
 \end{equation}
 con $u$ y $w$ arbitrarios. Aunque aun queda determinar si estas matrices son los representantes de las clases de equivalencia o si hay repeticiones. Para realizar el cálculo más fácil, definamos las siguientes matrices 
 \[
-  D_{u,w} = \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix}
+  D_{\alpha,\beta} = \begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix}
      \Eqand
-  T_u = \begin{pmatrix} u & 1 \\ 0 & u \end{pmatrix}
+  T_\alpha = \begin{pmatrix} \alpha & 1 \\ 0 & \alpha \end{pmatrix}
 \]
 
 Primero notemos que si $M = P^{-1} N P$ entonces $M^2 = (P^{-1} N P)(P^{-1} N P) = P^{-1}N^2 P$, de igual forma $M^3 = (P^{-1}N^2 P) (P^{-1} N P) = P^{-1}N^3 P$, de manera inductiva se puede ver que para todo $k \in \N$ se cumple que
@@ -85,45 +85,70 @@ De aquí es claro que $c_k N^k + \cdots + c_2 N^2 + c_1 N + c_0 I$, lo que nos d
   Sean $M, N \in \M_n(\F) - \{\bec 0\}$ si $M \sim N$ entonces $\sum_{i=0}^k c_k M^k = \bec 0$ si y solo si $\sum_{i=0}^k c_k N^k = \bec 0$, donde $M^0 = I_n$. \qed
 \end{prop}
 
-Primero, revisemos que las dos formas dadas en \eqref{eq:M2Form} a las que puede ser semejante una matriz son ajenas. Supongamos que existen $u,v,w \in \C$ tal que $ D_{u,w} \sim T_v $. Notemos que
+Primero, revisemos que las dos formas dadas en \eqref{eq:M2Form} a las que puede ser semejante una matriz son ajenas. Supongamos que existen $\alpha, \beta, \gamma \in \C$ tal que $ D_{\alpha, \beta} \sim T_\gamma $. Notemos que
 \begin{align*}
-  (T_v - vI)^2 
-    &= \corch{ \begin{pmatrix} v & 1 \\ 0 & v \end{pmatrix} - \begin{pmatrix} v & 0 \\ 0 & v \end{pmatrix} }^2 
+  (T_\gamma - \gamma I)^2 
+    &= \corch{ \begin{pmatrix} \gamma & 1 \\ 0 & \gamma \end{pmatrix} - \begin{pmatrix} \gamma & 0 \\ 0 & \gamma \end{pmatrix} }^2 
      = \begin{pmatrix} 0 & 1 \\ 0 & 0  \end{pmatrix}^2  \\
     &= \begin{pmatrix} 0 & 0 \\ 0 & 0  \end{pmatrix}
 \end{align*}
-y que $(T_v - vI)^2 = T_v^2 - 2vT_v + v^2 I$, de esta forma si $ D_{u,w} \sim T_v $, por la proposición \ref{prop:MPolySem} tenemos que
+y que $(T_\gamma - \gamma I)^2 = T_\gamma^2 - 2\gamma T_\gamma + \gamma^2 I$, de esta forma si $ D_{\alpha,\beta} \sim T_\gamma $, por la proposición \ref{prop:MPolySem} tenemos que
 \begin{align*}
   \begin{pmatrix} 0 & 0 \\ 0 & 0  \end{pmatrix}
-    &= D_{u,w}^2 - 2vD_{u,w} + v^2 I \\
-    &= \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix}^2 - 2v \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix} + \begin{pmatrix} v^2 & 0 \\ 0 & v^2 \end{pmatrix} \\
-    &= \begin{pmatrix} u^2 - 2uv + v^2 & 0 \\ 0 & w^2 - 2wv + v^2 \end{pmatrix} \\
-    &= \begin{pmatrix} (u-v)^2 & 0 \\ 0 & (w-v)^2 \end{pmatrix} 
+    &= D_{\alpha,\beta}^2 - 2\gamma D_{\alpha,\beta} + \gamma^2 I \\
+    &= \begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix}^2 - 2\gamma \begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix} + \begin{pmatrix} \gamma^2 & 0 \\ 0 & \gamma^2 \end{pmatrix} \\
+    &= \begin{pmatrix} \alpha^2 - 2\alpha\gamma + \gamma^2 & 0 \\ 0 & \beta^2 - 2\beta\gamma + \gamma^2 \end{pmatrix} \\
+    &= \begin{pmatrix} (\alpha-\gamma)^2 & 0 \\ 0 & (\beta-\gamma)^2 \end{pmatrix} 
 \end{align*}
-de aquí tenemos que $u = w = v$, pero si esto se cumple, notemos que entonces
+de aquí tenemos que $\alpha = \beta = \gamma$, pero si esto se cumple, notemos que entonces
 \[
-  D_{u,w} - vI = \begin{pmatrix} u & 0 \\ 0 & w \end{pmatrix} - \begin{pmatrix} v & 0 \\ 0 & v \end{pmatrix}
+  D_{\alpha,\beta} - \gamma I = \begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix} - \begin{pmatrix} \gamma & 0 \\ 0 & \gamma \end{pmatrix}
   = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
 \]
-pero la proposición \ref{prop:MPolySem}, esto implicaría que $T_v - vI  = \bec 0$ y por tanto
+pero la proposición \ref{prop:MPolySem}, esto implicaría que $T_\gamma - \gamma I  = \bec 0$ y por tanto
 \[
-  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = T_v - vI = \begin{pmatrix} v & 1 \\ 0 & v \end{pmatrix} - \begin{pmatrix} v & 0 \\ 0 & v \end{pmatrix} = \begin{pmatrix}
+  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = T_\gamma - \gamma I = \begin{pmatrix} \gamma & 1 \\ 0 & \gamma \end{pmatrix} - \begin{pmatrix} \gamma & 0 \\ 0 & \gamma \end{pmatrix} = \begin{pmatrix}
     0 & 1 \\ 0 & 0 \end{pmatrix},
 \]
-pero claramente esto es una contradicción. De esta forma la clase de equivalencia de $D_{u,w}$ es ajena a la clase de equivalencia de $T_v$ para cualesquiera $u,v,w \in \C$.
+pero claramente esto es una contradicción. De esta forma la clase de equivalencia de $D_{\alpha,\beta}$ es ajena a la clase de equivalencia de $T_\gamma$ para cualesquiera $\alpha,\beta,\gamma \in \C$.
 
-Ahora, qué pasa con las semejanza de matrices del mismo tipo. Supongamos que existen $u, v, w, u', v', w' \in \C$ tal que $D_{u,w} \sim D_{u',w'}$ y $T_v \sim T_{v'}$. Aplicando el mismo proceso, tenemos que $(T_v - vI)^2 = \bec 0$ y $(D_{u,w} - uI)(D_{u,w} - wI) = \bec 0$, usando la proposición \ref{prop:MPolySem} sobre $D_{u',w'}$ y $T_{v'}$ y simplificando, se tiene que 
+Ahora, qué pasa con las semejanza de matrices del mismo tipo. Supongamos que existen $\alpha, \beta, \gamma, \alpha', \beta', \gamma' \in \C$ tal que $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ y $T_\gamma \sim T_{\gamma'}$. Aplicando el mismo proceso, tenemos que $(D_{\alpha,\beta} - \alpha I)(D_{\alpha,\beta} - \beta I) = \bec 0$ y $(T_\gamma - \gamma I)^2 = \bec 0$, usando la proposición \ref{prop:MPolySem} sobre $D_{\alpha',\beta'}$ y $T_{\gamma'}$ y simplificando, se tiene que 
 \[
-  D_{u,w} \sim D_{u',w'} \iff \{u,v\} = \{u',v'\}
+  D_{\alpha,\beta} \sim D_{\alpha',\beta'} \iff \{\alpha,\beta\} = \{\alpha',\beta'\}
     \Eqand
-  T_v \sim T_{v'} \iff v = v'.
+  T_\gamma \sim T_{\gamma'} \iff \gamma = \gamma'.
 \]
 
 Resumiendo todo el proceso hecho hasta ahora, tenemos el siguiente teorema.
 \begin{teor} \label{teor:TDMat2x2}
-  Toda matriz $M \in \M_2(\C)$ es semejante a una matriz de la forma $D_{u,w}$ o $T_v$ con $u,v,w \in \C$. Además, $D_{u,w} \nsim T_v$ para cualesquiera $u,v,w \in \C$. Y por ultimo, $D_{u,w} \sim D_{u',w'}$ si y solo si $\{u,v\} = \{u',v'\}$ y $T_v \sim T_{v'}$ si y solo si $v = v'$. \qed
+  Toda matriz $M \in \M_2(\C)$ es semejante a una matriz de la forma $D_{\alpha,\beta}$ o $T_\gamma$ con $\alpha, \beta, \gamma \in \C$. Además, $D_{\alpha,\beta} \nsim T_\gamma$ para cualesquiera $\alpha,\beta,\gamma \in \C$. Y por ultimo, $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ si y solo si $\{\alpha,\beta\} = \{\alpha',\beta'\}$ y $T_\gamma \sim T_{\gamma'}$ si y solo si $\gamma = \gamma'$. \qed
 \end{teor}
 
-Este teorema nos dice dos propiedades importantes. En primer lugar toda matriz compleja de tamaño $2 \times 2$ es triangularizable o diagonalizable. En segundo lugar, toda la clase de equivalencia de una matriz está caracterizado por uno o dos valores, los cuales son los valores en la diagonal de la matriz semejante de la forma $D_{u,v}$ o $T_v$.
+Este teorema nos dice dos propiedades importantes. En primer lugar toda matriz compleja de tamaño $2 \times 2$ es triangularizable o diagonalizable. En segundo lugar, toda la clase de equivalencia de una matriz está caracterizado por uno o dos valores, los cuales son los valores en la diagonal de la matriz semejante de la forma $D_{\alpha,\beta}$ o $T_\gamma$.
 
 La existencia de estos valores no es una coincidencia, en el capítulo 2 generalizaremos el proceso hecho en esta sección y se podrá ver que estos números son llamados los \emph{valores propios} de la matriz.
+
+
+\ExerciseSection
+
+\begin{exerciselist}
+  \item Demuestra que si $M$ es semejante a una matriz triangular superior si y solo si es semejante a una matriz triangular inferior.
+  
+  \item Realiza los cálculos para demostrar que $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ si y solo si $\{\alpha,\beta\} = \{\alpha',\beta'\}$ y $T_\gamma \sim T_{\gamma'}$ si y solo si $\gamma = \gamma'$.
+
+  \item Demuestra que si $M \sim D_{\alpha,\beta}$ con $\alpha,\beta \in \C$, entonces existen vectores no nulos $v, v' \in \C^2$ tales que $Mv = \alpha v$ y $Mv' = \beta v'$.
+  
+  \item Demuestra que si $M \sim T_\gamma$ con $\gamma \in \C$, entonces existe un vector no nulos $v\in \C^2$ tal que $Mv = \gamma v$.
+  
+  \item Usa la proposición \ref{prop:MPolySem} para demostrar que $M \sim D_{5, -5}$ donde
+    \[ M = \begin{pmatrix}
+      -1 & 2 \\
+      12 & 1
+    \end{pmatrix}. \]
+  
+  \item Usa la proposición \ref{prop:MPolySem} para demostrar que $M \sim T_{3}$ donde
+  \[ M = \begin{pmatrix}
+    4 & -1 \\
+    1 & 2
+  \end{pmatrix}. \]
+\end{exerciselist}
