@@ -180,3 +180,42 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
   \end{align*}
 \end{example}
 
+
+
+\ExerciseSection
+
+\begin{exerciselist}
+  \item Demuestra que $v_1 = (1, 1, 0, 0)^t$, $v_2 = (0, 0, 1, 1)^t$, $v_3 = (1, 0, 0, 4)^t$ y $v_4 = (0, 0, 0, 2)^t$ forman una base de $\R^4$. Halla las coordenadas de cada uno de los vectores de la base canónica con respecto de la base ordenada $B = (v_1, v_2, v_3, v_4)$.
+  
+  \item Halla el vector de coordenadas de $(1, 0, 1)$ en la base de $\C^3$ formada por los vectores $(2i, 1, 0)$, $(2, -1, 1)$, $(0, 1+i, 1-i)$, en ese orden.
+  
+  \item Sea $V$ una $\F$-espacio vectorial con una base ordenada $B = (v_1, \ldots, v_n)$, si $S = \{w_1, \ldots, w_n\} \subset V$, demuestra que $S$ es linealmente independiente si y solo si la matriz $M = \bigl( [w_1]_B \mid \cdots \mid [w_n]_B\bigr)$ es invertible.
+  
+  \item Sea $B = (v_1, v_2, v_3)$ la base ordenada de $\R^3$ formada por
+    \[ 
+      v_1 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, \quad
+      v_2 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \quad
+      v_3 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}.
+    \]
+    ¿Cuales son las coordenadas del vector $(a,b,c)$ en la base ordenada $B$?
+
+  \item Sea $W$ el subespacio de $\C^3$ generado por $v_1 = (1, 0, i)^t$ y $v_2 = (1+i, 1, -1)^t$.
+    \begin{enumerate}
+      \item Demostrar que $v_1$ y $v_2$ forman una base de $W$.
+      \item Demostrar que los vectores $w_1 = (1, 1, 0)^t$ y $w_2 = (1, i, 1+i)^t$ pertenecen a $W$ y forman otra base de $W$.
+      \item ¿Cuales son las coordenadas de $v_1$ y $v_2$ en la base ordenada $(w_1, w_2)$ de $W$?
+    \end{enumerate}
+  
+  \item Sean $v = (x_1, x_2)^t$ y $w = (y_1, y_2)^t$ dos vectores de $\R^2$ tales que
+    \[ x_1 y_1 + x_2 y_2 = 0, \quad x_1^2 + x_2^2 = y_1^2 + y_2^2 = 1. \]
+    Demostrar que $B = (v, w)$ es una base ordenada de $\R^2$. Hallar las coordenadas del vector $(a,b)^t$ en la base ordenada $B$. (Las condiciones impuestas a $v$ y $w$ dicen, geométricamente, que $v$ y $w$ son perpendiculares y de longitud 1.)
+
+  \item Sea $V$ es espacio vectorial sobre los números complejos de todas las funciones de $\R$ en $\C$, dea $f_1(x) = 1$, $f_2(x) = e^{ix}$,  $f_3(x) = e^{-ix}$
+    \begin{enumerate}
+      \item Demostrar que $f_1$, $f_2$, $f_3$ son linealmente independientes.
+      \item Sea $g_1(x)= 1$, $g_2(x) = \cos x$, $g_3(x) = \sen x$. Hallar una matriz invertible $P = (p_{ij})$ de $3 \times 3$ tal que
+        \[ g_j = \sum_{i=1}^3 p_{ij} f_i, \qquad j \in \{1, 2, 3\}. \]
+    \end{enumerate}
+
+  \item Sea $t$ un número real fijo y defínase $g_1(x) = 1$, $g_2(x) = x+t$ y $g_3(x) = (x+t)^2$. Demuestra que $B = (g_1, g_2, g_3)$ es una base ordenada de $\R[x]_{\leq 2}$. Si $f(x) = ax^2 + bx + c$ ¿Cuales son las coordenadas de $f$ en la base ordenada $B$?
+\end{exerciselist}
