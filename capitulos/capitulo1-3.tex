@@ -2,89 +2,165 @@
 
 Hemos visto que para cualquier espacio vectorial podemos crear un sistema de coordenadas a partir de una base ordenada, esto nos permite trabajar con los elementos del espacio de una forma más simple. El siguiente paso es poder hacer lo mismo con las transformaciones lineales.
 
-Sabemos que dada una matriz $M$ de $m \times n$ entonces la función $T_M \colon \F^n \to \F^m$ dada por $T(v) = Mv$  es una transformación lineal, a la cual llamaremos la transformación \emph{inducida} por $M$. Ahora, buscamos hacer el mismo proceso pero de manera inversa, es decir, si consideremos dos $\F$-espacios vectoriales $V$ y $W$ con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (w_1,\ldots,w_m)$, respectivamente, si $T\colon V \to W$ es una transformación lineal, lo que buscamos es una matriz $M$ de tamaño $m\times n$ tal que $M[v]_B = [T(v)]_{B'}$, para todo $v \in V$. A esta matriz la denotaremos como $T_{B,B'}$ y diremos que es la matriz \emph{asociada} a $T$.
+Sabemos que dada una matriz $M$ de $m \times n$ entonces la función $T_M \colon \F^n \to \F^m$ dada por $T(v) = Mv$  es una transformación lineal, a la cual llamaremos la transformación \emph{inducida} por $M$. Ahora, buscamos hacer el mismo proceso pero de manera inversa, es decir, si consideremos dos $\F$-espacios vectoriales $V$ y $W$ con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (w_1,\ldots,w_m)$, respectivamente, si $T\colon V \to W$ es una transformación lineal, lo que buscamos es una matriz $M$ de tamaño $m\times n$ tal que $M[v]_B = [T(v)]_{B'}$, para todo $v \in V$. A esta matriz la denotaremos como $T_{BB'}$ y diremos que es la matriz \emph{asociada} a $T$.
 
-La idea es análoga al de cambio de base, dado que $[v_i] = e_i$ y $T_{B,B'}e_i = (T_{B,B''})_{*i}$ para todo $i \in \{1,\ldots,n\}$, como $T_{B,B''}[v]_B = [T(v)]_{B'}$ para todo $v \in V$, entonces tenemos que
-  \[ T_{B,B'} [v_i]_B = T_{B,B'} e_i = (T_{B,B'})_{*i} = [T(v_i)]_{B'}. \]
-Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{B,B'}$, y por lo tanto
-  \[ T_{B,B'} = \begin{spmatrix}{c|c|c}  [T(v_1)]_{B'} & \cdots & [T(v_n)]_{B'}  \end{spmatrix}. \]
+La idea es análoga al de cambio de base, dado que $[v_i] = e_i$ y $T_{BB'}e_i = (T_{BB''})_{*i}$ para todo $i \in \{1,\ldots,n\}$, si $T_{BB'}[v]_B = [T(v)]_{B'}$ para todo $v \in V$, entonces tenemos que
+  \[ T_{BB'} [v_i]_B = T_{BB'} e_i = (T_{BB'})_{*i} = [T(v_i)]_{B'}. \]
+Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{BB'}$, y por lo tanto
+  \[ T_{BB'} = \begin{spmatrix}{c|c|c}  [T(v_1)]_{B'} & \cdots & [T(v_n)]_{B'}  \end{spmatrix}. \]
 
-\begin{teor}
-  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces existe una única matriz $T_{B,B'}$ de tamaño $m\times n$ tal que para toda $v \in V$ se cumple que
-    \[ T_{B,B'} [v]_B = [T(v)]_{B'} \]
-  Además $(T_{B,B'})_{*i} = [T(v_i)]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
+\begin{teor} \label{teor:MatTrLin}
+  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces existe una única matriz $T_{BB'}$ de tamaño $m\times n$ tal que para toda $v \in V$ se cumple que
+    \[ T_{BB'} [v]_B = [T(v)]_{B'} \]
+  Además $(T_{BB'})_{*i} = [T(v_i)]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
 \end{teor}
 \begin{proof}
   Por el análisis hecho con anterioridad y definición, se cumple que
-  \[ T_{B,B'} [v_i]_B = T_{B,B'} e_i = (T_{B,B'})_{*i} = [T(v_i)]_{B'}. \]
+  \[ T_{BB'} [v_i]_B = T_{BB'} e_i = (T_{BB'})_{*i} = [T(v_i)]_{B'}. \]
   
   De este modo sea $v \in V$ tal que $[v]_B = (\lambda_1,\ldots,\lambda_n)^t$, por la linealidad de $[\cdot]_B$ y las propiedades de las matrices, tenemos que
   \begin{align*}
-    T_{B,B'}[v]_B &= T_{B,B'}[\lambda_1v_1 + \cdots + \lambda_n v_n]_B \\
-      &= \lambda_1 T_{B,B'} [v_1]_B + \cdots + \lambda_n T_{B,B'} [v_n]_B \\
+    T_{BB'}[v]_B &= T_{BB'}[\lambda_1v_1 + \cdots + \lambda_n v_n]_B \\
+      &= \lambda_1 T_{BB'} [v_1]_B + \cdots + \lambda_n T_{BB'} [v_n]_B \\
       &= \lambda_1 [T(v_1)]_{B'} + \cdots + \lambda_n [T(v_n)]_{B'} \\
       &= [T(\lambda v_1  + \cdots + \lambda_n v_n )]_{B'} \\
       &= [T(v)]_{B'}.
   \end{align*}
-  Así tenemos que $T_{B,B'} [v]_B = [T(v)]_{B'}$ toda $v \in V$. Ahora, supongamos que existe otra matriz $P$ con la misma propiedad. Por el análisis del principio, para toda $i \in \{1,\ldots,n\}$ tenemos que
-  \[ (T_{B,B'})_{*i} = [T(v_i)]_B = P[v_i]_B = Pe_i = P_{*i}, \]
-  y dado que todas sus columnas son iguales, es claro que $P = T_{B,B'}$.
+  Así tenemos que $T_{BB'} [v]_B = [T(v)]_{B'}$ toda $v \in V$. Ahora, supongamos que existe otra matriz $P$ con la misma propiedad. Por el análisis del principio, para toda $i \in \{1,\ldots,n\}$ tenemos que
+  \[ (T_{BB'})_{*i} = [T(v_i)]_B = P[v_i]_B = Pe_i = P_{*i}, \]
+  y dado que todas sus columnas son iguales, es claro que $P = T_{BB'}$.
 \end{proof}
 
 Una consecuencia directa de este teorema, es que si consideramos las bases canónicas de $\F^n$ y $\F^m$, entonces toda transformación lineal $T\colon \F^n \to \F^m$ es de la forma $T(v) = M_T v$ donde
   \[ M_T = \begin{spmatrix}{c|c|c} T(e_i) & \cdots & T(e_n) \end{spmatrix}, \]
 mostrando que toda transformación lineal es inducida por alguna matriz.
 
+\begin{example}
+  Considera el operador de derivación $\bec d_2 \colon \F[x]_{\leq 2} \to \F[x]_{\leq 1}$, definido como
+    \[
+      \bec d_2 (ax^2 + bx + c) = 2ax + b.
+    \]
+  Este operador es una transformación lineal, así que calculemos la matriz asociada sobre las bases ordenadas $B = (x^2, x, 1)$ y $B' = (1, x+1)$.
+
+  \examplesolution
+  Por el teorema \ref{teor:MatTrLin} sabemos que $(\bec d_2)_{BB'} = \bigl( [\bec d_2(x^2)]_{B'} \mid [\bec d_2(x)]_{B'} \mid [\bec d_2(1)]_{B'} \bigr)$. Ahora, veamos que
+  \begin{align}
+    \bec d_2(x^2) &= 2x = -2(1) + 2(x+1) \\
+    \bec d_2(x)   &= 1  = 1(1) + 0(x+1) \\
+    \bec d_2(1)   &= 0  = 0(1) + 0(x+1) \\
+  \end{align}
+  De este modo tenemos que 
+    \[ (\bec d_2)_{BB'} = \begin{pmatrix}
+      -2 & 1 & 0 \\
+      2 & 0 & 0
+    \end{pmatrix} \]
+\end{example}
+
 \begin{teor}\label{teo:isomTrMat}
-  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si si consideramos la función $\Psi_{B,B'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{B,B'}(T) = T_{B,B'}$, entonces $\Psi_{B,B'}$ es un isomorfismo de $V$ y $W$.
+  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si consideramos la función $\Psi_{BB'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{BB'}(T) = T_{BB'}$, entonces $\Psi_{BB'}$ es un isomorfismo de $L(V,W)$ y $\M_{m\times n}(\F)$.
 \end{teor}
 \begin{proof}
-  Primero demostremos que la función $\Psi_{B,B'}$ es una transformación lineal. Sean $T, S \in L(V,W)$ y $\lambda \in \F$, notemos que para todo $v \in V$ se cumple que
+  Primero demostremos que la función $\Psi_{BB'}$ es una transformación lineal. Sean $T, S \in L(V,W)$ y $\lambda \in \F$, notemos que para todo $v \in V$ se cumple que
   \begin{align*}
-    (T_{B,B'} + \lambda S_{B,B'})[v]_B &= T_{B,B'}[v]_B + \lambda S_{B,B'} [v]_B \\
+    (T_{BB'} + \lambda S_{BB'})[v]_B &= T_{BB'}[v]_B + \lambda S_{BB'} [v]_B \\
       &= [T(v)]_{B'} + \lambda [S(v)]_{B'} \\
       &= [T(v) + \lambda S(v)]_{B'} \\
       &= [ (T + \lambda S)(v)]_{B'}.
   \end{align*}
-  Pero por la unicidad de la matriz asociada, esto implica que $(T + \lambda S)_{B,B'} = T_{B,B'} + \lambda S_{B,B'}$, en otras palabras, que
-  \[ \Psi_{B,B'}(T + \lambda S) = \Psi_{B,B'}(T) + \lambda \Psi_{B,B'}(S). \]
+  Pero por la unicidad de la matriz asociada, esto implica que $(T + \lambda S)_{BB'} = T_{BB'} + \lambda S_{BB'}$, en otras palabras, que
+  \[ \Psi_{BB'}(T + \lambda S) = \Psi_{BB'}(T) + \lambda \Psi_{BB'}(S). \]
 
-  Ahora, notemos que si $\Psi_{B,B'}(T) = \bec 0_{m\times n}$, entonces, por el teorema anterior, tenemos para todo $v \in V$ que  
-    \[ T_{B,B'}[v]_B  = [T(v)]_{B'} = \bec 0_m,\]
-  pero por propiedades conocidas sabemos que $[v]_{B'} = \bec 0_m$ si y solo si $v = 0_W$, de esta forma $T(v) = 0_W$, pero esto implica que $\ker(\Psi_{B,B'}) = \{  0_{L(V,W)} \}$, mostrando así que $\Psi_{B,B'}$ es inyectiva.
+  Ahora, notemos que si $\Psi_{BB'}(T) = \bec 0_{m\times n}$, entonces, por el teorema anterior, tenemos para todo $v \in V$ que  
+    \[ T_{BB'}[v]_B  = [T(v)]_{B'} = \bec 0_m,\]
+  pero por propiedades conocidas sabemos que $[v]_{B'} = \bec 0_m$ si y solo si $v = 0_W$, de esta forma $T(v) = 0_W$, pero esto implica que $\ker(\Psi_{BB'}) = \{  0_{L(V,W)} \}$, mostrando así que $\Psi_{BB'}$ es inyectiva.
 
   Por ultimo, si $P \in \M_{m\times n}(\F)$ donde $P = (p_{ij})$, dado que podemos definir una transformación lineal únicamente dando los valores para una base, consideremos la transformación $T\colon V \to W$ dada por
   \[ T(v_i) =  p_{1i}w_1 + \cdots + p_{mi}w_m, \]
-  para todo $i \in \{1,\ldots,m\}$. Aplicando el teorema anterior tenemos que $T_{B,B'} = P$, de este modo $\Psi_{B,B'}(T) = P$, mostrando así que $\Psi_{B,B'}$ es sobreyectiva y por tanto un isomorfismo de $L(V,W)$ a $\M_{m\times n}(\F)$.
+  para todo $i \in \{1,\ldots,m\}$. Aplicando el teorema anterior tenemos que $T_{BB'} = P$, de este modo $\Psi_{BB'}(T) = P$, mostrando así que $\Psi_{BB'}$ es sobreyectiva y por tanto un isomorfismo de $L(V,W)$ a $\M_{m\times n}(\F)$.
 \end{proof}
 
 La relación de las matrices y las transformaciones lineales va más allá de que sean isomorfos como espacios vectoriales, además existe una relación entre la multiplicación de matrices y la composición de transformaciones lineales.
 
 \begin{teor}
   Sean $V$, $W$ y $U$ tres $\F$-espacios vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$, $B' = (w_1,\ldots,w_m)$ y $B'' = (u_1,\ldots,u_p)$. Si $T\colon V \to W$ y $S\colon W \to W$ son transformaciones lineales, entonces
-  \[ (S \circ T)_{B,B''} = S_{B',B''} T_{B,B'}. \]
+  \[ (S \circ T)_{BB''} = S_{B'B''} T_{BB'}. \]
 \end{teor}
 \begin{proof}
   Sea $v \in V$, notemos que por definición que
     \begin{align*}
-      S_{B',B''} T_{B,B'}[v_B] &= S_{B',B''}[T(v)]_{B'} \\
+      S_{B'B''} T_{BB'}[v_B] &= S_{B'B''}[T(v)]_{B'} \\
         &= \bigl[ S\bigl(T(v)\bigr) \bigr]_{B''} \\
         &= [(S\circ T)(v)]_{B''}.
     \end{align*}
-  Pero por la unicidad de la matriz asociada, esto implica que $(S \circ T)_{B,B''} = S_{B',B''} T_{B,B'}$.
+  Pero por la unicidad de la matriz asociada, esto implica que $(S \circ T)_{BB''} = S_{B'B''} T_{BB'}$.
 \end{proof}
 
 \begin{coro}
-  Sean $V$ y $W$ dos $\F$-espacios vectoriales de dimensión finita con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces $T$ es invertible si y solo si $T_{B,B'}$ es invertible, además
-    \[ T_{B',B}^{-1} = (T_{B,B'})^{-1}. \]
+  Sean $V$ y $W$ dos $\F$-espacios vectoriales de dimensión finita con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces $T$ es invertible si y solo si $T_{BB'}$ es invertible, además
+    \[ T_{B'B}^{-1} = (T_{BB'})^{-1}. \]
 \end{coro}
 \begin{proof}
   Dado que $T$ es invertible entonces es biyectiva, por lo que $m = n$. Así, por el teorema anterior, tenemos que
-  \[ T^{-1}_{B',B} T_{B,B'} = (T^{-1}\circ T)_{B,B} = (\Id_{V,W})_{B,B} = I_n, \]
-  pero esto impĺica que $T_{B',B}^{-1} = (T_{B,B'})^{-1}$, por definición.
+  \[ T^{-1}_{B'B} T_{BB'} = (T^{-1}\circ T)_{B,B} = (\Id_{V,W})_{B,B} = I_n, \]
+  pero esto impĺica que $T_{B'B}^{-1} = (T_{BB'})^{-1}$, por definición.
 
-  Ahora, si $T_{B,B'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B',B} =  (T_{B,B'})^{-1}$. Aplicando el teorema anterior, esto implica que
-    \[ (S \circ T)_{B,B} =  S_{B',B}T_{B,B'} = I_n = (\Id_{V,W})_{B,B}. \]
+  Ahora, si $T_{BB'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B'B} =  (T_{BB'})^{-1}$. Aplicando el teorema anterior, esto implica que
+    \[ (S \circ T)_{B,B} =  S_{B'B}T_{BB'} = I_n = (\Id_{V,W})_{B,B}. \]
   De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = \Id_{V,W}$ y análogamente se tiene que $T \circ S = \Id_{V,W}$, mostrando así que $T$ es invertible.
 \end{proof}
 
+
+\ExerciseSection
+
+\begin{exerciselist}
+  \item Sea $T$ la transformación lineal sobre $\C^2$ definida como $T(x_1, x_2) = (x_1, 0)$. Sea $C$ la base ordenada canónica de $\C^2$ y $B = (v_1, v_2)$ la base ordenada definida por $v_1 = (1, i)^t$ y $v_2 = (-i, 2)^t$.
+    \begin{enumerate}
+      \item ¿Cual es la matriz de $T$ con respecto a las bases ordenadas $C$ y $B$?
+      \item ¿Cual es la matriz de $T$ con respecto a las bases ordenadas $B$ y $C$?
+      \item ¿Cual es la matriz de $T$ con respecto a la base ordenadas $B$?
+      \item ¿Cual es la matriz de $T$ con respecto a la base ordenadas $(v_2, v_1)$?
+    \end{enumerate}
+
+  \item Sea $T$ la transformación lineal de $\R^3$ en $\R^2$ definida por 
+    \[ T\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 + x_2 \\ 2x_3 - x_1 \end{pmatrix}. \]
+    \begin{enumerate}
+      \item Si $C$ es la base canónica de $\R^3$ y $C'$ es la base canónica de $\R^2$ ¿cual es la matriz de $T$ con respecto a las bases ordenadas $C$ y $C'$?
+      \item Si $B = (v_1, v_2, v_3)$ y $B' = (w_1, w_2)$, donde
+        \[
+          v_1 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, \quad
+          v_2 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \quad
+          v_3 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+          w_1 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \quad
+          w_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+        \]
+        ¿Cual es la matriz de $T$ respecto a las bases ordenadas $B$ y $B'$?
+    \end{enumerate}
+
+  \item Sea $T$ una transformación lineal sobre $\F^n$, sea $A$ la matriz de $T$ en la base ordenada canónica de $\F^n$ y sea $W$ es subespacio de $\F^n$ generado por los vectores columna de $A$ ¿Qué relación existe entre $W$ y $T$?
+  
+  \item Sea $V$ un $\F$-espacio vectorial de dimensión 2 y sea $B$ una base ordenada de $V$. Si $T$ es una transformación lineal en $V$ y 
+    \[ T_{BB} = \begin{pmatrix}
+      a & b \\ c & d
+    \end{pmatrix}, \]
+    demuestra que $T^2 - (a+d)T + (ad-bc)\Id = 0$.
+
+  \item Sea $T$ la transformación lineal sobre $\R^2$ definido por
+    \[ T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} -x_2 \\ x_1 \end{pmatrix}. \]
+    \begin{enumerate}
+      \item ¿Cual es la matriz de $T$ en la base canónica de $\R^2$?
+      \item ¿Cual es la matriz de $T$ en la base ordenada $B = (v_1, v_2)$, donde $v_1 = (1,2)^t$ y $v_2 = (1, -2)$?
+      \item Demuestra que para todo $c \in T$ la transformación $T - c\Id$ es invertible.
+    \end{enumerate}
+    
+  \item Sea $T$ la transformación lineal en $\R[x]_{\leq 2}$ definida por
+    \[ T(ax^2+bx+c) = (3a+c)x^2 + (b-2a)x + (2b-a+4c). \]
+    \begin{enumerate}
+      \item ¿Cual es la matriz de $T$ en la base ordenada $(x^2, x, 1)$?
+      \item ¿Cual es la matriz de $T$ en la base ordenada $(f_1, f_2, f_3)$ donde $f_1(x) = x^2-1$, $f_2(x) = -x^2+2x+1$ y $f_3(x) = 2x^2 +x +1$?
+      \item Demuestra que $T$ es invertible y da una expresión de $T^{-1}$ similar a como se definió $T$-|
+    \end{enumerate}
+
+  \item Consideremos la transformación lineal $\bec d_n \colon \F[x]_{\leq n} \to \F[x]_{\leq n}$ dada por
+    \[ \bec d_n \paren{\sum_{i=0}^n c_ix^i} = \sum_{i=1}^n ic_ix^{i-1}. \]
+    Calcule la matriz de $\bec d_n$ sobre la base ordenada $B = (x^n, \ldots, x, 1)$.
+\end{exerciselist}
