@@ -2,22 +2,22 @@
 
 \section{Notación e ideas}
 
-Antes de empezar con las matrices y transformaciones lineales, hay que recordar algunas definiciones importantes así como las estructuras con las que vamos a estar trabajando.
+Antes de empezar a estudiar las propiedades de las matrices y transformaciones lineales hay que recordar algunas definiciones importantes, así como las estructuras con las que vamos a estar trabajando.
 
 En primer lugar, recordemos que una \emph{estructura algebraica} no es más que la combinación de un conjunto, funciones o relaciones asociadas a éste y propiedades relacionadas a estas últimas.
 
 Las funciones pueden ser de varios tipos, pero la más común son las llamadas \emph{operaciones binarias}, que no son más que que funciones que toman como entrada dos elementos de un conjunto y retornan un elemento del mismo conjunto. Por ejemplo, si consideramos el conjunto $G$, entonces una operación binaria es cualquier función $\cdot \colon  G \times G \to G$. Por convención, para las operaciones binarias escribimos $x \cdot y$  para referirnos a $\cdot(a,b)$. Con esto en mente podemos definir las estructuras importante para el curso.
 
+
 \subsection{Grupos}
 
 \begin{defi}
-  Si $G$ es un conjunto no vacío y $+$ una operación binaria de éste, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumplen los siguientes axiomas:
+  Si $G$ es un conjunto no vacío y $+$ una operación binaria de éste, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumple los siguientes axiomas:
   \begin{enumerate}
     \item (Asociatividad) Para cualesquiera $x, y, z \in G$ se cumple que $x\cdot(y\cdot z) = (x\cdot y)\cdot z$.
     \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ cumple que $x\cdot e = e\cdot x = x$.
     \item (Existencia del elemento inverso) Para todo $x \in G$ existe $x^{-1} \in G$ tal que $x\cdot x^{-1} = x^{-1}\cdot x = e$.
   \end{enumerate}
-
   Por último, decimos que un grupo es \emph{abeliano} si para cualesquiera $x,y \in G$ se cumple que $x\cdot y = y \cdot x$ (conmutatividad).
 \end{defi}
 
@@ -57,8 +57,8 @@ Existen varios ejemplos de campos, por ejemplo los racionales $\Q$, los reales $
   Sea $V$ un conjunto no vacío con una operación binaria $+$ (suma), $(\F, +_\F, \cdot_\F )$ un campo y sea $\cdot\colon K \times V \to V$ una operación llamada \emph{producto escalar}. Decimos que $V$ es un $\F$-espacio vectorial si cumple los siguientes axiomas:
   \begin{enumerate}
     \item $(V, +)$ es un grupo abeliano.
-    \item (Neutro escalar) Para todo $v \in V$ se cumple que $1_\F \cdot v = v$.
-    \item (Asociatividad escalar) Para todo $\lambda, \mu \in \F$ y $v \in V$ se cumple que $\lambda \cdot (\mu \cdot v) = (\lambda \cdot_\F \mu)  \cdot v$.
+    \item (No trivialidad) Para todo $v \in V$ se cumple que $1_\F \cdot v = v$.
+    \item (Compatibilidad) Para todo $\lambda, \mu \in \F$ y $v \in V$ se cumple que $\lambda \cdot (\mu \cdot v) = (\lambda \cdot_\F \mu)  \cdot v$.
     \item (Primera ley distributiva) Para todo $\lambda \in \F$ y $v,w \in V$ se cumple que $\lambda \cdot (v + w) = \lambda \cdot v + \lambda \cdot w$.
     \item (Segunda ley distributiva) Para todo $\lambda, \mu \in \F$ y $v\in V$ se cumple que $(\lambda +_\F \mu)\cdot v = \lambda \cdot v + \mu \cdot v$.
   \end{enumerate}
@@ -75,7 +75,7 @@ Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de 
   Sea $V$ un $\F$-espacio vectorial. Decimos que $W \subseteq V$ es un $\F$-subespacio vectorial de $V$, si al restringir la suma y producto escalar de $V$ a $W$ se cumple que $W$ es un $\F$-espacio vectorial.
 \end{defi}
 
-Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el conjunto generado por todas las combinaciones lineales de $S \subset W$,  al cual denotamos por
+Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el subespacio generado por un subconjunto $S \subseteq W$, al cual denotamos por $\inner{S}$ (Ejercicio \ref{exer:SubEsGene}), que en el caso donde $S\neq \emptyset$, éste se compone de todas las combinaciones lineales de elementos de $S$ (Ejercicio \ref{exer:SubEsCombLin}), es decir
 \[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in \F, v_i \in S, n \in \N }. \]
 Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir que si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$. En el caso en que $\inner{S} = V$, entonces decimos que $S$ es un \emph{conjunto generador}.
 
@@ -86,20 +86,20 @@ Además, este conjunto cumple que es el subespacio vectorial más pequeño tal q
 \subsection{Independencia lineal y bases}
 
 \begin{defi}
-  Sea $S \subset W$, decimos que $S$ es linealmente dependiente, si existe una combinación lineal de $S$ tal que
+  Sea $S \subseteq W$, decimos que $S$ es linealmente dependiente, si existe una combinación lineal de $S$ tal que
   \[ \sum_{i=1}^n \lambda_i v_i = 0, \]
   donde para al menos algún $i \in \{1,\ldots,n\}$ se cumple que $\lambda_i \neq 0_\F$. En caso que $S$ no sea linealmente dependiente, diremos que es linealmente independiente.
 
   Dado $B \subset V$ diremos que $B$ es una \emph{base} de $V$ si es un conjunto generador linealmente independiente.
 \end{defi}
 
-Las bases son conjuntos muy importantes en los espacios vectoriales por que nos permiten generalizar el concepto de coordenadas. En primer lugar, todo conjunto linealmente independiente cumple que la expresión como combinación lineal de todo $v \in \inner{S}$ es única, de esta forma si $B$ es una base de cardinalidad $n \in \N$ de $V$, entonces para todo $v \in V$ existe una única combinación lineal tal que 
-\[ v = \lambda_1 v_1 + \cdots + \lambda_n v_n, \qquad \lambda_1,\ldots,\lambda_n \in \F, v_1,\ldots,v_n \in V. \]
+Las bases son conjuntos muy importantes en los espacios vectoriales porque nos permiten generalizar el concepto de coordenadas. En primer lugar, todo conjunto linealmente independiente cumple que la expresión como combinación lineal de todo $v \in \inner{S}$ es única, de esta forma si $B$ es una base de cardinalidad $n \in \N$ de $V$, entonces para todo $v \in V$ existe una única combinación lineal tal que 
+\[ v = \lambda_1 v_1 + \cdots + \lambda_n v_n, \qquad \lambda_1,\ldots,\lambda_n \in \F, v_1,\ldots,v_n \in B. \]
 Esto nos permite crear una biyección entre los espacios $V$ y $\F^n$ mediante $B$, a la cual denotaremos como
 \[ [v]_B = (\lambda_1, \ldots, \lambda_n)^t.\]
 
 \begin{teor}
-  Sea $V$ un $\F$-espacio vectorial, entonces $V$ tiene al menos una base. Además, si $B_1$ y $B_2$ son bases de $B$ entonces $\abs{B_1} = \abs{B_2}$.
+  Sea $V$ un $\F$-espacio vectorial, entonces $V$ tiene al menos una base. Además, si $B_1$ y $B_2$ son bases de $B$, entonces $\abs{B_1} = \abs{B_2}$.
 \end{teor}
 
 Este teorema es uno de los resultados más importantes del Álgebra Lineal, éste nos permite definir la \emph{dimensión} de un $\F$-espacio vectorial $V$ como la cardinalidad de cualquiera de las bases, es decir, si $B$ es una base de $V$, entonces
@@ -119,7 +119,7 @@ Recordemos que la suma de subespacios vectoriales genera un nuevo subespacio vec
   \[ W_1 + \cdots + W_k = \inner{ W_1 \cup \cdots \cup W_k }. \]
 Hay una expresión bien conocida para la dimensión de la suma de dos subespacio vectoriales, esta fórmula es conocida como la fórmula de Grassmann.
 
-\begin{teor}[fórmula de Grassmann]
+\begin{teor}[Fórmula de Grassmann]
   Si $W_1$ y $W_2$ son subespacios de un $\F$-espacio vectorial $V$ de dimensión finita, entonces
     \[ \dim_\F (W_1 + W_2) = \dim_\F (W_1) + \dim_\F (W_2) - \dim_\F (W_1 \cap W_2).\]
 \end{teor}
@@ -159,7 +159,7 @@ Notemos que si escribimos $W_1 \oplus \cdots \oplus W_k$, entonces por definici�
   Si $T$ es biyectiva, entonces es un isomorfismo de $\F$-espacios vectoriales. En este caso decimos que $V$ y $W$ son isomorfos y lo denotamos como $V \cong W$.
 \end{defi}
 
-Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$. En el caso que $W = V$ entonces $T$ se dice que es un \emph{endomorfismo} de $V$ y al conjunto de endomorfismos de lo denotamos simplemente como $L(V)$.
+Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$. En el caso que $W = V$ entonces $T$ se dice que es un \emph{endomorfismo} de $V$ y al conjunto de endomorfismos lo denotamos simplemente como $L(V)$.
 
 \begin{teor}
   Sea $T\colon V \to W$ una transformación $\F$-lineal y $S$ un subconjunto de $V$.
@@ -173,7 +173,7 @@ Al conjunto de transformaciones lineales de $V$ a $W$ se le denota como $L(V,W)$
   \end{enumerate}
 \end{teor}
 
-Las transformaciones lineales nos permiten enlazar espacios vectoriales, así como sus propiedades. Un ejemplo son los isomorfismos, estos nos permiten asegurar que dos espacios vectores se comportan de la misma forma, por lo que en esencia son el mismo espacio vectorial.
+Las transformaciones lineales nos permiten enlazar espacios vectoriales, así como sus propiedades. Un ejemplo son los isomorfismos, estos nos permiten asegurar que dos espacios vectoriales se comportan de la misma forma, por lo que en esencia son el mismo espacio vectorial.
 
 \begin{defi}
   Sea $T\colon V \to W$ una transformación $\F$-lineal, entonces definimos el \emph{núcleo} o \emph{kernel}  de $T$ como
@@ -217,7 +217,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item Sea $U$ un subconjunto no vacío del $\F$-espacio vectorial $V$. Demuestre que $U$ es un $\F$-subespacio vectorial si y solo si se cumplen las siguientes dos condiciones:
     \begin{enumerate}
-      \item $\F U \subseteq \F[U]$, donde $\F U = \{cu : c \in \F \land u \in U\}$.
+      \item $\F U \subseteq \F U$, donde $\F U = \{cu : c \in \F \land u \in U\}$.
       \item $(U + U) \subseteq U$, donde $U+U = \{u_1 + u_2 \colon u_1, u_2 \in U\}$.
     \end{enumerate}
 
@@ -227,21 +227,21 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item Sea $V$ un $\F$-espacio vectorial, y sea $U_i$ un $\F$-subespacio vectorial de $V$ para cada $i \in I$, donde $I$ es un conjunto de índices no vacío. Demuestre que $U = \bigcap_{i \in I} U_i$ es un $\F$-subespacio vectorial de $V$ y un $\F$-subespacio vectorial de cada $U_i$.
   
-  \item Sea $S$ un subconjunto del $\F$-espacio vectorial $V$, y denote por $\inner{S}$ a la intersección de todos los $\F$-subespacios vectoriales de $V$ que contienen a $S$. Por el ejercicio previo sabemos que $\inner{S}$ es un $\F$-subespacio vectorial de $V$, y notemos que si $S$ es el conjunto vacío entonces $\inner{S} = \{ 0 \}.$ Demuestre que $\inner{S}$ es el mínimo $\F$-subespacio vectorial de $V$ que contiene a $S$.
+  \item \label{exer:SubEsGene} Sea $S$ un subconjunto del $\F$-espacio vectorial $V$, y denote por $\inner{S}$ a la intersección de todos los $\F$-subespacios vectoriales de $V$ que contienen a $S$. Por el ejercicio previo sabemos que $\inner{S}$ es un $\F$-subespacio vectorial de $V$, y notemos que si $S$ es el conjunto vacío entonces $\inner{S} = \{ 0 \}.$ Demuestre que $\inner{S}$ es el mínimo $\F$-subespacio vectorial de $V$ que contiene a $S$.
   
-  \item Sea $S$ un subconjunto no vacío del $\F$-espacio vectorial $V$. Demuestre que para cualquier $v \in \inner{S}$ existen algún entero $n$, vectores $s_1, s_2, \ldots, s_n \in S$ y coeficientes $c_1, c_2, \ldots, c_n \in \F$ tales que $v = \sum _{i=1}^n c_i s_i$. Es por la propiedad mencionada que $\inner{S}$ es llamado el \emph{$\F$-subespacio vectorial generado por $S$.}
+  \item \label{exer:SubEsCombLin} Sea $S$ un subconjunto no vacío del $\F$-espacio vectorial $V$. Demuestre que para cualquier $v \in \inner{S}$ existen algún entero $n$, vectores $s_1, s_2, \ldots, s_n \in S$ y coeficientes $c_1, c_2, \ldots, c_n \in \F$ tales que $v = \sum _{i=1}^n c_i s_i$. Es por la propiedad mencionada que $\inner{S}$ es llamado el \emph{$\F$-subespacio vectorial generado por $S$.}
   
 
-  \item Consideremos los $\F$-subespacios vectoriales $U_1$ y $U_2$ de $V$. Demuestre que $U_1 + U_2$ es un $\F$-subespacio vectorial de $V$, donde $U_1 + U_2 = \{ u_1 + u_2 : u_1 \in U_1 \land u_2 \in U_2 \}.$
+  \item Consideremos los $\F$-subespacios vectoriales $U_1$ y $U_2$ de $V$. Demuestre que $U_1 + U_2$ es un $\F$-subespacio vectorial de $V$.
   
-  \item \label{exer:F^IFinito} Sea $\F^{I}$ como se mencionó en el ejercicio \ref{exer:F^I}, y sea $\F^{(I)}$ el subconjunto de funciones que a evaluarse son cero en casi todos sus valores, es decir que si $f \in \F^{(I)}$ entonces $f(i) \neq 0_\F$ solo para una cantidad finitas de elementos $i \in I$. Demuestre que $\F^{(I)}$ es un $\F$-subespacio vectorial de $\F^{I}$.
+  \item \label{exer:F^IFinito} Sea $\F^{I}$ como se mencionó en el ejercicio \ref{exer:F^I}, y sea $\F^{(I)}$ el subconjunto de funciones que al evaluarse son cero en casi todos sus valores, es decir que si $f \in \F^{(I)}$ entonces $f(i) \neq 0_\F$ solo para una cantidad finita de elementos $i \in I$. Demuestre que $\F^{(I)}$ es un $\F$-subespacio vectorial de $\F^{I}$.
   
   \item Determine $\dim_\F(\F)$; justifique su respuesta.
   
   \item Sea $\F[x]_{\leq n}$ como se mencionó en el ejercicio \ref{exer:PolyGradLeqn}: determine su dimensión exhibiendo una base.
   
   \item El campo de los complejos tiene una estructura canónica como $\C$-espacio vectorial, como $\R$-espacio vectorial
-  y como $\Q$-espacio vectorial. Determine la dimensión de $\C$ como $\C$-espacio vectorial y como $\R$-espacio vectorial exhibiendo bases correspondientes a cada caso.
+  y como $\Q$-espacio vectorial. Determine la dimensión de $\C$ como $\C$-espacio vectorial y como $\R$-espacio vectorial, exhibiendo bases correspondientes a cada caso.
   
   \emph{Reto:} Demuestre que la dimensión de $\C$ como $\Q$-espacio vectorial no es finita.
   
@@ -251,7 +251,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
 
   \item Considere el contexto del ejercicio previo. Demuestre que $\bec U + \bec L = \M_n(\F)$.
   
-  \item Sea $\bec U_e$ el $\F$-subespacio vectorial de las matrices triangulares estrictamente superiores, es decir que si  $(a_{ij}) \in \bec U_e$ entonces $i \geq j$ implica $a_{ij} = 0$ y similarmente $\bec L_e$ denota al $\F$-subespacio vectorial de las matrices triangulares estrictamente inferiores, demuestre que $\bec U_e \oplus \bec D \oplus \bec L_e = \M_n(\F)$.
+  \item Sea $\bec U_e$ el $\F$-subespacio vectorial de las matrices triangulares estrictamente superiores, es decir que si  $(a_{ij}) \in \bec U_e$ entonces $i \geq j$ implica $a_{ij} = 0$ y similarmente $\bec L_e$ denota al $\F$-subespacio vectorial de las matrices triangulares estrictamente inferiores. Demuestre que $\bec U_e \oplus \bec D \oplus \bec L_e = \M_n(\F)$.
   
   \item Sea $V$ un $\F$-espacio vectorial de dimensión finita y sean $U_1, U_2, \ldots, U_k$ un conjunto de $\F$-subespacios vectoriales de $V$. Supongamos que $V = U_1 \oplus U_2 \oplus \cdots \oplus U_k$; demuestre que $\dim_\F(V) = \sum _{i=1}^k \dim_\F(U_i)$.
   

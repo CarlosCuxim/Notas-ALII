@@ -10,7 +10,7 @@ Como ya mencionamos en la sección anterior, dada una base existe una única com
     \end{pmatrix}.\]
 \end{defi}
 
-Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots, v_n)$ son dos bases ordenadas distintas, al igual que cualquier otra permutación, aunque provengan de la misma base. De este modo nos aseguraremos que la coordenada de cualquier elementos sea única.
+Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots, v_n)$ son dos bases ordenadas distintas, al igual que cualquier otra permutación, aunque provengan de la misma base. De este modo nos aseguraremos que la coordenada de cualquier elemento sea única.
 
 \begin{example}
   Consideremos el espacio vectorial $\R[x]_{\leq 2}$ junto la base ordenada $B = (1, x+1, x^2+1)$ y calculemos los vectores coordenadas con respecto a $B$ de: $x^2+5x-1$, $x^2 + 2x+1$ y $ax^2 + bx + c$.
@@ -37,16 +37,16 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
 Una propiedad interesante es que esta asociación de vectores de $V$ con las $n$-tuplas de $\F^n$ forma una transformación lineal biyectiva.
 
 \begin{prop}
-  Sea $B$ una base ordenada del $\F$-espacio vectorial $V$, entonces la función $[\cdot]_B\colon V \to \F^n$ es un isomorfismo.
+  Sea $B$ una base ordenada de un $\F$-espacio vectorial $V$ de dimensión $n$, entonces la función $[\cdot]_B\colon V \to \F^n$ es un isomorfismo.
 \end{prop}
 \begin{proof}
-  Sea $v,w \in V$ con $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, $w = \mu_1 v_1 + \cdots + \mu_n v_n$ y $\alpha \in K$, entonces veamos que
+  Sean $v,w \in V$ con $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, $w = \mu_1 v_1 + \cdots + \mu_n v_n$ y $\alpha \in \F$, entonces veamos que
   \[
   \alpha v+w =  (\alpha\lambda_1+\mu_1) v_1 + \cdots + (\alpha\lambda_n+\mu_n) v_n,
   \]
   de esta forma es claro que
   \begin{align*}
-    [v+w]_B 
+    [\alpha v+w]_B 
       &= \begin{pmatrix} \alpha\lambda_1+\mu_n \\ \vdots \\ \alpha\lambda_n+\mu_n \end{pmatrix} \\
       &= \alpha\begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}
        + \begin{pmatrix} \mu_n \\ \vdots \\ \mu_n  \end{pmatrix} \\
@@ -58,10 +58,11 @@ Una propiedad interesante es que esta asociación de vectores de $V$ con las $n$
 
 \subsection{Cambio de base}
 
-Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacio, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dada la coordenada de $v \in V$ con respecto a $B$ nos devuelva su coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{BB'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
+Sabemos que dadas dos bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (v_1',\ldots,v_n')$ de $V$ es posible definir un sistema de coordenadas para cada una, pero dado que modelan el mismo espacio, debería existir una forma de asociar ambas coordenadas, es decir, debería existir una función tal que dado el vector de coordenadas de $v \in V$ con respecto a $B$ nos devuelva su vector coordenada con respecto a $B'$. Más precisamente, buscamos que para $B$ y $B'$ exista una matriz invertible $M$ tal que $M [v]_B = [v]_{B'}$ para todo $v \in V$. A esta matriz la denotaremos como $M_{BB'}$ y la llamaremos como matriz de \emph{cambio de base} o \emph{cambio de coordenadas}.
 
 La idea es la siguiente, si $e_i$ es la $i$-ésima columna de la matriz identidad, entonces por definición $[v_i]_B = e_i$, de este modo si $M_{BB'} [v]_B = [v]_{B'}$ para todo $v \in V$, entonces
-  \[ M_{BB'} [v_i]_B = M_{BB'} e_i = (M_{BB'})_{*i} = [v_i]_{B'}. \]
+  \[ M_{BB'} [v_i]_B = M_{BB'} e_i = (M_{BB'})_{*i} = [v_i]_{B'},\]
+donde $(M_{BB'})_{*i}$ representa la $i$-ésima columna de la matriz $M_{BB'}$.
 Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{BB'}$, en otras palabras que
   \[ M_{BB'} = \begin{spmatrix}{c|c|c}  [v_1]_{B'} & \cdots & [v_n]_{B'}  \end{spmatrix}. \]
 
@@ -74,7 +75,7 @@ Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{BB'}$, 
   Primero, notemos que por propiedades conocidas y la definición de $M_{BB'}$ es claro que 
     \[ M_{BB'}[v_i]_B = M_{BB'} e_i =  (M_{BB'})_{*i} = [v_i]_{B'}. \]
 
-  De este modo, sea $v \in V$ con $[v]_B = (\lambda_1,\ldots,\lambda_n)^t$, por la linealidad de $[\cdot]_{B'}$ y las propiedad ya mencionadas, tenemos que
+  De este modo, sea $v \in V$ con $[v]_B = (\lambda_1,\ldots,\lambda_n)^t$, por la linealidad de $[\cdot]_{B'}$ y las propiedades ya mencionadas, tenemos que
     \begin{align*}
       v        &= \lambda_1 v_1 + \cdots + \lambda_n v_n, \\
       [v]_{B'} &= \lambda_1 [v_1]_{B'} + \cdots + \lambda_n [v_n]_{B'} \\
@@ -94,15 +95,16 @@ Esto nos dice que $[v_i]_{B'}$ es la $i$-ésima columna de la matriz $M_{BB'}$, 
 Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cualquier otra base ordenada $B'$ existe una matriz invertible asociada que realiza el cambio de coordenadas. La vuelta de esta proposición también es cierta, de este modo existe una biyección entre el conjunto de bases ordenadas y el conjunto de matrices invertibles.
 
 \begin{prop}\label{prop:ExBase}
-  Sea $P$ una matriz de $n\times n$ con entradas en $\F$, $V$ un $\F$-espacio vectorial y $B = (v_1, \ldots, v_n)$ una base ordenada, entonces existe una única base ordenada $B'$ tal que $M_{B'B} = P$.
+  Sea $P$ una matriz invertible de $n\times n$ con entradas en $\F$, $V$ un $\F$-espacio vectorial y $B = (v_1, \ldots, v_n)$ una base ordenada de $V$, entonces existe una única base ordenada $B'$ tal que $M_{B'B} = P$.
 \end{prop}
 \begin{proof}
   Si $P = (p_{ij})$ entonces definamos $B' = (v_1', \ldots, v_n')$ donde
     \[ v_j' = p_{1j}v_1 + \cdots +  p_{nj}v_n,     \qquad j \in \{1,\ldots, n\}. \]
-  Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\cdots,n$, de este modo si $B'$ fuese una base ordenada, entonces $P = M_{B'B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
+  Notemos que $[v_i]_B = P_{*i}$ para toda $i \in 1,\ldots,n$, de este modo, si $B'$ fuese una base ordenada, entonces $P = M_{B'B}$, por el teorema anterior. Así probemos que $B'$ es una base ordenada.
 
   Sea $\lambda_1 v_i' + \cdots + \lambda_n v_n' = 0$, por linealidad de $[\cdot]_B$ y definición, tenemos que si $\lambda = (\lambda_1, \ldots, \lambda_n)^t$, entonces
   \begin{align*}
+    [\lambda_1 v_i' + \cdots + \lambda_n v_n'] &= \bec 0 \\
     \lambda_1 [v_1']_B + \cdots + \lambda_n [v_n']_B &= \bec 0 ,\\
     \lambda_1 P_{*1} + \cdots + \lambda_n P_{*n} &= \bec 0 ,\\
     P\lambda &= \bec 0.
@@ -115,10 +117,10 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
 \end{proof}
 
 \begin{example}
-  Consideremos las bases ordenadas $B = ( 1, it )$ y $B' = (t+1, t-1)$ de $\C[t]_{\leq 1}$, calculemos la matriz de cambio de coordenadas $M_{BB'}$.
+  Consideremos las bases ordenadas $B = ( 1, it )$ y $B' = (t+1, t-1)$ de $\C[t]_{\leq 1}$ y calculemos la matriz de cambio de coordenadas $M_{BB'}$.
 
   \examplesolution
-  Por el teorema \ref{teor:CambioBase} sabemos que $M_{BB'} = \bigl( [1]_{B'} \mid [it]_{B'} \bigr)$, para ello notemos que
+  Por el teorema \ref{teor:CambioBase} sabemos que $M_{BB'} = \bigl( [1]_{B'} \mid [it]_{B'} \bigr)$, y se tienen las identidades
   \[
     1 = \frac{1}{2} (t+1) - \frac{1}{2}(t-1)
       \Eqand
@@ -132,7 +134,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
 \end{example}
 
 \begin{example}
-  Consideremos las bases ordenadas $B = \bigl( (0,0,1)^t, (0,1,0)^t, (1,0,0)^t \bigr)$ y $B' = \bigl( (1,1,0)^t, (-1, 1, 0)^t, (0,0,-1)^t \bigr)$ de $\R^3$, calculemos la matriz de cambio de coordenadas $M_{BB'}$.
+  Consideremos las bases ordenadas $B = \bigl( (0,0,1)^t, (0,1,0)^t, (1,0,0)^t \bigr)$ y $B' = \bigl( (1,1,0)^t, (-1, 1, 0)^t, (0,0,-1)^t \bigr)$ de $\R^3$ y calculemos la matriz de cambio de coordenadas $M_{BB'}$.
 
   \examplesolution
   Aunque podríamos calcular de manera tradicional la matriz de cambio de coordenadas usando la definición de coordenada, existe un método más sencillo en este caso. Consideremos la base ordenada canónica $C = (e_1, e_2, e_3)$, es bastante claro que si $v \in \R^3$ entonces $[v]_C = v$, de esta forma tenemos que
@@ -145,7 +147,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
     M_{B'C} = \begin{pmatrix}
       1 & -1 & 0 \\
       1 & 1  & 0 \\
-      0 & 0  & 1
+      0 & 0  & -1
     \end{pmatrix}
   \]
 
@@ -155,7 +157,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
       &= \begin{pmatrix}
         1 & -1 & 0 \\
         1 & 1  & 0 \\
-        0 & 0  & 1
+        0 & 0  & -1
         \end{pmatrix}^{-1}
         \begin{pmatrix}
         0 & 0 & 1 \\
@@ -165,7 +167,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
       &= \begin{pmatrix}
         1/2  & 1/2 & 0 \\
         -1/2 & 1/2 & 0 \\
-        0    & 0   & 1
+        0    & 0   & -1
         \end{pmatrix}
         \begin{pmatrix}
         0 & 0 & 1 \\
@@ -175,7 +177,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
       &= \begin{pmatrix}
         0 & 1/2  & 1/2  \\
         0 & 1/2  & -1/2 \\
-        1 & 0    & 0
+        -1 & 0    & 0
         \end{pmatrix}
   \end{align*}
 \end{example}
@@ -189,7 +191,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
   
   \item Halla el vector de coordenadas de $(1, 0, 1)$ en la base de $\C^3$ formada por los vectores $(2i, 1, 0)$, $(2, -1, 1)$, $(0, 1+i, 1-i)$, en ese orden.
   
-  \item Sea $V$ una $\F$-espacio vectorial con una base ordenada $B = (v_1, \ldots, v_n)$, si $S = \{w_1, \ldots, w_n\} \subset V$, demuestra que $S$ es linealmente independiente si y solo si la matriz $M = \bigl( [w_1]_B \mid \cdots \mid [w_n]_B\bigr)$ es invertible.
+  \item Sea $V$ una $\F$-espacio vectorial con una base ordenada $B = (v_1, \ldots, v_n)$. Si $S = \{w_1, \ldots, w_n\} \subset V$, demuestra que $S$ es linealmente independiente si y solo si la matriz $M = \bigl( [w_1]_B \mid \cdots \mid [w_n]_B\bigr)$ es invertible.
   
   \item Sea $B = (v_1, v_2, v_3)$ la base ordenada de $\R^3$ formada por
     \[ 

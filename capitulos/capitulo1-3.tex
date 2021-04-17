@@ -4,7 +4,7 @@ Hemos visto que para cualquier espacio vectorial podemos crear un sistema de coo
 
 Sabemos que dada una matriz $M$ de $m \times n$ entonces la función $T_M \colon \F^n \to \F^m$ dada por $T(v) = Mv$  es una transformación lineal, a la cual llamaremos la transformación \emph{inducida} por $M$. Ahora, buscamos hacer el mismo proceso pero de manera inversa, es decir, si consideremos dos $\F$-espacios vectoriales $V$ y $W$ con bases ordenadas $B = (v_1,\ldots,v_n)$ y $B' = (w_1,\ldots,w_m)$, respectivamente, si $T\colon V \to W$ es una transformación lineal, lo que buscamos es una matriz $M$ de tamaño $m\times n$ tal que $M[v]_B = [T(v)]_{B'}$, para todo $v \in V$. A esta matriz la denotaremos como $T_{BB'}$ y diremos que es la matriz \emph{asociada} a $T$.
 
-La idea es análoga al de cambio de base, dado que $[v_i] = e_i$ y $T_{BB'}e_i = (T_{BB''})_{*i}$ para todo $i \in \{1,\ldots,n\}$, si $T_{BB'}[v]_B = [T(v)]_{B'}$ para todo $v \in V$, entonces tenemos que
+La idea es análoga a la de cambio de base, dado que $[v_i] = e_i$ y $T_{BB'}e_i = (T_{BB''})_{*i}$ para todo $i \in \{1,\ldots,n\}$, si $T_{BB'}[v]_B = [T(v)]_{B'}$ para todo $v \in V$, entonces tenemos que
   \[ T_{BB'} [v_i]_B = T_{BB'} e_i = (T_{BB'})_{*i} = [T(v_i)]_{B'}. \]
 Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{BB'}$, y por lo tanto
   \[ T_{BB'} = \begin{spmatrix}{c|c|c}  [T(v_1)]_{B'} & \cdots & [T(v_n)]_{B'}  \end{spmatrix}. \]
@@ -26,12 +26,12 @@ Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{BB'}$, 
       &= [T(\lambda v_1  + \cdots + \lambda_n v_n )]_{B'} \\
       &= [T(v)]_{B'}.
   \end{align*}
-  Así tenemos que $T_{BB'} [v]_B = [T(v)]_{B'}$ toda $v \in V$. Ahora, supongamos que existe otra matriz $P$ con la misma propiedad. Por el análisis del principio, para toda $i \in \{1,\ldots,n\}$ tenemos que
+  Así tenemos que $T_{BB'} [v]_B = [T(v)]_{B'}$ para toda $v \in V$. Ahora, supongamos que existe otra matriz $P$ con la misma propiedad. Por el análisis del principio, para toda $i \in \{1,\ldots,n\}$ tenemos que
   \[ (T_{BB'})_{*i} = [T(v_i)]_B = P[v_i]_B = Pe_i = P_{*i}, \]
   y dado que todas sus columnas son iguales, es claro que $P = T_{BB'}$.
 \end{proof}
 
-Una consecuencia directa de este teorema, es que si consideramos las bases canónicas de $\F^n$ y $\F^m$, entonces toda transformación lineal $T\colon \F^n \to \F^m$ es de la forma $T(v) = M_T v$ donde
+Una consecuencia directa de este teorema es que si consideramos las bases canónicas de $\F^n$ y $\F^m$, entonces toda transformación lineal $T\colon \F^n \to \F^m$ es de la forma $T(v) = M_T v$ donde
   \[ M_T = \begin{spmatrix}{c|c|c} T(e_i) & \cdots & T(e_n) \end{spmatrix}, \]
 mostrando que toda transformación lineal es inducida por alguna matriz.
 
@@ -57,7 +57,7 @@ mostrando que toda transformación lineal es inducida por alguna matriz.
 \end{example}
 
 \begin{teor}\label{teo:isomTrMat}
-  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si consideramos la función $\Psi_{BB'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{BB'}(T) = T_{BB'}$, entonces $\Psi_{BB'}$ es un isomorfismo de $L(V,W)$ y $\M_{m\times n}(\F)$.
+  Sean $V$ y $W$ dos $\F$-espacio vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si consideramos la función $\Psi_{BB'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{BB'}(T) = T_{BB'}$, entonces $\Psi_{BB'}$ es un isomorfismo de $L(V,W)$ y $\M_{m\times n}(\F)$.
 \end{teor}
 \begin{proof}
   Primero demostremos que la función $\Psi_{BB'}$ es una transformación lineal. Sean $T, S \in L(V,W)$ y $\lambda \in \F$, notemos que para todo $v \in V$ se cumple que
@@ -117,7 +117,7 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
     \begin{enumerate}
       \item ¿Cual es la matriz de $T$ con respecto a las bases ordenadas $C$ y $B$?
       \item ¿Cual es la matriz de $T$ con respecto a las bases ordenadas $B$ y $C$?
-      \item ¿Cual es la matriz de $T$ con respecto a la base ordenadas $B$?
+      \item ¿Cual es la matriz de $T$ con respecto a la base ordenada $B$?
       \item ¿Cual es la matriz de $T$ con respecto a la base ordenadas $(v_2, v_1)$?
     \end{enumerate}
 
@@ -157,7 +157,7 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
     \begin{enumerate}
       \item ¿Cual es la matriz de $T$ en la base ordenada $(x^2, x, 1)$?
       \item ¿Cual es la matriz de $T$ en la base ordenada $(f_1, f_2, f_3)$ donde $f_1(x) = x^2-1$, $f_2(x) = -x^2+2x+1$ y $f_3(x) = 2x^2 +x +1$?
-      \item Demuestra que $T$ es invertible y da una expresión de $T^{-1}$ similar a como se definió $T$-|
+      \item Demuestra que $T$ es invertible y da una expresión de $T^{-1}$ similar a como se definió $T$.
     \end{enumerate}
 
   \item Consideremos la transformación lineal $\bec d_n \colon \F[x]_{\leq n} \to \F[x]_{\leq n}$ dada por

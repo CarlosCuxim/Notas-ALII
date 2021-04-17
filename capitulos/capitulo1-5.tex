@@ -6,13 +6,13 @@ Uno de los objetivos de la semejanza de matrices es encontrar la matriz más ``s
   Sea $M$ una matriz, decimos que es \emph{triangularizable} (\emph{diagonalizable}) si existe una matriz $T$ triangular (diagonal) tal que $M \sim T$.
 \end{defi}
 
-A priori, no tenemos una forma de saber si una matriz es triangularizable o diagonalizable. Hasta ahora, solo sabemos que dentro de una misma clase se preserva la determinante y traza, pero la vuelta no es cierta, aunque dos matrices compartan traza y determinante no necesariamente son semejantes. Aun necesitamos herramientas más sofisticadas para saber cuando una matriz es triangularizable o diagonalizable.
+A \emph{priori}, no tenemos una forma de saber si una matriz es triangularizable o diagonalizable. Hasta ahora, solo sabemos que dentro de una misma clase se preserva la determinante y traza, pero la vuelta no es cierta, aunque dos matrices compartan traza y determinante no necesariamente son semejantes. Aun necesitamos herramientas más sofisticadas para saber cuando una matriz es triangularizable o diagonalizable.
 
 \subsection{Clasificación de matrices de \texorpdfstring{$2\times 2$}{2x2}}
 
 Con los conocimientos que tenemos hasta este punto podemos clasificar las clases de equivalencia de $\M_2(\C)$. Por lo que en lo que resta de esta sección, nos dedicaremos a determinar cuando una matriz compleja de $2\times 2$ es triangularizable o diagonalizable.
 
-Para ello, calculemos algunas conjugaciones. La primera conjugación nos permite ``invertir'' los elementos de una matriz.
+Para ello, calculemos algunas conjugaciones. La primera conjugación nos permite ``intercambiar'' los elementos de una matriz.
 \begin{equation}
   \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
   \begin{pmatrix} a & b \\ c & d \end{pmatrix}
@@ -62,7 +62,7 @@ De esta forma, tenemos que toda matriz compleja de $2 \times 2$ es semejante a a
     \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & 1 \\ 0 & \alpha \end{pmatrix}.
       \label{eq:M2Form}
 \end{equation}
-con $u$ y $w$ arbitrarios. Aunque aun queda determinar si estas matrices son los representantes de las clases de equivalencia o si hay repeticiones. Para realizar el cálculo más fácil, definamos las siguientes matrices 
+con $\alpha$ y $\beta$ arbitrarios. Aún queda por determinar si hay repeticiones entre los tipos de matrices calculados. Para realizar el cálculo más fácil, definamos las siguientes matrices 
 \[
   D_{\alpha,\beta} = \begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix}
      \Eqand
@@ -121,7 +121,7 @@ Ahora, qué pasa con las semejanza de matrices del mismo tipo. Supongamos que ex
 
 Resumiendo todo el proceso hecho hasta ahora, tenemos el siguiente teorema.
 \begin{teor} \label{teor:TDMat2x2}
-  Toda matriz $M \in \M_2(\C)$ es semejante a una matriz de la forma $D_{\alpha,\beta}$ o $T_\gamma$ con $\alpha, \beta, \gamma \in \C$. Además, $D_{\alpha,\beta} \nsim T_\gamma$ para cualesquiera $\alpha,\beta,\gamma \in \C$. Y por ultimo, $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ si y solo si $\{\alpha,\beta\} = \{\alpha',\beta'\}$ y $T_\gamma \sim T_{\gamma'}$ si y solo si $\gamma = \gamma'$. \qed
+  Toda matriz $M \in \M_2(\C)$ es semejante a una matriz de la forma $D_{\alpha,\beta}$ o $T_\gamma$ con $\alpha, \beta, \gamma \in \C$. Además, $D_{\alpha,\beta} \nsim T_\gamma$ para cualesquiera $\alpha,\beta,\gamma \in \C$. Y por último, $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ si y solo si $\{\alpha,\beta\} = \{\alpha',\beta'\}$ y $T_\gamma \sim T_{\gamma'}$ si y solo si $\gamma = \gamma'$. \qed
 \end{teor}
 
 Este teorema nos dice dos propiedades importantes. En primer lugar toda matriz compleja de tamaño $2 \times 2$ es triangularizable o diagonalizable. En segundo lugar, toda la clase de equivalencia de una matriz está caracterizado por uno o dos valores, los cuales son los valores en la diagonal de la matriz semejante de la forma $D_{\alpha,\beta}$ o $T_\gamma$.
@@ -132,13 +132,13 @@ La existencia de estos valores no es una coincidencia, en el capítulo 2 general
 \ExerciseSection
 
 \begin{exerciselist}
-  \item Demuestra que si $M$ es semejante a una matriz triangular superior si y solo si es semejante a una matriz triangular inferior.
+  \item Demuestra que $M$ es semejante a una matriz triangular superior si y solo si es semejante a una matriz triangular inferior.
   
   \item Realiza los cálculos para demostrar que $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ si y solo si $\{\alpha,\beta\} = \{\alpha',\beta'\}$ y $T_\gamma \sim T_{\gamma'}$ si y solo si $\gamma = \gamma'$.
 
   \item Demuestra que si $M \sim D_{\alpha,\beta}$ con $\alpha,\beta \in \C$, entonces existen vectores no nulos $v, v' \in \C^2$ tales que $Mv = \alpha v$ y $Mv' = \beta v'$.
   
-  \item Demuestra que si $M \sim T_\gamma$ con $\gamma \in \C$, entonces existe un vector no nulos $v\in \C^2$ tal que $Mv = \gamma v$.
+  \item Demuestra que si $M \sim T_\gamma$ con $\gamma \in \C$, entonces existe un vector no nulo $v\in \C^2$ tal que $Mv = \gamma v$.
   
   \item Usa la proposición \ref{prop:MPolySem} para demostrar que $M \sim D_{5, -5}$ donde
     \[ M = \begin{pmatrix}

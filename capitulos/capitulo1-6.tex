@@ -23,16 +23,16 @@ En primer lugar, notemos que podemos ver la sucesiones de Fibonacci como un sist
     = \begin{pmatrix}  F_{n+1} \\ F_n \end{pmatrix}.
     \label{eq:FibMtx}
 \end{equation}
-Definamos como $M$ a la matriz asociada al sistema de ecuaciones de \eqref{eq:FibMtx}. Notemos que por definición, este cumple que
+Definamos como $M$ a la matriz asociada al sistema de ecuaciones de \eqref{eq:FibMtx}. Notemos que por definición, se cumple que
 \[
   M^n \begin{pmatrix}  F_1 \\ F_0 \end{pmatrix} 
     = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^n  \begin{pmatrix}  1 \\ 0 \end{pmatrix}
     = \begin{pmatrix}  F_{n+1} \\ F_n \end{pmatrix}.
 \]
 
-De esta forma tenemos una forma, relativamente directa, de calcular el $n$-ésimo término de la sucesión de Fibonacci. El problema entonces es calcular cuanto vale $M^n$. Por la proposición \ref{prop:MPolySem}, sabemos que si $M = P^{-1}NP$, entonces $M^n = P^{-1} N^n P$, para hacer más sencillos los cálculos busquemos la matriz $D_{\alpha,\beta}$ o $T_\gamma$ a la que es semejante $M$.
+De esta forma tenemos una forma, relativamente directa, de calcular el $n$-ésimo término de la sucesión de Fibonacci. El problema entonces es calcular cuanto vale $M^n$. Por la proposición \ref{prop:MPolySem}, sabemos que si $M = P^{-1}NP$, entonces $M^n = P^{-1} N^n P$ y para hacer más sencillos los cálculos busquemos la matriz $D_{\alpha,\beta}$ o $T_\gamma$ a la que es semejante $M$.
 
-Como ya dijimos antes, los valores de la diagonal de su matriz $D_{\alpha,\beta}$ o $T_\gamma$ son llamados los valores propios de la matriz, aunque hasta la siguiente capítulo se explicará con más detalle lo que esto significa, podemos adelantar que la forma más eficiente de encontrarlos, es ver que valores $\lambda \in \C$ cumplen que $\det(M-\lambda I) = 0$. Así tenemos que los valores propios de $M$ son los $\lambda \in \C$ tal que
+Como ya dijimos antes, los valores de la diagonal la su matriz $D_{\alpha,\beta}$ o la matriz $T_\gamma$ son llamados los valores propios de la matriz, aunque hasta el siguiente capítulo se explicará con más detalle lo que esto significa, podemos adelantar que la forma más eficiente de encontrarlos, es ver qué valores $\lambda \in \C$ cumplen que $\det(M-\lambda I) = 0$. Así tenemos que los valores propios de $M$ son los $\lambda \in \C$ tales que
 \[
   \det\begin{pmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{pmatrix} = \lambda^2 - \lambda - 1 = 0.
 \]
