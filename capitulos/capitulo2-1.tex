@@ -1,0 +1,58 @@
+\chapter{Teoría Espectral}
+
+\section{Valores propios}
+
+Como vimos en la sección \ref{sec:TyDdeMat2x2} las matrices complejas de $2\times 2$ tienen asociadas unos números que nos permiten caracterizar toda su clase de equivalencia y que nos permiten diagonalizarlas o triangularizarlas. Aunque el proceso lo hicimos para un tipo muy especial de matrices, este se puede generalizar.
+
+Supongamos que tenemos una matriz $M\in\M_n(\F)$ diagonalizable, es decir, existe una matriz $D = (d_{ij})$ diagonal y una matriz invertible $P$ tal que $D =  P^{-1}MP$. Notemos que si $v_i = P_{*i}$ con $i \in \{1,\ldots,n\}$ y $D = \bigl( \lambda_1 e_1 \mid \cdots \mid \lambda_n e_n \bigr)$, dado que $PD = MP$, entonces se cumple que
+  \[
+    Mv_i = MPe_i = PD e_i = P(\lambda_i e_i) = \lambda_i P_{*i} = \lambda_i v_i
+  \]
+De este modo, si quisiéramos determinar si una matriz $M$ es diagonalizable, es natural pensar que deberíamos buscar los valores $\lambda$ y vectores $v$ tales que $Mv = \lambda v$.
+
+\begin{defi}
+  Sea $M \in \M_n(\F)$, decimos que $\lambda \in \F$ es un \emph{valor propio} de $M$ si existe un vector $v \in \F^n$ no nulo, tal que
+    \[Mv = \lambda v.\]
+  Si $\lambda$ es in valor propio de $M$ entonces cualquier $v \in \F^n$ no nulo tal que $Mv = \lambda v$ se dirá que es un \emph{vector propio} de $M$ asociado al valor propio $\lambda$. Al conjunto de valores propios de $M$ le llamaremos el \emph{espectro} de $M$ y lo denotaremos como $E(M)$.
+\end{defi}
+
+Notemos que si $M$ es la matriz cero, entonces todo vector de $\F^n - \{\bec 0\}$ es un vector propio de $M$ asociado al valor propio $0$. De manera más general, si $M$ es una matriz no invertible, entonces todo vector en $\ker(M)-\{\bec 0\}$ es un vector propio de $M$ asociado al valor propio $0$.
+
+\begin{teor}\label{teor:PropVP}
+  Sean $M \in \M_n(\F)$ y $\lambda \in \F$, las siguientes afirmaciones on equivalentes
+  \begin{enumerate}
+    \item $\lambda$ es un valor propio de $M$.
+    \item La matriz $M-\lambda I$ no es invertible.
+    \item $\det(N-\lambda I) = 0$.
+  \end{enumerate}
+\end{teor}
+\begin{proof}
+  Por las propiedades de la determinante, es claro que $M-\lambda I$ es no invertible si y solo si $\det(M-\lambda I)=0$. Así, demostremos que $\lambda$ es un valor propio de $M$ si y solo sí $M-\lambda I$ no es invertible.
+
+  Para la ida, notemos que si $\lambda$ es un valor propio, entonces existe $v \in \F^n-\{\bec 0\}$ tal que 
+    \[ Mv=\lambda v = \lambda Iv \implies (M-\lambda I)v = \bec 0. \]
+  Dado que $v \neq \bec 0$, entonces la ecuación $(M-\lambda I)x = \bec 0$ tiene una solución no trivial, lo que implica que $M-\lambda I$ es no invertible.
+
+  Análogamente para la vuelta, si $M-\lambda I$ es no invertible, entonces existe $v \in \F^n-\{0\}$ tal que $(M-\lambda I)v = \bec 0$ y por tanto
+  \[ Mv - \lambda Iv = \bec 0 \implies Mv = \lambda v. \]
+  Mostrando así que $\lambda$ es un vector propio de $M$.
+\end{proof}
+
+Como vimos en la sección \ref{sec:TyDdeMat2x2}, los valores propios de una matriz son iguales para todas las matrices semejantes a esta, aunque como se verá más adelante, no son suficientes para determinar a toda la clase de equivalencia. De igual forma, aunque para matrices complejas de $2\times 2$ siempre existen sus valores propios, no necesariamente todas las matrices tienen un valor propio.
+
+\begin{coro}
+  Sean $M,N \in \M_n(\F)$, si $M \sim N$ entonces $E(M) = E(N)$.
+\end{coro}
+\begin{proof}
+  Primero, veamos que por definición debe existir una matriz invertible $P$ tal que $M = P^{-1} N P$, de esta forma, veamos por propiedades de la determinante que, si $\lambda \in \F$ entonces
+  \begin{align*}
+    \det(M - \lambda I) &= \det(P^{-1}NP - \lambda P^{-1}IP) \\
+      &= \det\bigl(P^{-1}(N-\lambda I)P\bigr) \\
+      &= \det(P^{-1})\det(N-\lambda I) \det(P) \\
+      &= \det(N-\lambda I) \det(P) [\det(P)]^{-1} \\
+      &= \det(N-\lambda I).
+  \end{align*}
+  De esta forma, notemos que si $\lambda \in E(M)$ entonces, por el teorema \ref{teor:PropVP}, se cumple que 
+  \[\det(N - \lambda I) = \det(M - \lambda I) = 0,\]
+  mostrando que $E(M) \subseteq E(N)$. De igual forma, dado que $N \sim M$ entonces $E(N) \subseteq E(M)$ y por tanto $E(M) = E(N)$.
+\end{proof}
