@@ -76,7 +76,7 @@ Ahora, qué pasa en el caso contrario, supongamos que existe un homomorfismo de 
   Sea $A$ un anillo, $A$ será un $\F$-álgebra si y solo si existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$. \qed
 \end{teor}
 
-Ahora, notemos que no necesariamente existe un único homomorfismo de anillos unitario $\phi\colon\F\to Z(A)$, sino más bien, en un anillo cada uno de estos homomorfismo definirá una estructura de $\F$-álgebra diferente. De esta forma, para cada $\F$-álgebra, el homomorfismo de anillos unitario $\phi\colon\F\to Z(A)$ dado por $\phi(\lambda) = \lambda \cdot 1_A$ será el que lo determine.
+Ahora, notemos que no necesariamente existe un único homomorfismo de anillos unitario $\phi\colon\F\to Z(A)$, sino más bien, en un anillo cada uno de estos homomorfismo definirá una estructura de $\F$-álgebra diferente. De esta forma, para cada $\F$-álgebra, el homomorfismo dado por $\phi(\lambda) = \lambda \cdot 1_A$ será el que lo determine.
 
 Para facilitar la lectura, en lo que resta del capítulo y si no existe peligro de confusión, omitiremos los símbolos $\cdot$ y $*$ para referirnos a la multiplicación escalar y del anillo. De este modo, si $\lambda \in \F$ y $a$ entonces se entenderá que $\lambda a b = \lambda \cdot (a * b) $.
 
@@ -87,13 +87,13 @@ Para facilitar la lectura, en lo que resta del capítulo y si no existe peligro 
 Ahora, recordemos que un polinomio no es una función como tal, pero existe una función asociada a partir de éste. Esto es lo que conocemos como evaluar el polinomio, y esta propiedad no es única del campo del polinomio, sino que se puede definir para cualquier $\F$-álgebra.
 
 \begin{defi}
-  Sea $A$ una $\F$-álgebra determinada por el homomorfismo de anillos unitario $\phi\colon \F\to Z(A)$ y sea $f \in \F[x]$ dado por $f = c_n x_n + \cdots+ c_1x + c_0$, entonces definimos la \emph{evaluación} de $f$ en $a \in A$ como
+  Sea $A$ una $\F$-álgebra determinada y $f \in \F[x]$ dado por $f = c_n x_n + \cdots+ c_1x + c_0$, entonces definimos la \emph{evaluación} de $f$ en $a \in A$ como
   \[
     f(a) = c_n a^n + \cdots + c_1 a + c_0 1_A
   \]
 \end{defi}
 
-Notemos que si $\phi\colon \F\to Z(A)$ es el homomorfismo que define a la estructura de $\F$-álgebra, por el análisis hecho anteriormente, entonces la evaluación de $f = c_n x_n + \cdots+ c_1x + c_0$ en $a \in A$ cumple que
+Notemos que si $\phi\colon \F\to Z(A)$ es el homomorfismo de anillos unitario que define a la estructura de $\F$-álgebra, por el análisis hecho anteriormente, entonces la evaluación de $f = c_n x_n + \cdots+ c_1x + c_0$ en $a \in A$ cumple que
   \[
     f(a) = \phi(c_n) a^n + \cdots + \phi(c_1) a + \phi(c_0).
   \]
