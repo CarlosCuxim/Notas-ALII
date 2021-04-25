@@ -1,1 +1,58 @@
 \section{El anillo de polinomios}
+
+Antes de continuar revisando las propiedades de los valores y vectores propios, necesitamos conocer algunas de las principales propiedades de los polinomios, que serán necesarias para el desarrollo de temas posteriores.
+
+\subsection{Anillos y álgebras}
+
+Hasta ahora, hemos trabajado los polinomios $\F[x]$ únicamente como un $\F$-espacio vectorial, pero los polinomios tienen una estructura más compleja ya que, a diferencia de otros espacios vectoriales, además de una operación de suma los polinomios cuentan con una operación de multiplicación.
+
+La única otra estructura con la que hayamos estado trabajando y que cuente con dos operaciones binarias es el campo, pero si revisamos la definición \ref{defi:campo}, notaremos que los polinomios no cumplen todas esas propiedades. En específico los polinomios no tienen inversos multiplicativos. Un ejemplo de esto es el polinomio $x$, no importa por que otro polinomio multipliques este nunca será $1$. En este sentido, la estructura de los polinomios es más general que la del campo, y recibe el nombre de anillo.
+
+\begin{defi}
+  Sea $A$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $*$ (producto), decimos que la terna $(A,+,*)$ es un \emph{anillo} si cumple los siguiente axiomas:
+  \begin{enumerate}
+    \item $(A,+)$ es un grupo abeliano. Al elemento neutro lo denotaremos como $0_A$ y al inverso de $x \in A$ lo denotaremos como $-x$.
+    \item La operación $*$ es conmutativa sobre $A$.
+    \item (Existencia de neutro multiplicativo) Existe un elemento $1_A \in A-\{0_A\}$ tal que para todo $x \in A$ se cumple que $1_A * x = x * 1_A = x$.
+    \item (Distributividad) Para cualesquiera $x, y, z \in A$ se cumple que $x * (y + z) = x * y + x * z$ y $(y + z) * x =   y * x + z * x$.
+  \end{enumerate}
+  Si además, la operación $*$ es conmutativa sobre $A$, entonces decimos que es un \emph{anillo conmutativo}.
+\end{defi}
+
+Existen muchos ejemplos de anillos además de los polinomios, por ejemplo las matrices cuadradas $\M_n(\F)$, este anillo no es conmutativo, mientras que el de los polinomios si lo es. También, el conjunto de endomorfismos sobre un $\F$-espacio vectorial es un anillo no conmutativo. Por ultimo, tenemos el anillo modulo $n \in \N$, al que denotamos como $\Z_n$, el cual es un campo si y solo si $n$ es primo.
+
+De los ejemplos de anillos ya mencionados, hemos visto que las matrices, los endomorfismos y los polinomio también tienen una estructura de $\F$-espacio vectorial y no solo eso, además, su multiplicación como anillo se comporta bien con su multiplicación escalar. Estos anillos especiales, que cuentan con una estructura mas rica, reciben el nombre de álgebras.
+
+\begin{defi}
+  Sea $(A,+,*)$ un anillo que tiene estructura de $\F$-espacio vectorial, decimos que es una $\F$-álgebra si para cualesquiera $x, y \in A$ y $\lambda, \mu \in \F$ se cumple que
+    \[ (\lambda \cdot x) *  (\mu \cdot y) = (\lambda \mu) \cdot (a * b), \]
+  donde $\cdot$ es la multiplicación escalar de $A$.
+\end{defi}
+
+Una pregunta común es cuándo un anillo puede obtener una estructura de $\F$-álgebra. Para contestar esta pregunta necesitamos algunas definiciones extra, pero la idea es que el campo $\F$ debe ser ``compatible'' con ciertos elementos del anillo.
+
+En primer lugar, definimos el \emph{centro} del anillo como el conjunto $Z(A)$ de elementos del anillo que conmutan, es decir
+  \[
+    Z(A) = \{a \in A : a*x = x*a, \forall x \in A \}
+  \]
+Es claro que en todo anillo $1_A \in Z(A)$, además si $A$ es conmutativo, entonces $Z(A) = A$. De manera más general, $Z(A)$ siempre será un subanillo conmutativo de $A$.
+
+Ahora, si $(A, +, *)$ y $(A', +', *')$ son anillos, decimos que la función $\phi\colon A \to A'$ es un \emph{homomorfismo} de anillos si para cualesquiera $a,b \in A$ se cumple que 
+\[ \phi(a+b) = \phi(a) +' \phi(b)  \Eqand  \phi(a*b) = \phi(a) *' \phi(b). \]
+Si además $\phi(1_A) = 1_{A'}$, entonces decimos que $\phi$ es un homomorfismo de anillos \emph{unitario}.
+
+Ahora, para comprender cuándo un anillo se puede volver una álgebra, veamos qué sucede cuando $A$ es una $\F$-álgebra. Notemos que para cualesquiera $\lambda, \mu \in \F$, por la definición de $\F$-álgebra, se cumple que
+  \[
+    (\lambda +\mu) \cdot 1_A = \lambda \cdot 1_A + \mu \cdot 1_A,
+      \qquad 
+    (\lambda \mu) \cdot 1_A = \lambda \cdot 1_A * \mu \cdot 1_A,
+      \Eqand
+    1_\F \cdot 1_A = 1_A.
+  \]
+Además, para cualesquiera $x \in A$ y $\lambda \in \F$ se cumple que $x * (\lambda \cdot 1_A) = \lambda \cdot x = (\lambda \cdot 1_A) * x$ y por lo tanto $\lambda \cdot 1_A \in Z(A)$. De este modo, si definimos la función $\phi\colon \F\to Z(A)$ dada por $\phi(\lambda) = \lambda \cdot 1_A$, entonces $\phi$ es un homomorfismo de anillos unitario.
+
+Ahora, qué pasa en el caso contrario, supongamos que existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$, si definimos el producto escalar $\cdot \colon \F\times A \to A$ como $\lambda \cdot x = \phi(\lambda) * x$, es fácil ver, bajo este producto escalar, que $A$ es un $\F$-álgebra. De este modo podemos concluir el siguiente teorema.
+
+\begin{teor}
+  Sea $A$ un anillo, $A$ será un $\F$-álgebra si y solo si existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$. \qed
+\end{teor}

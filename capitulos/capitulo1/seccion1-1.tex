@@ -36,13 +36,13 @@ Existen muchos ejemplos de grupos, por ejemplo los enteros, racionales, reales y
 
 \subsection{Campos}
 
-\begin{defi}
-  Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas
+\begin{defi} \label{defi:campo}
+  Sea $K$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $\cdot$ (producto), decimos que la terna $(K, +, \cdot)$ es un \emph{campo} si cumple los siguientes axiomas:
   \begin{enumerate}
     \item $(K,+)$ es un grupo abeliano. Al elemento neutro lo denotaremos como $0_K$ y al inverso de $x \in K$ lo denotaremos como $-x$.
     \item La operación $\cdot$ es asociativa y conmutativa sobre $K$.
-    \item (Existencia de neutro multiplicativo) Existe un elemento $1_K \in K-\{0\}$ tal que para todo $x \in K$ se cumple que $1_K\cdot x = x\cdot 1_K = x$.
-    \item (Existencia de inverso multiplicativo) Para todo $x \in K-\{0\}$ existe un elemento $ x^{-1} \in K$ tal que $x \cdot x^{-1} = x^{-1} \cdot x = 1$.
+    \item (Existencia de neutro multiplicativo) Existe un elemento $1_K \in K-\{0_K\}$ tal que para todo $x \in K$ se cumple que $1_K\cdot x = x\cdot 1_K = x$.
+    \item (Existencia de inverso multiplicativo) Para todo $x \in K-\{0_K\}$ existe un elemento $ x^{-1} \in K$ tal que $x \cdot x^{-1} = x^{-1} \cdot x = 1$.
     \item (Distributividad) Para cualesquiera $x, y, z \in K$ se cumple que $x \cdot (y + z) = x \cdot y + x \cdot z$.
   \end{enumerate}
 \end{defi}
