@@ -19,11 +19,11 @@ De este modo, si quisiéramos determinar si una matriz $M$ es diagonalizable, es
 Notemos que si $M$ es la matriz cero, entonces todo vector de $\F^n - \{\bec 0\}$ es un vector propio de $M$ asociado al valor propio $0$. De manera más general, si $M$ es una matriz no invertible, entonces todo vector en $\ker(M)-\{\bec 0\}$ es un vector propio de $M$ asociado al valor propio $0$.
 
 \begin{teor}\label{teor:PropVP}
-  Sean $M \in \M_n(\F)$ y $\lambda \in \F$, las siguientes afirmaciones on equivalentes
+  Sean $M \in \M_n(\F)$ y $\lambda \in \F$, las siguientes afirmaciones son equivalentes
   \begin{enumerate}
     \item $\lambda$ es un valor propio de $M$.
     \item La matriz $M-\lambda I$ no es invertible.
-    \item $\det(N-\lambda I) = 0$.
+    \item $\det(M-\lambda I) = 0$.
   \end{enumerate}
 \end{teor}
 \begin{proof}
@@ -40,19 +40,13 @@ Notemos que si $M$ es la matriz cero, entonces todo vector de $\F^n - \{\bec 0\}
 
 Como vimos en la sección \ref{sec:TyDdeMat2x2}, los valores propios de una matriz son iguales para todas las matrices semejantes a esta, aunque como se verá más adelante, no son suficientes para determinar a toda la clase de equivalencia. De igual forma, aunque para matrices complejas de $2\times 2$ siempre existen sus valores propios, no necesariamente todas las matrices tienen un valor propio.
 
-\begin{coro}
+\begin{teor}
   Sean $M,N \in \M_n(\F)$, si $M \sim N$ entonces $E(M) = E(N)$.
-\end{coro}
+\end{teor}
 \begin{proof}
-  Primero, veamos que por definición debe existir una matriz invertible $P$ tal que $M = P^{-1} N P$, de esta forma, veamos por propiedades de la determinante que, si $\lambda \in \F$ entonces
-  \begin{align*}
-    \det(M - \lambda I) &= \det(P^{-1}NP - \lambda P^{-1}IP) \\
-      &= \det\bigl(P^{-1}(N-\lambda I)P\bigr) \\
-      &= \det(P^{-1})\det(N-\lambda I) \det(P) \\
-      &= \det(N-\lambda I) \det(P) [\det(P)]^{-1} \\
-      &= \det(N-\lambda I).
-  \end{align*}
-  De esta forma, notemos que si $\lambda \in E(M)$ entonces, por el teorema \ref{teor:PropVP}, se cumple que 
-  \[\det(N - \lambda I) = \det(M - \lambda I) = 0,\]
-  mostrando que $E(M) \subseteq E(N)$. De igual forma, dado que $N \sim M$ entonces $E(N) \subseteq E(M)$ y por tanto $E(M) = E(N)$.
+  Primero, veamos que por definición debe existir una matriz invertible $P$ tal que $M = P^{-1} N P$. Sea $\lambda \in E(M)$, por definición debe existir un vector no nulo $n \in \F^n$ tal que $Mv = \lambda v$. De esta forma, sustituyendo $M$, notemos que
+    \[ ( P^{-1} N P) v =  \lambda v  \implies  N(Pv) = P(\lambda v) = \lambda (Pv). \]
+  Ahora, dado que $P$ es invertible y $v$ es un vector no nulo, entonces por propiedades de las matrices invertibles, tenemos que $Pv$ será un vector no nulo, pero por definición, esto implica que $\lambda \in E(N)$. Así $E(M) \subseteq E(N)$.
+
+  Como $N \sim M$ por simetría de la semejanza de matrices, entonces por la parte anterior tenemos que $E(N) \subseteq E(M)$, mostrando así que $E(N) = E(M)$.
 \end{proof}

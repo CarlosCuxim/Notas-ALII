@@ -1,0 +1,34 @@
+\section{El polinomio característico y minimal}
+
+En el estudio de los valores y vectores propios de una matriz hay dos polinomio importantes asociados a cada matríz. Estos son el polinomio minimal, que nos dará una forma de encontrar los valores propios de una matriz. El otro polinomio nos será útil cuando estudiemos los espacios de núcleos.
+
+\subsection{Polinomio característico.}
+
+Para definir este polinomio necesitamos recordar algunas de las propiedades del determinante. En primer lugar, el determinante no solo se puede definir sobre matrices con entradas en un campo $\F$, sino que es posible definirlo sobre cualquier anillo. Además, la determinante cumple que $\det(AB) = \det(A)\det(B)$ para cualquier anillo, la demostración de esta propiedad va más allá de el alcance de este libro. Con todo esto, podemos definir el primer polinomio importante de una matriz.
+
+\begin{defi}
+  Sea $M \in \M_n(\F)$, considerando la matriz con entradas en $\F[x]$ dada por $M-xI$, entonces llamaremos el \emph{polinomio característico} de $M$ al polinomio
+    \[ p(x) = \det(M-xI). \]
+\end{defi}
+
+Ahora, que propiedades tiene este polinomio. Supongamos que tenemos una raíz $\lambda \in \F$ del polinomio, entonces $p(\lambda) = 0$ , pero eso implica que
+\[ p\lambda) = \det(M-\lambda I) = 0, \]
+usando el teorema \ref{teor:PropVP} tenemos que entonces $\lambda \in E(M)$. Análogamente se puede probar que si $\lambda \in E(M)$ entonces $\lambda$ será una raíz del polinomio característico de $M$.
+
+Otra propiedad interesante, es que si $M = P^{-1} N P$ entonces, por propiedades de la determinante tenemos que
+\begin{align*}
+  \det(M - xI) &= \det(P^{-1}NP - x P^{-1}IP) \\
+    &= \det\bigl(P^{-1}(N- xI)P\bigr) \\
+    &= \det(P^{-1})\det(N - xI) \det(P) \\
+    &= \det(N - xI) \det(P) [\det(P)]^{-1} \\
+    &= \det(N - xI).
+\end{align*}
+De esta forma, dos matrices semejantes comparten el mismo polinomio característico. Así podemos formular el siguiente teorema.
+
+\begin{teor}
+  Sean $M, N \in \M_n(\F)$ tal que $M \sim N$ entonces las siguientes propiedades se sostienen.
+  \begin{enumerate}
+    \item $\lambda \in E(M)$ si y solo si es raíz de su polinomio característico.
+    \item Si $M \sim N$ entonces tienen el mismo polinomio característico.
+  \end{enumerate}
+\end{teor}

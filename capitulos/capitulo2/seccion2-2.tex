@@ -2,7 +2,6 @@
 
 Antes de continuar revisando las propiedades de los valores y vectores propios, necesitamos conocer algunas de las principales propiedades de los polinomios, que serán necesarias para el desarrollo de temas posteriores.
 
-\subsection{Propiedades básicas de los polinomios}
 
 \begin{teor}
   Sea $\grad\colon \F[x] \to \{-\infty\} \cup \N_0$ la función grado dada por enviar al polinomio cero a $-\infty$ y al polinomio $c_n x^n + \cdots + c_1x + c_0$, con $c_n \neq 0$, en $n$. Se cumplen las siguientes propiedades
@@ -25,7 +24,7 @@ Antes de continuar revisando las propiedades de los valores y vectores propios, 
 
 Hasta ahora, hemos trabajado los polinomios $\F[x]$ únicamente como un $\F$-espacio vectorial, pero los polinomios tienen una estructura más compleja ya que, a diferencia de otros espacios vectoriales, además de una operación de suma los polinomios cuentan con una operación de multiplicación.
 
-La única otra estructura con la que hayamos estado trabajando y que cuente con dos operaciones binarias es el campo, pero si revisamos la definición \ref{defi:campo}, notaremos que los polinomios no cumplen todas esas propiedades. En específico los polinomios no tienen inversos multiplicativos. Un ejemplo de esto es el polinomio $x$, no importa por que otro polinomio multipliques este nunca será $1$. En este sentido, la estructura de los polinomios es más general que la del campo, y recibe el nombre de anillo.
+La única otra estructura con la que hayamos estado trabajando y que cuente con dos operaciones binarias es el campo, pero si revisamos la definición de campo, notaremos que los polinomios no cumplen todas esas propiedades. En específico los polinomios no tienen inversos multiplicativos. Un ejemplo de esto es el polinomio $x$, no importa por que otro polinomio multipliques este nunca será $1$. En este sentido, la estructura de los polinomios es más general que la del campo, y recibe el nombre de anillo.
 
 \begin{defi}
   Sea $A$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $*$ (producto), decimos que la terna $(A,+,*)$ es un \emph{anillo} si cumple los siguiente axiomas:
@@ -105,8 +104,8 @@ De esta forma, dado que $\phi(c_i) \in Z(A)$ para todo $i \in \{1,\ldots, n\}$, 
 \]
 También, es fácil  comprobar que $f(1_\F) = 1_A$. Resumiendo, tenemos la siguiente proposición.
 
-\begin{prop}
-  Sea $A$ una $\F$-álgebra determinada por el homomorfismo de anillos $\phi\colon \F\to A$. Para cada $a \in A$, existe un único homomorfismo de anillos $\varphi_a \colon \F[x] \to A$ tal que $\varphi_a(c) = \phi(c)$ para cada $c \in \F$ y $\phi(x) = a$. Además, $\varphi_a(f) = f(a)$ para todo $f \in \F[x]$.
+\begin{prop}\label{prop:EvalPoly}
+  Sea $A$ una $\F$-álgebra determinada por el homomorfismo de anillos unitario $\phi\colon \F\to Z(A)$. Para cada $a \in A$, existe un único homomorfismo de anillos unitario $\varphi_a \colon \F[x] \to A$ tal que $\varphi_a(c) = \phi(c)$ para cada $c \in \F$ y $\varphi_a(x) = a$. Además, $\varphi_a(f) = f(a)$ para todo $f \in \F[x]$.
 \end{prop}
 \begin{proof}
   Ya hemos visto que $\varphi_a$ es un homomorfismo de anillos unitario, de esta forma solo queda demostrar la unicidad. Así, supongamos que existe otro homomorfismo $\psi\colon \F[x] \to A$ que cumple con las mismas propiedades, entonces para toda $f \in \F[x]$, si $f = c_n x_n + \cdots+ c_1x + c_0$ entonces
