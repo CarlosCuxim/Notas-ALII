@@ -4,7 +4,9 @@ En el estudio de los valores y vectores propios de una matriz hay dos polinomio 
 
 \subsection{Polinomio característico.}
 
-Para definir este polinomio necesitamos recordar algunas de las propiedades del determinante. En primer lugar, el determinante no solo se puede definir sobre matrices con entradas en un campo $\F$, sino que es posible definirlo sobre cualquier anillo. Además, la determinante cumple que $\det(AB) = \det(A)\det(B)$ para cualquier anillo, la demostración de esta propiedad va más allá de el alcance de este libro. Con todo esto, podemos definir el primer polinomio importante de una matriz.
+Para definir este polinomio, primero necesitamos recordar algunas de las propiedades del determinante. En primer lugar, el determinante no solo se puede definir sobre matrices con entradas en un campo $\F$, sino que es posible definirlo sobre cualquier anillo.
+
+Además, algunas de las propiedades de la determinante, demostradas sobre campos, también se conservan para anillos. Las más importantes son que para cualesquiera matrices $M$ y $N$ con entradas sobre un anillo, se cumple que $\det(AB) = \det(A)\det(B)$ y $A \adj(A) = \adj(A) A = \det(A) I$, donde $\adj(A)$ es traspuesta de la matriz de cofactores de $A$. Las demostraciones de estas propiedades va más allá de el alcance de este libro, pero su demostración es muy similar a cuando las entradas son elementos de un campo. Con todo esto, podemos definir el primer polinomio importante de una matriz.
 
 \begin{defi}
   Sea $M \in \M_n(\F)$, considerando la matriz con entradas en $\F[x]$ dada por $M-xI$, entonces llamaremos el \emph{polinomio característico} de $M$ al polinomio
@@ -32,3 +34,50 @@ De esta forma, dos matrices semejantes comparten el mismo polinomio característ
     \item Si $M \sim N$ entonces tienen el mismo polinomio característico.
   \end{enumerate}
 \end{teor}
+
+
+
+\subsection{Polinomio minimal}
+
+Este el el segundo polinomio importante de una matriz. Aquí buscamos cual es el polinomio no nulo $f$ de grado más pequeño tal que anula a una matriz, es decir $f(M) = \bec 0$.
+
+En primer lugar, notemos que debe existir, esto se cumple dado que si consideramos el conjunto $\{I,M,M^2,\ldots,M^{n^2}\}$, este es un conjunto con $n^2+1$ elementos del $\F$-espacio vectorial $M_n(\F)$ que tiene dimensión $n^2$. Así, este conjunto no puede ser linealmente independiente, por lo que existen $c_0,\ldots,c_n\in \F$ tal que 
+\[ c_n M^n + \cdots + c_2 M^2 + c_1 M + c_0 I = \bec 0. \]
+De esta forma, es claro que si $f = c_n x^n + \cdots + c_2 x^2 + c_1 x + c_0$ entonces $f$ no es el polinomio cero y además $f(M) = \bec 0$. Ahora, mostremos que existe este polinomio de grado mínimo que anula la matriz.
+
+\begin{teor}\label{teor:UnicidadPMin}
+  Sea $M \in M_n(\F)$. Existe un único polinomio $f_M \in \F[x]$, de grado mayor a cero tal que
+  \begin{enumerate}
+    \item $f_M(M) = \bec 0$.
+    \item El coeficiente líder de $f_M$ es la unidad $1_\F$.
+    \item Si $g \in \F[x]$ cumple que $g(M) = 0$, entonces $g = 0$ o $\grad(g) \geq \grad(f)$. Más aún, $f_M$ divide a $g$.
+  \end{enumerate}
+\end{teor}
+\begin{proof}
+  Por lo ya visto, sabemos que existe al menos un polinomio no nulo que anula la matriz, así consideremos el conjunto $I$ de todos los polinomios no nulos tal que anulan a la matriz. Así, consideremos algún polinomio $f \in I$ de grado mínimo.
+
+  En primer lugar, si $f$ tiene coeficiente líder $c$, entonces es fácil ver que que si $f(M) = \bec 0$ entonces $\frac{1}{c} f (M) = \bec 0$, así, el polinomio $f_M = \frac{1}{c} f$ anula a $M$, tiene grado mínimo y además tiene coeficiente líder $1$.
+
+  Ahora probemos que se cumple la tercera propiedad. Sea $g \in I$, por el algoritmo de la división, tenemos que existen polinomios $q,r \in \F[x]$ tal que $g = qf_M+r$ y $\grad(f) > \grad(r)$. De esta forma, por la proposición \ref{prop:EvalPoly} y recordando que $g(M) = \bec 0$, entonces tenemos que
+  \[
+    g(M) = q(M) f_M(M) + r(M) = r(M) = \bec 0.
+  \]
+  Ahora, si $r \neq 0$ entonces eso implica que $r \in I$, pero como $\grad(r) < \grad(f_M)$, eso contradice que $f_M$ tenga grado mínimo. Así tenemos que $r = 0$, pero entonces $f$ divide a todos los elementos de $I$.
+  
+  Así, si existe otro polinomio $f'$ de mismo grado que $f_M$ en $I$ con coeficiente líder $1$, este debe ser un múltiplo escalar de $f_M$, pero como ambos tienen el mismo coeficiente líder, entonces la única posibilidad, es que $f_M = f'$. Así tenemos que $f_M$ es el único polinomio de grado mínimo con coeficiente líder $1$ tal que anula a $M$.
+\end{proof}
+
+\begin{defi}
+  Sea $M \in \M_n(\F)$ llamaremos el \emph{polinomio minimal} de $M$ al único polinomio $f_M$ de grado mínimo con coeficiente líder $1$ tal que $f_M(M) = \bec 0$.
+\end{defi}
+
+El polinomio minimal de una matriz nos ayudará a definir luego unos espacios vectoriales especiales, por lo que detallaremos más adelante sus características más importantes. Pero hay 3 propiedades interesante a detallar, la primera es que si $M \sim N$ entonces comparten el mismo polinomio minimal.
+
+\begin{prop}
+  Sea $M,N \in \M_n(\F)$ si $M \sim N$ entonces tienen el mismo polinomio minimal.
+\end{prop}
+\begin{proof}
+  Notemos que si $f_M(M) = \bec 0$ y $f_N(N) = \bec 0$, entonces por la proposición \ref{prop:MPolySem} se debe cumplir que $f_N(M) = \bec 0$ y $f_N(M) = \bec 0$, pero eso implica, por el teorema \ref{teor:UnicidadPMin} que $f_M \mid f_N$ y $f_N \mid f_M$.
+
+  Así, por propiedad de los polinomio, entonces debe existir una constante $c \in \F$ tal que $f_M = c f_N$, pero como $f_M$ y $f_N$ tiene el mismo coeficiente líder $1$, entonces tenemos que $c = 1$ y por tanto $f_M = f_N$.
+\end{proof}
