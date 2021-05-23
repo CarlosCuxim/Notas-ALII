@@ -1,0 +1,136 @@
+\section{Triangularización y diagonalización de matrices complejas.}
+
+Ya con todas estas herramientas, podemos regresar a nuestro objetivo principal, el cual es saber cuando una matriz es diagonalizable o triangularizable. Primer demostremos algunos teoremas para un campo cualquiera, luego veremos algunos resultados para el campo de los complejos.
+
+\begin{teor}
+  Sea $M \in \M_n(\F)$, entonces la matriz $M$ es diagonalizable si y solo sí existe alguna base $B$ de $\F^n$ tal que todos los elementos de $B$ son vectores propios de $M$. Más aún, si $M\sim D$ donde $D$ es una matriz diagonal, entonces $E(M) = \{ D_{ii} : i = 1,\ldots,n \}$.
+\end{teor}
+\begin{proof}
+  Supongamos que $M$ es diagonalizable, es decir, existen matrices $P,D \in \M_n(\F)$, donde $D$ es diagonal y $P$ es invertible, tal que $M = P^{-1} D P$. Ahora, si $P^{-1} = \bigl( v_1 \mid \cdots \mid v_n\bigr)$ entonces por teoremas conocidos, $B = \{v_1,\ldots, v_n\}$ forma una base de $\F^n$. 
+
+  De igual forma, por propiedades de inversa de una matriz, sabemos que $P v_i = e_i$ para todo $i \in \{1,\ldots,n\}$, de esta forma, notemos que para todo $i \in \{1,\ldots,n\}$ se cumple que
+  \[
+    Mv_i = (P^{-1}DP)v_i = P^{-1} D e_i = P^{-1} (D_{ii}e_i) = D_{ii} P^{-1}e_i = D_{ii} v_i.
+  \]
+  De esta forma $D_{ii}$ es un valor propio de $M$ con vector propio $v_i$ para todo $i \in \{1,\ldots,n\}$, así todos los elementos de la base $B$ son vectores propios de $M$ y además $E(M) = \{ D_{ii} : i = 1,\ldots,n \}$.
+
+  Ahora, supongamos que existe una base $B = \{v_1,\ldots,v_n\}$ donde todos sus elementos son vectores propios de $M$. Sea $\lambda_i$ el valor propio asociado al vector propio $v_i$ para $i \in \{1,\ldots,n\}$. Así, definamos las matrices 
+  \[ D = \begin{spmatrix}{c|c|c} \lambda_1 e_i & \cdots & \lambda_n e_n \end{spmatrix} 
+    \Eqand
+     P = \begin{spmatrix}{c|c|c} v_1 & \cdots & v_n \end{spmatrix}.
+  \]
+  
+  Por propiedades de las matrices, tenemos que $P$ es invertible ya que sus columnas forman una base de $\F^n$, de esta forma, dado que $P^{-1}v_i = e_i$ para todo $i\in\{1,\ldots,n\}$ por propiedades de la inversa de una matriz, entonces notemos que
+  \begin{align*}
+    P^{-1} M P &= P^{-1} M \begin{spmatrix}{c|c|c} v_1 & \cdots & v_n \end{spmatrix} 
+       =P^{-1}  \begin{spmatrix}{c|c|c} Mv_1 & \cdots & Mv_n \end{spmatrix} \\
+      &=P^{-1}  \begin{spmatrix}{c|c|c} \lambda_1 v_1 & \cdots & \lambda_n v_n \end{spmatrix} 
+       =\begin{spmatrix}{c|c|c} P^{-1}(\lambda_1 v_1) & \cdots & P^{-1}(\lambda_n v_n) \end{spmatrix} \\
+      &=\begin{spmatrix}{c|c|c} \lambda_1 P^{-1} v_1 & \cdots & \lambda_n P^{-1} v_n \end{spmatrix} 
+       =\begin{spmatrix}{c|c|c} \lambda_1 e_1 & \cdots & \lambda_n e_n \end{spmatrix} \\
+      &= D.
+  \end{align*}
+  De esta forma $D \sim M$ y por tanto $M$ es diagonalizable.
+\end{proof}
+
+Este teorema, nos da una condición para saber cuando una matriz es diagonalizable. Entonces, lo que tenemos que hacer es, primero, encontrar todos las raíces del polinomio característico y luego obtener las bases de los espacios nulos de $M - \lambda I$ y juntar las bases, más adelante demostraremos que para valores propios distintos los espacios nulos son independientes, por tanto no hay que preocuparse que al juntar las bases estas no sean linealmente independientes. Si al juntar las bases obtenemos un conjunto de $n$ vectores, entonces la matriz es diagonalizable.
+
+Ahora, qué sucede cuando una matriz no es diagonalizable, es decir que no se pueda hacer una base con los vectores  propios de $M$. Antes de responder esta pregunta, demostremos el siguiente lema.
+
+\begin{lema}\label{lema:CleanColumn1}
+  Sea $M \in \M_n(\F)$. La matriz $M$ tiene algún valor propio $\lambda$ si y solo sí es semejante a alguna matriz de la forma
+  \[
+    N = \begin{spmatrix}{c|c|c|c}
+      \lambda e_1 & w_2 &  \ldots & w_n
+    \end{spmatrix},
+  \]
+  donde $w_2, \ldots, w_n \in \F^{n-1}$.
+\end{lema}
+\begin{proof}
+  Supongamos que $M$ tiene algún valor propio $\lambda$, de este modo existe vector no nulo $v$ tal que $Mv = \lambda v$. Ahora, por propiedades de los $\F$-espacios vectoriales, sabemos que debe existir vectores $v_2,\ldots,v_n \in \F^n$ tal que $B = \{v,v_2,\ldots,v_n\}$ es una base de $\F^n$.
+
+  De esta forma, consideremos la matríz $P = \bigl( v \mid v_2 \mid \cdots \mid v_n \bigr)$, en primer lugar, notemos que $P$ es invertible ya que sus columnas forman una base y por propiedades de la inversa $P^{-1}v = e_1$. De este modo, sea $N = P^{-1}MP$, notemos que 
+  \begin{align*}
+    N &= P^{-1} M \begin{spmatrix}{c|c|c|c} v & v_2 &  \ldots & v_n \end{spmatrix} 
+       = P^{-1} \begin{spmatrix}{c|c|c|c} Mv & Mv_2 &  \ldots & Mv_n \end{spmatrix} \\
+      &= P^{-1} \begin{spmatrix}{c|c|c|c} \lambda v & Mv_2 &  \ldots & Mv_n \end{spmatrix} 
+       =  \begin{spmatrix}{c|c|c|c} P^{-1}(\lambda v) & P^{-1}Mv_2 &  \ldots & P^{-1}Mv_n \end{spmatrix} \\
+      &=  \begin{spmatrix}{c|c|c|c} \lambda P^{-1}v & P^{-1}Mv_2 &  \ldots & P^{-1}Mv_n \end{spmatrix} 
+       =  \begin{spmatrix}{c|c|c|c} \lambda e_1 & P^{-1}Mv_2 &  \ldots & P^{-1}Mv_n \end{spmatrix} \\
+      &=  \begin{spmatrix}{c|c|c|c} \lambda e_1 & w_2 &  \ldots & w_n \end{spmatrix}.
+  \end{align*}
+  Así, $N$ tiene la forma pedida y además $M \sim N$.
+
+  Ahora si $M \sim N$ donde $N$ tiene la forma pedida, notemos que $Ne_1 = \lambda e_1$, eso muestra que $\lambda \in E(N)$, pero por el teorema \ref{teor:SemEspectro} tenemos que $E(M) = E(N)$ y por tanto $\lambda \in E(N)$.
+\end{proof}
+
+Respondiendo a la pregunta hecha con anterioridad, cuando una matriz no es diagonalizable, dependiendo del campo será diagonalizable o no. Con el lema anterior podemos ver que para que una matriz de $2\times 2$ sea triangularizable, esta debe tener al menos un vector propio, pero en los reales, existen matrices de $2\times 2$ tal que no tienen vectores propios ya que su polinomio característico no tiene raíces.
+
+Debido a que en algunos campos una una matriz puede tener vectores propios o no, la teoría espectral se desarrolla principalmente sobre campos algebraicamente cerrados. Más específicamente, sobre $\C$. Un ejemplo es el siguiente teorema.
+
+\begin{prop}\label{prop:MComplexHasEV}
+  Sea $M \in  \M_n(\C)$, entonces $M$ tiene al menos un valor propio.
+\end{prop}
+\begin{proof}
+  Sea $f \in \C[x]-\{0\}$ el polinomio minimal de $M$, por el teorema fundamental del cálculo, sabemos que debe haber alguna factorización $f = (x-\alpha_1)\cdots(x-\alpha_k)$, luego por la proposición \ref{prop:EvalPoly} tenemos que
+  \[ f(M) = (M-\alpha_1 I)\cdots(M-\alpha_k I) = \bec 0.\]
+
+  Ahora, dado que la multiplicación de matrices invertibles es invertible, entonces debe existir al menos un $\alpha_i$ con $i \in \{1,\ldots,k\}$ tal que $M-\alpha_i I$ no es invertible, ya que en caso contrario implicaría que $\bec 0$ es invertible. Pero por el teorema \ref{teor:PropVP}, esto implica que $\alpha_i$ es un valor propio de $M$.
+\end{proof}
+
+\begin{teor}
+  Sea $M \in  \M_n(\C)$ entonces $M$ es triangularizable.
+\end{teor}
+\begin{proof}
+  Probemos la proposición por inducción sobre $n$. Es claro que si $n = 1$ entonces $M$ ya es triangular superior, así supongamos que se cumple para algún natural $k$.
+
+  Sea $M \in \M_{k+1}(\C)$, por la proposición \ref{prop:MComplexHasEV} existe $\lambda \in E(M)$, así, por el lema \ref{lema:CleanColumn1} entonces debe existir una matriz $Q \in \M_k(\C)$ y vector $v \in \F^k$ tal que $M \sim N$ donde 
+  \[ N = \begin{spmatrix}{c|c}
+      \lambda & v^t \\\hline
+      \bec 0 & A
+  \end{spmatrix} \]
+
+  Pero por hipótesis de inducción existen matrices $U, Q \in \M_k(\C)$ donde $U$ es triangular superior y $Q$ es invertible tales que $A = Q^{-1}UQ$. Ahora, definamos las siguiente matríz $P$
+  \[
+    P = \begin{spmatrix}{c|c}
+      1 & \bec 0 \\\hline
+      \bec 0 & Q
+  \end{spmatrix},
+  \]
+  Ahora, notemos que $P$ es una matriz de $(k+1)\times(k+1)$ invertible, ya que por multiplicación por bloques, se tiene que
+  \[
+    P \begin{spmatrix}{c|c}
+      1 & \bec 0 \\\hline
+      \bec 0 & Q^{-1}
+  \end{spmatrix} = \begin{spmatrix}{c|c}
+      1 & \bec 0 \\\hline
+      \bec 0 & Q
+  \end{spmatrix} \begin{spmatrix}{c|c}
+    1 & \bec 0 \\\hline
+    \bec 0 & Q^{-1}
+\end{spmatrix} = \begin{spmatrix}{c|c}
+  1 & \bec 0 \\\hline
+  \bec 0 & I_k
+\end{spmatrix} = I_{k+1}
+      \implies
+    P^{-1} = \begin{spmatrix}{c|c}
+      1 & \bec 0 \\\hline
+      \bec 0 & Q^{1}
+  \end{spmatrix}.
+  \]
+
+  De esta forma, notemos que si definimos $T = P^{-1}NP$, entonces $M \sim T$, por transitividad de la semejanza y además se cumple que
+  \begin{align*}
+    T &= P^{-1}NP
+       = \begin{spmatrix}{c|c}1 & \bec 0 \\\hline  \bec 0 & Q^{-1} \end{spmatrix}
+         \begin{spmatrix}{c|c} \lambda & v^t \\\hline  \bec 0 & A \end{spmatrix}
+         \begin{spmatrix}{c|c}1 & \bec 0 \\\hline  \bec 0 & Q \end{spmatrix} \\
+      &= \begin{spmatrix}{c|c}1 & \bec 0 \\\hline  \bec 0 & Q^{-1} \end{spmatrix}
+         \begin{spmatrix}{c|c}\lambda & v^tQ \\\hline  \bec 0 & AQ \end{spmatrix} 
+       = \begin{spmatrix}{c|c}\lambda & v^tQ \\\hline  \bec 0 & Q^{-1}AQ \end{spmatrix} \\
+      &= \begin{spmatrix}{c|c}\lambda & v^tQ \\\hline  \bec 0 & U \end{spmatrix}.
+  \end{align*}
+  Notemos que por la forma, $T$ es una matriz triangular superior. De esta forma tenemos que $M$ es triangularizable.
+
+  De esta forma, por inducción, tenemos que para cualquier matriz cuadrada con entradas en los complejos es triangularizable.
+\end{proof}
