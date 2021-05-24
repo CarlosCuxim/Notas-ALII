@@ -78,7 +78,7 @@ Debido a que en algunos campos una una matriz puede tener vectores propios o no,
   Ahora, dado que la multiplicación de matrices invertibles es invertible, entonces debe existir al menos un $\alpha_i$ con $i \in \{1,\ldots,k\}$ tal que $M-\alpha_i I$ no es invertible, ya que en caso contrario implicaría que $\bec 0$ es invertible. Pero por el teorema \ref{teor:PropVP}, esto implica que $\alpha_i$ es un valor propio de $M$.
 \end{proof}
 
-\begin{teor}
+\begin{teor}\label{teor:ComplexTriang}
   Sea $M \in  \M_n(\C)$ entonces $M$ es triangularizable.
 \end{teor}
 \begin{proof}
@@ -153,7 +153,7 @@ para todo $i \in \{1,\ldots,n\}$. De este modo, si $T$ no es estricta, entonces 
 
 De este modo, para que una matriz triangular sea nilpotente, tenemos que debe ser triangular estricta. La vuelta también es cierta y además podemos obtener una cota superior para su grado de nilpotencia.
 
-\begin{lema}
+\begin{lema}\label{lema:TriangNilp}
   Sea $T \in M_n(\F)$ una matriz triangular, entonces $T$ es nilpotente si y solo sí $T$ es triangular estricta. Además, si $T$ es nilpotente, entonces su grado de nilpotencia es menor o igual a $n$.
 \end{lema}
 \begin{proof}
@@ -203,4 +203,68 @@ De este modo, para que una matriz triangular sea nilpotente, tenemos que debe se
   Así, cualquier matriz $T \in M_n(\F)$  triangular superior estricta es nilpotente, y su grado de nilpotencia es menor o iguala a $n$.
 
   Ahora, si $T \in M_n(\F)$ es triangular inferior estricta, entonces $T^t$ es triangular superior estricta y por tanto $(T^t)^n = (T^n)^t = \bec 0$, lo que implica que $T^n =  \bec 0$. Lo que finalmente nos permite concluir la proposición.
+\end{proof}
+
+Para continuar, supongamos que tenemos una matriz triangular $T\in\M_n(\F)$. Por propiedades de la determinante sabemos que si $T = (t_{ij})$, entonces $\det(T) = t_{11} \cdots t_{nn}$.
+
+De esta forma, si consideramos la matriz $T-t_{ii}I$ para alguna $i \in \{1,\ldots,n\}$, entonces, por propiedades de las matrices triangulares, tenemos que $T-t_{ii}I$ es triangular y además
+\[
+  \det(T-t_{ii}I) = (t_{11}-t_{ii})\cdots(t_{ii}-t_{ii})\cdots(t_{nn}-t_{ii}) = 0.
+\]
+Y por el teorema \ref{teor:PropVP}, eso quiere decir que $t_{ii} \in E(T)$. Ahora, de manera análoga, si $\lambda \in E(T)$ entonces 
+  \[
+    \det(T-t_{ii}I) = (t_{11}-\lambda)\cdots(t_{nn}-\lambda) = 0.
+  \]
+pero por propiedades de los campos, eso quiere decir que $\lambda = t_{ii}$ para algún $i \in \{1,\ldots,n\}$. Con esto, hemos mostrado la siguiente proposición
+
+\begin{prop}\label{prop:EpecTriang}
+  Sea $T \in \M_n(\F)$ una matriz triangular, entonces $E(T) = \{T_{ii} : i = 1,\ldots,n\}$. \qed
+\end{prop}
+
+Con todas estas propiedades ya demostradas, podemos demostrar el siguiente teorema.
+
+\begin{teor}\label{teor:MinPolyTriang}
+  Sea $T\in\M_n(\F)$ una matriz triangular, si $E(T) = \{\lambda_1,\ldots,\lambda_k\}$, entonces
+    \[
+      f_T = \prod_{i=1}^k (x-\lambda_i)^{n_i},
+    \]
+  donde $1 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$.
+\end{teor}
+\begin{proof}
+  Sea $U = (T-\lambda_1 I)\cdots(T-\lambda_n I)$ y $T = (t_{ij})$. Primero, notemos que, por la proposición \ref{prop:EpecTriang}, para cada $i \in \{1,\ldots,n\}$ existe $j\in\{1,\ldots,k\}$ tal que $t_{ii} = \lambda_j$. De esta forma por propiedades de las matrices triangulares, se cumple que $U$ es triangular y además
+  \begin{align*}
+    U_{ii} &= (T-\lambda_1 I)_{ii}\cdots(T-\lambda_j I)_{ii}\cdots(T-\lambda_n I)_{ii}  \\
+      &= (t_{ii}-\lambda_1)\cdots(t_{ii}-\lambda_j)\cdots(t_{ii}-\lambda_n)  \\
+      &= 0.
+  \end{align*}
+  Así, tenemos que $U$ es una matriz triangular estricta y por el lema \ref{lema:TriangNilp} tenemos que $U^n = \bec 0$.
+
+  Ahora, sea $f = (x-\lambda_1)^n\ldots(x-\lambda_k)^n$, notemos que $f(T) = U^n = \bec 0$, así, por el teorema \ref{teor:UnicidadPMin}, tenemos que $f_T \mid f$.
+  
+  Como $f$ se puede factorizar como un producto de polinomios de grado $1$, entonces, dado que $f_T$ divide a $f$, $f_T$ tiene coeficiente líder $1$ y por teoremas de divisibilidad de polinomios, se debe cumplir que
+    \[
+      f_T = \prod_{i=1}^k (x-\lambda_i)^{n_i},
+    \]
+donde $0 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$. Así supongamos que $n_r = 0$ para algún $r \in \{1,\ldots,k\}$.
+
+Nuevamente por la proposición \ref{prop:EpecTriang} debe existir $s \in \{1,\ldots,n\}$ tal que $\lambda_r = t_{ss}$. Ahora, por propiedades de las matrices triangulares, se debe cumplir que
+  \[
+    [f_T(T)]_{ss} 
+      = \prod_{\substack{i=1\\i\neq r}}^k (T-\lambda_i I)_{ss}^{n_i} 
+      = \prod_{\substack{i=1\\i\neq r}}^k (t_{ss}-\lambda_i)^{n_i}.
+  \]
+Notemos que $t_{ss} \neq \lambda_i$ para todo $i \in \{1,\ldots,k\}-\{r\}$, entonces $[f_T(T)]_{ss} \neq 0$, pero eso contradice que $f_T(T) = \bec 0$. De este modo $1 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$.
+\end{proof}
+
+Ahora, como toda matriz compleja es triangularizable y el polinomio minimal es invariante ante la semejanza, el teorema anterior nos permite describir su polinomio minimal.
+
+\begin{coro}
+  Sea $M = \M_n(\C)$ y $E(M) = \{\lambda_1,\ldots,\lambda_k\}$, entonces $ f_M = \prod_{i=1}^k (x-\lambda_i)^{n_i}$, donde $1 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$.
+\end{coro}
+\begin{proof}
+  Por el teorema \ref{teor:ComplexTriang}, sabemos que debe existir una matriz triangular $T \in \M_n(\C)$ tal que $M \sim T$. Ahora, por el teorema \ref{teor:SemEspectro} sabemos que $E(M) = E(T)$, así, por el teorema \ref{teor:MinPolyTriang} y la proposición \ref{prop:InvMinPoly}, finalmente obtenemos que
+  \[
+    f_M = f_T = \prod_{i=1}^k (x-\lambda_i)^{n_i},
+  \]
+donde $1 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$.
 \end{proof}
