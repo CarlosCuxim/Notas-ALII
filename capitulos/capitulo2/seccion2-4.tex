@@ -3,7 +3,7 @@
 Ya con todas estas herramientas, podemos regresar a nuestro objetivo principal, el cual es saber cuando una matriz es diagonalizable o triangularizable. Primer demostremos algunos teoremas para un campo cualquiera, luego veremos algunos resultados para el campo de los complejos.
 
 \begin{teor}
-  Sea $M \in \M_n(\F)$, entonces la matriz $M$ es diagonalizable si y solo sí existe alguna base $B$ de $\F^n$ tal que todos los elementos de $B$ son vectores propios de $M$. Más aún, si $M\sim D$ donde $D$ es una matriz diagonal, entonces $E(M) = \{ D_{ii} : i = 1,\ldots,n \}$.
+  Sea $M \in \M_n(\F)$, entonces la matriz $M$ es diagonalizable si y solo sí existe alguna base $B$ de $\F^n$ tal que todos los elementos de $B$ son vectores propios de $M$.
 \end{teor}
 \begin{proof}
   Supongamos que $M$ es diagonalizable, es decir, existen matrices $P,D \in \M_n(\F)$, donde $D$ es diagonal y $P$ es invertible, tal que $M = P^{-1} D P$. Ahora, si $P^{-1} = \bigl( v_1 \mid \cdots \mid v_n\bigr)$ entonces por teoremas conocidos, $B = \{v_1,\ldots, v_n\}$ forma una base de $\F^n$. 
@@ -12,7 +12,7 @@ Ya con todas estas herramientas, podemos regresar a nuestro objetivo principal, 
   \[
     Mv_i = (P^{-1}DP)v_i = P^{-1} D e_i = P^{-1} (D_{ii}e_i) = D_{ii} P^{-1}e_i = D_{ii} v_i.
   \]
-  De esta forma $D_{ii}$ es un valor propio de $M$ con vector propio $v_i$ para todo $i \in \{1,\ldots,n\}$, así todos los elementos de la base $B$ son vectores propios de $M$ y además $E(M) = \{ D_{ii} : i = 1,\ldots,n \}$.
+  De esta forma $D_{ii}$ es un valor propio de $M$ con vector propio $v_i$ para todo $i \in \{1,\ldots,n\}$, así todos los elementos de la base $B$ son vectores propios de $M$.
 
   Ahora, supongamos que existe una base $B = \{v_1,\ldots,v_n\}$ donde todos sus elementos son vectores propios de $M$. Sea $\lambda_i$ el valor propio asociado al vector propio $v_i$ para $i \in \{1,\ldots,n\}$. Así, definamos las matrices 
   \[ D = \begin{spmatrix}{c|c|c} \lambda_1 e_i & \cdots & \lambda_n e_n \end{spmatrix} 
@@ -133,4 +133,74 @@ Debido a que en algunos campos una una matriz puede tener vectores propios o no,
   Notemos que por la forma, $T$ es una matriz triangular superior. De esta forma tenemos que $M$ es triangularizable.
 
   De esta forma, por inducción, tenemos que para cualquier matriz cuadrada con entradas en los complejos es triangularizable.
+\end{proof}
+
+
+
+\subsection{Polinomio minimal de matrices complejas.}
+
+Para concluir con este capítulo, mostraremos la forma del polinomio minimal para matrices compleja. Para ello necesitaremos recordar una propiedad importante de las matrices.
+
+\begin{defi}
+  Sea $M \in \M_n(\F)$, decimos que $M$ es \emph{nilpotente} si existe algún $d\in\N$ tal que $M^d = \bec 0$. Si $M$ es nilpotente, al mínimo $d \in \N$ tal que $M^d = \bec 0$ se le denomina \emph{grado del nilpotencia} de $M$.
+\end{defi}
+
+En primer lugar, notemos que si tenemos una matriz $T$ triangular no estricta, entonces $T$ no será nilpotente. Esto se puede comprobar fácilmente, para ello hay que recordar que si tenemos dos matrices triangulares superiores (inferiores) $A$ y $B$, entonces
+  \[
+    (AB)_{ii} = A_{ii} B_{ii}
+  \]
+para todo $i \in \{1,\ldots,n\}$. De este modo, si $T$ no es estricta, entonces para algún $j \in \{1,\ldots,n\}$ se debe cumplir que $T_{jj} \neq 0$ y por tanto $(T^k)_{ii} = (T_{ii})^k \neq 0$ para todo $k \in \N$.
+
+De este modo, para que una matriz triangular sea nilpotente, tenemos que debe ser triangular estricta. La vuelta también es cierta y además podemos obtener una cota superior para su grado de nilpotencia.
+
+\begin{lema}
+  Sea $T \in M_n(\F)$ una matriz triangular, entonces $T$ es nilpotente si y solo sí $T$ es triangular estricta. Además, si $T$ es nilpotente, entonces su grado de nilpotencia es menor o igual a $n$.
+\end{lema}
+\begin{proof}
+  Por lo ya visto, sabemos que si $T$ es nilpotente entonces debe ser triangular estricta. De esta forma, solo falta ver que todas las matrices $T$ triangulares estrictas cumplen que $T^n = \bec 0$.
+
+  Pero antes de ello, primero veamos que para cualesquiera matrices $A,B \in M_n(\F)$ y vectores $v,w \in \F^n$, entonces
+  \begin{equation}\label{eq:auxProdBloq}
+    \begin{spmatrix}{c|c}
+      0 & v^t \\\hline
+      \bec 0 & A
+    \end{spmatrix}
+    \begin{spmatrix}{c|c}
+      0 & w^t \\\hline
+      \bec 0 & B
+    \end{spmatrix}
+      = 
+    \begin{spmatrix}{c|c}
+      0 & v^tB \\\hline
+      \bec 0 & AB
+    \end{spmatrix}.
+  \end{equation}
+
+  Ahora, primero consideremos el caso donde $T$ es una matriz triangular superior estricta. Por inducción sobre $n$, notemos que si $n = 1$, entonces $T = 0$, por lo que es claro que $T^n = 0$. Así, supongamos que la propiedad se cumple para algún $k \in \N$.
+
+  Sea $T \in \M_{k+1}(\F)$ una matriz triangular superior estricta, notemos que entonces $T$ tiene la siguiente forma
+  \[
+    T = \begin{spmatrix}{c|c}
+      0 & v^t \\\hline
+      \bec 0 & U
+    \end{spmatrix},
+  \]
+  para alguna matriz triangular superior estricta $U \in \M_k(\F)$ y vector $v \in \F^k$. Ahora, por la ecuación \ref{eq:auxProdBloq} tenemos que
+  \begin{align*}
+    T^2 &= \begin{spmatrix}{c|c} 0 & v^t \\\hline \bec 0 & U \end{spmatrix} 
+           \begin{spmatrix}{c|c} 0 & v^t \\\hline \bec 0 & U \end{spmatrix}
+        = \begin{spmatrix}{c|c} 0 & v^tU \\\hline \bec 0 & U^2 \end{spmatrix} \\
+    T^3 &= \begin{spmatrix}{c|c} 0 & v^tU \\\hline \bec 0 & U^2 \end{spmatrix} 
+        \begin{spmatrix}{c|c} 0 & v^t \\\hline \bec 0 & U \end{spmatrix}
+     = \begin{spmatrix}{c|c} 0 & v^tU^2 \\\hline \bec 0 & U^3 \end{spmatrix} \\
+    &\vdotswithin{=} \\
+    T^{k+1} &= \begin{spmatrix}{c|c} 0 & v^tU^{k-1} \\\hline \bec 0 & U^k \end{spmatrix} 
+     \begin{spmatrix}{c|c} 0 & v^t \\\hline \bec 0 & U \end{spmatrix}
+  = \begin{spmatrix}{c|c} 0 & v^tU^k \\\hline \bec 0 & U^{k+1} \end{spmatrix}.
+  \end{align*}
+  Ahora, por hipótesis de inducción tenemos que $U^k = U^{k+1} = \bec 0$ y de este modo $T^{k+1} = \bec 0$.
+
+  Así, cualquier matriz $T \in M_n(\F)$  triangular superior estricta es nilpotente, y su grado de nilpotencia es menor o iguala a $n$.
+
+  Ahora, si $T \in M_n(\F)$ es triangular inferior estricta, entonces $T^t$ es triangular superior estricta y por tanto $(T^t)^n = (T^n)^t = \bec 0$, lo que implica que $T^n =  \bec 0$. Lo que finalmente nos permite concluir la proposición.
 \end{proof}
