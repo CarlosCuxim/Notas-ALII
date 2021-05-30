@@ -199,6 +199,7 @@ Ya vimos las condiciones necesarias para que una matriz se diagonalizable. Ahora
   Por propiedades conocidas, es posible observar que no existen raíces reales para el polinomio característico. De este modo $M$ no tiene valores propios, por lo que no es triangularizable y por tanto tampoco es diagonalizable.
 \end{example}
 
+Como hemos visto en el ejemplo anterior, existen matrices que no se puede diagonalizar ni triangularizar. Esto se debe a que no en todos los campos podemos obtener valores propios de una matriz. Así, para poder trabajar de manera más sencilla, se suele trabajar en campos algebraicamente cerrados, como los complejos. Un ejemplo es el siguiente teorema.
 
 \begin{prop}\label{prop:MComplexHasEV}
   Sea $M \in  \M_n(\C)$, entonces $M$ tiene al menos un valor propio.
@@ -209,6 +210,8 @@ Ya vimos las condiciones necesarias para que una matriz se diagonalizable. Ahora
 
   Ahora, dado que la multiplicación de matrices invertibles es invertible, entonces debe existir al menos un $\alpha_i$ con $i \in \{1,\ldots,k\}$ tal que $M-\alpha_i I$ no es invertible, ya que en caso contrario implicaría que $\bec 0$ es invertible. Pero por el teorema \ref{teor:PropVP}, esto implica que $\alpha_i$ es un valor propio de $M$.
 \end{proof}
+
+Una consecuencia interesante de esta proposición, es que, aplicando el mismo proceso, podemos triangularizar cualquier matrices en los complejos.
 
 \begin{teor}\label{teor:ComplexTriang}
   Sea $M \in  \M_n(\C)$ entonces $M$ es triangularizable.
@@ -267,6 +270,7 @@ Ya vimos las condiciones necesarias para que una matriz se diagonalizable. Ahora
   De esta forma, por inducción, tenemos que para cualquier matriz cuadrada con entradas en los complejos es triangularizable.
 \end{proof}
 
+Aunque todas las matrices se pueden triangularizar en los complejos, este proceso no es el más óptimo. Más adelante veremos que en los complejos no solo podemos triangularizar matrices, sino que además podemos encontrar una matriz semejante casi diagonal, donde es cero en todas sus entradas excepto en la diagonal principal y la diagonal por encima de la principal.
 
 
 \subsection{Polinomio minimal de matrices complejas.}
