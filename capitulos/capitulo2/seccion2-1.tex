@@ -36,6 +36,25 @@ Notemos que si $M$ es la matriz cero, entonces todo vector de $\F^n - \{\bec 0\}
   Mostrando así que $\lambda$ es un vector propio de $M$.
 \end{proof}
 
+Este último teorema nos da una forma muy sencilla de calcular los valores propios de una matriz, basta con ver cuales son las soluciones de la ecuación $\det(M-\lambda I) = 0$. Más adelante veremos que $\det(M-\lambda I)$ conformará un polinomio el cual recibirá el nombre de \emph{polinomio característico de la matriz} el cual es bastante importante para encontrar la matriz más simple a la cual una matriz es semejante.
+
+\begin{example}
+  Consideremos la matriz $A$ con entradas reales de $3 \times 3$ dada por
+  \[
+    A = \begin{pmatrix} 3 & 1 & -1 \\ 2 & 2 & -1 \\ 2 & 2 & 0 \end{pmatrix}.
+  \]
+  Encontremos sus valores propios.
+
+  \examplesolution
+
+  Encontremos los valores propios de $A$ mediante el polinomio característico de este. Veamos que
+  \[
+    \det(M - \lambda I) = \det\begin{pmatrix} 3 - \lambda & 1 & -1 \\ 2 & 2 - \lambda & -1 \\ 2 & 2 & -\lambda \end{pmatrix}
+      = -\lambda^3+5\lambda^2-8\lambda+4 = -(\lambda-1)(\lambda-2)^2.
+  \]
+  De esta forma, podemos ver que $\det(M - \lambda I) = 0$ si y solo si $\lambda=1$ o $\lambda = 2$, de este modo $E(A) = \{1, 2\}$. Para encontrar vectores propios asociados, basta con encontrar vectores no nulos en $\ker(M-\lambda I)$.
+\end{example}
+
 Como vimos en la sección \ref{sec:TyDdeMat2x2}, los valores propios de una matriz son iguales para todas las matrices semejantes a esta, aunque como se verá más adelante, no son suficientes para determinar a toda la clase de equivalencia. De igual forma, aunque para matrices complejas de $2\times 2$ siempre existen sus valores propios, no necesariamente todas las matrices tienen un valor propio.
 
 \begin{teor}\label{teor:SemEspectro}

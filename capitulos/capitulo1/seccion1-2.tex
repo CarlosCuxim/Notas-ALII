@@ -16,6 +16,7 @@ Notemos que bajo esta definición $(v_1, v_1, \ldots, v_n)$ y $(v_2, v_1, \ldots
   Consideremos el espacio vectorial $\R[x]_{\leq 2}$ junto la base ordenada $B = (1, x+1, x^2+1)$ y calculemos los vectores coordenadas con respecto a $B$ de: $x^2+5x-1$, $x^2 + 2x+1$ y $ax^2 + bx + c$.
 
   \examplesolution 
+
   Para el primero, recordemos que por definición la coordenada de $x^2+5x-1$ sobre $B$ es el vector $(\lambda_1, \lambda_2, \lambda_3)^t \in \R^3$ tal que
     \begin{align*}
       x^2+5x-1 &= \lambda_1 (1) + \lambda_2(x+1) + \lambda_3(x^2+1) \\
@@ -120,6 +121,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
   Consideremos las bases ordenadas $B = ( 1, it )$ y $B' = (t+1, t-1)$ de $\C[t]_{\leq 1}$ y calculemos la matriz de cambio de coordenadas $M_{BB'}$.
 
   \examplesolution
+
   Por el teorema \ref{teor:CambioBase} sabemos que $M_{BB'} = \bigl( [1]_{B'} \mid [it]_{B'} \bigr)$, y se tienen las identidades
   \[
     1 = \frac{1}{2} (t+1) - \frac{1}{2}(t-1)
@@ -137,6 +139,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
   Consideremos las bases ordenadas $B = \bigl( (0,0,1)^t, (0,1,0)^t, (1,0,0)^t \bigr)$ y $B' = \bigl( (1,1,0)^t, (-1, 1, 0)^t, (0,0,-1)^t \bigr)$ de $\R^3$ y calculemos la matriz de cambio de coordenadas $M_{BB'}$.
 
   \examplesolution
+  
   Aunque podríamos calcular de manera tradicional la matriz de cambio de coordenadas usando la definición de coordenada, existe un método más sencillo en este caso. Consideremos la base ordenada canónica $C = (e_1, e_2, e_3)$, es bastante claro que si $v \in \R^3$ entonces $[v]_C = v$, de esta forma tenemos que
   \[
     M_{BC} = \begin{pmatrix}

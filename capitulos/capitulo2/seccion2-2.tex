@@ -114,3 +114,25 @@ También, es fácil  comprobar que $f(1_\F) = 1_A$. Resumiendo, tenemos la sigui
   \]
   De esta forma, es claro que $\psi = \varphi_a$, mostrando así la unicidad.
 \end{proof}
+
+Para concluir esta sección, probaremos un lema que nos ayudará a hacer operaciones sobre matrices evaluadas en polinomios. 
+
+\begin{lema}
+  Sea $M \in \M_n(\F)$, $\lambda \in \F$ y $v \in \F^n$ tal que $Mv = \lambda v$ entonces $f(M) v = f(\lambda) v$.
+\end{lema}
+\begin{proof}
+  Por inducción probemos que $M^k v = \lambda^k v$ para todo $k \in \N$, el caso base se cumple por hipótesis, además si $M^i v = \lambda^i v $ para algún $i\in \N$ entonces 
+    \[
+      M^{i+1}v = M(M^iv) = M (\lambda^i v) = \lambda^i Mv = \lambda^i(\lambda v) = \lambda^{i+1}v.
+    \]
+  Así podemos concluir que  $M^k v = \lambda^k v$ para todo $k \in \N$.
+
+  Así, sea $f = c_k x^k + \cdots + c_1 x + c_0$ entonces por definición, hipótesis y el resultado anterior, tenemos que
+  \begin{align*}
+    f(M)v &= ( c_k M^k + \cdots + c_1 M + c_0I) v 
+       = c_k M^kv + \cdots + c_1 Mv + c_0v \\
+      &= c_k\lambda^k v + \cdots + c_1 \lambda v + c_0v 
+       = (c_k\lambda^k + \cdots + c_1 \lambda + c_0 )v \\
+      &= f(\lambda) v. \qedhere
+  \end{align*}
+\end{proof}
