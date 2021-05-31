@@ -1,1 +1,241 @@
- 
+\section{El teorema de Cayley-Hamilton}
+
+Aunque ya tengamos una idea de cual es la forma del polinomio minimal de una matriz, existe otro teorema importante para poder encontrarlo. Además, mostremos una de las principales consecuencias de que toda matriz compleja sea triangularizable.
+
+\begin{teor}\label{teor:CaracPolyForm}
+  Sea $M \in \M_n(\C)$ y $p \in \C[x]$ su polinomio característico, entonces se cumple que
+    \[ p = (-1)^n x^n + (-1)^{n-1} \tr(M) x^{n-1} + c_{n-2}x^{n-2} + \cdots + c_1 x + \det(M). \]
+\end{teor}
+
+\begin{proof}
+  Por el teorema \ref{teor:ComplexTriang} sabemos que existe una matriz $T \in \M_n(\C)$ triangular tal que $M \sim T$, dado que el polinomio característico de $M$ y $T$ son el mismo por el teorema \ref{teor:PropPCaract}, entonces encontremos la forma de $p$ a través de la matríz $T$.
+
+  Notemos que $T-xI$ es también una matriz triangular, de esta forma se cumple que
+  \[
+    p = \det(T-xI) = (T_{11}-x)(T_{22}-x)\cdots(T_{nn}-x)
+  \]
+  Ahora, demostremos por inducción que para todo $1 \leq m \leq n$ se cumple que
+    \[ (T_{11}-x)\cdots(T_{mm}-x) = (-1)^m x^m + (-1)^{m-1}\paren{\sum_{i=1}^m T_{ii}}x^{m-1} + \cdots + \prod_{i=1}^m T_{ii}. \]
+
+  Es fácil ver que la propiedad se cumple para $m=1$, así supongamos que se cumple para algún $1 \leq s < n$, notemos que, por hipótesis de inducción, se tiene que
+  \begin{align*}
+    (T_{11}-x)\cdots(T_{s+1,s+1}-x) &= (T_{11}-x)\cdots(T_{ss}-x)(T_{s+1,s+1}-x) \\
+      &= \corch{(-1)^s x^s + (-1)^{s-1}\paren{\sum_{i=1}^s T_{ii}}x^{s-1} + \cdots + \prod_{i=1}^s T_{ii}} (T_{s+1,s+1}-x) \\
+      &= (-1)^{s+1} x^{s+1} + (-1)^{s}\paren{\sum_{i=1}^{s+1} T_{ii}}x^{s} + \cdots + \prod_{i=1}^{s+1}T_{ii}.
+  \end{align*}
+  De esta forma, la propiedad se cumple para todo $1\leq m \leq n$, y tomando específicamente el caso $m=n$, entonces tenemos que 
+  \begin{align*}
+    p &= \det(T-xI) = (T_{11}-x)(T_{22}-x)\cdots(T_{nn}-x)   \\
+      &= (-1)^n x^n + (-1)^{n-1}\paren{\sum_{i=1}^n T_{ii}}x^{n-1} + \cdots + \prod_{i=1}^n T_{ii} \\
+      &= (-1)^n x^n + (-1)^{n-1} \tr(T)  + \cdots + \det(T).
+  \end{align*}
+
+  Ahora, por la proposición \ref{prop:invdetytr} tenemos que $\tr(M) = \tr(T)$ y $\det(M) = \det(T)$, de esta forma podemos concluir que
+  \[
+    p = (-1)^n x^n + (-1)^{n-1} \tr(M)  + \cdots + \det(M). \qedhere
+  \]
+\end{proof}
+
+Este teorema implica que el polinomio característico siempre tiene grado $n$. Otra consecuencias interesante de que toda matriz sea triangularizable en los complejos, es la siguiente.
+
+\begin{prop} \label{prop:FormCaracComplex}
+  Sea $M \in \M_n(\C)$ y $E(M) = \{\lambda_1, \cdots, \lambda_k\}$ entonces su polinomio característico $p \in \C[x]$ cumple que
+    \[
+      p = (-1)^n \prod_{i=1}^k (x-\lambda_i)^{m_i}
+    \]
+  donde $m_1 + \cdots + m_n = n$.
+\end{prop}
+\begin{proof}
+  Por el teorema \ref{teor:ComplexTriang} sabemos que existe una matriz $T \in \M_n(\C)$ triangular tal que $M \sim T$, además por la proposición \ref{prop:EpecTriang} y el teorema \ref{teor:SemEspectro} tenemos que
+    \[ \{\lambda_1, \cdots, \lambda_k\} = E(M) = E(T) = \{T_{ii} : i = 1,\ldots,n\}. \]
+  
+  Dado que, por el teorema \ref{teor:PropPCaract}, tenemos que $p$ también es el polinomio característico de $T$ y entonces, por lo mencionado con anterioridad, se debe cumplir que 
+    \[
+    p = \prod_{i=1}^n (T_{ii} -x ) = (-1)^n \prod_{i=1}^n (x-T_{ii}) = (-1)^n \prod_{i=1}^k (x-\lambda_i)^{m_i},
+    \]
+  dado que $p$ es de grado $n$, es fácil de determinar que $m_1 + \cdots + m_n = n$.
+\end{proof}
+
+Ahora, para demostraremos otra propiedad necesaria para demostrar el teorema de Cayley-Hamilton.
+
+\begin{lema} \label{lema:DescpminGrad}
+  Sea $M$ una matriz de $n\times n$ con entradas en los polinomios $\F[x]$, si el polinomio de mayor grado en las entradas de $M$ es de grado $m$, entonces existen matrices $M_0, \ldots, M_m \in \M_n(\F)$ donde $M_m \neq \bec 0$ tal que
+    \[M = x^m M_m + \cdots + x M_1  + M_0.\]
+  Además, si $M = N = x^p N_p + \cdots + x N_1  + N_0$ donde $N_0, \ldots, N_p \in \M_n(\F)$ y $N_p \neq 0$ entonces $m = p$ y $M_i = N_i$ para todo $i \in \{0,\ldots, m\}$. 
+\end{lema}
+\begin{proof}
+  En primer lugar, dado que $M$ tiene entradas em los polinomios, entonces podemos separar a $M$ como de sumas de matrices con entradas monomios del mismo grado, es decir
+    \begin{align*}
+      M &= 
+      \begin{pmatrix}
+        c_{11m} x^m + \cdots + c_{111} x + c_{110}  & \cdots & c_{1nm} x^m + \cdots + c_{1n1} x + c_{1n0} \\
+        \vdots & \ddots & \vdots \\
+        c_{n1m} x^m + \cdots + c_{n11} x + c_{n10}  & \cdots & c_{nnm} x^m + \cdots + c_{nn1} x + c_{nn0}  \\
+        \end{pmatrix} \\
+      &= \begin{pmatrix}
+        c_{11m} x^m  & \cdots & c_{1nm} x^m  \\
+        \vdots & \ddots & \vdots \\
+        c_{n1m} x^m  & \cdots & c_{nnm} x^m  \\
+        \end{pmatrix} + 
+        \cdots
+        +\begin{pmatrix}
+         c_{111} x & \cdots &  c_{1n1} x \\
+        \vdots & \ddots & \vdots \\
+         c_{n11} x  & \cdots &  c_{nn1} x \\
+        \end{pmatrix}
+        +\begin{pmatrix}
+        c_{110} & \cdots &  c_{1n0}  \\
+        \vdots & \ddots & \vdots \\
+         c_{n10} & \cdots & c_{nn0}  \\
+        \end{pmatrix} \\
+      &= x^m \begin{pmatrix}
+        c_{11m} & \cdots & c_{1nm}   \\
+        \vdots & \ddots & \vdots \\
+        c_{n1m}  & \cdots & c_{nnm}  \\
+        \end{pmatrix} + 
+        \cdots
+        + x \begin{pmatrix}
+         c_{111} & \cdots &  c_{1n1} \\
+        \vdots & \ddots & \vdots \\
+         c_{n11}  & \cdots &  c_{nn1} \\
+        \end{pmatrix}
+        +\begin{pmatrix}
+        c_{110} & \cdots &  c_{1n0}  \\
+        \vdots & \ddots & \vdots \\
+         c_{n10} & \cdots & c_{nn0}  \\
+        \end{pmatrix} \\
+      &= x^m M_m + \cdots + x M_1 + M_0.
+    \end{align*}
+  Dado que existe un polinomio de grado $m$, entonces podemos ver que al menos una entrada de $M_m$ es distinta de cero, por lo que $M_m \neq\bec 0$.
+
+  Ahora, si $M = N = x^p N_p + \cdots + x N_1  + N_0$ donde $N_0, \ldots, N_p \in \M_n(\F)$ y $M_p \neq 0$. Dado que dos matrices son iguales si y solo si sus entradas son iguales, entonces notemos que para cualesquiera $i,j \in \{1,\ldots,n\}$ se tiene que
+    \[
+      (M_m)_{ij} x^m + \cdots + (M_1)_{ij}x + (M_0)_{ij} = M_{ij}
+        =
+      N_{ij} = (N_p)_{ij} x^p + \cdots + (N_1)_{ij}x + (N_0)_{ij}.
+    \]
+  Ahora, como dos polinomios son iguales si y solo si sus coeficientes son idénticos, entonces a fuerza se debe cumplir que $m = p$ ya que en caso contrario el polinomio de mayor grado de $M$ no sería de grado $m$. Además, por igualdad de polinomios se debe cumplir que $(M_k)_{ij} = (N_k)_{ij}$ para todo $k \in \{0,\ldots,m\}$, así vemos que $M_i = N_i$ para todo $i \in \{0,\ldots, m\}$.
+\end{proof}
+
+Con todas estas propiedades podemos pasar a la demostración del teorema de Cayley-Hamilton.
+
+\begin{teor}[Cayley-Hamilton]
+  Sea $M \in \M_n(\C)$ y $p \in \C[x]$ el polinomio característico de $M$, entonces $p(M) = \bec 0$. En otras palabras, el polinomio minimal divide al polinomio característico.
+\end{teor}
+\begin{proof}
+  Sea $A = \adj(M-xI)$, por propiedad conocidas de las determinantes, tenemos que
+    \[ (M-xI)A = \det(M-xI) I = p I. \]
+  
+  Ahora, por el lema \ref{lema:DescpminGrad} tenemos que existen matrices $A_0,\ldots,A_m \in \M_n(\C)$ con $A_m \neq \bec 0$ tal que $A = x^m A_n + \cdots + xA_1 + A_0$. Así veamos que
+  \begin{align*}
+    (M-xI)A &= (M-xI) \paren{ \sum_{i=0}^m x^i A_i } \\
+      &= \sum_{i=0}^m M(x^i A_i) - \sum_{i=0}^m xI(x^i A_i) \\
+      &= \sum_{i=0}^m x^i M A_i  - \sum_{i=0}^m x^{i+1} A_i \\
+      &= \sum_{i=0}^m x^i M A_i  - \sum_{i=1}^{m+1} x^i A_{i-1} \\
+      &= MA_0 +  \sum_{i=1}^m x^i( M A_i  - A_{i-1})  - x^{m+1}A_m.
+  \end{align*}
+
+  Ahora, por el teorema \ref{teor:CaracPolyForm} tenemos que is $p = c_n x^n + \cdots + c_1 + c_0 $ para algunos coeficiente $c_0,\ldots,c_1 \in \C$ y aplicando la descomposición del lema \ref{lema:DescpminGrad}, finalmente tenemos que
+  \[
+    - x^{m+1}A_m +  \sum_{i=1}^m x^i( M A_i  - A_{i-1})  + MA_0 = (M-xI)A = pI = c_n x^n I + \cdots + c_1 I + c_0 I.
+  \]
+  Ahora, aplicando nuevamente el lema \ref{lema:DescpminGrad} tenemos que $m+1 = n$, $MA_0 =  c_0 I$ y para cada $i \in \{1,\ldots,n-1\}$ se cumple que
+  \begin{align*}
+    -A_{n-1} &= c_n I  &  M A_i  - A_{i-1}    \\
+    M^n(-A_{n-1}) &= M^n(c_n I)  &  M^i(M A_i  - A_{i-1}) &= M^i(c_i I)   \\
+    -M^nA_{n-1} &= c_n M^n  &  M^{i+1} A_i  - M^iA_{i-1} &= c_i M^i .
+  \end{align*}
+
+  De esta forma, usando las ecuaciones obtenidas y por propiedades de las sumas telescópicas, tenemos que
+  \begin{align*}
+    p(M) &= c_n M^n + \cdots + c_1M + c_0 I \\
+      &= -M^nA_{n-1} + \sum_{i=1}^{n-1} (M^{i+1} A_i  - M^iA_{i-1}) + MA_0  \\
+      &= -M^nA_{n-1} + (M^n A_{n-1}  - MA_0) + MA_0  \\
+      &= \bec 0. \\
+  \end{align*}
+
+  De esta forma, el polinomio característico anula a la matriz y por el teorema \ref{teor:UnicidadPMin} tenemos que $f_M \mid p$.
+\end{proof}
+
+El teorema de Cayley-Hamilton es fundamental para encontrar el polinomio minimal. Ya vimos por el corolario \ref{coro:PolyMinCompelx} que el polinomio minimal se compone de polinomios lineales cuyas raíces son los valores propios de la matriz, es decir si $M \in \M_n(\C)$ entonces
+\[
+  f_M = \prod_{i=1}^k (x-\lambda_i)^{n_i},
+\]
+donde $E(M) = \{\lambda_1,\ldots,\lambda_k\}$ y $1 \leq n_i$ para todo $i\in\{1,\ldots,k\}$.
+
+Asímismo, por la proposición \ref{prop:FormCaracComplex} el polinomio característico $p$ de $M$ es de la forma
+\[
+  p = (-1)^n \prod_{i=1}^k (x-\lambda_i)^{m_i}.
+\]
+donde $m_1 + \cdots + m_k = n$.
+
+Así, usando el teorema de Cayley-Hamilton, podemos determinar fácilmente que $1 \leq  n_i \leq m_i$ para todo $i\in\{1,\ldots,k\}$. Más aún, como $n_1 + \cdots + n_k \leq m_1 + \cdots + m_k = n$ entonces hemos demostrado la siguiente corolario.
+
+\begin{coro}
+  Sea $M \in \M_n(\C)$ entonces $\grad(f_M) \leq n$. Además, si $p$ es el polinomio característico de $M$ entonces $p(\lambda) = 0$ si y solo si $f_M(\lambda) = 0$ para todo $\lambda \in \C$. \qed
+\end{coro}
+
+Todas estas propiedades facilitan la búsqueda del polinomio minimal, ya que nos da una cota superior para cada una de las potencias $n_i$ del corolario \ref{coro:PolyMinCompelx}, así, solo hay que probar finitas combinaciones para encontrar el polinomio minimal.
+
+\begin{example}
+  Demuestra que el polinomio minimal de la matriz $A$ es su polinomio característico, donde $A$ está dada por
+    \[
+      A = \begin{pmatrix}
+        1 & 1 & 1 & 1 \\
+        0 & 1 & 1 & 1 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+      \end{pmatrix}.
+    \]
+
+    \examplesolution
+
+    Primero encontremos el polinomio característico de la matriz $A$. Dado que $A$ es triangular, entonces es fácil ver que
+    \[
+      p = \det(A-xI) = \det\begin{pmatrix}
+        1-x & 1 & 1 & 1 \\
+        0 & 1-x & 1 & 1 \\
+        0 & 0 & -x & 1 \\
+        0 & 0 & 0 & -x
+      \end{pmatrix}
+      = x^2 (x-1)^2.
+    \]
+
+    Así, por el teorema \ref{teor:MinPolyTriang} y el teorema de Cayley-Hamilton tenemos que $f_A = x^{n_1} (x-1)^{n_2}$ donde $1\leq n_1, n_2\leq 2$.
+    
+    Ahora, notemos que los únicos polinomios de menor grado posibles son $x^2(x-1)$, $x(x-1)^2$ y $x(x-1)$. Veamos cuanto da los primeros dos polinomios.
+    \begin{align*}
+      A^2(A-I) &= \begin{pmatrix}
+        1 & 1 & 1 & 1 \\
+        0 & 1 & 1 & 1 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+      \end{pmatrix}^2 \begin{pmatrix}
+        0 & 1 & 1 & 1 \\
+        0 & 0 & 1 & 1 \\
+        0 & 0 & -1 & 1 \\
+        0 & 0 & 0 & -1
+      \end{pmatrix}  
+      = \begin{pmatrix}
+        0 & 1 & 1 & 2 \\
+         0 & 0 & 0 &0  \\ 
+         0 & 0 & 0 & 0 \\ 
+         0 & 0 & 0 & 0
+       \end{pmatrix}, \\
+       A(A-1)^n &=
+       \begin{pmatrix}
+        1 & 1 & 1 & 1 \\
+        0 & 1 & 1 & 1 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+      \end{pmatrix} \begin{pmatrix}
+        0 & 1 & 1 & 1 \\
+        0 & 0 & 1 & 1 \\
+        0 & 0 & -1 & 1 \\
+        0 & 0 & 0 & -1
+      \end{pmatrix}^2
+      = \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}.
+    \end{align*}
+  
+  Así, dado que $x^2(x-1)$ ni $x(x-1)^2$ anularon a la matriz $A$, entonces $x(x-1)$ tampoco la anulará. Eso deja con la única posibilidad de que $f_A = p$.
+\end{example}
