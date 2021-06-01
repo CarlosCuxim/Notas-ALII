@@ -40,8 +40,8 @@ Ahora, como vimos en la sección \ref{sec:TyDdeMat2x2}, toda matriz de $2\times 
         J_{n_1,\lambda_1} & \bec 0 & \cdots & \bec 0  \\ \hline
         \bec 0 & J_{n_2,\lambda_2} & \cdots & \bec 0  \\ \hline
         \vdots & \vdots & \ddots & \vdots  \\ \hline
-        \bec 0 & \bec 0 & \cdots  & J_{n_k,\lambda_k} .
-      \end{spmatrix}
+        \bec 0 & \bec 0 & \cdots  & J_{n_k,\lambda_k} 
+      \end{spmatrix}.
     \]
 \end{defi}
 
@@ -106,7 +106,7 @@ Ahora supongamos que tenemos el otro caso, qué pasa cuando tengo $W_1, \cdots, 
     \[ Mv = c_1 v_{i1} + \cdots + c_{m_i} v_{im_i}. \]
   Ahora, notemos que por propiedades de la inversa, para todo $j\in\{1,\ldots,m_i\}$ se cumple que
   \[
-    P^{-1}v_{ij} = e_{s_i + j -1 }
+    P^{-1}v_{ij} = e_{s_i + j -1 },
   \]
   donde $s_i$ es en número de columna de $v_{i1}$ en la matriz $P$, dado que los vectores $v_{i1},\ldots,v_{im_i}$ están en orden. Así, dado que $Mv = c_1 v_{i1} + \cdots + c_{m_i} v_{im_i}$ y en la matriz $P$, entonces tenemos que
     \begin{align*}
@@ -176,7 +176,7 @@ Ya vimos que para llevar una matriz a su forma canónica de Jordan debemos encon
 
 Una pregunta que nos podríamos hacer es ¿Cual es la base que me manda $M$ a $J$? En otras palabras, qué tiene que cumplir $P$ para que $P^{-1}MP = J$. Si $P = \bigl( v_1 \mid v_2 \mid v_3 \mid v_4 \mid v_5 \bigr)$ entonces, por multiplicación en bloques, veamos que
 \begin{align*}
-  MP &= PJ  \\
+  MP &= PJ,  \\
   M\begin{spmatrix}{c|c|c|c|c} v_1 & v_2 & v_3 & v_4 & v_5 \end{spmatrix}
     &= P\begin{spmatrix}{c|c|c|c|c}
         \lambda & 1 & 0 & 0 & 0 \\
@@ -184,7 +184,7 @@ Una pregunta que nos podríamos hacer es ¿Cual es la base que me manda $M$ a $J
         0 & 0 & \lambda & 0 & 0 \\
         0 & 0 & 0 & \mu & 1 \\
         0 & 0 & 0 & 0 & \mu 
-      \end{spmatrix}  \\
+      \end{spmatrix} , \\
   \begin{spmatrix}{c|c|c|c|c} Mv_1 & Mv_2 & Mv_3 & Mv_4 & Mv_5 \end{spmatrix}
     &= \begin{spmatrix}{c|c|c|c|c} \lambda v_1 & \lambda v_2 + v_1 & \lambda v_3 + v_2 & \mu v_4 & \mu v_5 + v_4 \end{spmatrix}. \tagthis \label{eq:ExampleJordan}
 \end{align*}
@@ -373,7 +373,7 @@ De esta forma, es primordial saber como son los ciclos que conforman la base de 
 \end{enumerate}
 
 De esta forma, si $v_i$ corresponde al vector final del ciclo $C_i$, entonces el diagrama de puntos de $K_\lambda
-$ sería algo así
+$ sería algo así:
 \[
   \begin{array}{llll} 
     \bullet (M-\lambda I)^{\ell_1-1}v_1 & \bullet (M-\lambda I)^{\ell_2-1}v_2 & \cdots & \bullet (M-\lambda I)^{\ell_k-1}v_k  \\
@@ -488,9 +488,9 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
       0 & 3 & -1 & 0 \\
       0 & 1 & 1 & 0 \\
       0 & -1 & 0 & 3 
-    \end{pmatrix}
+    \end{pmatrix}.
     \]
-  encuentre el diagrama de puntos de cada uno de sus espacios propios generalizados. Posteriormente encuentre su forma canónica de Jordan y la base que manda la matriz a su forma canónica de Jordan.
+  Encuentre el diagrama de puntos de cada uno de sus espacios propios generalizados. Posteriormente encuentre su forma canónica de Jordan y la base que manda la matriz a su forma canónica de Jordan.
 
   \examplesolution
 
@@ -531,7 +531,7 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
 
   Por último, encontremos la base que permite mandar la matriz a su forma canónica de Jordan. Para $K_3$ es fácil, dado que $K_3 = E_3$ entonces basta con tomar algún elemento no nulo de $\ker(M-3I)$, por ejemplo consideremos la base de $K_3$ dada por $B_3 = \{(1,0,0,1)^t\}$.
 
-  Ahora, para encontrar una base $B_2$ de $K_2$ tenemos que ponerle nombres a los puntos de su diagrama de puntos, por ejemplo 
+  Ahora, para encontrar una base $B_2$ de $K_2$ tenemos que ponerle nombres a los puntos de su diagrama de puntos, por ejemplo:
   \[
     \begin{array}{ll}
       \bullet (M-2I)v_1 & \bullet v_2\\
@@ -573,13 +573,13 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
     \[
       A-2I = \begin{pmatrix} 0 & -1 & 0 & 1 \\ 0 & 1 & -1 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & -1 &0 & 1 \end{pmatrix}
         \xrightarrow{\text{FERR}}
-        \begin{pmatrix} 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+        \begin{pmatrix} 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & -1 \\ 0 & 0 & 0 & 0 \end{pmatrix}.
     \]
-  de aquí tenemos que $\{(1,0,0,0)^t, (0,1,1,1)^t\}$ forma una base de $\ker(M-2I)$, notemos que $(1,0,0,0)^t$ es linealmente independiente de $(M-2I)v$, asi escojamos $v_2 = (1,0,0,0)^t$. De esta forma tenemos que el diagrama de puntos queda de la siguiente forma
+  De aquí tenemos que $\{(1,0,0,0)^t, (0,1,1,1)^t\}$ forma una base de $\ker(M-2I)$, notemos que $(1,0,0,0)^t$ es linealmente independiente de $(M-2I)v$, asi escojamos $v_2 = (1,0,0,0)^t$. De esta forma tenemos que el diagrama de puntos queda de la siguiente forma
   \[
     \begin{array}{ll}
       \bullet \begin{pmatrix} -1 \\ -1 \\ -1 \\ -1 \end{pmatrix} & \bullet \begin{pmatrix}1 \\ 0 \\ 0 \\ 0\end{pmatrix}\\
-      \bullet \begin{pmatrix} 0 \\ 1 \\ 2 \\ 0 \end{pmatrix}.
+      \bullet \begin{pmatrix} 0 \\ 1 \\ 2 \\ 0 \end{pmatrix}
     \end{array}
   \]
   No es necesario comprobar la independencia lineal, esto se debe al teorema \ref{teor:IndepCiclos}, dado que voluntariamente pedimos que los inicios de los ciclos sean linealmente independientes.
@@ -618,7 +618,7 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
   \examplesolution
 
   En primer lugar, es fácil ver que $E(T) = \{0\}$, así solo hay que calcular un diagrama de puntos. Primero veamos que $\dim(K_0) = 6$, por lo que calculemos los rangos de $T^r$ hasta que los renglones sumen 6. Notemos que
-  \[ \rango(T) = 3 \Eqand \rango(T^2) = 1\]
+  \[ \rango(T) = 3 \Eqand \rango(T^2) = 1.\]
   así tenemos que $r_1 = 6-3 = 3$, $r_2 = 3-1 = 1$ y es fácil ver que $r_3 = 1$, ya que la suma de los puntos en los renglones debe ser 6. Así el diagrama de puntos es el siguiente.
   \[\begin{array}{ccc}
     \bullet & \bullet & \bullet \\
@@ -645,7 +645,12 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
 
   Revisando nuevamente el diagrama de puntos, vemos que para el segundo ciclo, su vector final está en $\ker(T^2)$ pero no está en $\ker(T)$, así calculemos una base de $\ker T^2$. Dado que ya teníamos calculado $T^2$  es fácil ver que  $ \{ e_1, e_2, e_3, e_5, e_6 \} $ es una base de $\ker(T^2)$, ahora $e_1, e_3, e_5$ están en $\ker(T)$ por lo que solo quedan $e_2$ y $e_6$, pero notemos que $e_2 \in \inner{C_1}$ por lo que también queda descartado, dado que queremos que sea linealmente independiente con $C_1$, así el único candidato es $e_6$, veamos que $T(e_6) = e_3$ así el segundo cíclo está dado por $C_2 = \{e_3, e_6\}$.
 
-  Ahora, es fácil ver que $C_1$ y $C_2$ son linealmente independientes, además el único vector de la base canónica que es linealmente independiente de  $C_1 \cup C_2$ es $e_5 \in \ker(T)$, así podemos inferir que este el último ciclo es $C_3 = \{e_5\}$. 
+  Ahora, es fácil ver que $C_1$ y $C_2$ son linealmente independientes, además el único vector de la base canónica que es linealmente independiente de  $C_1 \cup C_2$ es $e_5 \in \ker(T)$, así podemos inferir que este el último ciclo es $C_3 = \{e_5\}$. Así, el diagrama de puntos nos quedó de la siguiente manera 
+  \[\begin{array}{lll}
+    \bullet 2e_1 & \bullet e_3 & \bullet e_5 \\
+    \bullet 2e_2 & \bullet e_6 \\
+    \bullet e_4
+  \end{array}\]
 
   Sea $P$ la matriz cuyas columnas son la base de $K_0$ dada por $C_1 \cup C_2 \cup C_3$, entonces $P$ es invertible y además
   \[
@@ -660,7 +665,7 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
     \Eqand
     P^{-1} =  \begin{pmatrix} 1/2 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1/2 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0 & 0 \\  0 & 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 \end{pmatrix}.
   \]
-  Finalmente, realizando una cuenta rutinaria, nos muestra que
+  Finalmente, realizando una cuenta rutinaria, podemos comprobar que
     \[
       P^{-1}TP 
         = \begin{pmatrix} 0 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 1 &0 \\ 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix} = J.
