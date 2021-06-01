@@ -146,6 +146,8 @@
 
 % Contadores Ecuación
 \renewcommand*{\theequation}{\arabic{section}.\arabic{equation}}
+\newcommand*{\tagthis}{\refstepcounter{equation}\tag{\theequation}}
+
 
 % ---------- ENTORNOS -----------
 \newenvironment{spmatrix}[1]{\left(\begin{array}{@{ }#1@{ }}}{\end{array}\right)}
@@ -160,6 +162,7 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\rango}{rango}
 
 % -------- RELACIONES ----------
 %\newcommand{\relR}{\,R\,}
@@ -201,7 +204,6 @@
 \newcommand*{\ds}{\displaystyle}
 
 % --- NUMERACIÓN DE ECUACIONES ---
-\newcommand*{\tagthis}{\refstepcounter{equation}\tag{\theequation}}
 \newcommand*{\Eqand}{\qquad\text{y}\qquad}
 \newcommand*{\eqand}{\quad\text{y}\quad}
 \newcommand*{\Eqor}{\qquad\text{o}\qquad}

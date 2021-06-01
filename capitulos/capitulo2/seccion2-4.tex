@@ -40,7 +40,7 @@ Nuestro primer objetivo será dar una condición para encontrar cuando una matri
 Este teorema, nos da una condición para saber cuando una matriz es diagonalizable. Entonces, lo que tenemos que hacer es, primero, encontrar todos las raíces del polinomio característico y luego obtener vectores propios linealmente independientes. Para facilitar la búsqueda de esta base de vectores propios consideremos la siguiente definición.
 
 \begin{defi}
-  Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$, al conjunto $E_\lambda = \{v\in\F : Mv = \lambda v\}$ le llamaremos el \emph{espacio propio} de $\lambda$.
+  Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$, al conjunto $E_\lambda = \{v\in\F : Mv = \lambda v\}$ le llamaremos el \emph{espacio propio} de $\lambda$. A $\dim(E_\lambda)$ se le conoce como la multiplicidad geométrica.
 \end{defi}
 
 Notemos que el espacio propio de un valor propio están compuesto por todos los vectores propios asociados a este y el vector cero. Además, este conjunto, como su nombre lo indica, es un subespacio vectorial de $\F^n$. Esto se puede comprobar ya que para cualesquiera $v,w \in V_\lambda$ y $c \in \F$ se cumple que $v+cw \in V_\lambda$, ya que
@@ -321,7 +321,7 @@ De este modo, para que una matriz triangular sea nilpotente, tenemos que debe se
       \bec 0 & U
     \end{spmatrix},
   \]
-  para alguna matriz triangular superior estricta $U \in \M_k(\F)$ y vector $v \in \F^k$. Ahora, por la ecuación \ref{eq:auxProdBloq} tenemos que
+  para alguna matriz triangular superior estricta $U \in \M_k(\F)$ y vector $v \in \F^k$. Ahora, por la ecuación \eqref{eq:auxProdBloq} tenemos que
   \begin{align*}
     T^2 &= \begin{spmatrix}{c|c} 0 & v^t \\\hline \bec 0 & U \end{spmatrix} 
            \begin{spmatrix}{c|c} 0 & v^t \\\hline \bec 0 & U \end{spmatrix}
