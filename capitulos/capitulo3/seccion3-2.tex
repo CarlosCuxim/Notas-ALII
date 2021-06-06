@@ -1,0 +1,140 @@
+\section{Distancia y ángulo de un espacio vectorial}
+
+Como mencionamos al principio, un producto interno nos ayudará a definir los conceptos de distancia y ángulo dentro de un espacio vectorial con producto interno.
+
+\begin{defi}
+  Sea $V$ un espacio con producto interno, definimos la \emph{norma} de un vector $v \in V$ como $\norm{v} = \sqrt{\inner{v,v}}$.
+\end{defi}
+
+La norma de un vector puede pensarse como su \emph{magnitud}. Además, la norma nos permite definir una noción de distancia entre dos vectores, si pensamos en un vector como un ``camino'' entonces para ir de un vector $v$ al vector $w$ tenemos que ``caminar'' un vector $w-v$ ya que $w = v + (w-v)$, así podemos pensar en $\norm{w-v}$ como la distancia del vector $v$ al vector $w$.
+
+El siguiente teorema demostrará algunas propiedades de la norma que intuitivamente nos permiten considerarla como la magnitud de un vector.
+
+\begin{teor} \label{teor:propNorm}
+  Sea $V$ un espacio con producto interno, entonces para cualesquiera $v,w \in V$ y $\lambda \in \K$ se satisface las siguiente propiedades:
+  \begin{enumerate}
+    \item $\norm{v}>0$ para $v \neq 0$.
+    \item $\norm{\lambda v} = \abs{\lambda}\norm{v}$.
+    \item $\norm{v \pm w}^2 = \norm{v}^2 \pm 2 \Re(\inner{v,w}) + \norm{w}^2$.
+    \item Desigualdad de Cauchy-Schwartz: $\abs{\inner{v,w}} \leq \norm{v} \norm{w}$.
+    \item Desigualdad del triángulo: $\norm{v+w} \leq \norm{v} + \norm{w}$.
+  \end{enumerate}
+\end{teor}
+\begin{proof}~
+  \begin{enumerate}
+    \item Si $v \neq 0$ por definición $\inner{v,v}>0$ y por propiedades de las desigualdades tenemos que $\norm{v} = \sqrt{\inner{v,v}}>0$.
+    
+    \item Por la linealidad izquierda y linealidad conjugada derecha tenemos que 
+      \[ \norm{\lambda v} = \sqrt{\inner{\lambda v, \lambda v}} = \sqrt{\lambda \bar\lambda \inner{v,v}} = \sqrt{\abs{\lambda}^2} \sqrt{\inner{v,v}} = \abs{\lambda}\norm{v}. \]
+    
+    \item Aplicando la linealidad izquierda y linealidad conjugada derecha, tenemos que
+      \begin{align*}
+        \norm{v \pm w}^2 &= \inner{v\pm w, v\pm w} \\
+          &= \inner{v,v\pm w} \pm \inner{w, v\pm w} \\
+          &= (\inner{v,v} \pm \inner{v,w}) \pm (\inner{w,v} \pm \inner{w,w}) \\
+          &= \norm{v}^2 \pm(\inner{v,w} + \inner{w,v}) + \norm{w}^2.
+      \end{align*}
+
+      Ahora, por hermiticidad y propiedades de los complejos tenemos que 
+        \[
+          \inner{v,w} + \inner{w,v} = \inner{v,w} + \overline{\inner{v,w}} = 2\Re(\inner{v,w}).
+        \]
+      De esta forma podemos concluir que $\norm{v\pm w}^2 = \norm{v}^2 \pm 2\Re(\inner{v,w}) + \norm{w}^2$.
+
+    \item Notemos que si $v = 0$ entonces claramente se sostiene que $\inner{v,w} = 0 = \norm{v} \norm{w}$, de esta forma consideremos el caso donde $v \neq 0$. Ahora, dado que $v \neq 0$ entonces $\norm{v}^2 = \inner{v,v} > 0$ por definición, así consideremos el vector $u$ dado por
+      \[
+        u = w - \frac{\inner{w,v}}{\norm{v}^2} v.
+      \]
+    En primer lugar, por linealidad izquierda y definición, se cumple que 
+      \begin{align*}
+        \inner{u, v} &=  \Inner{w - \frac{\inner{w,v}}{\norm{v}^2} v, v} 
+           = \inner{w,v} - \frac{\inner{w,v}}{\norm{v}^2}  \inner{v,v} \\
+          &= \inner{w,v} - \frac{\inner{w,v}}{\norm{v}^2}  \norm{v}^2 
+           = \inner{w,v} - \inner{w,v} \\
+          &= 0.
+      \end{align*}
+    Así, para todo $\lambda \in \K$ tenemos que $\inner{u,\lambda v} = \bar \lambda \inner{u,v} = 0$. De este modo, dado que $\inner{w,v} \inner{v,w} =\overline{\inner{v,w}}  \inner{v,w} = \abs{\inner{v,w}}^2$, por hermiticidad y propiedades de los complejos, entonces veamos que 
+      \begin{align*}
+        \norm{u}^2 &= \inner{u, u}
+           = \Inner{u, w - \frac{\inner{w,v}}{\norm{v}^2} v} \\
+          &= \inner{u,w} + \Inner{u, - \frac{\inner{w,v}}{\norm{v}^2} v} 
+           = \inner{u,w} \\
+          &= \Inner{w - \frac{\inner{w,v}}{\norm{v}^2} v, w} 
+           = \inner{w,w} - \frac{\inner{w,v}}{\norm{v}^2} \inner{v,w} \\
+          &= \norm{w}^2 - \frac{\abs{\inner{v,w}}^2}{\norm{v}^2}.
+      \end{align*}
+    
+    Dado que $\norm{u}^2 \geq 0$ por la propiedad 1, entonces podemos concluir que
+      \[0 \leq \norm{w}^2 - \frac{\abs{\inner{v,w}}^2}{\norm{v}^2}
+          \implies
+        \abs{\inner{v,w}}^2 \leq \norm{v}^2 \norm{w}^2.
+      \]
+    Lo que por propiedades de las desigualdades, finalmente implica que $\abs{\inner{v,w}} \leq \norm{v} \norm{w}$.
+
+    \item Por propiedades de los complejos tenemos que $\Re(\inner{v,w}) \leq \abs{\inner{v,w}}$, pero por la desigualdad de Cauchy-Schwartz tenemos que $\abs{\inner{v,w}} \leq \norm{v} \norm{w}$. De esta forma, por la propiedad 2 tenemos que 
+      \begin{align*}
+        \norm{v+w}^2 &= \norm{v}^2 + 2 \Re(\inner{v,w}) + \norm{w}^2 \\
+          &\leq \norm{v}^2 + 2\norm{v} \norm{w} + \norm{w}^2 \\
+          &= (\norm{v} + \norm{w})^2.
+      \end{align*}
+    Y por propiedades de las desigualdades, podemos concluir que $\norm{v+w} \leq \norm{v}+\norm{w}$. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{coro}
+  La igualdad en desigualdad de Cauchy-Schwartz se da si solo si los vectores son linealmente dependientes.
+\end{coro}
+
+\begin{proof}
+  Supongamos que $v$ y $w$ son linealmente dependientes. Si $v = 0$, por la prueba de la propiedad 4 del teorema \ref{teor:propNorm} ya vimos que se cumple la igualdad, así, supongamos que $v \neq 0$.
+  
+  Dado que $v \neq 0$, entonces por independencia lineal debe existir $\lambda \in \K$ tal que $w = \lambda v$, de este modo, por el teorema \ref{teor:propNorm}, tenemos que
+    \[
+      \abs{\inner{v,w}} = \abs{\inner{v,\lambda v}} = \abs{\lambda\inner{v,v}} = \abs{\lambda} \abs{\inner{v,v}} = \abs{\lambda} \norm{v}^2 = \norm{v} (\abs{\lambda} \norm{v}) = \norm{v} \norm{\lambda v} = \norm{v} \norm{w}.
+    \]
+  
+  Ahora, supongamos que se da la igualdad. Es trivial que $v$ y $w$ son linealmente independientes cuando $v = 0$, pero si $v \neq 0$, entonces por la prueba de la propiedad 4 del teorema \ref{teor:propNorm} tenemos que el vector $u = w - (\inner{w,v}/\norm{v}^2)v$ cumple que $\norm{u} = 0$, pero esto implica que $u = 0$ y por tanto
+    \[ w = \frac{\inner{w,v}}{\norm{v}^2} v, \]
+  lo que muestra que $u$ y $v$ son linealmente independientes.
+\end{proof}
+
+Ahora, hemos visto que el producto interno define el conceptos de distancia, pero este proceso funciona a la inversa, dado ciertas distancias es posible conocer el producto interno de dos vectores, esta propiedad es conocida como identidad de polarización. 
+
+\begin{teor}[Identidad de polarización]
+  Sea $V$ un espacio con producto interno, entonces para cualesquiera $v,w \in V$ se cumple que:
+    \begin{enumerate}
+      \item Si $\K = \R$ entonces
+        \[ \inner{v,w} = \frac{1}{4} \norm{v+w}^2 - \frac{1}{4} \norm{v-w}^2.\]
+      \item Si $\K = \C$ entonces
+      \[ \inner{v,w} = \frac{1}{4} \norm{v+w}^2 - \frac{1}{4} \norm{v-w}^2 + \frac{i}{4}\norm{v+iw}^2 - \frac{i}{4}\norm{v-iw}^2.\]
+    \end{enumerate}
+\end{teor}
+\begin{proof}
+  Por el teorema \ref{teor:propNorm} tenemos que $\norm{v \pm w}^2 = \norm{v}^2 \pm 2 \Re(\inner{v,w}) + \norm{w}^2$, de este modo
+    \begin{align*}
+      \norm{v+w}^2 - \norm{v-w}^2
+        &= (\norm{v}^2 + 2 \Re(\inner{v,w}) + \norm{w}^2) - (\norm{v}^2 - 2 \Re(\inner{v,w}) + \norm{w}^2) \\
+        &= 4\Re(\inner{v,w}). \tagthis\label{eq:IdPolRe}
+    \end{align*}
+  Notemos que si $\K = \R$, entonces $\Re(\inner{v,w}) = \inner{v,w}$, de este modo tenemos que
+    \[
+      \inner{v,w} = \frac{1}{4} \norm{v+w}^2 - \frac{1}{4} \norm{v-w}^2.
+    \]
+  
+  Ahora, si $\K = \C$, por el teorema \ref{teor:propNorm} y notando que $\Re(-i\inner{v,w}) = \Im(\inner{v,w})$, por propiedades de complejos, entonces tenemos que 
+    \begin{align*}
+      i\norm{v \pm iw}^2
+        &= i\norm{v}^2 \pm 2 i\Re(\inner{v,iw}) + i\norm{w}^2 \\
+        &= i\norm{v}^2 \pm 2 i\Re(-i\inner{v,w}) + i\norm{w}^2 \\
+        &= i\norm{v}^2 \pm 2 i\Im(\inner{v,w}) + i\norm{w}^2, \\
+      i\norm{v + iw}^2 - i\norm{v - iw}^2
+        &= (i\norm{v}^2 + 2 i\Im(\inner{v,w}) + i\norm{w}^2) - (i\norm{v}^2 - 2 i\Im(\inner{v,w}) + i\norm{w}^2 ) \\
+        &= 4i\Im(\inner{v,w}).  \tagthis \label{eq:IdPolIm}
+    \end{align*}
+  
+
+  De esta forma, dado que $\inner{v,w} = \Re(\inner{v,w}) + i\Im(\inner{v,w})$, entonces despejando de las ecuaciones \ref{eq:IdPolRe} y \ref{eq:IdPolIm} obtenemos que
+    \[
+      \inner{v,w} = \frac{1}{4} \norm{v+w}^2 - \frac{1}{4} \norm{v-w}^2 + \frac{i}{4}\norm{v+iw}^2 - \frac{i}{4}\norm{v-iw}^2. \qedhere
+    \]
+\end{proof}
