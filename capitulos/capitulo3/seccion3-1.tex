@@ -1,0 +1,55 @@
+
+En este capítulo nuestro objetivo principal es estudiar a los espacios vectoriales donde existe la noción de ángulo o longitud. Para estudiar estos conceptos geométricos se hace uso de una función especial llamado producto interno.
+
+Un ejemplo de producto interno es el conocido producto punto, definido en el espacios $R^2$ que nos permite obtener la longitud de un vector o el ángulo entre dos vectores.
+
+Nuestro objetivo en este capítulo será, generalizar esta idea sobre los espacios vectoriales con campo en los reales o complejos y estudiar sus principales propiedades.
+
+\section{Producto interno}
+
+\begin{defi}
+  Sea $\K$ el campo de los números reales o de los complejos y $V$ un $\K$-espacio vectorial. Un \emph{producto interno} sobre $V$ es una función $\inner{\cdot, \cdot}\colon V\times V \to \K$ tal que para cualesquiera $v,u,w \in V$ y $\lambda \in \K$ se cumple que:
+    \begin{enumerate}
+      \item (Linealidad izquierda) $\inner{v+\lambda w, u} = \inner{v,u} + \lambda\inner{w,u}$.
+      \item (Hermiticidad) $\inner{v,w} = \overline{\inner{w,v}}$, donde la barra indica la conjugación compleja.
+      \item (Definida positiva) $\inner{v,v} > 0$ si $v\neq 0$.
+    \end{enumerate}
+\end{defi}
+
+Notemos que la primera propiedad indica que $\inner{\cdot, v}$ es una transformación lineal para todo $v \in V$, eso quiere decir que $\inner{v+w,u} = \inner{v,u} + \inner{w,u}$ (separa sumas), $\inner{\lambda v, w} = \lambda \inner{v,w}$ (saca escalares) y $\inner{0,v} = 0$ para cualesquiera $v,u,w \in V$ y $\lambda \in \K$.
+
+Ahora, para la segunda entrada decimos que es \emph{lineal conjugada por la derecha} ya que por 1 y 2 se tiene que
+  \[
+    \inner{u, v + \lambda w} = \overline{\inner{v + \lambda w, v}} = \overline{\inner{u,v}} +  \overline{\lambda \inner{u,w}} = \inner{v,u} + \bar\lambda \inner{w,u}.
+  \]
+
+Notemos que si $\K=\R$ entonces el conjugado está de más, en este caso la propiedad 2 es llamada \emph{simetría}. Sin embargo el conjugado es necesario para los complejos, ya que sin éste, para $v\neq 0$, se tendría que 
+  \[
+    \inner{v,v}>0 \Eqand \inner{iv, iv} = i^2 \inner{v,v} = -\inner{v,v}>0.
+  \]
+
+Para continuar, por convención, a lo largo de todo el capítulo $\K$ será el campo de los números reales o de los complejos a menos que se indique lo contrario.
+
+\begin{defi}
+  Sea $M \in \M_{n\times m}(\C)$ dada por $M = (m_{ij})$, definimos su \emph{conjugada} como la matriz dada por $\overline{M} = (\overline{m_{ij}})$. De igual forma, definimos su \emph{traspuesta conjugada} o \emph{adjunta} como la matriz dada por $M^* = \overline{M}^t$.
+\end{defi}
+
+\begin{example}
+  Sea $v = (x_1, y_1)$ y $w = (x_2, y_2)$ elementos de $\R^2$, definamos el producto $\inner{\cdot,\cdot}\colon \R^2 \times \R^2 \to \R$ dado por
+    \[ \inner{v,w} = x_1 x_2 - y_1x_2 - x_1y_2 + 4y_1y_2. \]
+  Demostremos que es un producto interno sobre $\R^2$.
+
+  \examplesolution
+
+  La demostración de las propiedades 1 y 2 son fáciles de comprobar. Basta con hacer los cálculos pertinentes, otra forma es ver que 
+    \[
+      \inner{v,w} = v^t \begin{pmatrix}
+        1 & -1 \\ -1 & 4
+      \end{pmatrix} w.
+    \]
+  En esta forma es fácil verificar la linealidad derecha y la simetría (dado que la matriz es simétrica). Ahora, para ver que es definida positiva basta con verificar que
+   \[
+     \inner{v,v} = (x_1 - y_1)^2 + 3 y_1^2,
+   \]
+   es claro que si $v \neq 0$ entonces $\inner{v,v} \neq 0$.
+\end{example}
