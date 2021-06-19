@@ -1,6 +1,9 @@
-\section{Distancia y ángulo de un espacio vectorial}
+\section{La geometría de un espacio con producto interno}
 
-Como mencionamos al principio, un producto interno nos ayudará a definir los conceptos de distancia y ángulo dentro de un espacio vectorial con producto interno.
+Como mencionamos al principio, un producto interno nos ayudará a definir los conceptos de distancia y ángulo dentro de un espacio vectorial con producto interno. En esta sección abordaremos con más detalle estos conceptos geométricos.
+
+
+\subsection{Norma de un vector}
 
 \begin{defi}
   Sea $V$ un espacio con producto interno, definimos la \emph{norma} de un vector $v \in V$ como $\norm{v} = \sqrt{\inner{v,v}}$.
@@ -81,7 +84,7 @@ El siguiente teorema demostrará algunas propiedades de la norma que intuitivame
   \end{enumerate}
 \end{proof}
 
-\begin{coro}
+\begin{coro} \label{coro:SchwartzEq}
   La igualdad en desigualdad de Cauchy-Schwartz se da si solo si los vectores son linealmente dependientes.
 \end{coro}
 
@@ -137,4 +140,52 @@ Ahora, hemos visto que el producto interno define el conceptos de distancia, per
     \[
       \inner{v,w} = \frac{1}{4} \norm{v+w}^2 - \frac{1}{4} \norm{v-w}^2 + \frac{i}{4}\norm{v+iw}^2 - \frac{i}{4}\norm{v-iw}^2. \qedhere
     \]
+\end{proof}
+
+
+
+\subsection{Ángulo entre vectores}
+
+Además de la desigualdad del triangulo, una de las consecuencias de la desigualdad de Cauchy-Schwartz es que para cualesquiera dos vectores $v,w \in V$ no nulos de un espacio euclidiano se cumple que
+\[
+  \frac{\abs{\inner{v,w}}}{\norm{v}\norm{w}} \leq 1 \implies  -1 \leq \frac{\inner{v,w}}{\norm{v}\norm{w}} \leq 1.
+\]
+Por las propiedades del coseno, esto implica que existe un único $\theta \in [0,\pi]$ tal que 
+\[
+  \cos\theta = \frac{\inner{v,w}}{\norm{v}\norm{w}}.
+\]
+Este número $\theta$ es el que se le suele asociar como el ángulo entre los vectores $v$ y $w$.
+
+\begin{defi}
+  Sea $V$ un espacio euclidiano y $v,w \in V$ son vectores no nulos, entonces definimos el ángulo entre $v$ y $w$ como el único número $\angle(v,w) \in [0,\pi]$ tal que
+    \[ \cos\angle(v,w) = \frac{\inner{v,w}}{\norm{v}\norm{w}}. \]
+\end{defi}
+
+Notemos que por definición el ángulo no depende de la posición de $v$ y $w$ por lo que $\angle(v,w) = \angle(w,v)$. Además, como se podría suponer, el angulo entre dos vectores cumple muchas de las propiedades geométricas conocidas.
+
+\begin{teor}
+  Sea $V$ un espacio euclidiano y $v,w \in V$ son vectores no nulos, se cumplen las siguientes propiedades:
+  \begin{enumerate}
+    \item Los vectores $v$ y $w$ son linealmente independientes si y solo si el ángulo entre $v$ y $w$ es $0$ o $\pi$.
+    \item Sea $\lambda \in \R^*$ entonces, los ángulos $\angle(v,w)$ y $\angle(\lambda v,w)$ son iguales si $\lambda > 0$ y son suplementarios si $\lambda < 0$.
+    \item (Teorema de cosenos) Se cumple que
+      \[ \norm{v \pm w}^2 = \norm{v}^2 + \norm{w}^2 \pm 2\norm{v}\norm{w}\cos\angle(v,w). \]
+  \end{enumerate}
+\end{teor}
+
+\begin{proof}~
+  \begin{enumerate}
+    \item Por el corolario \ref{coro:SchwartzEq} tenemos que $v$ y $w$ son linealmente independientes si y solo si se cumple que $\abs{\inner{v,w}} = \norm{v}\norm{w}$, pero seo se cumple si y solo si $\cos\angle(v,w) = \pm 1$ y por propiedades del coseno se cumple si y solo si $\angle(v,w) = 0$  o $\angle(v,w) = \pi$.
+    
+    \item Notemos que por propiedades conocidas del producto interno y la norma se cumple que 
+      \[
+        \cos\angle(\lambda,w) = \frac{\inner{\lambda v,w}}{\norm{\lambda v} \norm{w}}
+          = \frac{\lambda}{\abs{\lambda}}  \frac{\inner{v,w}}{\norm{v} \norm{w}}
+          = \frac{\lambda}{\abs{\lambda}} \cos\angle(v,w).
+      \]
+      Si $\lambda > 1$ entonces $\lambda/\abs{\lambda} = 1$, por lo que $\angle(\lambda v ,w) = \angle(v,w)$, ya que sus cosenos son iguales. Ahora, si $\lambda<0$, entonces $\lambda/\abs{\lambda} = -1$, por lo que $\angle(\lambda v,w) = \pi - \angle(v,w)$ ya que $\cos\angle(\lambda v,w) = -\cos\angle(v,w)$.
+
+      \item Por el teorema \ref{teor:propNorm} tenemos que $\norm{v - w}^2 = \norm{v}^2 \pm 2 \inner{v,w} + \norm{w}^2$ y por definición $\inner{v,w} = \norm{v}\norm{w} \cos\angle(v,w)$ de este modo tenemos que 
+        \[ \norm{v \pm w}^2 = \norm{v}^2  + \norm{w}^2 \pm 2 \norm{v}\norm{w} \cos\angle(v,w). \qedhere \]
+  \end{enumerate}
 \end{proof}
