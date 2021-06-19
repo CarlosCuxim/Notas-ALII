@@ -7,7 +7,7 @@ Por lo visto en la sección anterior, tenemos que dos vectores no nulos $v,w \in
 De este modo, aunque no podamos definir los ángulos en cualquier espacio con producto interno, sí podemos definir un conceptos similar al de la perpendicularidad.
 
 \begin{defi}
-  Sea $V$ un espacio con producto interno, decimos que dos vectores $v,w \in V$ son \emph{ortogonales} y lo denotaremos como $v\perp w$, si $\inner{v,w} = 0$. Si $S$ es un conjunto de vectores de $V$, decimos que es un \emph{conjunto ortogonal} si para cualesquiera $v,w \in S$ con $v \neq w$ se cumple que $\inner{v,w} = 0$. Además, decimos que es un conjunto $S$ es un \emph{conjunto ortonormal} si es un conjunto ortogonal y además $\norm{v} = 1$ para todo $v \in S$. Por último, para dos conjuntos $S,T \subseteq V$ decimos que $S$ es \emph{ortogonal al conjunto} $T$ y lo denotaremos como $S \perp T$, si $\inner{s,t} = 0$ para cualesquiera $s\in S$ y $t\in T$.
+  Sea $V$ un espacio con producto interno, decimos que dos vectores $v,w \in V$ son \emph{ortogonales} y lo denotaremos como $v\perp w$, si $\inner{v,w} = 0$. Si $S$ es un conjunto de vectores de $V$, decimos que es un \emph{conjunto ortogonal} si para cualesquiera $v,w \in S$ con $v \neq w$ se cumple que $\inner{v,w} = 0$. Además, decimos que es un conjunto $S$ es un \emph{conjunto ortonormal} si es un conjunto ortogonal y además $\norm{v} = 1$ para todo $v \in S$.
 \end{defi}
 
 Notemos que el vector $0$ es ortogonal a cualquier otro vectores, de este modo un conjunto ortogonal puede contener al cero, pero un conjunto ortonormal no.
@@ -44,7 +44,7 @@ Una consecuencia de este teoremas es que si $S = \{v_1, \ldots, v_n\}$ es un con
 
 Otra consecuencia importante es que todo conjunto ortogonal de vectores no nulos siempre es linealmente independientes, por lo que si se tiene un conjunto ortogonal no es necesario comprobar la independencia lineal. Además, los coeficientes dados en el teorema determinan completamente a cualquier combinación lineal. Por ello, a los coeficientes del teorema anterior se les conoce como los \emph{coeficientes de Fourier} de un vector.
 
-\begin{coro}
+\begin{coro} \label{coro:IndepOrtog}
   Sea $S = \{v_1, \ldots, v_n\}$ un conjunto ortogonal de vectores no nulos de un espacio con producto interno $V$, entonces $S$ es linealmente independiente.
 \end{coro}
 \begin{proof}
@@ -53,4 +53,57 @@ Otra consecuencia importante es que todo conjunto ortogonal de vectores no nulos
       \lambda_i = \frac{\inner{0,v_i}}{\norm{v_i}^2} = 0,
     \]
   lo que implica que $S$ es linealmente independiente.
+\end{proof}
+
+
+
+\subsection{Proceso de ortogonalización de Gram-Schmidt}
+
+Ya vimos que tener una base ortogonal tiene muchas ventajas, entonces es normal querer buscar este tipo de bases. De igual forma es normal cuestionarse si tales bases existen y cómo construirlas en el caso que existan.
+
+La respuesta de la primera cuestión es que siempre existen bases ortogonales para todo espacio vectorial con producto interno. La forma de construirla es usando un método llamado proceso de ortogonalización de Gram-Schmidt. Este proceso funciona de la siguiente forma: supongamos que tenemos un conjunto linealmente independiente $S = \{v_1,\ldots,v_n\}$ de un espacio con producto interno, entonces definimos de manera recursiva los vectores $S' = \{w_1,\ldots,w_n\}$ de la siguiente forma, primero $w_1 = v_1$ y para $i \in \{2,\ldots,n\}$ se define
+  \[
+    w_i = v_i - \sum_{k=1}^{i-1} \frac{\inner{v_i,w_k}}{\norm{w_k}^2} w_k.
+  \]
+
+Estos vectores $w_1,\ldots,w_n$ cumplen que para todo $i \in \{1,\ldots,n\}$ el vector $w_i$ es no nulo, el conjunto $\{w_1,\ldots,w_i\}$ es ortogonal y además $\inner{v_1,\ldots,v_i} = \inner{w_1,\ldots,w_n}$. La demostración de estas afirmaciones se da en el siguiente teorema.
+
+\begin{teor}[Proceso de ortogonalización de Gram-Schmidt]
+  Sea $V$ un espacio con producto interno y sea $\{v_1,\ldots,v_n\}$ un conjunto de vectores linealmente independientes de $V$. Entonces, se pueden construir un conjunto ortogonal $\{w_1,\ldots,w_n\}$ tal que para todo $i \in \{1,\ldots,n\}$ el conjunto $\{w_1,\ldots,w_i\}$ es una base de $\inner{v_1,\ldots,v_i}$.
+\end{teor}
+\begin{proof}
+  Es claro que si $n=1$ entonces definiendo $w_1 = v_1$ se cumple con lo pedido, de esta forma supongamos que existe $s>1$ tal que la proposición se cumple para todo $1 \leq r < s$, mostremos que también se cumple para $s$.
+
+  Sea $\{v_1,\ldots,v_s\}$ un conjunto linealmente independiente,  por hipótesis de inducción tenemos que para $\{v_1,\ldots,v_{s-1}\}$ existe un conjunto ortogonal $\{w_1,\ldots,w_{s-1}\}$ tal que cumple con la proposición, de esta forma definamos
+    \[
+      w_s = v_s - \sum_{k=1}^{s-1} \frac{\inner{v_s,w_k}}{\norm{w_k}^2} w_k.
+    \]
+  
+  En primer lugar, notemos que $w_s$ no es el vector cero ya que en caso contrario se cumpliría que
+    \[
+      v_s = \sum_{k=1}^{s-1} \frac{\inner{v_s,w_k}}{\norm{w_k}^2} w_k
+    \]
+  y por tanto $v_s \in \inner{w_1,\ldots,w_{s-1}}=\inner{v_1,\ldots,w_{v-1}}$, pero eso contradice que $\{v_1,\ldots,v_s\}$ es linealmente independiente.
+
+  Ahora, sea $i \in \{1,\ldots,s-1\}$, dado que para todo $j \in  \{1,\ldots,s-1\}$ con $i \neq j$ se cumple que $\inner{w_j,w_i} = 0$, ya que $\{w_1,\ldots,w_{s-1}\}$ es ortogonal, entonces veamos que
+    \begin{align*}
+      \inner{w_s, w_i}
+        &= \Inner{v_s - \sum_{k=1}^{s-1} \frac{\inner{v_s,w_k}}{\norm{w_k}^2} w_k, w_i} 
+        = \inner{v_s,w_i} - \sum_{k=1}^{s-1} \frac{\inner{v_s,w_k}}{\norm{w_k}^2} \inner{w_k, w_i} \\
+        &= \inner{v_s,w_i} - \frac{\inner{v_s,w_i}}{\norm{w_i}^2} \inner{w_i, w_i} 
+        = \inner{v_s,w_i} - \inner{v_s,w_i} \\
+        &= 0.
+    \end{align*}
+  Pero esto implica que $\{w_1,\ldots,w_s\}$ es un conjunto ortogonal y todos sus vectores son distintos de cero, así, por el corolario \ref{coro:IndepOrtog} tenemos que $\{w_1,\ldots,w_s\}$ es linealmente independiente, por lo que para todo $i \in \{1,\ldots,s\}$ se cumple que $\{w_1,\ldots,w_i\}$ es una base de $\inner{v_1,\ldots,v_i}$. Así, por inducción, la proposición se cumple para todo $n \in \N$.
+\end{proof}
+
+\begin{coro}
+  Sea $V$ un espacio con producto interno de dimensión finita, entonces $V$ tiene una base ortogonal y una base ortonormal.
+\end{coro}
+\begin{proof}
+  Dado que $V$ tiene una base, por el proceso de ortogonalización de Gram-Schmidt podemos construir una base ortogonal $B = \{v_1,\ldots,v_n\}$ de $V$, ahora definamos el conjunto
+    \[
+      B' = \set{ \frac{1}{\norm{v_1}}v_1, \ldots, \frac{1}{\norm{v_n}}v_n }.
+    \]
+  Por construcción $B'$ va a ser ortonormal, además dado que cada vector de $B'$ es un múltiplo escalar de uno de $B$, entonces también es una base de $V$.
 \end{proof}
