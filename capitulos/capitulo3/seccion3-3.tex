@@ -1,0 +1,56 @@
+\section{Ortogonalidad y ortonormalidad}
+
+Un concepto de especial interés en la geometría es la perpendicularidad en esta sección generalizaremos más este concepto.
+
+Por lo visto en la sección anterior, tenemos que dos vectores no nulos $v,w \in V$ de un espacio euclidiano cumplen que $\angle(v,w) = \pi/2$ si y solo si $\cos \angle(v,w) = 0$, pero esta ultima condición se cumple si y solo si $\inner{v,w} = 0$.
+
+De este modo, aunque no podamos definir los ángulos en cualquier espacio con producto interno, sí podemos definir un conceptos similar al de la perpendicularidad.
+
+\begin{defi}
+  Sea $V$ un espacio con producto interno, decimos que dos vectores $v,w \in V$ son \emph{ortogonales} y lo denotaremos como $v\perp w$, si $\inner{v,w} = 0$. Si $S$ es un conjunto de vectores de $V$, decimos que es un \emph{conjunto ortogonal} si para cualesquiera $v,w \in S$ con $v \neq w$ se cumple que $\inner{v,w} = 0$. Además, decimos que es un conjunto $S$ es un \emph{conjunto ortonormal} si es un conjunto ortogonal y además $\norm{v} = 1$ para todo $v \in S$. Por último, para dos conjuntos $S,T \subseteq V$ decimos que $S$ es \emph{ortogonal al conjunto} $T$ y lo denotaremos como $S \perp T$, si $\inner{s,t} = 0$ para cualesquiera $s\in S$ y $t\in T$.
+\end{defi}
+
+Notemos que el vector $0$ es ortogonal a cualquier otro vectores, de este modo un conjunto ortogonal puede contener al cero, pero un conjunto ortonormal no.
+
+El principal atractivo de los conjuntos ortogonales y ortonormales es que cualquier vector que sea combinación lineal de este conjunto puede ser expresado en términos del producto interno, de este modo es bastante cómodo trabajar sobre bases que sean ortogonales u ortonormales.
+
+\begin{teor}[Expansión de Fourier] \label{teor:ExoFourier}
+  Sea $S = \{v_1, \ldots, v_n\}$ un conjunto ortogonal de vectores no nulos de un espacio con producto interno $V$, si $v \in \inner{S}$, entonces
+    \[
+      v = \sum_{i=1}^n \frac{\inner{v,v_i}}{\norm{v_i}^2} v_i.
+    \]
+\end{teor}
+
+\begin{proof}
+  Sea $v = \lambda_1 v_1 + \cdot + \lambda_n v_n$, notemos, por las propiedades del producto interno, que para cualquier $i \in \{1,\ldots,n\}$ se cumple que
+  \[
+    \inner{v,v_i} = \inner{\lambda_1 v_1 + \cdots + \lambda_n v_n,v_i} 
+      = \lambda_1 \inner{v_1,v_i} + \cdots + \lambda_n \inner{v_n,v_i}
+  \]
+  Ahora, dado que $S$ es ortogonal, entonces $\inner{v_j, v_i} = 0$ para todo $j \in \{1,\ldots,n\}$ tal que $j \neq i$, además, dado que $v_i \neq 0$ por hipótesis, entonces $\norm{v_i} \neq 0$ y por tanto tenemos que
+  \[
+    \inner{v,v_i} = \lambda_i \inner{v_i,v_i} = \lambda_i \norm{v_i}^2 \implies \lambda_i = \frac{\inner{v,v_i}}{\norm{v_i}^2}.
+  \]
+  Lo que finalmente nos permite concluir que 
+    \[
+      v = \sum_{i=1}^n \frac{\inner{v,v_i}}{\norm{v_i}^2} v_i. \qedhere
+    \]
+\end{proof}
+
+Una consecuencia de este teoremas es que si $S = \{v_1, \ldots, v_n\}$ es un conjunto ortonormal, dado que $\norm{v_i} = 1$ para todo $i\in\{1,\ldots,n\}$, entonces para cualquier $v\in \inner{S}$ se cumple que 
+\[
+  v = \sum_{i=1}^n \inner{v,v_i} v_i.
+\]
+
+Otra consecuencia importante es que todo conjunto ortogonal de vectores no nulos siempre es linealmente independientes, por lo que si se tiene un conjunto ortogonal no es necesario comprobar la independencia lineal. Además, los coeficientes dados en el teorema determinan completamente a cualquier combinación lineal. Por ello, a los coeficientes del teorema anterior se les conoce como los \emph{coeficientes de Fourier} de un vector.
+
+\begin{coro}
+  Sea $S = \{v_1, \ldots, v_n\}$ un conjunto ortogonal de vectores no nulos de un espacio con producto interno $V$, entonces $S$ es linealmente independiente.
+\end{coro}
+\begin{proof}
+  Por la demostración del teorema \ref{teor:ExoFourier} sabeos que si $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0$ entonces para todo $i \in  \{0,\ldots,n\}$ se cumple que
+    \[
+      \lambda_i = \frac{\inner{0,v_i}}{\norm{v_i}^2} = 0,
+    \]
+  lo que implica que $S$ es linealmente independiente.
+\end{proof}
