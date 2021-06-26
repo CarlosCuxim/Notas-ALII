@@ -1,0 +1,116 @@
+\section{Matrices normales y unitarias}
+
+En esta sección estaremos trabajando con un conjunto muy especial de matrices, así como su relación con sus valores y vectores propios. 
+
+\begin{defi}
+  Sea $N \in \N_n(\K)$, decimos que $N$ es \emph{normal} si $NN^* = N^*N$. De igual forma, si $U\in\M_n(\K)$ decimos que $U$ es \emph{unitaria} si $UU^* = I$. En el caso que $\K = \R$, a las matrices unitarias se les llamará \emph{ortogonales}.
+\end{defi}
+
+Una observación interesante es que, por definición, no es difícil ver que las matrices hermíticas y unitarias son normales. Ahora, las matrices unitarias son de especial interés, esto dado si las consideramos como matrices de cambio de base, la base es ortonormal bajo el producto interno canónico. Por convención, en lo que resta de la sección, el producto interno a usar será el canónico.
+
+\begin{prop}
+  Sea $U \in \M_n(\C)$, las siguientes afirmaciones son equivalentes:
+  \begin{enumerate}
+    \item $U$ es unitaria.
+    \item $U^*$ es unitaria.
+    \item Las columnas de $U$ conforman un conjunto ortonormal.
+    \item Los renglones de $U$ conforman un conjunto ortonormal.
+    \item $v \bcdot w = (Uv) \bcdot (Uw)$ para cualesquiera $v,w \in \K^n$.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  En primero lugar, notemos que por propiedades del conjugado $v^* w = \overline{v\bcdot w}$, de esta forma tenemos que $v^* w = r$ si y solo si $v\bcdot w = r$ cuando $r \in \R$, con esto dicho, pasemos a la demostración del teorema.
+  
+  \medskip\noindent
+  $(1 \Leftrightarrow 2)$ Dado que $UU^* = I$ entonces $U^{-1} = U^*$ por lo que $U^* (U^*)^* = U^* U = UU^* = I$, lo que muestra que $U^*$ es unitaria. Ahora si $U^*$ es unitaria, por la parte anterior se cumple que $(U^*)^* = U$ es unitaria.
+
+  \medskip\noindent
+  $(1 \Rightarrow 3)$ Si $U = \bigl( v_1 \mid \cdots \mid v_n \bigr)$, dado que $U$ es unitaria, entonces $ U^* U = UU^* =I$ y por propiedades de la adjunta, tenemos que
+  \[
+    U^* U = \begin{spmatrix}{c} v_1^* \\\hline v_2^* \\\hline \vdots \\\hline v_n^* \end{spmatrix}
+      \begin{spmatrix}{c|c|c|c} v_1 & v_2 & \cdots & v_n \end{spmatrix}
+      = \begin{pmatrix}
+        v_1^* v_1 & v_1^* v_2 & \cdots & v_1^* v_n \\
+        v_2^* v_1 & v_2^* v_2 & \cdots & v_2^* v_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        v_n^* v_1 & v_n^* v_2 & \cdots & v_n^* v_n 
+      \end{pmatrix} = I.
+  \]
+  Por igualdad de matrices tenemos que $v_i^* v_j \in \R$ para todos $i,j\in\{1,\ldots,n\}$, pero por lo dicho al principio esto implica que $v_i^* v_j  = v_i \bcdot v_j$ y por la ecuación anterior $v_i \bcdot v_j$ siempre que $i \neq j$ y $v_i \bcdot v_j = 1$ cuando $i=j$, pero por definición, esto muestra que las columnas de $U$ forman un conjunto ortonormal.
+    
+  \medskip\noindent
+  $(3 \Rightarrow 1)$ Si $U = \bigl( v_1 \mid \cdots \mid v_n \bigr)$, dado que sus columnas forman un conjunto ortonormal, entonces tenemos que $v_i \bcdot v_j \in \R$ para cualesquiera $i,j \in \{1,\ldots,n\}$ y por lo mencionado al principio, entonces se cumple que $ v_i^* v_j = v_i \bcdot v_j  = 0$ si $i \neq j$ y $v_i^* v_j = v_i \bcdot v_j  =  1$ si $i = j$. De este modo, realizando un cálculo similar al de inciso anterior, tenemos qué
+  \[
+    U^* U =
+      \begin{pmatrix}
+        v_1^* v_1 & v_1^* v_2 & \cdots & v_1^* v_n \\
+        v_2^* v_1 & v_2^* v_2 & \cdots & v_2^* v_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        v_n^* v_1 & v_n^* v_2 & \cdots & v_n^* v_n 
+      \end{pmatrix}  =
+      \begin{pmatrix}
+        v_1 \bcdot v_1 & v_1 \bcdot v_2 & \cdots & v_1 \bcdot v_n \\
+        v_2 \bcdot v_1 & v_2 \bcdot v_2 & \cdots & v_2 \bcdot v_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        v_n \bcdot v_1 & v_n \bcdot v_2 & \cdots & v_n \bcdot v_n 
+      \end{pmatrix} 
+    = I.
+  \]
+  Mostrando, por definición, que $U$ es unitaria.
+
+  \medskip\noindent
+  $(1 \Rightarrow 4)$ Si $U$ es unitaria, entonces $UU^* = U^* U = I$, aplicando traspuesta y por propiedades de la adjunta se cumple que $U^t (U^t)^* = (U^* U)^t  = I^t = I$, lo que muestra que $U^t$ es unitaria, pero por incisos anteriores, eso implica que las columnas de $U^t$ forman un conjunto ortonormal. Dado que las columnas de $U^t$ son los renglones de $U$, entonces tenemos que los renglones de $U$ forman un conjunto ortonormal.
+
+  \medskip\noindent
+  $(4 \Rightarrow 1)$ Si los renglones de $U$ forman un conjunto ortonormal, entonces las columnas de $U^t$ forman un conjunto ortonormal y por incisos anteriores, eso implica que $U^t$ es unitaria, así $U^t (U^t)^* = I$. Dado que $(U^* U)^t = U^t (U^t)^* $ entonces tenemos que $U^* U = I^t = I$, lo que muestra que $U$ es unitario.
+
+  \medskip\noindent
+  $(1 \Rightarrow 5)$ Si $U$ es unitario, entonces $U^* U = I$, aplicando la conjugada obtenemos que $U^t \overline{U} = I$, de esta forma, para cualesquiera $v,w \in \K^n$ se cumple que 
+      \[
+        (Uv) \bcdot (Uw) = (Uv)^t (\overline{Uw}) = v^t U^t \overline{U}\overline{w} = v^t I \overline{w} = v\bcdot w.
+      \]
+  
+  \medskip\noindent
+  $(5 \Rightarrow 1)$ Notemos que si $v\bcdot w  = (Uv) \bcdot (Uw)$, realizando el mismo cálculo que en el inciso anterior, entonces $v\bcdot w = v^t I \overline{w} = v^t (U^t \overline{U}) \overline{w}$, pero eso implica que $U^t \overline{U}$ y $I$ son matrices asociadas al producto interno $\bcdot$ bajo la base canónica, pero por el teorema \ref{teor:MAsocFS} esto implica que $U^t \overline{U} = I$. Aplicando la conjugada finalmente obtenemos que $U^* U = \overline{I} = I$, lo que muestra que $U$ es unitaria.
+\end{proof}
+
+Esta proposición nos muestra que las matrices unitarias son simplemente cambios de base donde la base es un conjunto ortonormal. Dado que este tipo de cambios de base son bastante importantes, es útil saber cuando dos matrices están asociadas bajo este tipo de cambio de base. Así podemos justificar la siguiente definición.
+
+\begin{defi}
+  Sea $M,N \in \M_n(\K)$, decimos que $M$ es \emph{unitariamente semejante} a $N$ si existe una matriz $U\in \M_n(\K)$ unitaria tal que $M = U^* N U$. A las matrices unitariamente semejante, en caso que $\K = \R$, se les dice que son \emph{ortogonalmente semejantes}.
+\end{defi}
+
+Al igual que con la semejanza de matrices, la semejanza unitaria será una relación de equivalencia, pero a diferencia de la semejanza, la semejante unitaria preserva algunas de las propiedades importantes que hemos visto.
+
+\begin{teor}
+  Sean $M,N \in \M_n(\K)$ donde $M$ es unitariamente semejante a $N$, entonces:
+  \begin{enumerate}
+    \item $M$ es normal si y solo si $N$ es normal.
+    \item $M$ es hermítica si y solo si $N$ es hermítica.
+    \item $M$ es unitaria si y solo si $N$ es unitaria.
+  \end{enumerate}
+\end{teor}
+\begin{proof}
+  En primer lugar, por la simetría de la relación de semejanza unitaria, no es necesario probar la vuelta de las proposición, sino que basta con la ida. Así demostremos la ida
+  \begin{enumerate}
+    \item Sea $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es normal y $M^* = U^* N^* U$, entonces veamos que
+      \begin{align*}
+        MM^* &= M^* M \\
+        (U^* N U)(U^* N^* U) &= (U^* N^* U)(U^* N U) \\
+        U^* N N^* U &= U^* N^* N U.
+      \end{align*}
+    Dado que $U$ es invertible, entonces es fácil ver que $NN^* = N^* N$, por lo que $N$ es normal.
+
+    \item Análogamente al caso anterior, si $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es hermítica y $M^* = U^* N^* U$, entonces veamos que
+      \[ M =  U^* N U = U^* N^* U = M^*, \]
+    y dado que $U$ es invertible, entonces $N = N^*$, por lo que $N$ es hermítica.
+
+    \item Análogamente, si $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es unitaria y $M^* = U^* N^* U$, entonces veamos que
+    \begin{align*}
+      I &= MM^*  \\
+      &= (U^* N U)(U^* N^* U)  \\
+      &= U^* N N^* U 
+    \end{align*}
+  Dado que $U$ es invertible, entonces $NN^* = I$, por lo que $N$ es unitaria. \qedhere
+  \end{enumerate}
+\end{proof}
