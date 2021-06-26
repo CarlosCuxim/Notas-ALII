@@ -1,0 +1,58 @@
+\section{Formas sesquilineales}
+
+Así como las transformaciones lineales pueden expresarse como matrices, también es posible realizar un proceso similar con los productos internos, para ello necesitamos algunas definiciones.
+
+\begin{defi}
+  Sea $V$ un $\K$-espacio vectorial decimos que $f\colon V\times V \to \K$ es una \emph{forma sesquilineal} si para cualesquiera $v,w,u \in V$ y $\lambda \in \K$ cumple que
+    \begin{enumerate}
+      \item $f(v+\lambda w, u) = f(v,u) + \lambda f(w,u)$.
+      \item $f(u, v+\lambda w) = f(u,v) + \bar\lambda f(u,w)$.
+    \end{enumerate}
+  Además, decimos que la forma sesquilineal es \emph{hermítica} si $f(v,w) = \overline{f(w,v)}$ para cualesquiera $v,w\in V$.
+\end{defi}
+
+En el caso donde $\K=\R$, las formas sesquilineal reciben el nombre de \emph{formas bilineales}, además, en vez de decir que  una forma bilineal es hermítica, decimos que es \emph{simétrica}.
+
+Una observación importante es que que cualquier producto interno es una forma sesquilineal hermítica, pero la vuelta no es cierta, ya que no necesariamente se cumple que es definida positiva, es decir, no necesariamente se cumple que $f(v,v)>0$ para todo $v\neq 0$.
+
+\subsection{La matriz asociada de una forma sesquilineal}
+
+Supongamos que para un $\K$-espacio vectorial $V$ tenemos una base ordenada $B = (v_1, \ldots, v_n)$ y una forma sesquilineal $f\colon V\to V \to\K$, notemos que si $v,w \in V$, donde $[v]_B = (\lambda_1, \ldots,\lambda_n)^t$ y $[w]_B = (\mu_1, \ldots,\mu_n)^t$, entonces por definición se cumple que
+\begin{align*}
+  f(v,w) &= f\paren{ \sum_{i=1}^n \lambda_i v_i, \sum_{j=1}^n \mu_j v_j } 
+     = \sum_{i=1}^n \lambda_i  f\paren{ v_i, \sum_{j=1}^n \mu_j v_j } \\
+    &= \sum_{i=1}^n  \sum_{j=1}^n  \lambda_i\overline{\mu_j} f\paren{ v_i, v_j } 
+     = \sum_{i=1}^n \lambda_i \sum_{j=1}^n  \overline{\mu_j} f\paren{ v_i, v_j } \\
+    &= \begin{pmatrix} \lambda_1 & \lambda_2 & \cdots & \lambda_n \end{pmatrix}
+       \begin{pmatrix} \sum_{j=1}^n \overline{\mu_j} f(v_1,v_j) \\
+        \sum_{j=1}^n \overline{\mu_j} f(v_2,v_j) \\
+        \vdots \\
+        \sum_{j=1}^n \overline{\mu_j} f(v_n,v_j) 
+       \end{pmatrix} \\
+    &= \begin{pmatrix} \lambda_1 & \lambda_2 & \cdots & \lambda_n \end{pmatrix}
+       \begin{pmatrix}
+        f(v_1, v_1)  & f(v_1, v_2) & \cdots & f(v_1, v_n) \\
+        f(v_2, v_1)  & f(v_2, v_2) & \cdots & f(v_2, v_n) \\
+        \vdots & \vdots & \ddots & \vdots \\
+        f(v_n, v_1)  & f(v_n, v_2) & \cdots & f(v_n, v_n) \\
+       \end{pmatrix}
+      \begin{pmatrix} \overline{\mu_1} \\ \overline{\mu_2} \\ \vdots \\ \overline{\mu_n} \end{pmatrix}.
+\end{align*}
+Pero entonces $f(v,w) = [v]_B^t M \overline{[w]_B}$ donde $M = \bigl(f(v_i,v_j)\bigr)$ para cualesquiera $v,w \in V$. La vuelta de esa propiedad también es cierta, si $M \in \M_n(\K)$ entonces la función $f\colon V\times V \to \K$ dada por $f(v,w) = [v]_B^t M \overline{[w]_B}$ es una forma sesquilineal. Estas propiedades las podemos resumir en el siguiente teorema.
+
+\begin{teor}
+  Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$ y $f\colon V\to V \to\K$ una forma sesquilineal, entonces $M_f = \bigl(f(v_i,v_j)\bigr)$ es la única matriz tal que para cualesquiera $v,w \in V$ se cumple que
+    \[
+      f(v,w) =  [v]_B^t M_f \overline{[w]_B}.
+    \]
+   Además, existe una biyección entre las formas sesquilineal y el conjunto de matrices de $n\times n$ con entradas en $\K$.
+\end{teor}
+\begin{proof}
+  Ya demostramos la existencia, falta solo ver la unicidad. Así supongamos $M \in \M_n(\K)$ es alguna matriz tal que $f(v,w) =  [v]_B^t M \overline{[w]_B}$ para cualesquiera $v,w \in V$. De este modo, notemos que para cualesquiera $i,j \in \{0,\ldots,n\}$ se cumple que
+    \[
+      (M_f)_{i,j} = f(v_i,v_j) = [v_i]_B^t M \overline{[v_j]_B} = e_i^t M e_j = e_i^t M_{*j} = M_{ij}
+    \]
+  y por tanto $M_f = M$, lo cual muestra la unicidad.
+  
+  La biyección también es inmediata, ya que si $S(V)$ es el conjunto de formas sesquilineales de $V$, entonces la función $\Phi_B\colon S(V) \to \M_n(\K)$ dada por $\Phi_B(f) = M_f$ es una biyección, por la unicidad y dado que para cualquier $M\in\M_n(\K)$ la función $f_M\colon V\times V \to \K$ dada por $f(v,w) = [v]_B^t M \overline{[w]_B}$ es una forma sesquilineal.
+\end{proof}
