@@ -40,19 +40,87 @@ Supongamos que para un $\K$-espacio vectorial $V$ tenemos una base ordenada $B =
 \end{align*}
 Pero entonces $f(v,w) = [v]_B^t M \overline{[w]_B}$ donde $M = \bigl(f(v_i,v_j)\bigr)$ para cualesquiera $v,w \in V$. La vuelta de esa propiedad también es cierta, si $M \in \M_n(\K)$ entonces la función $f\colon V\times V \to \K$ dada por $f(v,w) = [v]_B^t M \overline{[w]_B}$ es una forma sesquilineal. Estas propiedades las podemos resumir en el siguiente teorema.
 
-\begin{teor}
-  Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$ y $f\colon V\to V \to\K$ una forma sesquilineal, entonces $M_f = \bigl(f(v_i,v_j)\bigr)$ es la única matriz tal que para cualesquiera $v,w \in V$ se cumple que
+\begin{teor}\label{teor:MAsocFS}
+  Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$ y $f\colon V\times V \to\K$ una forma sesquilineal, entonces existe una única matriz $M_f \in \M_n(\K)$ tal que para cualesquiera $v,w \in V$ se cumple que
     \[
       f(v,w) =  [v]_B^t M_f \overline{[w]_B}.
     \]
-   Además, existe una biyección entre las formas sesquilineal y el conjunto de matrices de $n\times n$ con entradas en $\K$.
+    A la matriz $M_f$ se le conocerá como la \emph{matriz asociada} de $f$ bajo la base ordenada $B$ y cumple que $M_f = \bigl(f(v_i,v_j)\bigr)$. Además, existe una biyección entre las formas sesquilineales y el conjunto de matrices de $n\times n$ con entradas en $\K$.
 \end{teor}
 \begin{proof}
-  Ya demostramos la existencia, falta solo ver la unicidad. Así supongamos $M \in \M_n(\K)$ es alguna matriz tal que $f(v,w) =  [v]_B^t M \overline{[w]_B}$ para cualesquiera $v,w \in V$. De este modo, notemos que para cualesquiera $i,j \in \{0,\ldots,n\}$ se cumple que
+  Ya demostramos la existencia, falta solo ver la unicidad. Así, supongamos que $M \in \M_n(\K)$ es alguna matriz tal que $f(v,w) =  [v]_B^t M \overline{[w]_B}$ para cualesquiera $v,w \in V$. De este modo, notemos que para cualesquiera $i,j \in \{0,\ldots,n\}$ se cumple que
     \[
       (M_f)_{i,j} = f(v_i,v_j) = [v_i]_B^t M \overline{[v_j]_B} = e_i^t M e_j = e_i^t M_{*j} = M_{ij}
     \]
   y por tanto $M_f = M$, lo cual muestra la unicidad.
   
   La biyección también es inmediata, ya que si $S(V)$ es el conjunto de formas sesquilineales de $V$, entonces la función $\Phi_B\colon S(V) \to \M_n(\K)$ dada por $\Phi_B(f) = M_f$ es una biyección, por la unicidad y dado que para cualquier $M\in\M_n(\K)$ la función $f_M\colon V\times V \to \K$ dada por $f(v,w) = [v]_B^t M \overline{[w]_B}$ es una forma sesquilineal.
+\end{proof}
+
+\subsection{La matriz asociada a un producto interno}
+
+Ya vimos que, dada una base ordenada, toda forma sesquilineal tiene asociada una única matriz y dado que todo producto interno es una forma sesquilineal, entonces los productos internos también tienen asociada una matriz. De esta forma, buscaremos que propiedades debe cumplir la matriz asociada de un producto interno.
+
+Para continuar con el estudio de las matrices asociadas a una forma sesquilineal y productos internos, necesitamos una definición previa.
+
+\begin{defi}
+  Sea $M \in \M_n(\K)$, decimos que $M$ es \emph{hermítica} si $M = M^*$. En el caso que $\K = \R$, entonces a una matriz hermítica se le dice que es \emph{simétrica}.
+\end{defi}
+
+Con esta definición entonces podemos demostrar la siguiente proposición.
+
+\begin{prop}\label{prop:MAsocFSH}
+  Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$, $f\colon V\times V \to\K$ una forma sesquilineal y $M_f$ la matriz asociada a $f$ bajo $B$, entonces $f$ es hermítica si y solo si $M_f$ es hermítica.
+\end{prop}
+\begin{proof}
+  Supongamos que $f$ es hermítica, por el teorema \ref{teor:MAsocFS} sabemos que para cualesquiera $i,j \in \{0,\ldots,n\}$ se cumple que $(M_f)_{ij} = f(v_i, v_j)$, de este modo, dado que $f$ es hermítica, entonces tenemos que
+  \[
+    (M_f)_{ij} = f(v_i, v_j) = \overline{f(v_j, v_i)} = \overline{(M_f)_{ji}} = (M_f^*)_{ij}.
+  \]
+  Así, tenemos que $M_f = M_f^*$ y por definición, $M_f$ es hermítica.
+
+  Ahora supongamos que $M_f$ es hermítica, sean $v,w \in V$ entonces notemos que por definición y propiedades de la adjunta que
+    \[
+      \overline{f(w,v)} = \bigl(f(w,v)\bigr)^* = ([w]_B^t M_f \overline{[v]_B})^*
+    \]
+  Dado que la multiplicación de matrices está compuesta de sumas y multiplicaciones no es difícil mostrar que $(AB)^* = B^* A^*$ para cualesquiera $A \in \M_{n\times k} (\K)$ y $B \in \M_{k\times m} (\K)$, de este modo, dado que $M_f = M_f^*$, entonces se cumple que
+    \[
+      \overline{f(w,v)} =  (\overline{[v]_B})^* M_f^* ([w]_B^t)^* = [v]_B^tM_f \overline{[w]_B} = f(v,w).
+    \]
+  Así, $f$ es hermítica por definición.
+\end{proof}
+
+Dado que no toda forma sesquilineal hermítica es un producto interno, esta proposición solo nos da el primer paso para encontrar las matrices asociadas a un producto interno. Para ello, recordemos que la única propiedad que le falta a una forma sesquilineal hermítica para ser un producto interno es que esté definida positiva, por lo que tenemos que revisar cuáles matrices nos brindan esta propiedad.
+
+Con eso en mente, consideremos un es un espacio con producto interno $V$ y una base ordenada $B = (v_1,\ldots,v_n)$ de $V$. Veamos que si $M$ es la matriz asociada al producto interno, por la proposición \ref{prop:MAsocFSH} se debe cumplir que $M$ es hermítica, más aún, por las propiedades del producto interno, para todo $v \in V$ se debe cumplir que 
+  \[
+    [v]_B^t M \overline{[v]_B} > 0.
+  \]
+Dado que $[\cdot]_B$ es una isomorfismo y considerando las propiedades de la conjuagada, no es difícil deducir que $M$ debe satisfacer que $x^* M x > 0$ para todo $x \in \K^n$. Este tipo de matrices son especiales y reciben su propio nombre.
+
+\begin{defi}
+  Sea $M \in \M_n(\K)$ una matriz hermítica, decimos que $M$ es \emph{definida positiva} si para todo $x \in \K^n$ se cumple que $x^* M x > 0$.
+\end{defi}
+
+Con las propiedad que tenemos hasta ahora, aun no tenemos una forma simple de determinar cuando una matriz es definida positiva, pero podemos inferir algunas de sus propiedades. En primer lugar si $M$ es definida positiva, entonces $M$ debe ser invertible, ya que en caso contrario existiría $x \neq 0$ tal que $x^* M x = 0$ Otra propiedad interesante es que para todo $i \in \{1,\ldots,n\}$ se cumple que
+\[
+  M_{ii} = e_i^* M e_i > 0,
+\]
+es decir, las entradas en la diagonal de $M$ son todas positivas. Por ultimo y como se podría suponer, las matrices definidas positivas son las matrices asociadas a un producto interno.
+
+\begin{teor}
+  Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$, $f\colon V\times V \to\K$ una forma sesquilineal y $M_f$ la matriz asociada a $f$ bajo $B$, entonces $f$ es un producto interno si y solo si $M_f$ es definida positiva.
+\end{teor}
+\begin{proof}
+  Sea $f$ un producto interno, por la proposición \ref{prop:MAsocFSH} se cumple que $M_f$ es hermítica, de este modo solo falta ver que $x^* M x > 0$ para todo $x \in \K$. Ahora, dado que $[\cdot]_B$ es una isomorfismo, entonces para todo $x \in \K^n-\{\bec 0\}$ existe $v \in V - \{0\}$ tal que $[v]_B = \bar x$, de este modo, dado que $f(v,v)>0$, entonces tenemos que
+  \[
+    f(v,v) = [v]_B^t M_f \overline{[v]_B} = x^* M_f x > 0.
+  \]
+  Lo que muestra que $M_f$ es definida positiva.
+
+  Ahora, si $M_f$ es definida positiva entonces es hermítica y por la proposición \ref{prop:MAsocFSH} $f$ también es hermítica. De igual manera, veamos que para todo $v\in V - \{0\}$ se cumple que $\overline{[v]_B} \neq \bec 0$ y por tanto
+  \[
+    f(v,v) = [v]_B^t M_f \overline{[v]_B} = \overline{[v]_B}^* M_f \overline{[v]_B} > 0.
+  \]
+  Lo que finalmente muestra que $f$ es un producto interno de $V$.
 \end{proof}
