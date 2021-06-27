@@ -9,7 +9,7 @@ En esta sección estaremos trabajando con un conjunto muy especial de matrices, 
 Una observación interesante es que, por definición, no es difícil ver que las matrices hermíticas y unitarias son normales. Ahora, las matrices unitarias son de especial interés, esto dado si las consideramos como matrices de cambio de base, la base es ortonormal bajo el producto interno canónico. Por convención, en lo que resta de la sección, el producto interno a usar será el canónico.
 
 \begin{prop}\label{prop:PropUnitaryMat}
-  Sea $U \in \M_n(\C)$, las siguientes afirmaciones son equivalentes:
+  Sea $U \in \M_n(\K)$, las siguientes afirmaciones son equivalentes:
   \begin{enumerate}
     \item $U$ es unitaria.
     \item $U^*$ es unitaria.
@@ -114,11 +114,11 @@ Al igual que con la semejanza de matrices, la semejanza unitaria será una relac
     \end{align*}
   Dado que $U$ es invertible, entonces $NN^* = I$, por lo que $N$ es unitaria.
 
-  \item Por ultimo, si $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es definida positiva entonces es hermitica y por un inciso anterior sabemos que $N$ es hermitica, así, solo faltaría mostrar que $x^* N x > 0$ para todo vector $x \in \K^n - \{\bec 0\}$.
+  \item Por ultimo, si $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es definida positiva entonces es hermítica y por un inciso anterior sabemos que $N$ es hermítica, así, solo faltaría mostrar que $x^* N x > 0$ para todo vector $x \in \K^n - \{\bec 0\}$.
   
   Dado que $U$ es invertible, si $x \neq \bec 0$ entonces $Ux \neq \bec 0$ por lo que $(Ux)^* M (Px)>0$ de esta forma tenemos que
     \[x^* N x = x^* (U^* M U) x = (Ux)^* M (Px) > 0,\]
-  lo que finalmente muestra que $N$ es definida positiva.
+  lo que finalmente muestra que $N$ es definida positiva. \qedhere
   \end{enumerate}
 \end{proof}
 
@@ -202,9 +202,9 @@ Resulta que gracias a que siempre podemos construir bases ortonormales, este pro
   \[
     T = \begin{spmatrix}{c|c} t & \bec 0^t  \\\hline   \bec 0 & N  \end{spmatrix},
   \]
-  donde $N$ es una matriz diagonal, pero eso implica finalmente que $T$ es diagonal. Dado que se cumple para $k+1$, por inducción podemos ver que si $T \in \M_n(\C)$ es normal y triangular superior entonces $T$ es diagonal.
+  donde $N$ es una matriz diagonal, pero eso implica finalmente que $T$ es diagonal. Dado que se cumple para $k+1$, por inducción podemos ver que si $T \in \M_n(\K)$ es normal y triangular superior entonces $T$ es diagonal.
 
-  Ahora, supongamos que $T\in \M_n(\C)$ es triangular inferior y normal, entonces $T^*$ es una matriz triangular superior y además es normal dado que
+  Ahora, supongamos que $T\in \M_n(\K)$ es triangular inferior y normal, entonces $T^*$ es una matriz triangular superior y además es normal dado que
   \[ T^* (T^*)^* = T^*T = TT^* = (T^*)^*T^*, \]
   pero por la parte anterior esto implica que $T^*$ es diagonal, por lo tanto $T$ es diagonal.
 
@@ -215,8 +215,8 @@ Resulta que gracias a que siempre podemos construir bases ortonormales, este pro
 
 Con este lema, finalmente podemos caracterizar a las matrices unitariamente diagonales.
 
-\begin{teor}
-  $N \in M_n(\C)$ es normal si y solo sí es unitariamente diagonalizable.
+\begin{teor}\label{teor:CaracMatNorm}
+  $N \in \M_n(\C)$ es normal si y solo sí es unitariamente diagonalizable.
 \end{teor}
 \begin{proof}
   Por el lema de Schur, sabemos que $N$ debe ser unitariamente equivalente a una matriz $T$ triangular superior, pero por propiedades de la semejanza unitaria, tenemos que $T$ debe ser normal, pero si $T$ es normal, aplicando el lema \ref{lema:TriangNorm}, entonces $T$ es una matriz diagonal. De esta forma si $N$ es normal, entonces es unitariamente diagonalizable.
@@ -225,3 +225,64 @@ Con este lema, finalmente podemos caracterizar a las matrices unitariamente diag
 \end{proof}
 
 
+\subsection{Caracterización de matrices unitarias y hermíticas}
+
+Ya vimos que la normalidad es una condición necesaria y suficiente para que sea unitariamente diagonalizable. Así que, en lo que resta de esta sección, daremos algunas condiciones necesarias y suficientes para las matrices unitarias, hermíticas y definidas positivas.
+
+Todas estas propiedades estarán asociadas a los valores propios de las matrices, dado que la semejanza unitaria también implica la semejanza, entonces gran parte de los teoremas relacionados con la semejanza también aplican para la semejanza unitaria.
+
+El primer tipo de matriz que caracterizaremos serán las matrices unitarias, aunque ya la proposición \ref{prop:PropUnitaryMat} nos da algunas propiedades equivalentes, el siguiente teorema nos dará una visión acerca de qué deben cumplir sus vectores propios.
+
+\begin{teor}
+  $U \in \M_n(\C)$ es unitaria si y solo sí es unitariamente diagonalizable y sus valores propios tienen modulo 1.
+\end{teor}
+\begin{proof}
+  Sea $U$ unitaria, sabemos que $U$ es normal, de esta forma, por el teorema \ref{teor:CaracMatNorm}, tenemos que es unitariamente semejante a una matriz diagonal $D$. Ahora, dado que la semejanza unitaria conserva la unitariedad, entonces podemos ver que $D$ es también unitaria, de esta forma, cada comuna de $D$ debe tener norma uno. De esta forma, si $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ y por propiedades de la norma, entonces
+  \[
+  \norm{D_{*i}} = \norm{ \lambda_{i} e_i } = \abs{\lambda_i} \norm{e_i} = \abs{\lambda_i} = 1.
+  \]
+  Pero recordemos, por el teorema \ref{teor:SemEspectro} y proposición \ref{prop:EpecTriang}, los elementos en la diagonal de $D$ corresponden a los valores propios de $U$, de esta forma tenemos si $U$ es unitaria entonces es unitariamente diagonalizable y sus valores propios tienen modulo 1.
+  
+  Ahora, si $U$ es unitariamente diagonalizable y sus valores propios tienen modulo 1, entonces por el teorema \ref{teor:SemEspectro} y proposición \ref{prop:EpecTriang}, $U$ es unitariamente semejante a una matriz diagonal $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ donde $E(U) = \{\lambda_1, \ldots, \lambda_n\}$. Ahora, notemos que, por propiedades de los complejos, dado que $\lambda_i$ tiene modulo 1, entonces $\overline{\lambda_i} = \lambda_i^{-1}$, de esta forma $D^* =  (\lambda_1^{-1} e_1 \mid \cdots \mid  \lambda_n^{-1} e_n) $ y por propiedades de las matrices diagonales, tenemos que
+  \[ DD^* = \begin{spmatrix}{c|c|c} \lambda_1\lambda_1^{-1} e_1 & \cdots &  \lambda_n \lambda_n^{-1} e_n \end{spmatrix} = \begin{spmatrix}{c|c|c}  e_1 & \cdots &  e_n \end{spmatrix} = I_n. \]
+  De esta forma tenemos que $D$ es unitaria, como la semejanza unitaria conserva la unitariedad, finalmente tenemos que $U$ es unitaria. Así $U$ es unitaria si y solo sí es unitariamente diagonalizable y sus valores propios tienen modulo 1.
+\end{proof}
+
+El siguiente tipo de matrices a caracterizar serán las matrices hermíticas. 
+
+\begin{teor}\label{teor:CaracMatHerm}
+  $H \in \M_n(\C)$ es hermítica si y solo sí es unitariamente diagonalizable y sus valores propios son reales.
+\end{teor}
+\begin{proof}
+  Si $H$ es hermítica, entonces $H$ es normal y, por el teorema \ref{teor:CaracMatNorm}, es unitariamente semejante a una matriz diagonal $D$. Ahora, dado que la semejanza unitaria conserva la hermeticidad, entonces podemos ver que $D$ es también hermítica.
+ 
+ De esta forma, si $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ entonces $D^* = (\overline{\lambda_1} e_1 \mid \cdots \mid  \overline{\lambda_n} e_n)$, pero como $D$ es hermítica, entonces $D = D^*$, pero esto implica que $\lambda_i = \overline{\lambda_i}$, pero esto se cumple si y solo si $\lambda_i \in \R$. Dado que, por el teorema \ref{teor:SemEspectro} y proposición \ref{prop:EpecTriang}, los elementos en la columna de $D$ corresponden a los valores propios de $H$, entonces tenemos si $H$ es hermítica entonces es unitariamente diagonalizable y sus valores propios son reales.
+ 
+ Ahora, si $H$ es unitariamente diagonalizable y sus valores propios son reales, entonces por el teorema \ref{teor:SemEspectro} y proposición \ref{prop:EpecTriang}, $H$ es unitariamente semejante a una matriz diagonal $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ donde $E(H) = \{\lambda_1, \ldots \lambda_n\}$. Ahora, dado que $\lambda_i$ es real, entonces, por propiedades de los complejos $\overline{\lambda_i} = \lambda$, de esta forma
+ \[ D^* =  \begin{spmatrix}{c|c|c} \overline{\lambda_1} e_1 & \cdots &  \overline{\lambda_n} e_n \end{spmatrix} = \begin{spmatrix}{c|c|c} \lambda_1 e_1 & \cdots &  \lambda_n e_n \end{spmatrix} = D.\]
+ Por tanto, tenemos que $D$ es hermítica, como la semejanza unitaria conserva la hermeticidad, finalmente tenemos que $H$ es hermítica. Así $H$ es hermítica si y solo sí es unitariamente diagonalizable y sus valores propios son reales.
+\end{proof}
+
+Finalmente, con todas estas propiedades podemos dar la condición que nos faltaba para las matrices asociadas a los productos internos.
+
+\begin{teor}
+  $M \in \M_n(\C)$ es definida positiva si y solo sí es unitariamente diagonalizable y sus valores propios son positivos.
+\end{teor}
+\begin{proof}
+  Si $M$ es definida positiva entonces es hermítica, entonces por el teorema \ref{teor:CaracMatHerm} tenemos que $M$ es unitariamente semejante a una matriz diagonal $D$ y sus valores propios son reales. Ahora, si $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$, dado que la semejanza unitaria preserva la definición positiva, entonces $D$ es definida positiva y por tanto, para todo $i\in\{1,\ldots,n\}$, se cumple que
+    \[
+      e_i^* D e_i = e_i^t (\lambda_i e_i) = \lambda_i > 0.
+    \]
+  Dado que $E(M) = \{\lambda_1,\ldots,\lambda_n\}$, el teorema \ref{teor:SemEspectro} y proposición \ref{prop:EpecTriang}, entonces tenemos que si $M$ es definida positiva, entonces es unitariamente diagonalizable y sus valores propios son positivos.
+
+  Ahora, si $M$ es unitariamente diagonalizable y sus valores propios son positivos, entonces por el teorema \ref{teor:SemEspectro} y proposición \ref{prop:EpecTriang}, $M$ es unitariamente semejante a una matriz diagonal $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ donde $E(M) = \{\lambda_1, \ldots \lambda_n\}$.
+
+  Notemos que $D$ es hermítica, por la proposición \ref{prop:EpecTriang} y el teorema \ref{teor:CaracMatHerm}, así veamos que $x^* D x > 0$ para todo $x \in \C^n - \{\bec 0\}$. Dado que $\lambda_i > 0$ para todo $i \in \{1,\ldots,n\}$ si $x \neq \bec 0$ dado por $x = (x_1, \ldots, x_n)^t$ entonces veamos que
+  \[
+    x^* D x 
+      = \begin{pmatrix} \overline{x_1} & \overline{x_2} & \cdots & \overline{x_n} \end{pmatrix} 
+        \begin{pmatrix} \lambda_1 x_1 \\ \lambda_2 x_2 \\ \vdots \\ \lambda_n x_n \end{pmatrix}
+      = \lambda_1 \abs{x_1} + \lambda_2 \abs{x_2} + \cdots + \lambda_n \abs{x_n} > 0.
+  \]
+  De esta forma, $D$ es definida positiva y dado que la semejanza unitaria conserva la definición positiva, entonces tenemos que $M$ es definida positiva.
+\end{proof}
