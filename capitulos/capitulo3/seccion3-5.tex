@@ -1,4 +1,4 @@
-\section{Matrices normales y unitarias}
+\section{Matrices normales y semejanza unitaria}
 
 En esta sección estaremos trabajando con un conjunto muy especial de matrices, así como su relación con sus valores y vectores propios. 
 
@@ -8,7 +8,7 @@ En esta sección estaremos trabajando con un conjunto muy especial de matrices, 
 
 Una observación interesante es que, por definición, no es difícil ver que las matrices hermíticas y unitarias son normales. Ahora, las matrices unitarias son de especial interés, esto dado si las consideramos como matrices de cambio de base, la base es ortonormal bajo el producto interno canónico. Por convención, en lo que resta de la sección, el producto interno a usar será el canónico.
 
-\begin{prop}
+\begin{prop}\label{prop:PropUnitaryMat}
   Sea $U \in \M_n(\C)$, las siguientes afirmaciones son equivalentes:
   \begin{enumerate}
     \item $U$ es unitaria.
@@ -88,6 +88,7 @@ Al igual que con la semejanza de matrices, la semejanza unitaria será una relac
     \item $M$ es normal si y solo si $N$ es normal.
     \item $M$ es hermítica si y solo si $N$ es hermítica.
     \item $M$ es unitaria si y solo si $N$ es unitaria.
+    \item $M$ es definida positiva si y solo si $N$ es definida positiva.
   \end{enumerate}
 \end{teor}
 \begin{proof}
@@ -111,6 +112,116 @@ Al igual que con la semejanza de matrices, la semejanza unitaria será una relac
       &= (U^* N U)(U^* N^* U)  \\
       &= U^* N N^* U 
     \end{align*}
-  Dado que $U$ es invertible, entonces $NN^* = I$, por lo que $N$ es unitaria. \qedhere
+  Dado que $U$ es invertible, entonces $NN^* = I$, por lo que $N$ es unitaria.
+
+  \item Por ultimo, si $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es definida positiva entonces es hermitica y por un inciso anterior sabemos que $N$ es hermitica, así, solo faltaría mostrar que $x^* N x > 0$ para todo vector $x \in \K^n - \{\bec 0\}$.
+  
+  Dado que $U$ es invertible, si $x \neq \bec 0$ entonces $Ux \neq \bec 0$ por lo que $(Ux)^* M (Px)>0$ de esta forma tenemos que
+    \[x^* N x = x^* (U^* M U) x = (Ux)^* M (Px) > 0,\]
+  lo que finalmente muestra que $N$ es definida positiva.
   \end{enumerate}
 \end{proof}
+
+
+\subsection{Matrices unitariamente triangularizables y diagonalizables}
+
+De igual forma con la semejanza, ahora buscamos saber cuando una matriz puede ser diagonalizable o triangularizable, pero esta vez, mediante la semejanza unitaria. 
+
+Ya sabemos que los complejos, toda matriz es triangularizable. Este resultado sale de aprovecharse de que siempre existe al menos un valor propio en cualquier matriz y construir una base acorde.
+
+Resulta que gracias a que siempre podemos construir bases ortonormales, este proceso se puede replicar de manera exacta, pero esta vez usando bases ortonormales.
+
+\begin{teor}[Lema de Schur]
+  Sea $M \in\M_n(\C)$, entonces $M$ es unitariamente semejante a alguna matriz triangular.
+\end{teor}
+\begin{proof}
+  Primero, probemos el teorema para matrices superiores. Procedamos por inducción, podemos ver que trivialmente se cumple para $n = 1$, de este modo supongamos que se cumple para $k$ y demostremos que se cumple para $k+1$.
+  
+  Sea $M \in M_{k+1}(\C)$, sabemos que $M$ tiene al menos un valor propio $\lambda$, sea $v$ un vector propio del valor $\lambda$ de tal manera que $\norm{v}=1$. Ahora, por teoremas de álgebra lineal y aplicando el proceso Gram-Schmidt podemos extender a $\{v\}$ para obtener una base $B = \{ v, q_1, \ldots, q_n \}$ ortonormal de $\C^{k+1}$.
+  
+  Sea $Q = ( v \mid  q_1 \mid \ldots \mid q_n  ) $, notemos que $Q$ es unitario, por la proposición \ref{prop:PropUnitaryMat}, de esta forma si $N = Q^* M Q$, entonces por multiplicación por bloques y recordando que $Q^*v = e_1$ por propiedades de la matriz inversa, veamos que
+  \begin{align*}
+      N &= Q^* \begin{spmatrix}{c|c|c|c} M v &  M u_1 & \ldots & M u_n  \end{spmatrix} \\
+        &= Q^* \begin{spmatrix}{c|c|c|c} \lambda v &  M u_1 & \ldots & M u_n  \end{spmatrix} \\
+        &= \begin{spmatrix}{c|c|c|c} \lambda Q^* v  &  Q^* M u_1 & \ldots & Q^* M u_n  \end{spmatrix} \\
+        &= \begin{spmatrix}{c|c|c|c} \lambda e_1 &  Q^* M u_1 & \ldots & Q^* M u_n  \end{spmatrix}.
+  \end{align*}
+  De esta forma para alguna matriz $L \in M_k(\C)$ y vector $u \in \C^k$, podemos ver que $N$ tiene la forma
+  \[
+  N = \begin{spmatrix}{c|c} \lambda & u^t \\\hline \bec 0 & L \end{spmatrix}.
+  \]
+  
+  Ahora, por hipótesis de inducción $L$ es unitariamente semejante a una matriz triangular superior $U$, en otras palabras existe alguna matriz unitaria $R$ tal que $U = R^* L R$. De esta forma si definimos a $P$ como
+  \[ P = \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & R \end{spmatrix} \]
+  entonces notemos, por propiedades de la multiplicación por bloques, se cumple que
+  \[ PP^* = \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & R \end{spmatrix} \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & R^* \end{spmatrix} = \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & RR^* \end{spmatrix} = \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & I_k \end{spmatrix} = I_{k+1}, \]
+  de esta forma podemos ver que $P$ es unitaria. De esta forma, si definimos a $T = P^* N P$ entonces veamos que
+  \begin{align*}
+  T &= \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & R^* \end{spmatrix}  \begin{spmatrix}{c|c} \lambda & u^t \\\hline \bec 0 & L \end{spmatrix} \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & R \end{spmatrix}  \\
+    &= \begin{spmatrix}{c|c} 1 & \bec 0^t \\\hline \bec 0 & R^* \end{spmatrix}  \begin{spmatrix}{c|c} \lambda & u^t R \\\hline \bec 0 & LR \end{spmatrix}
+    = \begin{spmatrix}{c|c} \lambda & u^t R \\\hline \bec 0 & R^*LR \end{spmatrix} \\
+    &= \begin{spmatrix}{c|c} \lambda & u^t R \\\hline \bec 0 & U \end{spmatrix}.
+  \end{align*}
+  Dado que $U$ es triangular superior, entonces podemos ver que $T$ es triangular superior, pero como $P$ es unitaria, entonces $T$ es unitariamente semejante a $N$ y como $Q$ es unitario, entonces $N$ es unitariamente semejante a $M$, pero por transitividad de la equivalencia, entonces tenemos que $T$ es unitariamente semejante a $M$. De esta forma, dado que la proposición se cumplen para $k+1$ entonces tenemos que para toda matriz $M \in \M_n(\C)$ es unitariamente semejante a una matriz triangular superior.
+  
+  Ahora demostremos la proposición para matrices triangulares inferiores. Por la parte anterior sabemos que si $M \in \M_n(\C)$ entonces $M^*$ es unitariamente semejante a una matriz triangular superior $T$, es decir, existe alguna matriz unitaria $Q$ tal que $M^* = U^* T U$, ahora notemos que
+  \[ M = (M^*)^* = (U^* T U)^* = U^* T^* U,\]
+  de aquí podemos ver que $M$ es semejante a $T^*$ la cual es una matriz triangular inferior. Así probamos que si $M \in \M_n(\C)$ entonces $M$ es unitariamente equivalente a una matriz triangular superior y a una inferior.
+  \end{proof}
+
+  Ya tenemos que todas las matrices son unitariamente semejantes a alguna matriz triangular, antes de poder caracterizar las matrices diagonales necesitamos otro lema.
+
+\begin{lema}\label{lema:TriangNorm}
+  Sea $T \in \M_n(\K)$ una matriz triangular, $T$ es normal si y solo si $T$ es diagonal.
+\end{lema}
+\begin{proof}
+  Primero, probemos la ida para matrices triangulares superiores. Por inducción, notemos que la proposición se cumple trivialmente para $n=1$, de esta manera, supongamos que se cumple para $k$ y veamos que se cumple también para $k+1$. Ahora, si $T \in \M_{k+1}(\K)$ es una matriz triangular inferior, notemos entonces que podemos escribirlo de la siguiente forma
+  \[
+    T = \begin{spmatrix}{c|c} \lambda & u^t  \\\hline   \bec 0 & N  \end{spmatrix},
+  \]
+  donde $\lambda \in \K$, $v \in\K^k$ y $N \in \M_k(\K)$ es una matriz triangular superior. Ahora, por multiplicación por bloques y recordando que $\norm{v}^2 = v\bcdot v = v^t \bar v $, entonces notemos que
+  \begin{align*}
+    TT^*
+      &= \begin{spmatrix}{c|c} \lambda & v^t  \\\hline   \bec 0 & N  \end{spmatrix} \begin{spmatrix}{c|c} \bar\lambda & \bec 0^t  \\\hline   \bar v & N^* \end{spmatrix} &
+        T^* T 
+          &=  \begin{spmatrix}{c|c} \bar \lambda & \bec 0^t  \\\hline   \bar v & N^* \end{spmatrix}\begin{spmatrix}{c|c} \lambda & v^t  \\\hline   \bec 0 & N  \end{spmatrix} \\
+      &= \begin{spmatrix}{c|c} \abs{\lambda}^2 + \norm{v}^2 & v^tN^* \\\hline N\bar v & NN^* \end{spmatrix}, &
+          &= \begin{spmatrix}{c|c} \abs{\lambda}^2 & \bar t v^t \\\hline t \bar v & \bar v v^t + N^*N \end{spmatrix}. \tagthis\label{eq:1}
+  \end{align*}
+
+  Ahora, notemos que por hipótesis $TT^* = T^* T$, de esta forma, usando la ecuación \eqref{eq:1}, tenemos que
+  \[ \abs{t}^2 + \norm{u}^2 = \abs{t}^2 \implies \norm{u}^2 = 0.\]
+  Pero por propiedades de la norma, sabemos que $\norm{u}^2 = 0$ si y solo sí $u = \bec 0$, pero eso implica que
+  \begin{align*}
+    TT^*
+      &= \begin{spmatrix}{c|c} \abs{t}^2  & \bec 0^t \\\hline \bec 0 & NN^* \end{spmatrix}, &
+        T^* T 
+          &=  \begin{spmatrix}{c|c} \abs{t}^2 & \bec 0^t \\\hline \bec 0 &  N^*N \end{spmatrix}. \tagthis\label{eq:2}
+  \end{align*}
+  Pero de igual forma, por normalidad de $T$ y la la ecuación \eqref{eq:2}, esto implica que $NN^* = N^*N$, en otras palabras, $N$ es normal y triangular superior, pero por hipótesis de inducción eso implica que $N$ es diagonal, pero entonces $T$ tiene la forma
+  \[
+    T = \begin{spmatrix}{c|c} t & \bec 0^t  \\\hline   \bec 0 & N  \end{spmatrix},
+  \]
+  donde $N$ es una matriz diagonal, pero eso implica finalmente que $T$ es diagonal. Dado que se cumple para $k+1$, por inducción podemos ver que si $T \in \M_n(\C)$ es normal y triangular superior entonces $T$ es diagonal.
+
+  Ahora, supongamos que $T\in \M_n(\C)$ es triangular inferior y normal, entonces $T^*$ es una matriz triangular superior y además es normal dado que
+  \[ T^* (T^*)^* = T^*T = TT^* = (T^*)^*T^*, \]
+  pero por la parte anterior esto implica que $T^*$ es diagonal, por lo tanto $T$ es diagonal.
+
+  Ahora, probemos la vuelta, sea $T$ una matriz diagonal notemos que por propiedades de las matrices diagonales $TT^*$ y $T^*T$ también son matrices diagonales y cumplen que
+  \[ (TT^*)_{jj} = T_{jj} (T^*)_{jj} =  (T^*)_{jj} T_{jj} = (T^*T)_{jj}, \]
+  de aquí podemos ver que $TT^* = T^*T$, por lo tanto $T$ es normal. Ahora, como $T$ es diagonal, entonces es triangular superior e inferior, de esta forma demostramos que $T$ es normal y triangular superior o inferior si y solo sí $T$ es diagonal.
+\end{proof}
+
+Con este lema, finalmente podemos caracterizar a las matrices unitariamente diagonales.
+
+\begin{teor}
+  $N \in M_n(\C)$ es normal si y solo sí es unitariamente diagonalizable.
+\end{teor}
+\begin{proof}
+  Por el lema de Schur, sabemos que $N$ debe ser unitariamente equivalente a una matriz $T$ triangular superior, pero por propiedades de la semejanza unitaria, tenemos que $T$ debe ser normal, pero si $T$ es normal, aplicando el lema \ref{lema:TriangNorm}, entonces $T$ es una matriz diagonal. De esta forma si $N$ es normal, entonces es unitariamente diagonalizable.
+
+  Ahora, si $N$ es diagonalizable, entonces es unitariamente semejante a una matriz diagonal $D$. Ya que $D$ es una matriz diagonal, por el lema \ref{lema:TriangNorm}, tenemos que $D$ es normal, pero como la semejanza unitaria preserva la normalidad, esto implica que $N$ es normal. Así vemos que $N$ es normal si y solo sí es unitariamente diagonalizable.
+\end{proof}
+
+
