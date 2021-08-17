@@ -1,6 +1,5 @@
-.vscode
-revisiones
-libros
+.vscode/
+revisiones/
 *.pdf
 *.log
 *.aux
@@ -9,3 +8,5 @@ libros
 *.gz
 *.toc
 *.out
+*.bbl
+*.blg
