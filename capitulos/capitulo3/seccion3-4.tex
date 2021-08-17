@@ -38,7 +38,7 @@ Supongamos que para un $\K$-espacio vectorial $V$ tenemos una base ordenada $B =
        \end{pmatrix}
       \begin{pmatrix} \overline{\mu_1} \\ \overline{\mu_2} \\ \vdots \\ \overline{\mu_n} \end{pmatrix}.
 \end{align*}
-Pero entonces $f(v,w) = [v]_B^t M \overline{[w]_B}$ donde $M = \bigl(f(v_i,v_j)\bigr)$ para cualesquiera $v,w \in V$. La vuelta de esa propiedad también es cierta, si $M \in \M_n(\K)$ entonces la función $f\colon V\times V \to \K$ dada por $f(v,w) = [v]_B^t M \overline{[w]_B}$ es una forma sesquilineal. Estas propiedades las podemos resumir en el siguiente teorema.
+Pero entonces $f(v,w) = [v]_B^t M \overline{[w]_B}$ donde $M = \bigl(f(v_i,v_j)\bigr)$ para cualesquiera $v,w \in V$. La vuelta de esa propiedad también es cierta: si $M \in \M_n(\K)$ entonces la función $f\colon V\times V \to \K$ dada por $f(v,w) = [v]_B^t M \overline{[w]_B}$ es una forma sesquilineal. Estas propiedades las podemos resumir en el siguiente teorema.
 
 \begin{teor}\label{teor:MAsocFS}
   Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$ y $f\colon V\times V \to\K$ una forma sesquilineal, entonces existe una única matriz $M_f \in \M_n(\K)$ tal que para cualesquiera $v,w \in V$ se cumple que
@@ -59,18 +59,18 @@ Pero entonces $f(v,w) = [v]_B^t M \overline{[w]_B}$ donde $M = \bigl(f(v_i,v_j)\
 
 \subsection{La matriz asociada a un producto interno}
 
-Ya vimos que, dada una base ordenada, toda forma sesquilineal tiene asociada una única matriz y dado que todo producto interno es una forma sesquilineal, entonces los productos internos también tienen asociada una matriz. De esta forma, buscaremos que propiedades debe cumplir la matriz asociada de un producto interno.
+Ya vimos que, dada una base ordenada, toda forma sesquilineal tiene asociada una única matriz y dado que todo producto interno es una forma sesquilineal, entonces los productos internos también tienen asociada una matriz. De esta forma, buscaremos qué propiedades debe cumplir la matriz asociada de un producto interno.
 
 Para continuar con el estudio de las matrices asociadas a una forma sesquilineal y productos internos, necesitamos una definición previa.
 
 \begin{defi}
-  Sea $M \in \M_n(\K)$, decimos que $M$ es \emph{hermítica} si $M = M^*$. En el caso que $\K = \R$, entonces a una matriz hermítica se le dice que es \emph{simétrica}.
+  Sea $M \in \M_n(\K)$, decimos que $M$ es \emph{hermítica} si $M = M^*$. En el caso en que $\K = \R$, entonces a una matriz hermítica se le dice que es \emph{simétrica}.
 \end{defi}
 
 Con esta definición entonces podemos demostrar la siguiente proposición.
 
 \begin{prop}\label{prop:MAsocFSH}
-  Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$, $f\colon V\times V \to\K$ una forma sesquilineal y $M_f$ la matriz asociada a $f$ bajo $B$, entonces $f$ es hermítica si y solo si $M_f$ es hermítica.
+  Sean $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$, $f\colon V\times V \to\K$ una forma sesquilineal y $M_f$ la matriz asociada a $f$ bajo $B$, entonces $f$ es hermítica si y solo si $M_f$ es hermítica.
 \end{prop}
 \begin{proof}
   Supongamos que $f$ es hermítica, por el teorema \ref{teor:MAsocFS} sabemos que para cualesquiera $i,j \in \{0,\ldots,n\}$ se cumple que $(M_f)_{ij} = f(v_i, v_j)$, de este modo, dado que $f$ es hermítica, entonces tenemos que
@@ -90,13 +90,13 @@ Con esta definición entonces podemos demostrar la siguiente proposición.
   Así, $f$ es hermítica por definición.
 \end{proof}
 
-Dado que no toda forma sesquilineal hermítica es un producto interno, esta proposición solo nos da el primer paso para encontrar las matrices asociadas a un producto interno. Para ello, recordemos que la única propiedad que le falta a una forma sesquilineal hermítica para ser un producto interno es que esté definida positiva, por lo que tenemos que revisar cuáles matrices nos brindan esta propiedad.
+Dado que no toda forma sesquilineal hermítica es un producto interno, esta proposición solo nos da el primer paso para encontrar las matrices asociadas a un producto interno. Para ello, recordemos que la única propiedad que le falta a una forma sesquilineal hermítica para ser un producto interno es que sea definida positiva, por lo que tenemos que revisar cuáles matrices nos brindan esta propiedad.
 
-Con eso en mente, consideremos un es un espacio con producto interno $V$ y una base ordenada $B = (v_1,\ldots,v_n)$ de $V$. Veamos que si $M$ es la matriz asociada al producto interno, por la proposición \ref{prop:MAsocFSH} se debe cumplir que $M$ es hermítica, más aún, por las propiedades del producto interno, para todo $v \in V$ se debe cumplir que 
+Con eso en mente, consideremos un espacio con producto interno $V$ y una base ordenada $B = (v_1,\ldots,v_n)$ de $V$. Veamos que si $M$ es la matriz asociada al producto interno, por la proposición \ref{prop:MAsocFSH} se debe cumplir que $M$ es hermítica, más aún, por las propiedades del producto interno, para todo $v \in V$ se debe cumplir que 
   \[
     [v]_B^t M \overline{[v]_B} > 0.
   \]
-Dado que $[\cdot]_B$ es una isomorfismo y considerando las propiedades de la conjuagada, no es difícil deducir que $M$ debe satisfacer que $x^* M x > 0$ para todo $x \in \K^n$. Este tipo de matrices son especiales y reciben su propio nombre.
+Dado que $[\cdot]_B$ es una isomorfismo y considerando las propiedades de la conjugación, no es difícil deducir que $M$ debe satisfacer que $x^* M x > 0$ para todo $x \in \K^n$. Este tipo de matrices son especiales y reciben su propio nombre.
 
 \begin{defi}
   Sea $M \in \M_n(\K)$ una matriz hermítica, decimos que $M$ es \emph{definida positiva} si para todo $x \in \K^n$ se cumple que $x^* M x > 0$.
@@ -106,7 +106,7 @@ Con las propiedad que tenemos hasta ahora, aun no tenemos una forma simple de de
 \[
   M_{ii} = e_i^* M e_i > 0,
 \]
-es decir, las entradas en la diagonal de $M$ son todas positivas. Por ultimo y como se podría suponer, las matrices definidas positivas son las matrices asociadas a un producto interno.
+es decir, las entradas en la diagonal de $M$ son todas positivas. Por último y como se podría suponer, las matrices definidas positivas son las matrices asociadas a un producto interno.
 
 \begin{teor}
   Sea $V$ un $\K$-espacio vectorial, $B = (v_1,\ldots,v_n)$ una base ordenada de $V$, $f\colon V\times V \to\K$ una forma sesquilineal y $M_f$ la matriz asociada a $f$ bajo $B$, entonces $f$ es un producto interno si y solo si $M_f$ es definida positiva.

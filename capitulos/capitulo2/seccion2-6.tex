@@ -1,6 +1,6 @@
-\section{Proyecto -- La fórma canónica de Jordan}
+\section{Proyecto: La fórma canónica de Jordan}
 
-Para finalizar con la capítulo se presentará uno de los resultados más importantes de la teoría espectral. Para ello retomemos lo visto en la sección \ref{sec:TyDdeMat2x2}. Como se vio en esa sección, el conjunto de matrices complejas de $2\times 2$ solo existen dos clases de equivalencias, las cuales son
+Para finalizar con la capítulo se presentará uno de los resultados más importantes de la teoría espectral. Para ello retomemos lo visto en la sección \ref{sec:TyDdeMat2x2}. Como se vio en esa sección, para el conjunto de matrices complejas de $2\times 2$ solo existen dos clases de equivalencias, las cuales son
 \[
   D_{\alpha, \beta} = \begin{pmatrix}
     \alpha & 0 \\ 0 & \beta
@@ -29,7 +29,7 @@ Ahora, lo que realmente nos interesa, es cuando una matriz es semejante a $T_\ga
     \]
 \end{defi}
 
-Hay varias cosas que notar, la primera es que si $n=1$ entonces toda matriz de $1\times 1$ se considera un bloque de Jordan. La segunda propiedad importante, es que bloque de Jordan $J_{n,\lambda}$ tiene como único valor propio a $\lambda$. La última propiedad interesante es que $(J_{n,a\lambda}-\lambda I )^n = \bec 0$, por el teorema de Cayley-Hamilton. Esta última propiedad va más allá, resulta que para todo bloque de Jordan $J$ de tamaño $n$, su polinomio minimal es $f_J = (x-\lambda)^n$.
+Hay varias cosas que notar, la primera es que si $n=1$ entonces toda matriz de $1\times 1$ se considera un bloque de Jordan. La segunda propiedad importante, es que el bloque de Jordan $J_{n,\lambda}$ tiene como único valor propio a $\lambda$. La última propiedad interesante es que $(J_{n,\lambda}-\lambda I )^n = \bec 0$, por el teorema de Cayley-Hamilton. Esta última propiedad va más allá, resulta que para todo bloque de Jordan $J$ de tamaño $n$, su polinomio minimal es $f_J = (x-\lambda)^n$.
 
 Ahora, como vimos en la sección \ref{sec:TyDdeMat2x2}, toda matriz de $2\times 2$ es semejante a una matriz compuesta de solo bloques de Jordan. En el caso de $D_{\alpha, \beta}$ son los bloques $J_{1,\alpha} = \alpha$ y $J_{1,\beta} = \beta$ y en el caso de $T_\gamma$ es claro que $J_{2,\gamma} = T_\gamma$. A esta matriz compuesta de bloques de Jordan es la que llamaremos su forma canónica de Jordan.
 
@@ -45,15 +45,15 @@ Ahora, como vimos en la sección \ref{sec:TyDdeMat2x2}, toda matriz de $2\times 
     \]
 \end{defi}
 
-Con toda esta introducción ya podemos formular el que podría ser uno de los teorema más importantes de la teoría espectral.
+Con toda esta introducción ya podemos formular el que podría ser uno de los teoremas más importantes de la teoría espectral.
 
 \begin{teor}
   Para toda matríz $M \in \M_n(\C)$ existe su forma canónica de Jordan, además esta su forma canónica de Jordan es única salvo el orden de los bloques. Por último, dos matrices $M,N \in \M_n(\C)$ son semejantes si y solo si comparten la misma forma canónica de Jordan.
 \end{teor}
 
-Este teorema implica dos propiedades muy importantes. La primera es que por fín tenemos un ``representante'' de las clases de equivalencia, por lo que podemos determinar de manera simple cuando dos matrices son equivalentes. La segunda es que nos da una expresión muy sencilla para trabajar con las matrices, ya que la fórma canónica de Jordan es casi diagonal, ya que solo tiene elementos distintos de cero en la diagonal principal y tiene unos en la diagonal por encima de ésta.
+Este teorema implica dos propiedades muy importantes. La primera es que por fin tenemos un ``representante'' de las clases de equivalencia, por lo que podemos determinar de manera simple cuando dos matrices son equivalentes. La segunda es que nos da una expresión muy sencilla para trabajar con las matrices, ya que la fórma canónica de Jordan es casi diagonal, ya que solo tiene elementos distintos de cero en la diagonal principal y tiene unos en la diagonal por encima de ésta.
 
-El único inconveniente, es que la demostración de este teorema es bastante complejo. En esta sección no se demostrará formalmente el teorema, pero sí indagaremos en las propiedades e ideas más importantes para entender el teorema así como el proceso de encontrar la forma canónica de Jordan de una matriz, aunque sin entrar en mucho detalle de las demostraciones.
+El único inconveniente, es que la demostración de este teorema es bastante compleja. En esta sección no se demostrará formalmente el teorema, pero sí indagaremos en las propiedades e ideas más importantes para entender el teorema así como el proceso de encontrar la forma canónica de Jordan de una matriz, aunque sin entrar en mucho detalle de las demostraciones.
 
 
 
@@ -71,9 +71,9 @@ pero esto implica que $Mv \in E_\lambda$. Esto en pocas palabras quiere decir qu
   Sea $M \in \M_n(\F)$ y $W$ un subespacio de $\F^n$. Si definimos $M[W] = \{Mv : v \in W\}$, entonces decimos que $W$ es \emph{invariante bajo $M$} o \emph{$M$-invariante} si $M[W] \subseteq W$.
 \end{defi}
 
-¿Por que nos interesa los espacios invariantes? Para contestar esto, recordemos que una matriz $M$ es diagonalizable si y solo si $ E_{\lambda_1} \oplus \cdots E_{\lambda_k} = \F^n$, donde $E(M) = \{\lambda_1, \cdots, \lambda_k\}$, notemos que esto implica que $\F^n$ se puede descomponer como suma directa de espacios invariante.
+¿Por que nos interesan los espacios invariantes? Para contestar esto, recordemos que una matriz $M$ es diagonalizable si y solo si $ E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_k} = \F^n$, donde $E(M) = \{\lambda_1, \cdots, \lambda_k\}$, notemos que esto implica que $\F^n$ se puede descomponer como suma directa de espacios invariantes.
 
-Ahora supongamos que tenemos el otro caso, qué pasa cuando tengo $W_1, \cdots, W_k$ subespacios invariantes bajo $M$ tal que $\F^n = W_1 \oplus \cdots \oplus W_k$. Resulta que al realizar el cambio de base, la matriz resultante está compuesta por bloques, de manera muy semejante a la forma canónica de Jordan. Esto se puede ver con el siguiente teorema.
+Ahora supongamos que tenemos el otro caso, es decir que se tienen $W_1, \cdots, W_k$ subespacios invariantes bajo $M$ tal que $\F^n = W_1 \oplus \cdots \oplus W_k$. Resulta que al realizar el cambio de base, la matriz resultante está compuesta por bloques, de manera muy semejante a la forma canónica de Jordan. Esto se puede ver con el siguiente teorema.
 
 \begin{teor}\label{teor:InvandBloq}
   Sea $M \in \M_n(\F)$ y sean $W_1, \ldots, W_k$ subespacios $M$-invariantes de $\F^n$ tal que $W_1 \oplus \cdots \oplus W_k = \F^n$, entonces $M \sim A$ donde $A$ está compuesta por bloques, es decir, $A$ es de la forma
@@ -102,13 +102,13 @@ Ahora supongamos que tenemos el otro caso, qué pasa cuando tengo $W_1, \cdots, 
     \]
   De esta forma, estudiemos los bloques $P^{-1} M P_i $ con $i \in \{1,\ldots, k\}$.
 
-  En primer lugar para todo $i \in \{1,\ldots, k\}$, notemos que si $v \in B_i$, dado que $W_i$ es invariante bajo $M$, entonces $Mv \in W_i = \inner{B_i}$, esto quiere decir que existen $c_1,\ldots,c_{m_i} \in \F$ tal que
+  Primero, para todo $i \in \{1,\ldots, k\}$, notemos que si $v \in B_i$, dado que $W_i$ es invariante bajo $M$, entonces $Mv \in W_i = \inner{B_i}$, esto quiere decir que existen $c_1,\ldots,c_{m_i} \in \F$ tales que
     \[ Mv = c_1 v_{i1} + \cdots + c_{m_i} v_{im_i}. \]
-  Ahora, notemos que por propiedades de la inversa, para todo $j\in\{1,\ldots,m_i\}$ se cumple que
+  Ahora, notemos que por propiedades de la inversa y construcción, para todo $j\in\{1,\ldots,m_i\}$ se cumple que
   \[
     P^{-1}v_{ij} = e_{s_i + j -1 },
   \]
-  donde $s_i$ es en número de columna de $v_{i1}$ en la matriz $P$, dado que los vectores $v_{i1},\ldots,v_{im_i}$ están en orden. Así, dado que $Mv = c_1 v_{i1} + \cdots + c_{m_i} v_{im_i}$ y en la matriz $P$, entonces tenemos que
+  donde $s_i$ es el índice de columna del vector $v_{i1}$ en la matriz $P$. Así, dado que $Mv = c_1 v_{i1} + \cdots + c_{m_i} v_{im_i}$ y en la matriz $P$, entonces tenemos que
     \begin{align*}
       P^{-1} M v &= c_1 P^{-1} v_{i1} + \cdots + c_{m_i} P^{-1} v_{im_i} \\
         &= c_1 e_{s_i} + \cdots + c_{m_i} e_{s_i + m_i-1}. 
@@ -121,7 +121,7 @@ Ahora supongamos que tenemos el otro caso, qué pasa cuando tengo $W_1, \cdots, 
         \bec 0_{m_{i-1}} \\\hline
         c_1 \\
         \vdots \\
-        c_{m_i} \\
+        c_{m_i} \\ \hline
         \bec 0_{m_{i+1}} \\\hline
         \vdots \\\hline
         \bec 0_{m_k} 
@@ -174,7 +174,7 @@ Ya vimos que para llevar una matriz a su forma canónica de Jordan debemos encon
   \end{spmatrix}.
 \]
 
-Una pregunta que nos podríamos hacer es ¿Cual es la base que me manda $M$ a $J$? En otras palabras, qué tiene que cumplir $P$ para que $P^{-1}MP = J$. Si $P = \bigl( v_1 \mid v_2 \mid v_3 \mid v_4 \mid v_5 \bigr)$ entonces, por multiplicación en bloques, veamos que
+Una pregunta que nos podríamos hacer es: ¿cuál es la base que me manda $M$ a $J$? En otras palabras, qué tiene que cumplir $P$ para que $P^{-1}MP = J$. Si $P = \bigl( v_1 \mid v_2 \mid v_3 \mid v_4 \mid v_5 \bigr)$ entonces, por multiplicación en bloques, veamos que
 \begin{align*}
   MP &= PJ,  \\
   M\begin{spmatrix}{c|c|c|c|c} v_1 & v_2 & v_3 & v_4 & v_5 \end{spmatrix}
@@ -207,7 +207,7 @@ Análogamente con $B_2$, es posible comprobar que $v_4 \in \ker(M-\mu I)$, $v_4 
   (M-\mu I) v_4 = v_5.
 \]
 
-Resumamos todo lo que conocemos hasta ahora, en primer lugar, si los vectores $\{v_1,\ldots,v_k\}$ están asociados a un bloque de jordan de tamaño $k$ y valor $\lambda$, estos deben cumplir dos propiedades. La primera es que $v_i \in \ker(M-\lambda I)^i$ para todo $i \in \{1,\ldots,k\}$ y la segunda es que cumplen la siguiente identidad
+Resumamos todo lo que conocemos hasta ahora, en primer lugar, si los vectores $\{v_1,\ldots,v_k\}$ están asociados a un bloque de Jordan de tamaño $k$ y valor $\lambda$, estos deben cumplir dos propiedades. La primera es que $v_i \in \ker(M-\lambda I)^i$ para todo $i \in \{1,\ldots,k\}$ y la segunda es que cumplen la siguiente identidad
 \[
   (M-\lambda I)^{k-1}v_k = (M-\lambda I)^{k-2}v_{k-1} = \cdots = (M-\lambda)v_2 = v_1.
 \]
@@ -215,10 +215,10 @@ Resumamos todo lo que conocemos hasta ahora, en primer lugar, si los vectores $\
 La primera propiedad es la que nos va a indicar cuáles son los espacios invariantes que nos permitirán llevar una matriz a su forma canónica de Jordan y es la que estudiaremos en lo que resta de esta parte. La segunda propiedad es la que nos indicará la forma de los bloques de Jordan, esa lo estudiaremos en la siguiente parte.
 
 \begin{defi}
-  Sea $M \in \M_n(\F)$ y $\lambda \in \F$, un vector $v \in \F^n$ es llamado un \emph{vector propio generalizado} de $M$ correspondientes a $\lambda$ si $(M-\lambda I)^m v = \bec 0$ para algún entero positivo $m$.
+  Sean $M \in \M_n(\F)$ y $\lambda \in \F$, un vector $v \in \F^n$ es llamado un \emph{vector propio generalizado} de $M$ correspondiente a $\lambda$ si $(M-\lambda I)^m v = \bec 0$ para algún entero positivo $m$.
 \end{defi}
 
-Notemos que por lo revisado con anterioridad, todos los vectores asociados a una bloque de Jordan son vectores propios generalizados. Además, si $m$ es el menor número tal que $(M-\lambda I)^mv = \bec 0$, entonces $(M-\lambda I)^{m-1}v$ es un vector propio y por tanto $\lambda$ es un valor propio. Así todo vector propio generalizado está asociado a un valor propio.
+Notemos que por lo revisado con anterioridad, todos los vectores asociados a un bloque de Jordan son vectores propios generalizados. Además, si $m$ es el menor número tal que $(M-\lambda I)^mv = \bec 0$, entonces $(M-\lambda I)^{m-1}v$ es un vector propio y por tanto $\lambda$ es un valor propio. Así todo vector propio generalizado está asociado a un valor propio.
 
 De igual forma, es natural pensar que los subespacios invariantes que buscamos estén relacionados con los vectores propios generalizados. Así, pensemos en dos vectores propios generalizados $v$ y $w$ de $M$ asociados al valor propio $\lambda$, notemos que deben existir $r, s \in \N$ tal que $(M-\lambda I)^r v = \bec 0$ y $(M-\lambda I)^s w = \bec 0$, así notemos que para todo $c\in\F$ se cumple que
 \[
@@ -230,9 +230,9 @@ Esto implica que el conjunto de todos los vectores propios generalizados forman 
   Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$. El \emph{espacio propio generalizado} de  $T$ correspondiente a $\lambda$ es definido como $K_\lambda = \{v \in \F^n : (M-\lambda I)^m v = \bec 0, m \in \N\}$.
 \end{defi}
 
-Ahora, veamos algunas de las propiedades del espacio propio generalizado. En primer lugar, notemos que $v \in \ker(I-\lambda)^m$ para algún $m \in \N$ si y solo si $v \in K_\lambda$, esto es claro por la definición. La segunda propiedad importante, es que $K_\lambda$ es cun conjunto $T$-invariante, para demostrar esto pensemos en algún $v \in K_\lambda$, sabemos que existe $m\in\N$ tal qu $(M-\lambda I)v = \bec 0$, así veamos que
+Ahora, veamos algunas de las propiedades del espacio propio generalizado. En primer lugar, notemos que $v \in \ker(I-\lambda)^m$ para algún $m \in \N$ si y solo si $v \in K_\lambda$, esto es claro por la definición. La segunda propiedad importante, es que $K_\lambda$ es un conjunto $T$-invariante, para demostrar esto pensemos en algún $v \in K_\lambda$, sabemos que existe $m\in\N$ tal que $(M-\lambda I)^mv = \bec 0$, así, por la proposición \ref{prop:EvalPoly}, veamos que
 \[ (M-\lambda I)^m (Mv) = M(M-\lambda I)^m v = M\bec 0 = 0,\]
-así es claro que $M[K_\lambda] \subseteq K_\lambda$. Así hemos demostrado el siguiente teorema.
+así es claro que $M[K_\lambda] \subseteq K_\lambda$. De este modo, hemos demostrado el siguiente teorema.
 
 \begin{teor}
   Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$ entonces $K_\lambda$ es un subespacio $M$-invariante que contiene a $E_\lambda$. \qed
@@ -257,7 +257,7 @@ Este último teorema nos da una forma sencilla de calcular $K_\lambda$ y como ya
   Sea $M \in \M_n(\C)$ y $E(M) = \{\lambda_1, \cdots, \lambda_k\}$, entonces $K_{\lambda_1} \oplus \cdots \oplus K_{\lambda_k} = \F^n$.
 \end{teor}
 
-Aunque ya tengamos los espacios invariantes independientes, esto aun no nos permite tener la forma canónica de Jordan, simplemente nos permite encontrar una matriz semejante a $M$ compuesta por bloques. Como observación final, cada uno de estos bloques estará asociado a un solo valor propio, esto nos permitirá simplificar la búsqueda de la forma canónica de Jordan, ya que solo tenemos que concentrarnos en las matrices con un único valor propio.
+Aunque ya tengamos los espacios invariantes independientes, esto aún no nos permite tener la forma canónica de Jordan, simplemente nos permite encontrar una matriz semejante a $M$ compuesta por bloques. Como observación final, cada uno de estos bloques estará asociado a un solo valor propio, esto nos permitirá simplificar la búsqueda de la forma canónica de Jordan, ya que solo tenemos que concentrarnos en las matrices con un único valor propio.
 
 \begin{example}
   Consideremos la matriz $A$ de $4\times 4$ con entradas complejas dada por
@@ -273,7 +273,7 @@ Aunque ya tengamos los espacios invariantes independientes, esto aun no nos perm
 
   \examplesolution
 
-  En primer lugar calculemos los valores propios de la matriz, así como sus multiplicidades algebráicas, usando el polinomio característico. Veamos que
+  En primer lugar calculemos los valores propios de la matriz, así como sus multiplicidades algebraicas, usando el polinomio característico. Veamos que
   \[
     \det(A-xI) = \det\begin{pmatrix}
       2-x & -1 & 0 & 1 \\
@@ -315,16 +315,16 @@ Ya hemos visto que la base que nos permite encontrar la fórma canónica de Jord
 para algún $k$. Esto nos da el motivo para la siguiente definición.
 
 \begin{defi}
-  Sea $M \in \M_n(\C$, $\lambda \in E(M)$ y $v \in K_\lambda$. Si $\ell$ es el entero positivo más pequeño para el cual $(M-\lambda I)^\ell v = \bec 0$, entonces el conjunto
+  Sea $M \in \M_n(\C)$, $\lambda \in E(M)$ y $v \in K_\lambda$. Si $\ell$ es el entero positivo más pequeño para el cual $(M-\lambda I)^\ell v = \bec 0$, entonces el conjunto
     \[
       C_v = \{ (M-\lambda I)^{\ell-1}v, (M-\lambda I)^{\ell-2}v, \cdots, (M-\lambda I)v, v \}.
     \]
-  es conocido como un \emph{ciclo} o \emph{cadena de Jordan} de vectores propios  $v$ asociado al valor $\lambda$.  Los vectores $(M-\lambda I)^{\ell-1}$ y $v$ son llamados el \emph{vector inicial} y el \emph{vector final} del ciclo, respectivamente. Además $\ell$ es conocido como la \emph{longitud del ciclo}.
+  es conocido como un \emph{ciclo} o \emph{cadena de Jordan} de vectores propios  $v$ asociado al valor $\lambda$.  Los vectores $(M-\lambda I)^{\ell-1}v$ y $v$ son llamados el \emph{vector inicial} y el \emph{vector final} del ciclo, respectivamente. Además $\ell$ es conocido como la \emph{longitud del ciclo}.
 \end{defi}
 
-Con esto tenemos el último ingrediente para encontrar la fórma canónica de Jordan de una matriz, todo lo que tenemos que hacer es encontrar bases de $K_\lambda$ que sean ciclos de vectores propios, no es necesario que sea un solo ciclo, puede ser más de uno, lo importante es que forme una base.
+Con esto tenemos el último ingrediente para encontrar la fórma canónica de Jordan de una matriz, todo lo que tenemos que hacer es encontrar bases de $K_\lambda$ que sean ciclos de vectores propios, no necesariamente ocurre que haya un solo ciclo, puede ser más de uno, lo importante es que forme una base.
 
-Existen varias cuestiones ¿Cuando los ciclos son linealmente independientes? ¿Dos ciclos distintos siempre son linealmente independientes? y ¿Siempre existe una base compuesta de ciclos de vectores propios? 
+Existen varias cuestiones: ¿cuándo los ciclos son linealmente independientes?, ¿dos ciclos distintos siempre son linealmente independientes? y ¿siempre existe una base compuesta de ciclos de vectores propios? 
 
 Para la primera pregunta, los ciclos siempre son linealmente independientes. De este modo no es necesario comprobar la independencia lineal de un ciclo.
 
@@ -332,10 +332,10 @@ Para la primera pregunta, los ciclos siempre son linealmente independientes. De 
   Cada ciclo de vectores propios generalizados de una matriz $M\in\M_n(\C)$ es linealmente independiente.
 \end{teor}
 
-Para la segunda pregunta, para que la unión ciclos sean linealmente independientes se necesita que sus vectores iniciales sean distintos y linealmente independientes.
+Para la segunda pregunta, para que la unión de ciclos sean linealmente independientes se necesita que sus vectores iniciales linealmente independientes.
 
 \begin{teor} \label{teor:IndepCiclos}
-  Sea $M \in \M_n(\C)$ y $\lambda\in E(M)$. Si $C_{v_1}, C_{v_2}, \cdots, C_{v_k}$ son ciclos de vectores propios generalizados de $M$ correspondiente a $\lambda$ tal que los vectores iniciales de los $C_{v_i}$ son distintos y forman un conjunto linealmente independiente. Entonces los $C_{v_i}$ son disjuntos y su unión $C = \bigcup_{i=1}^k C_{v_i}$ es linealmente independiente.
+  Sean $M \in \M_n(\C)$ y $\lambda\in E(M)$. Si $C_{v_1}, C_{v_2}, \cdots, C_{v_k}$ son ciclos de vectores propios generalizados de $M$ correspondiente a $\lambda$ tal que los vectores iniciales de los $C_{v_i}$ son distintos y conforman un conjunto linealmente independiente. Entonces los $C_{v_i}$ son disjuntos dos a dos y su unión $C = \bigcup_{i=1}^k C_{v_i}$ es un conjunto linealmente independiente.
 \end{teor}
 
  Y para la última pregunta, el espacio $K_\lambda$ siempre tiene una base que consiste en una unión disjunta de ciclos de vectores propios.
@@ -344,7 +344,7 @@ Para la segunda pregunta, para que la unión ciclos sean linealmente independien
   Sea $M \in \M_n(\C)$ y $\lambda \in E(M)$, entonces $K_\lambda$ tiene una base que consiste en una unión de ciclos disjuntos de vectores propios generalizados correspondientes a $\lambda$.
 \end{teor}
 
-Las demostraciones son un poco complejas y no son tan necesarias para entender el tema. Lo importante es saber que siempre se puede encontrar una base de $K_\lambda$ que consiste en una unión de ciclos disjuntos. En la siguiente parte, abundaremos un poco más en el proceso par encontrar los ciclos.
+Las demostraciones son un poco complejas y no son tan necesarias para entender el tema. Lo importante es saber que siempre se puede encontrar una base de $K_\lambda$ que consiste en una unión de ciclos disjuntos. En la siguiente parte, abundaremos un poco más en el proceso para encontrar los ciclos.
 
 
 
@@ -352,9 +352,9 @@ Las demostraciones son un poco complejas y no son tan necesarias para entender e
 
 Con lo que tenemos hasta ahora ya es visible que toda matriz tiene una forma canónica de Jordan. Lo último que falta sería tener la unicidad y un proceso para encontrar la base que me permite llevar una matriz a su forma canónica de Jordan.
 
-Para ello pensemos en una matriz $M\in\M_n(\C)$ y $\lambda \in E(M)$, para continuar adoptemos la siguiente convención, en primer lugar, si $B_\lambda$ es la base de $K_\lambda$ que esta está compuesta de ciclos de vectores propios, consideremos que los ciclos de tal manera que la longitud de los ciclos aparezca en orden decreciente. Es decir, si $B_\lambda = C_1 \cup C_2 \cup \cdots C_k$ donde cada $C_i$ es un ciclo de longitud $\ell_i$ entonces $\ell_1 \geq \ell_2 \geq \cdots \geq \ell_k$.
+Para ello pensemos en una matriz $M\in\M_n(\C)$ y $\lambda \in E(M)$, para continuar adoptemos la siguiente convención, en primer lugar, si $B_\lambda$ es la base de $K_\lambda$ que está compuesta de ciclos de vectores propios, consideremos que los ciclos de tal manera que la longitud de los ciclos aparezca en orden decreciente. Es decir, si $B_\lambda = C_1 \cup C_2 \cup \cdots \cup C_k$ donde cada $C_i$ es un ciclo de longitud $\ell_i$ entonces $\ell_1 \geq \ell_2 \geq \cdots \geq \ell_k$.
 
-Ahora ¿Cómo se ve esto en la matríz? Consideremos el caso donde $B_\lambda = C_1 \cup C_2 \cup C_3 \cup C_4$ donde $C_1$ es un ciclo de tamaño 3, $C_2$ es un ciclo de tamaño 3 y $C_c$ es un ciclo de tamaño 2 y $C_4$ es un ciclo de tamaño 1, haciendo el mismo análisis del inicio de la subsección \ref{subsec:VecPropGen}, pero a la inversa, podemos determinar que el bloque correspondiente al subespacio $K_\lambda$ sería 
+Ahora, ¿cómo se ve esto en la matriz? Consideremos el caso donde $B_\lambda = C_1 \cup C_2 \cup C_3 \cup C_4$ donde $C_1$ es un ciclo de tamaño 3, $C_2$ es un ciclo de tamaño 3 y $C_3$ es un ciclo de tamaño 2 y $C_4$ es un ciclo de tamaño 1, haciendo el mismo análisis del inicio de la subsección \ref{subsec:VecPropGen}, pero a la inversa, podemos determinar que el bloque correspondiente al subespacio $K_\lambda$ sería 
 \[
   A_\lambda = \begin{pmatrix}\lambda & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 &\lambda & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\  0 & 0 &\lambda & 0 & 0 & 0 & 0 & 0 & 0 \\  0 & 0 & 0 & \lambda & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & \lambda & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & \lambda & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & \lambda & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 &\lambda & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda \end{pmatrix}
   = \begin{spmatrix}{c|c|c|c}
@@ -366,7 +366,7 @@ Ahora ¿Cómo se ve esto en la matríz? Consideremos el caso donde $B_\lambda = 
 \]
 De esta forma, el número y tamaño de ciclos, determina directamente como se verán los bloques de Jordan.
 
-De esta forma, es primordial saber como son los ciclos que conforman la base de cada $K_\lambda$. Para que la visualización y cálculo de los ciclos sea más sencilla utilizamos una matriz de puntos llamado \emph{diagrama de puntos}. Supongamos que tenemos una base $B_\lambda = C_1 \cup \cdots \cup C_k$ de $K_\lambda$ compuesta de ciclos en orden decreciente por su longitud, además la longitud de $C_i$ es $\ell_i$. Entonces, el diagrama de puntos de $K_\lambda$ estará configurado de acuerdo a las siguiente reglas
+De esta forma, es primordial saber cómo son los ciclos que conforman la base de cada $K_\lambda$. Para que la visualización y cálculo de los ciclos sea más sencilla utilizamos una matriz de puntos llamado \emph{diagrama de puntos}. Supongamos que tenemos una base $B_\lambda = C_1 \cup \cdots \cup C_k$ de $K_\lambda$ compuesta de ciclos en orden decreciente por su longitud, además la longitud de $C_i$ es $\ell_i$. Entonces, el diagrama de puntos de $K_\lambda$ estará configurado de acuerdo a las siguiente reglas
 \begin{enumerate}
   \item La matriz consiste de $k$ columnas (una columna por cada ciclo).
   \item De izquierda a derecha, la columna $i$-ésima consiste de $\ell_i$ puntos que corresponden a los vectores del ciclo $C_i$, comenzado con el vector inicial en la primera fila y continuando hacia abajo hasta el vector final.
@@ -393,7 +393,7 @@ Como ya mencionamos, el numero de columnas es el mismo que el de ciclos, en este
 Ahora, denotemos como $r_i$ al número de puntos en el renglón $i$-ésimo, con $i \in \{1,\ldots,\ell_1\}$, notemos que por construcción $r_1 \geq r_2 \geq \cdots \geq r_{\ell_1}$.
 
 \begin{example}
-  Sea $B_\lambda = C_1 \cup C_2 \cup C_3 \cup C_4$ una base por ciclos de $K_\ell$ donde $C_1$ es un ciclo de tamaño 3, $C_2$ es un ciclo de tamaño 3 y $C_c$ es un ciclo de tamaño 2 y $C_4$ es un ciclo de tamaño 1. Encontremos su diagrama de puntos.
+  Sea $B_\lambda = C_1 \cup C_2 \cup C_3 \cup C_4$ una base por ciclos de $K_\lambda$ donde $C_1$ es un ciclo de tamaño 3, $C_2$ es un ciclo de tamaño 3 y $C_c$ es un ciclo de tamaño 2 y $C_4$ es un ciclo de tamaño 1. Encontremos su diagrama de puntos.
 
   \examplesolution
 
@@ -437,17 +437,17 @@ Ahora, denotemos como $r_i$ al número de puntos en el renglón $i$-ésimo, con 
 
 Ahora, aunque el diagrama de puntos nos permite visualizar la longitud y número de ciclos, no sería de mucha ayuda si tuviésemos que calcular los ciclos para construirlo. En otras palabras, deseamos buscar un método para construir el diagrama sin tener que recurrir a la construcción de los ciclos.
 
-Para ello pensemos en que tiene en común los vectores en el mismo renglón. Notemos que todos los elementos del primer renglones son vectores propios, es decir están en $\ker(M-\lambda I)$, los vectores en la segunda fila son todos vectores en que están en $\ker(M-\lambda I)^2$, y así consecutivamente.
+Para ello pensemos en que tiene en común los vectores en el mismo renglón. Notemos que todos los elementos del primer renglones son vectores propios, es decir están en $\ker(M-\lambda I)$, los vectores en la primera y segunda fila son todos vectores en que están en $\ker(M-\lambda I)^2$, los vectores de la primera a la tercera fila están en $\ker(M-\lambda I)$, y así consecutivamente.
 \[
   \begin{array}{llll@{\qquad}l} 
     \bullet (M-\lambda I)^{\ell_1-1}v_1 & \bullet (M-\lambda I)^{\ell_2-1}v_2 & \cdots & \bullet (M-\lambda I)^{\ell_k-1}v_k  & \text{Vectores en } \ker(M-\lambda I)\\
     \bullet (M-\lambda I)^{\ell_1-2}v_1 & \bullet (M-\lambda I)^{\ell_2-2}v_2 & \cdots & \bullet (M-\lambda I)^{\ell_k-2}v_k  & \text{Vectores en } \ker(M-\lambda I)^2 \\
-    \vdots & \vdots & \ddots & \vdots & \vdots \\
-    \vdots & \vdots & \cdots & \bullet (M-\lambda I)v_k  & \vdots  \\
-    \vdots & \vdots & \cdots & \bullet v_k  & \vdots  \\
-    \vdots & \bullet (M-\lambda I)v_2  & & & \vdots \\
-    \vdots & \bullet v_2  & &  & \vdots \\
-    \bullet (M-\lambda I)v_1 & & & & \vdots \\
+    \vdots & \vdots & \ddots & \vdots &  \hspace{5em} \vdots \\
+    \vdots & \vdots & \cdots & \bullet (M-\lambda I)v_k  & \hspace{5em}\vdots  \\
+    \vdots & \vdots & \cdots & \bullet v_k  & \hspace{5em}\vdots  \\
+    \vdots & \bullet (M-\lambda I)v_2  & & & \hspace{5em}\vdots \\
+    \vdots & \bullet v_2  & &  & \hspace{5em}\vdots \\
+    \bullet (M-\lambda I)v_1 & & & & \hspace{5em}\vdots \\
     \bullet v_1 & & & & \text{Vectores en } \ker(M-\lambda I)^{\ell_1}\\
   \end{array}
 \]
@@ -457,7 +457,7 @@ Pero esta relación va más allá, resulta que si tomamos todos los vectores que
   \begin{array}{llll@{\quad}l} 
     \bullet (M-\lambda I)^{\ell_1-1}v_1 & \bullet (M-\lambda I)^{\ell_2-1}v_2 & \cdots & \bullet (M-\lambda I)^{\ell_k-1}v_k  & \\
     \vdots & \vdots & \ddots & \vdots &
-        \raisebox{0.35em}{\smash{$\left.\rule{0pt}{1cm}\right]$}} \quad\text{Base de} \ker(M-\lambda I)^r\\
+        \raisebox{0.35em}{\smash{$ \left.\rule{0pt}{1cm}\right\}$ Base de $\ker(M-\lambda I)^r$ }}\\
     (M-\lambda I)^{\ell_1-r}v_1 & (M-\lambda I)^{\ell_2-r}v_2 & \cdots & \bullet (M-\lambda I)^{\ell_k-r}v_k  &   \\
     \vdots & \vdots & \ddots & \vdots &  \\
     \vdots & \vdots & \cdots & \bullet (M-\lambda I)v_k  &   \\
@@ -473,6 +473,7 @@ Recordando que $n = \dim\ker(M) + \dim\Im(M)$ para toda matriz $M \in \M_n(\F)$,
 \begin{teor}
   Sea $M \in \M_n(\C)$ y $\lambda \in E(M)$, si $r_i$ el número de puntos en el $i$-ésimo renglón del diagrama de puntos de $K_\lambda$, entonces
   \begin{enumerate}
+    \item $r_1 + \cdots + r_i = \dim \ker(M-\lambda I)^i $
     \item $r_1 = n - \rango(M-\lambda I)$.
     \item $r_i = \rango(M-\lambda)^{i-1} - \rango(M-\lambda)^i$ si $i>1$.
   \end{enumerate}
@@ -569,7 +570,7 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
       \end{pmatrix}.
     \]
 
-  Ahora, dado que $v_2$ y $(M-2I)v_1$ forman una base de $\ker(M-2I)$, entonces básta con encontrar un vector linealmente independiente de $(M-2I)v_1$ que se encuentre en $\ker(M-2I)$. Para ello calculemos una base de $\ker(M-2I)$, por eliminación gaussiana tenemos que
+  Ahora, dado que $v_2$ y $(M-2I)v_1$ forman una base de $\ker(M-2I)$, entonces basta con encontrar un vector linealmente independiente de $(M-2I)v_1$ que se encuentre en $\ker(M-2I)$. Para ello calculemos una base de $\ker(M-2I)$, por eliminación gaussiana tenemos que
     \[
       A-2I = \begin{pmatrix} 0 & -1 & 0 & 1 \\ 0 & 1 & -1 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & -1 &0 & 1 \end{pmatrix}
         \xrightarrow{\text{FERR}}
@@ -582,7 +583,7 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
       \bullet \begin{pmatrix} 0 \\ 1 \\ 2 \\ 0 \end{pmatrix}
     \end{array}
   \]
-  No es necesario comprobar la independencia lineal, esto se debe al teorema \ref{teor:IndepCiclos}, dado que voluntariamente pedimos que los inicios de los ciclos sean linealmente independientes.
+  No es necesario comprobar la independencia lineal, esto se debe al teorema \ref{teor:IndepCiclos}, dado que pedimos que los inicios de los ciclos sean linealmente independientes.
 
   Ahora, es bastante simple que si $P$ es la matriz cuyas columnas son las bases calculadas, entonces $P$ es invertible y además
   \[
@@ -641,11 +642,11 @@ Con este teorema no tenemos que calcular los ciclos de $K_\lambda$ para obtener 
   \[
     Te_4 = 2e_2 \Eqand T^2e_4 = 2e_1.
   \]
-  De aquí tenemos que el primer ciclo es $C_1 = \{2e_1, 2e_2 e_4\}$. 
+  De aquí tenemos que el primer ciclo es $C_1 = \{2e_1, 2e_2, e_4\}$. 
 
   Revisando nuevamente el diagrama de puntos, vemos que para el segundo ciclo, su vector final está en $\ker(T^2)$ pero no está en $\ker(T)$, así calculemos una base de $\ker T^2$. Dado que ya teníamos calculado $T^2$  es fácil ver que  $ \{ e_1, e_2, e_3, e_5, e_6 \} $ es una base de $\ker(T^2)$, ahora $e_1, e_3, e_5$ están en $\ker(T)$ por lo que solo quedan $e_2$ y $e_6$, pero notemos que $e_2 \in \inner{C_1}$ por lo que también queda descartado, dado que queremos que sea linealmente independiente con $C_1$, así el único candidato es $e_6$, veamos que $T(e_6) = e_3$ así el segundo cíclo está dado por $C_2 = \{e_3, e_6\}$.
 
-  Ahora, es fácil ver que $C_1$ y $C_2$ son linealmente independientes, además el único vector de la base canónica que es linealmente independiente de  $C_1 \cup C_2$ es $e_5 \in \ker(T)$, así podemos inferir que este el último ciclo es $C_3 = \{e_5\}$. Así, el diagrama de puntos nos quedó de la siguiente manera 
+  Ahora, es fácil ver que $C_1$ y $C_2$ son linealmente independientes, además el único vector de la base canónica que es linealmente independiente de  $C_1 \cup C_2$ es $e_5 \in \ker(T)$, así, se puede deducir que el último ciclo es $C_3 = \{e_5\}$. De este modo, el diagrama de puntos nos quedó de la siguiente manera 
   \[\begin{array}{lll}
     \bullet 2e_1 & \bullet e_3 & \bullet e_5 \\
     \bullet 2e_2 & \bullet e_6 \\

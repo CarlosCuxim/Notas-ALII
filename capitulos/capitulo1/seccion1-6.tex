@@ -1,8 +1,8 @@
-\section{Proyecto -- Sucesión de Fibonacci}
+\section{Proyecto: Sucesión de Fibonacci}
 
 Esta sección esta dedicada a desarrollar un ejemplo de uso de todos los temas que hemos visto hasta el momento y una introducción al siguiente capítulo.
 
-Una sucesión muy conocida en las matemáticas es la llamada, sucesión de Fibonacci. Esta sucesión se define de manera recursiva como
+Una sucesión muy conocida en las matemáticas es la llamada sucesión de Fibonacci. Esta sucesión se define de manera recursiva como
 \[
   F_0 = 0, \quad F_1 = 1, \quad F_{i+1} = F_i + F_{i-1}.
 \]
@@ -29,9 +29,9 @@ Definamos como $M$ a la matriz asociada al sistema de ecuaciones de \eqref{eq:Fi
     = \begin{pmatrix}  F_{n+1} \\ F_n \end{pmatrix}.
 \]
 
-De esta forma tenemos una forma, relativamente directa, de calcular el $n$-ésimo término de la sucesión de Fibonacci. El problema entonces es calcular cuanto vale $M^n$. Por la proposición \ref{prop:MPolySem}, sabemos que si $M = P^{-1}NP$, entonces $M^n = P^{-1} N^n P$ y para hacer más sencillos los cálculos busquemos la matriz $D_{\alpha,\beta}$ o $T_\gamma$ a la que es semejante $M$.
+De este modo tenemos una forma, relativamente directa, de calcular el $n$-ésimo término de la sucesión de Fibonacci. El problema entonces es calcular cuanto vale $M^n$. Por la proposición \ref{prop:MPolySem}, sabemos que si $M = P^{-1}NP$, entonces $M^n = P^{-1} N^n P$ y para hacer más sencillos los cálculos busquemos la matriz $D_{\alpha,\beta}$ o $T_\gamma$ a la que es semejante $M$.
 
-Como ya dijimos antes, los valores de la diagonal la su matriz $D_{\alpha,\beta}$ o la matriz $T_\gamma$ son llamados los valores propios de la matriz, aunque hasta el siguiente capítulo se explicará con más detalle lo que esto significa, podemos adelantar que la forma más eficiente de encontrarlos, es ver qué valores $\lambda \in \C$ cumplen que $\det(M-\lambda I) = 0$. Así tenemos que los valores propios de $M$ son los $\lambda \in \C$ tales que
+Como mencionamos en el capítulo anterior, los valores en la diagonal de la matriz $D_{\alpha,\beta}$ o $T_\gamma$ equivalente a $M$ son llamados los valores propios de la matriz. Aunque hasta el siguiente capítulo se explicará con más detalle lo que esto significa, podemos adelantar que la forma más eficiente de encontrarlos, es ver qué valores $\lambda \in \C$ cumplen que $\det(M-\lambda I) = 0$. Así tenemos que los valores propios de $M$ son los $\lambda \in \C$ tales que
 \[
   \det\begin{pmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{pmatrix} = \lambda^2 - \lambda - 1 = 0.
 \]
@@ -49,7 +49,7 @@ Ahora, dado que $M \sim D$, entonces debe existir una matriz invertible $P$ tal 
   \phi P_{*1} &= M P_{*1}, \\
   (M - \phi I)P_{*1} &= \bec 0.
 \end{align*}
-De manera análoga, se puede ver que $(M + \phi^{-1} I)P_{*2} = \bec 0.$ Si recordamos como obtuvimos a $\phi$ y $-\phi^{-1}$ es fácil ver que las ecuaciones $(M - \phi I)x = \bec 0$ y $(M + \phi^{-1} I)x = \bec 0$ tienen infinitas soluciones no triviales, en el capitulo 2 veremos que estos vectores son llamados los \emph{vectores propios} de $M$ asociados al valor propio. Cualquiera de estos vectores propios sirve, así que podemos elegir líbremente que $P_{*1} = (1, \phi^{-1})^t$ y $P_{*2} = (1, -\phi)^t$. Un cálculo rápido nos puede confirmar que $P$ es invertible y que
+De manera análoga, se puede ver que $(M + \phi^{-1} I)P_{*2} = \bec 0.$ Si recordamos como obtuvimos a $\phi$ y $-\phi^{-1}$ es fácil ver que las ecuaciones $(M - \phi I)x = \bec 0$ y $(M + \phi^{-1} I)x = \bec 0$ tienen infinitas soluciones no triviales, en el capitulo 2 veremos que estos vectores son llamados los \emph{vectores propios} de $M$ asociados al valor propio correspondiente. Cualquiera de estos vectores propios sirve, así que podemos elegir libremente que $P_{*1} = (1, \phi^{-1})^t$ y $P_{*2} = (1, -\phi)^t$. Un cálculo rápido nos puede confirmar que $P$ es invertible y que
 \[
   P^{-1} M P = 
   \frac{1}{\sqrt{5}}\begin{pmatrix} \phi & 1 \\ \phi^{-1} & -1 \end{pmatrix}
@@ -72,7 +72,7 @@ De aquí, y aplicando todo lo mencionado con anterioridad, tenemos que
           \phi^n + (-1)^{n+1} \phi^{-n}
         \end{pmatrix}.
 \end{align*}
-De todo lo anterior, finalmente hemos deducido que la Formula de Binet es
+De todo lo anterior, finalmente hemos deducido que la Fórmula de Binet es
 \[
   F_n = \frac{\phi^n + (-1)^{n+1} \phi^{-n} }{\sqrt{5}}.
 \]
@@ -84,7 +84,7 @@ De todo lo anterior, finalmente hemos deducido que la Formula de Binet es
   
   \item ¿Puedes calcular la correspondiente fórmula para la sucesión de Lucas?
   \[
-    L_0 = 2, \quad L_1 = 1, \quad F_{i+1} = F_i + F_{i-1}.
+    L_0 = 2, \quad L_1 = 1, \quad L_{i+1} = L_i + L_{i-1}.
   \]
 
   \item \emph{Reto}. Aplicar un procedimiento similar para la sucesión: $0$, $1$, $2$, $5$, $12$, $29$, $70$, $169$, \dots (La regla de recursión es $S_{n+1} = 2S_{n} + S_{n-1}$).

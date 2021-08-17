@@ -3,7 +3,7 @@
 Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. El siguiente paso, es ver cómo obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
 
 \begin{teor}
-  Sea $V$ y $W$ dos $\F$-espacios vectoriales y $T \colon V \to W$ una transformación lineal. Si $B_1$ y $B_2$ son bases ordenadas de $V$, $B_1'$ y $B_2'$ son bases ordenadas de $W$ entonces
+  Sean $V$ y $W$ dos $\F$-espacios vectoriales y $T \colon V \to W$ una transformación lineal. Si $B_1$ y $B_2$ son bases ordenadas de $V$, $B_1'$ y $B_2'$ son bases ordenadas de $W$ entonces
   \[T_{B_2 B_2'} = M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1}. \]
 \end{teor}
 \begin{proof}
@@ -16,7 +16,7 @@ Hemos visto que podemos asociar una matriz a cada transformación siempre que de
   Y por la unicidad de la matriz asociada, tenemos que $T_{B_2 B_2'} = M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1}$.
 \end{proof}
 
-Notemos que en el teorema anterior las matrices $T_{B_1B_1'}$ y $T_{B_2B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B$ son dos bases ordenadas de $V$ entonces $[\Id_V]_{BB'}[v]_B = [v]_B'$, por lo tanto $[\Id_V]_{BB'} = M_{BB'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertibles están asociadas a la transformación identidad, bajo unas ciertas bases.
+Notemos que en el teorema anterior las matrices $T_{B_1B_1'}$ y $T_{B_2B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B'$ son dos bases ordenadas de $V$ entonces $[\Id_V]_{BB'}[v]_B = [v]_B'$, por lo tanto $[\Id_V]_{BB'} = M_{BB'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertibles están asociadas a la transformación identidad, bajo unas ciertas bases.
 
 Esta idea se puede generalizar: si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tales que $M = T_{B_2 B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{BB'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$.
 
@@ -70,5 +70,5 @@ Esta propiedad nos muestra que todas las matrices asociadas a una transformació
       \item (Transitividad) Para cualesquiera $M,N,P \in \M_n(\F)$ si $M \sim N$ y $N \sim P$ entonces $M \sim P$.
     \end{enumerate}
   
-  \item Demuestra que las clases de equivalencia de la matriz cero e identidad solo contienen a estas.
+  \item Demuestra que las clases de equivalencia de la matriz cero e identidad solo contienen a éstas.
 \end{exerciselist}

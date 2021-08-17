@@ -10,7 +10,7 @@ Las funciones pueden ser de varios tipos, pero la más común son las llamadas \
 \subsection{Grupos}
 
 \begin{defi}
-  Si $G$ es un conjunto no vacío y $+$ una operación binaria de éste, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumple los siguientes axiomas:
+  Si $G$ es un conjunto no vacío y $\cdot$ una operación binaria de éste, decimos que el par $(G, \cdot)$ es un \emph{grupo} si cumple los siguientes axiomas:
   \begin{enumerate}
     \item (Asociatividad) Para cualesquiera $x, y, z \in G$ se cumple que $x\cdot(y\cdot z) = (x\cdot y)\cdot z$.
     \item (Existencia del elemento neutro) Existe un elemento $e$ tal que para todo $x \in G$ cumple que $x\cdot e = e\cdot x = x$.
@@ -75,7 +75,7 @@ Existen varios ejemplos de espacios vectoriales. Uno de ellos es el conjunto de 
 
 Un ejemplo común es el subespacio trivial $\{0\}$. Otro ejemplo es el subespacio generado por un subconjunto $S \subseteq W$, al cual denotamos por $\inner{S}$ (Ejercicio \ref{exer:SubEsGene}), que en el caso donde $S\neq \emptyset$, éste se compone de todas las combinaciones lineales de elementos de $S$ (Ejercicio \ref{exer:SubEsCombLin}), es decir
 \[ \inner{S} = \set{ \sum_{i=1}^n \lambda_i v_i : \lambda_i \in \F, v_i \in S, n \in \N }. \]
-Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir que si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$. En el caso en que $\inner{S} = V$, entonces decimos que $S$ es un \emph{conjunto generador}.
+Además, este conjunto cumple que es el subespacio vectorial más pequeño tal que contiene a $S$, es decir que si $W$ es un subespacio vectorial tal que $S \subseteq W$, entonces $\inner{S} \subseteq W$. En el caso en que $\inner{S} = V$, entonces decimos que $S$ es un \emph{conjunto generador} de $V$.
 
 \begin{teor}
   Sean $V$ un $\F$-espacio vectorial, la intersección de cualquier colección de subespacios de $V$ es un subespacio de $V$.
@@ -115,7 +115,7 @@ Este teorema es uno de los resultados más importantes del Álgebra Lineal, ést
 
 Recordemos que la suma de subespacios vectoriales genera un nuevo subespacio vectorial que además es el subespacio generado por la unión de estos, es decir
   \[ W_1 + \cdots + W_k = \inner{ W_1 \cup \cdots \cup W_k }. \]
-Hay una expresión bien conocida para la dimensión de la suma de dos subespacio vectoriales, esta fórmula es conocida como la fórmula de Grassmann.
+Hay una expresión bien conocida para la dimensión de la suma de dos subespacios vectoriales, esta fórmula es conocida como la fórmula de Grassmann.
 
 \begin{teor}[Fórmula de Grassmann]
   Si $W_1$ y $W_2$ son subespacios de un $\F$-espacio vectorial $V$ de dimensión finita, entonces
@@ -126,7 +126,7 @@ Hay una expresión bien conocida para la dimensión de la suma de dos subespacio
 Así como en los espacios vectoriales existe la independencia de vectores, podemos definir una independencia de subespacios.
 
 \begin{defi}
-  Si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales de $V$ y $W = W_1 + \cdots + W_k$, decimos que  $W_1, \ldots, W_k$ son independientes si $w_1 + \cdots + w_k = 0$ con $w_i \in W_i$ implica que $w_i = 0$, donde $i \in \{1,\ldots,k\}$.
+  Si $W_1, \ldots, W_k$ son $\F$-subespacios vectoriales de $V$, decimos que los subespacios $W_1, \ldots, W_k$ son \emph{independientes} si $w_1 + \cdots + w_k = 0$ con $w_i \in W_i$ implica que $w_i = 0$, donde $i \in \{1,\ldots,k\}$.
 \end{defi}
 
 Así como la expresión de un vector como combinación lineal de un conjunto linealmente independiente es única, la independencia de subespacios nos permite afirmar que para todo $v \in W_1 + \cdots + W_k$ la expresión $v = w_1 + \cdots + w_k$, con $w_i \in W_i$ y $i \in \{1, \ldots, k\}$, es única.
@@ -207,7 +207,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item \label{exer:F^I} Sean $I$ un conjunto no vacío y $\F$ un campo dado. Denotemos como $\F^I$ al conjunto de las funciones $f\colon I \to \F$. Definimos la suma en $\F^I$ de la siguiente manera: dados $f, g \in \F^I$ se establece que $(f + g)(i) = f(i) + g(i)$. Definimos el producto por un escalar de la siguiente manera: dado $f \in \F^I$ y $c \in \F$, establecemos que $(c \cdot f )(i) = c \bigl( f(i) \bigr)$. Demuestre que con las operaciones definidas $\F^I$ tiene una estructura de $\F$-espacio vectorial.
   
-  \item Considere a los números complejos. Dado $\alpha \in \C$ demuestre que $\alpha \R$ es un $\R$-subespacio vectorial de $\C$, pero que no es un $\C$-espacio vectorial.
+  \item Considere a los números complejos. Dado $\alpha \in \C-\{0\}$ demuestre que $\alpha \R$ es un $\R$-subespacio vectorial de $\C$, pero que no es un $\C$-espacio vectorial.
   
   \item \label{exer:PolyGradLeqn} Denotemos como $\F[x]_{\leq n}$ al conjunto de polinomios con coeficientes en $\F$ y que tienen grado menor o igual a $n$. Demuestre que $\F[x]_{\leq n}$ es un $\F$-subespacio vectorial de $\F[x]$.
   
@@ -215,13 +215,13 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \item Sea $U$ un subconjunto no vacío del $\F$-espacio vectorial $V$. Demuestre que $U$ es un $\F$-subespacio vectorial si y solo si se cumplen las siguientes dos condiciones:
     \begin{enumerate}
-      \item $\F U \subseteq \F U$, donde $\F U = \{cu : c \in \F \land u \in U\}$.
+      \item $\F U \subseteq U$, donde $\F U = \{cu : c \in \F \land u \in U\}$.
       \item $(U + U) \subseteq U$, donde $U+U = \{u_1 + u_2 \colon u_1, u_2 \in U\}$.
     \end{enumerate}
 
   \item Sea $U$ un $\F$-subespacio vectorial de $V$ y sea $W$ un $\F$-subespacio vectorial de $U$, demuestre que $W$ es un $\F$-subespacio vectorial de $V$.
   
-  \item \label{exer:MatULD} Considere al $\F$-espacio vectorial $\M_{n,n} ( \F )$, al que denotaremos (solo un subíndice) $\M_n(\F)$. Sea $\bec U$ el subconjunto de todas las matrices triangulares superiores de $\M_n(\F)$, es decir que si $(a_{ij}) \in \bec U$ entonces $i > j$ implica que $a_{ij} = 0$. Similarmente sea $\bec L$ el subconjunto de todas las matrices triangulares inferiores de $\M_n(\F)$, y con $\bec D$ denotemos a las matrices diagonales. Demuestre que $\bec U$, $\bec L$ y $\bec D$ son $\F$-subespacios vectoriales de $\M_n(\F)$.
+  \item \label{exer:MatULD} Considere al $\F$-espacio vectorial $\M_{n\times n} ( \F )$, al que denotaremos (solo un subíndice) $\M_n(\F)$. Sea $\bec U$ el subconjunto de todas las matrices triangulares superiores de $\M_n(\F)$, es decir que si $(a_{ij}) \in \bec U$ entonces $i > j$ implica que $a_{ij} = 0$. Similarmente sea $\bec L$ el subconjunto de todas las matrices triangulares inferiores de $\M_n(\F)$, y con $\bec D$ denotemos a las matrices diagonales. Demuestre que $\bec U$, $\bec L$ y $\bec D$ son $\F$-subespacios vectoriales de $\M_n(\F)$.
   
   \item Sea $V$ un $\F$-espacio vectorial, y sea $U_i$ un $\F$-subespacio vectorial de $V$ para cada $i \in I$, donde $I$ es un conjunto de índices no vacío. Demuestre que $U = \bigcap_{i \in I} U_i$ es un $\F$-subespacio vectorial de $V$ y un $\F$-subespacio vectorial de cada $U_i$.
   
@@ -243,7 +243,7 @@ Estos dos conjuntos tienen algunas propiedades importantes. La primera es que el
   
   \emph{Reto:} Demuestre que la dimensión de $\C$ como $\Q$-espacio vectorial no es finita.
   
-  \item Determine $\dim_{\F}\bigl( \M_{n,m}(\F) \bigr)$.
+  \item Determine $\dim_{\F}\bigl( \M_{n\times m}(\F) \bigr)$.
   
   \item Sean $\M_n(\F)$, $\bec U$, $\bec L$ y $\bec D$ como se mencionó en el ejercicio \ref{exer:MatULD}. Calcule la dimensión de cada uno de los $\F$-subespacios vectoriales.
 

@@ -10,7 +10,7 @@ Antes de continuar revisando las propiedades de los valores y vectores propios, 
     
     \item \emph{(Algoritmo de la división)} Dados $f \in \F[x]$ y $g \in \F[x] - \{0\}$ existen $q, r \in \F[x]$ tales que $f = gq+r$ y $\grad(r) < \grad(g)$.
     
-    \item \emph{(Identidad de Bézout)} Dados $f_1, f_2, \ldots, f_k \in \F[x]$ existen $q_1, \ldots, q_k \in \F[x]$ tales que $\sum_{i=1}^k f_i q_i = d$ es un máximo común divisor (m.c.d) de los $f_i$, es decir que $d \mid f_i$ para cada $i \in \{1,\ldots,k\}$ y si $e_i \mid f_i$ para cada $i \in \{1,\ldots,k\}$, entonces $e \mid f$. Si bien puede haber más de un m.c.d., todos son asociados entre sí (es decir que dados dos m.c.d. uno se obtiene multiplicando alguna unidad por el otro).
+    \item \emph{(Identidad de Bézout)} Dados $f_1, f_2, \ldots, f_k \in \F[x]$ existen $q_1, \ldots, q_k \in \F[x]$ tales que $\sum_{i=1}^k f_i q_i = d$ es un máximo común divisor (m.c.d) de los $f_i$, es decir que $d \mid f_i$ para cada $i \in \{1,\ldots,k\}$ y si $e_i \mid f_i$ para cada $i \in \{1,\ldots,k\}$, entonces $e \mid d$. Si bien puede haber más de un m.c.d., todos son asociados entre sí (es decir que dados dos m.c.d. uno se obtiene multiplicando alguna unidad por el otro).
     
     \item \emph{(Dominio de factorización única)} Todo ideal en $\F[x]$ es principal, es decir que si $I$ es un subconjunto no vacío de $\F[x]$ y para cualesquiera $f, g \in I$ y $h \in \F[x]$ se cumple que $f+g, -f, fh \in I$, entonces existe $p \in \F[x]$ tal que $I = p\F[x]$.
     
@@ -22,24 +22,23 @@ Antes de continuar revisando las propiedades de los valores y vectores propios, 
 
 \subsection{Anillos y álgebras}
 
-Hasta ahora, hemos trabajado los polinomios $\F[x]$ únicamente como un $\F$-espacio vectorial, pero los polinomios tienen una estructura más compleja ya que, a diferencia de otros espacios vectoriales, además de una operación de suma los polinomios cuentan con una operación de multiplicación.
+Hasta ahora, hemos trabajado los polinomios $\F[x]$ únicamente como un $\F$-espacio vectorial y ahora queremos también tomar en cuenta la multiplicación.
 
-La única otra estructura con la que hayamos estado trabajando y que cuente con dos operaciones binarias es el campo, pero si revisamos la definición de campo, notaremos que los polinomios no cumplen todas esas propiedades. En específico los polinomios no tienen inversos multiplicativos. Un ejemplo de esto es el polinomio $x$, no importa por que otro polinomio multipliques este nunca será $1$. En este sentido, la estructura de los polinomios es más general que la del campo, y recibe el nombre de anillo.
+La única otra estructura con la que hayamos estado trabajando y que cuente con dos operaciones binarias es el campo, pero si revisamos la definición de campo, notaremos que los polinomios no cumplen todas esas propiedades. En específico hay polinomios no nulos que no tienen inverso multiplicativo. Un ejemplo de esto es el polinomio $x$, no importa que otro polinomio lo multiplique el resultado jamás será $1$. En este sentido, la estructura de los polinomios es menos restrictiva que la del campo, su estructura recibe el nombre de anillo.
 
 \begin{defi}
   Sea $A$ un conjunto no vacío con dos operaciones binarias $+$ (suma) y $*$ (producto), decimos que la terna $(A,+,*)$ es un \emph{anillo} si cumple los siguiente axiomas:
   \begin{enumerate}
     \item $(A,+)$ es un grupo abeliano. Al elemento neutro lo denotaremos como $0_A$ y al inverso de $x \in A$ lo denotaremos como $-x$.
-    \item La operación $*$ es conmutativa sobre $A$.
     \item (Existencia de neutro multiplicativo) Existe un elemento $1_A \in A-\{0_A\}$ tal que para todo $x \in A$ se cumple que $1_A * x = x * 1_A = x$.
     \item (Distributividad) Para cualesquiera $x, y, z \in A$ se cumple que $x * (y + z) = x * y + x * z$ y $(y + z) * x =   y * x + z * x$.
   \end{enumerate}
   Si además, la operación $*$ es conmutativa sobre $A$, entonces decimos que es un \emph{anillo conmutativo}.
 \end{defi}
 
-Existen muchos ejemplos de anillos además de los polinomios, por ejemplo las matrices cuadradas $\M_n(\F)$, este anillo no es conmutativo, mientras que el de los polinomios si lo es. También, el conjunto de endomorfismos sobre un $\F$-espacio vectorial es un anillo no conmutativo. Por ultimo, tenemos el anillo modulo $n \in \N$, al que denotamos como $\Z_n$, el cual es un campo si y solo si $n$ es primo.
+Existen muchos ejemplos de anillos además de los polinomios, por ejemplo las matrices cuadradas $\M_n(\F)$, este anillo no es conmutativo, mientras que el de los polinomios si lo es. También, el conjunto de endomorfismos sobre un $\F$-espacio vectorial es un anillo no conmutativo. Por último, tenemos el anillo de los enteros módulo $n \in \N$, al que denotamos como $\Z_n$, el cual es un campo si y solo si $n$ es primo.
 
-De los ejemplos de anillos ya mencionados, hemos visto que las matrices, los endomorfismos y los polinomio también tienen una estructura de $\F$-espacio vectorial y no solo eso, además, su multiplicación como anillo se comporta bien con su multiplicación escalar. Estos anillos especiales, que cuentan con una estructura mas rica, reciben el nombre de álgebras.
+De los ejemplos de anillos ya mencionados, hemos visto que las matrices, los endomorfismos y los polinomios también tienen una estructura de $\F$-espacio vectorial y no solo eso, además, su multiplicación como anillo se comporta bien con respecto a su multiplicación escalar. Estos anillos especiales, que cuentan con una estructura más rica, reciben el nombre de álgebras.
 
 \begin{defi}
   Sea $(A,+,*)$ un anillo que tiene estructura de $\F$-espacio vectorial, decimos que es una $\F$-álgebra si para cualesquiera $x, y \in A$ y $\lambda, \mu \in \F$ se cumple que
@@ -69,10 +68,10 @@ Ahora, para comprender cuándo un anillo se puede volver una álgebra, veamos qu
   \]
 Además, para cualesquiera $x \in A$ y $\lambda \in \F$ se cumple que $x * (\lambda \cdot 1_A) = \lambda \cdot x = (\lambda \cdot 1_A) * x$ y por lo tanto $\lambda \cdot 1_A \in Z(A)$. De este modo, si definimos la función $\phi\colon \F\to Z(A)$ dada por $\phi(\lambda) = \lambda \cdot 1_A$, entonces $\phi$ es un homomorfismo de anillos unitario.
 
-Ahora, qué pasa en el caso contrario, supongamos que existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$, si definimos el producto escalar $\cdot \colon \F\times A \to A$ como $\lambda \cdot x = \phi(\lambda) * x$, es fácil ver, bajo este producto escalar, que $A$ es un $\F$-álgebra. De este modo podemos concluir el siguiente teorema.
+Ahora, veamos qué pasa en el otro caso, supongamos que existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$, si definimos el producto escalar $\cdot \colon \F\times A \to A$ como $\lambda \cdot x = \phi(\lambda) * x$, es fácil ver, bajo este producto escalar, que $A$ es un $\F$-álgebra. De este modo podemos concluir el siguiente teorema.
 
 \begin{teor}
-  Sea $A$ un anillo, $A$ será un $\F$-álgebra si y solo si existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$. \qed
+  Sea $A$ un anillo, $A$ será una $\F$-álgebra si y solo si existe un homomorfismo de anillos unitario $\phi\colon \F \to Z(A)$. \qed
 \end{teor}
 
 Ahora, notemos que no necesariamente existe un único homomorfismo de anillos unitario $\phi\colon\F\to Z(A)$, sino más bien, en un anillo cada uno de estos homomorfismo definirá una estructura de $\F$-álgebra diferente. De esta forma, para cada $\F$-álgebra, el homomorfismo dado por $\phi(\lambda) = \lambda \cdot 1_A$ será el que lo determine.
@@ -83,7 +82,7 @@ Para facilitar la lectura, en lo que resta del capítulo y si no existe peligro 
 
 \subsection{Evaluación de un polinomio}
 
-Ahora, recordemos que un polinomio no es una función como tal, pero existe una función asociada a partir de éste. Esto es lo que conocemos como evaluar el polinomio, y esta propiedad no es única del campo del polinomio, sino que se puede definir para cualquier $\F$-álgebra.
+Ahora, recordemos que un polinomio no es una función como tal, pero existe una función asociada a partir de éste. Esto es lo que conocemos como evaluar el polinomio, y esta propiedad no es única del anillo de polinomios, sino que se puede definir para cualquier $\F$-álgebra.
 
 \begin{defi}
   Sea $A$ una $\F$-álgebra determinada y $f \in \F[x]$ dado por $f = c_n x_n + \cdots+ c_1x + c_0$, entonces definimos la \emph{evaluación} de $f$ en $a \in A$ como
@@ -102,10 +101,10 @@ De esta forma, dado que $\phi(c_i) \in Z(A)$ para todo $i \in \{1,\ldots, n\}$, 
     \Eqand
   (fg)(a) = f(a) g(a).
 \]
-También, es fácil  comprobar que $f(1_\F) = 1_A$. Resumiendo, tenemos la siguiente proposición.
+También, de la definición se tiene que $f(1_\F) = 1_A$. Resumiendo, tenemos la siguiente proposición.
 
 \begin{prop}\label{prop:EvalPoly}
-  Sea $A$ una $\F$-álgebra determinada por el homomorfismo de anillos unitario $\phi\colon \F\to Z(A)$. Para cada $a \in A$, existe un único homomorfismo de anillos unitario $\varphi_a \colon \F[x] \to A$ tal que $\varphi_a(c) = \phi(c)$ para cada $c \in \F$ y $\varphi_a(x) = a$. Además, $\varphi_a(f) = f(a)$ para todo $f \in \F[x]$.
+  Sea $A$ una $\F$-álgebra determinada por el homomorfismo de anillos unitario $\phi\colon \F\to Z(A)$. Para cada $a \in A$ existe un único homomorfismo de anillos unitario $\varphi_a \colon \F[x] \to A$ tal que $\varphi_a(c) = \phi(c)$ para cada $c \in \F$ y $\varphi_a(x) = a$. Además, $\varphi_a(f) = f(a)$ para todo $f \in \F[x]$.
 \end{prop}
 \begin{proof}
   Ya hemos visto que $\varphi_a$ es un homomorfismo de anillos unitario, de esta forma solo queda demostrar la unicidad. Así, supongamos que existe otro homomorfismo $\psi\colon \F[x] \to A$ que cumple con las mismas propiedades, entonces para toda $f \in \F[x]$, si $f = c_n x_n + \cdots+ c_1x + c_0$ entonces
@@ -118,10 +117,10 @@ También, es fácil  comprobar que $f(1_\F) = 1_A$. Resumiendo, tenemos la sigui
 Para concluir esta sección, probaremos un lema que nos ayudará a hacer operaciones sobre matrices evaluadas en polinomios. 
 
 \begin{lema}
-  Sea $M \in \M_n(\F)$, $\lambda \in \F$ y $v \in \F^n$ tal que $Mv = \lambda v$ entonces $f(M) v = f(\lambda) v$.
+  Sean $M \in \M_n(\F)$, $\lambda \in \F$ y $v \in \F^n$ tal que $Mv = \lambda v$, entonces $f(M) v = f(\lambda) v$.
 \end{lema}
 \begin{proof}
-  Por inducción probemos que $M^k v = \lambda^k v$ para todo $k \in \N$, el caso base se cumple por hipótesis, además si $M^i v = \lambda^i v $ para algún $i\in \N$ entonces 
+  Por inducción probemos que $M^k v = \lambda^k v$ para todo $k \in \N$. El caso base se cumple por hipótesis, además si $M^i v = \lambda^i v $ para algún $i\in \N$ entonces 
     \[
       M^{i+1}v = M(M^iv) = M (\lambda^i v) = \lambda^i Mv = \lambda^i(\lambda v) = \lambda^{i+1}v.
     \]

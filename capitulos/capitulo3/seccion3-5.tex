@@ -3,10 +3,10 @@
 En esta sección estaremos trabajando con un conjunto muy especial de matrices, así como su relación con sus valores y vectores propios. 
 
 \begin{defi}
-  Sea $N \in \N_n(\K)$, decimos que $N$ es \emph{normal} si $NN^* = N^*N$. De igual forma, si $U\in\M_n(\K)$ decimos que $U$ es \emph{unitaria} si $UU^* = I$. En el caso que $\K = \R$, a las matrices unitarias se les llamará \emph{ortogonales}.
+  Sea $N \in \N_n(\K)$, decimos que $N$ es \emph{normal} si $NN^* = N^*N$. De igual forma, si $U\in\M_n(\K)$ decimos que $U$ es \emph{unitaria} si $UU^* = I$. En el caso en que $\K = \R$, a las matrices unitarias se les llamará \emph{ortogonales}.
 \end{defi}
 
-Una observación interesante es que, por definición, no es difícil ver que las matrices hermíticas y unitarias son normales. Ahora, las matrices unitarias son de especial interés, esto dado si las consideramos como matrices de cambio de base, la base es ortonormal bajo el producto interno canónico. Por convención, en lo que resta de la sección, el producto interno a usar será el canónico.
+Una observación interesante es que, por definición, no es difícil ver que las matrices hermíticas y unitarias son normales. Ahora, las matrices unitarias son de especial interés, dado que si las consideramos como matrices de cambio de base, entonces la base será ortonormal bajo el producto interno canónico. Por convención, en lo que resta de la sección, el producto interno a usar será el canónico.
 
 \begin{prop}\label{prop:PropUnitaryMat}
   Sea $U \in \M_n(\K)$, las siguientes afirmaciones son equivalentes:
@@ -19,7 +19,7 @@ Una observación interesante es que, por definición, no es difícil ver que las
   \end{enumerate}
 \end{prop}
 \begin{proof}
-  En primero lugar, notemos que por propiedades del conjugado $v^* w = \overline{v\bcdot w}$, de esta forma tenemos que $v^* w = r$ si y solo si $v\bcdot w = r$ cuando $r \in \R$, con esto dicho, pasemos a la demostración del teorema.
+  En primero lugar, por propiedades de los productos internos y la conjugación, notemos que $w \bcdot v = \overline{v\bcdot w} = v^* w $, de esta forma tenemos que $v^* w = r$ si y solo si $v\bcdot w = r$ cuando $r \in \R$, con esto dicho, pasemos a la demostración del teorema.
   
   \medskip\noindent
   $(1 \Leftrightarrow 2)$ Dado que $UU^* = I$ entonces $U^{-1} = U^*$ por lo que $U^* (U^*)^* = U^* U = UU^* = I$, lo que muestra que $U^*$ es unitaria. Ahora si $U^*$ es unitaria, por la parte anterior se cumple que $(U^*)^* = U$ es unitaria.
@@ -39,7 +39,7 @@ Una observación interesante es que, por definición, no es difícil ver que las
   Por igualdad de matrices tenemos que $v_i^* v_j \in \R$ para todos $i,j\in\{1,\ldots,n\}$, pero por lo dicho al principio esto implica que $v_i^* v_j  = v_i \bcdot v_j$ y por la ecuación anterior $v_i \bcdot v_j$ siempre que $i \neq j$ y $v_i \bcdot v_j = 1$ cuando $i=j$, pero por definición, esto muestra que las columnas de $U$ forman un conjunto ortonormal.
     
   \medskip\noindent
-  $(3 \Rightarrow 1)$ Si $U = \bigl( v_1 \mid \cdots \mid v_n \bigr)$, dado que sus columnas forman un conjunto ortonormal, entonces tenemos que $v_i \bcdot v_j \in \R$ para cualesquiera $i,j \in \{1,\ldots,n\}$ y por lo mencionado al principio, entonces se cumple que $ v_i^* v_j = v_i \bcdot v_j  = 0$ si $i \neq j$ y $v_i^* v_j = v_i \bcdot v_j  =  1$ si $i = j$. De este modo, realizando un cálculo similar al de inciso anterior, tenemos qué
+  $(3 \Rightarrow 1)$ Si $U = \bigl( v_1 \mid \cdots \mid v_n \bigr)$, dado que sus columnas forman un conjunto ortonormal, entonces tenemos que $v_i \bcdot v_j \in \R$ para cualesquiera $i,j \in \{1,\ldots,n\}$ y por lo mencionado al principio, entonces se cumple que $ v_i^* v_j = v_i \bcdot v_j  = 0$ si $i \neq j$ y $v_i^* v_j = v_i \bcdot v_j  =  1$ si $i = j$. De este modo, realizando un cálculo similar al de inciso anterior, tenemos que
   \[
     U^* U =
       \begin{pmatrix}
@@ -71,16 +71,16 @@ Una observación interesante es que, por definición, no es difícil ver que las
       \]
   
   \medskip\noindent
-  $(5 \Rightarrow 1)$ Notemos que si $v\bcdot w  = (Uv) \bcdot (Uw)$, realizando el mismo cálculo que en el inciso anterior, entonces $v\bcdot w = v^t I \overline{w} = v^t (U^t \overline{U}) \overline{w}$, pero eso implica que $U^t \overline{U}$ y $I$ son matrices asociadas al producto interno $\bcdot$ bajo la base canónica, pero por el teorema \ref{teor:MAsocFS} esto implica que $U^t \overline{U} = I$. Aplicando la conjugada finalmente obtenemos que $U^* U = \overline{I} = I$, lo que muestra que $U$ es unitaria.
+  $(5 \Rightarrow 1)$ Notemos que si $v\bcdot w  = (Uv) \bcdot (Uw)$, realizando el mismo cálculo que en el inciso anterior, entonces $v\bcdot w = v^t I \overline{w} = v^t (U^t \overline{U}) \overline{w}$, pero eso implica que $U^t \overline{U}$ y $I$ son matrices asociadas al producto interno $\bcdot$ bajo la base canónica, pero por el teorema \ref{teor:MAsocFS} esto implica que $U^t \overline{U} = I$. Aplicando la conjugación finalmente obtenemos que $U^* U = \overline{I} = I$, lo que muestra que $U$ es unitaria.
 \end{proof}
 
 Esta proposición nos muestra que las matrices unitarias son simplemente cambios de base donde la base es un conjunto ortonormal. Dado que este tipo de cambios de base son bastante importantes, es útil saber cuando dos matrices están asociadas bajo este tipo de cambio de base. Así podemos justificar la siguiente definición.
 
 \begin{defi}
-  Sea $M,N \in \M_n(\K)$, decimos que $M$ es \emph{unitariamente semejante} a $N$ si existe una matriz $U\in \M_n(\K)$ unitaria tal que $M = U^* N U$. A las matrices unitariamente semejante, en caso que $\K = \R$, se les dice que son \emph{ortogonalmente semejantes}.
+  Sea $M,N \in \M_n(\K)$, decimos que $M$ es \emph{unitariamente semejante} a $N$ si existe una matriz $U\in \M_n(\K)$ unitaria tal que $M = U^* N U$. A las matrices unitariamente semejante, en el caso en que $\K = \R$, se les dice que son \emph{ortogonalmente semejantes}.
 \end{defi}
 
-Al igual que con la semejanza de matrices, la semejanza unitaria será una relación de equivalencia, pero a diferencia de la semejanza, la semejante unitaria preserva algunas de las propiedades importantes que hemos visto.
+Al igual que con la semejanza de matrices, la semejanza unitaria será una relación de equivalencia, pero a diferencia de la semejanza, la semejanza unitaria preserva algunas de las propiedades importantes que hemos visto.
 
 \begin{teor}
   Sean $M,N \in \M_n(\K)$ donde $M$ es unitariamente semejante a $N$, entonces:
@@ -92,7 +92,7 @@ Al igual que con la semejanza de matrices, la semejanza unitaria será una relac
   \end{enumerate}
 \end{teor}
 \begin{proof}
-  En primer lugar, por la simetría de la relación de semejanza unitaria, no es necesario probar la vuelta de las proposición, sino que basta con la ida. Así demostremos la ida
+  En primer lugar, por la simetría de la relación de semejanza unitaria, no es necesario probar la vuelta de las proposición, sino que basta con la ida. Así demostremos la ida.
   \begin{enumerate}
     \item Sea $M = U^* N U$, donde $U$ es una matriz unitaria, dado que $M$ es normal y $M^* = U^* N^* U$, entonces veamos que
       \begin{align*}
@@ -127,7 +127,7 @@ Al igual que con la semejanza de matrices, la semejanza unitaria será una relac
 
 De igual forma con la semejanza, ahora buscamos saber cuando una matriz puede ser diagonalizable o triangularizable, pero esta vez, mediante la semejanza unitaria. 
 
-Ya sabemos que los complejos, toda matriz es triangularizable. Este resultado sale de aprovecharse de que siempre existe al menos un valor propio en cualquier matriz y construir una base acorde.
+Ya sabemos que en los complejos, toda matriz es triangularizable. Este resultado sale de aprovecharse de que por la proposición \ref{prop:MComplexHasEV} siempre existe al menos un valor propio en cualquier matriz y construir una base acorde.
 
 Resulta que gracias a que siempre podemos construir bases ortonormales, este proceso se puede replicar de manera exacta, pero esta vez usando bases ortonormales.
 
@@ -135,9 +135,9 @@ Resulta que gracias a que siempre podemos construir bases ortonormales, este pro
   Sea $M \in\M_n(\C)$, entonces $M$ es unitariamente semejante a alguna matriz triangular.
 \end{teor}
 \begin{proof}
-  Primero, probemos el teorema para matrices superiores. Procedamos por inducción, podemos ver que trivialmente se cumple para $n = 1$, de este modo supongamos que se cumple para $k$ y demostremos que se cumple para $k+1$.
+  Primero, probemos el teorema para matrices triangulares superiores. Procedamos por inducción, podemos ver que trivialmente se cumple para $n = 1$, de este modo supongamos que se cumple para $k$ y demostremos que se cumple para $k+1$.
   
-  Sea $M \in M_{k+1}(\C)$, sabemos que $M$ tiene al menos un valor propio $\lambda$, sea $v$ un vector propio del valor $\lambda$ de tal manera que $\norm{v}=1$. Ahora, por teoremas de álgebra lineal y aplicando el proceso Gram-Schmidt podemos extender a $\{v\}$ para obtener una base $B = \{ v, q_1, \ldots, q_n \}$ ortonormal de $\C^{k+1}$.
+  Sea $M \in M_{k+1}(\C)$, por la proposición \ref{prop:MComplexHasEV} sabemos que $M$ tiene al menos un valor propio $\lambda$, sea $v$ un vector propio del valor $\lambda$ de tal manera que $\norm{v}=1$. Ahora, por teoremas de álgebra lineal y aplicando el proceso Gram-Schmidt podemos extender a $\{v\}$ para obtener una base $B = \{ v, q_1, \ldots, q_n \}$ ortonormal de $\C^{k+1}$.
   
   Sea $Q = ( v \mid  q_1 \mid \ldots \mid q_n  ) $, notemos que $Q$ es unitario, por la proposición \ref{prop:PropUnitaryMat}, de esta forma si $N = Q^* M Q$, entonces por multiplicación por bloques y recordando que $Q^*v = e_1$ por propiedades de la matriz inversa, veamos que
   \begin{align*}
@@ -162,24 +162,24 @@ Resulta que gracias a que siempre podemos construir bases ortonormales, este pro
     = \begin{spmatrix}{c|c} \lambda & u^t R \\\hline \bec 0 & R^*LR \end{spmatrix} \\
     &= \begin{spmatrix}{c|c} \lambda & u^t R \\\hline \bec 0 & U \end{spmatrix}.
   \end{align*}
-  Dado que $U$ es triangular superior, entonces podemos ver que $T$ es triangular superior, pero como $P$ es unitaria, entonces $T$ es unitariamente semejante a $N$ y como $Q$ es unitario, entonces $N$ es unitariamente semejante a $M$, pero por transitividad de la equivalencia, entonces tenemos que $T$ es unitariamente semejante a $M$. De esta forma, dado que la proposición se cumplen para $k+1$ entonces tenemos que para toda matriz $M \in \M_n(\C)$ es unitariamente semejante a una matriz triangular superior.
+  Dado que $U$ es triangular superior, entonces podemos ver que $T$ es triangular superior, pero como $P$ es unitaria, entonces $T$ es unitariamente semejante a $N$ y como $Q$ es unitario, entonces $N$ es unitariamente semejante a $M$, pero por transitividad de esta equivalencia, entonces tenemos que $T$ es unitariamente semejante a $M$. De esta forma, dado que la proposición se cumple para $k+1$, entonces toda matriz $M \in \M_n(\C)$ es unitariamente semejante a una matriz triangular superior.
   
   Ahora demostremos la proposición para matrices triangulares inferiores. Por la parte anterior sabemos que si $M \in \M_n(\C)$ entonces $M^*$ es unitariamente semejante a una matriz triangular superior $T$, es decir, existe alguna matriz unitaria $Q$ tal que $M^* = U^* T U$, ahora notemos que
   \[ M = (M^*)^* = (U^* T U)^* = U^* T^* U,\]
   de aquí podemos ver que $M$ es semejante a $T^*$ la cual es una matriz triangular inferior. Así probamos que si $M \in \M_n(\C)$ entonces $M$ es unitariamente equivalente a una matriz triangular superior y a una inferior.
   \end{proof}
 
-  Ya tenemos que todas las matrices son unitariamente semejantes a alguna matriz triangular, antes de poder caracterizar las matrices diagonales necesitamos otro lema.
+  Ya tenemos que todas las matrices son unitariamente semejantes a alguna matriz triangular, pero antes de poder caracterizar las matrices diagonales necesitamos otro lema.
 
 \begin{lema}\label{lema:TriangNorm}
   Sea $T \in \M_n(\K)$ una matriz triangular, $T$ es normal si y solo si $T$ es diagonal.
 \end{lema}
 \begin{proof}
-  Primero, probemos la ida para matrices triangulares superiores. Por inducción, notemos que la proposición se cumple trivialmente para $n=1$, de esta manera, supongamos que se cumple para $k$ y veamos que se cumple también para $k+1$. Ahora, si $T \in \M_{k+1}(\K)$ es una matriz triangular inferior, notemos entonces que podemos escribirlo de la siguiente forma
+  Primero, probemos la ida para matrices triangulares superiores. Por inducción, notemos que la proposición se cumple trivialmente para $n=1$, de esta manera, supongamos que se cumple para $k$ y veamos que se cumple también para $k+1$. Ahora, si $T \in \M_{k+1}(\K)$ es una matriz triangular inferior, notemos entonces que podemos escribirla de la siguiente forma
   \[
-    T = \begin{spmatrix}{c|c} \lambda & u^t  \\\hline   \bec 0 & N  \end{spmatrix},
+    T = \begin{spmatrix}{c|c} \lambda & v^t  \\\hline   \bec 0 & N  \end{spmatrix},
   \]
-  donde $\lambda \in \K$, $v \in\K^k$ y $N \in \M_k(\K)$ es una matriz triangular superior. Ahora, por multiplicación por bloques y recordando que $\norm{v}^2 = v\bcdot v = v^t \bar v $, entonces notemos que
+  donde $\lambda \in \K$, $v \in\K^k$ y $N \in \M_k(\K)$ es una matriz triangular superior. Ahora, por multiplicación por bloques y recordando que $\norm{v}^2 = v\bcdot v = v^t \bar v $, notemos que
   \begin{align*}
     TT^*
       &= \begin{spmatrix}{c|c} \lambda & v^t  \\\hline   \bec 0 & N  \end{spmatrix} \begin{spmatrix}{c|c} \bar\lambda & \bec 0^t  \\\hline   \bar v & N^* \end{spmatrix} &
@@ -190,17 +190,17 @@ Resulta que gracias a que siempre podemos construir bases ortonormales, este pro
   \end{align*}
 
   Ahora, notemos que por hipótesis $TT^* = T^* T$, de esta forma, usando la ecuación \eqref{eq:1}, tenemos que
-  \[ \abs{t}^2 + \norm{u}^2 = \abs{t}^2 \implies \norm{u}^2 = 0.\]
-  Pero por propiedades de la norma, sabemos que $\norm{u}^2 = 0$ si y solo sí $u = \bec 0$, pero eso implica que
+  \[ \abs{\lambda}^2 + \norm{v}^2 = \abs{\lambda}^2 \implies \norm{v}^2 = 0.\]
+  Pero por propiedades de la norma, sabemos que $\norm{v}^2 = 0$ si y solo si $v = \bec 0$, pero eso implica que
   \begin{align*}
     TT^*
-      &= \begin{spmatrix}{c|c} \abs{t}^2  & \bec 0^t \\\hline \bec 0 & NN^* \end{spmatrix}, &
+      &= \begin{spmatrix}{c|c} \abs{\lambda}^2  & \bec 0^t \\\hline \bec 0 & NN^* \end{spmatrix}, &
         T^* T 
-          &=  \begin{spmatrix}{c|c} \abs{t}^2 & \bec 0^t \\\hline \bec 0 &  N^*N \end{spmatrix}. \tagthis\label{eq:2}
+          &=  \begin{spmatrix}{c|c} \abs{\lambda}^2 & \bec 0^t \\\hline \bec 0 &  N^*N \end{spmatrix}. \tagthis\label{eq:2}
   \end{align*}
   Pero de igual forma, por normalidad de $T$ y la la ecuación \eqref{eq:2}, esto implica que $NN^* = N^*N$, en otras palabras, $N$ es normal y triangular superior, pero por hipótesis de inducción eso implica que $N$ es diagonal, pero entonces $T$ tiene la forma
   \[
-    T = \begin{spmatrix}{c|c} t & \bec 0^t  \\\hline   \bec 0 & N  \end{spmatrix},
+    T = \begin{spmatrix}{c|c} \lambda & \bec 0^t  \\\hline   \bec 0 & N  \end{spmatrix},
   \]
   donde $N$ es una matriz diagonal, pero eso implica finalmente que $T$ es diagonal. Dado que se cumple para $k+1$, por inducción podemos ver que si $T \in \M_n(\K)$ es normal y triangular superior entonces $T$ es diagonal.
 
@@ -210,18 +210,18 @@ Resulta que gracias a que siempre podemos construir bases ortonormales, este pro
 
   Ahora, probemos la vuelta, sea $T$ una matriz diagonal notemos que por propiedades de las matrices diagonales $TT^*$ y $T^*T$ también son matrices diagonales y cumplen que
   \[ (TT^*)_{jj} = T_{jj} (T^*)_{jj} =  (T^*)_{jj} T_{jj} = (T^*T)_{jj}, \]
-  de aquí podemos ver que $TT^* = T^*T$, por lo tanto $T$ es normal. Ahora, como $T$ es diagonal, entonces es triangular superior e inferior, de esta forma demostramos que $T$ es normal y triangular superior o inferior si y solo sí $T$ es diagonal.
+  de aquí podemos ver que $TT^* = T^*T$, por lo tanto $T$ es normal. Ahora, como $T$ es diagonal, entonces es triangular superior e inferior, de esta forma demostramos que $T$ es normal y triangular superior o inferior si y solo si $T$ es diagonal.
 \end{proof}
 
-Con este lema, finalmente podemos caracterizar a las matrices unitariamente diagonales.
+Con este lema, finalmente podemos caracterizar a las matrices unitariamente diagonalizables.
 
 \begin{teor}\label{teor:CaracMatNorm}
-  $N \in \M_n(\C)$ es normal si y solo sí es unitariamente diagonalizable.
+  $N \in \M_n(\C)$ es normal si y solo si es unitariamente diagonalizable.
 \end{teor}
 \begin{proof}
   Por el lema de Schur, sabemos que $N$ debe ser unitariamente equivalente a una matriz $T$ triangular superior, pero por propiedades de la semejanza unitaria, tenemos que $T$ debe ser normal, pero si $T$ es normal, aplicando el lema \ref{lema:TriangNorm}, entonces $T$ es una matriz diagonal. De esta forma si $N$ es normal, entonces es unitariamente diagonalizable.
 
-  Ahora, si $N$ es diagonalizable, entonces es unitariamente semejante a una matriz diagonal $D$. Ya que $D$ es una matriz diagonal, por el lema \ref{lema:TriangNorm}, tenemos que $D$ es normal, pero como la semejanza unitaria preserva la normalidad, esto implica que $N$ es normal. Así vemos que $N$ es normal si y solo sí es unitariamente diagonalizable.
+  Ahora, si $N$ es unitariamente diagonalizable, entonces es unitariamente semejante a una matriz diagonal $D$. Ya que $D$ es una matriz diagonal, por el lema \ref{lema:TriangNorm}, tenemos que $D$ es normal, pero como la semejanza unitaria preserva la normalidad, esto implica que $N$ es normal. Así vemos que $N$ es normal si y solo si es unitariamente diagonalizable.
 \end{proof}
 
 
@@ -234,24 +234,24 @@ Todas estas propiedades estarán asociadas a los valores propios de las matrices
 El primer tipo de matriz que caracterizaremos serán las matrices unitarias, aunque ya la proposición \ref{prop:PropUnitaryMat} nos da algunas propiedades equivalentes, el siguiente teorema nos dará una visión acerca de qué deben cumplir sus vectores propios.
 
 \begin{teor}
-  $U \in \M_n(\C)$ es unitaria si y solo sí es unitariamente diagonalizable y sus valores propios tienen modulo 1.
+  $U \in \M_n(\C)$ es unitaria si y solo si es unitariamente diagonalizable y sus valores propios tienen módulo 1.
 \end{teor}
 \begin{proof}
-  Sea $U$ unitaria, sabemos que $U$ es normal, de esta forma, por el teorema \ref{teor:CaracMatNorm}, tenemos que es unitariamente semejante a una matriz diagonal $D$. Ahora, dado que la semejanza unitaria conserva la unitariedad, entonces podemos ver que $D$ es también unitaria, de esta forma, cada comuna de $D$ debe tener norma uno. De esta forma, si $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ y por propiedades de la norma, entonces
+  Sea $U$ unitaria, sabemos que $U$ es normal, de esta forma, por el teorema \ref{teor:CaracMatNorm}, tenemos que es unitariamente semejante a una matriz diagonal $D$. Ahora, dado que la semejanza unitaria conserva la propiedad de ser unitaria, entonces podemos ver que $D$ es también unitaria, de esta forma, cada columna de $D$ debe tener norma uno. De esta forma, si $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$, por propiedades de la norma, entonces
   \[
   \norm{D_{*i}} = \norm{ \lambda_{i} e_i } = \abs{\lambda_i} \norm{e_i} = \abs{\lambda_i} = 1.
   \]
-  Pero recordemos, por el teorema \ref{teor:SemEspectro} y la proposición \ref{prop:EpecTriang}, los elementos en la diagonal de $D$ corresponden a los valores propios de $U$, de esta forma tenemos si $U$ es unitaria entonces es unitariamente diagonalizable y sus valores propios tienen modulo 1.
+  Pero recordemos, por el teorema \ref{teor:SemEspectro} y la proposición \ref{prop:EpecTriang}, que los elementos en la diagonal de $D$ corresponden a los valores propios de $U$, de esta forma tenemos si $U$ es unitaria entonces es unitariamente diagonalizable y sus valores propios tienen módulo 1.
   
-  Ahora, si $U$ es unitariamente diagonalizable y sus valores propios tienen modulo 1, entonces por el teorema \ref{teor:SemEspectro} y la proposición \ref{prop:EpecTriang}, $U$ es unitariamente semejante a una matriz diagonal $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ donde $E(U) = \{\lambda_1, \ldots, \lambda_n\}$. Ahora, notemos que, por propiedades de los complejos, dado que $\lambda_i$ tiene modulo 1, entonces $\overline{\lambda_i} = \lambda_i^{-1}$, de esta forma $D^* =  (\lambda_1^{-1} e_1 \mid \cdots \mid  \lambda_n^{-1} e_n) $ y por propiedades de las matrices diagonales, tenemos que
+  Ahora, si $U$ es unitariamente diagonalizable y sus valores propios tienen módulo 1, entonces por el teorema \ref{teor:SemEspectro} y la proposición \ref{prop:EpecTriang}, $U$ es unitariamente semejante a una matriz diagonal $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ donde $E(U) = \{\lambda_1, \ldots, \lambda_n\}$. Ahora, notemos que, por propiedades de los complejos, dado que $\lambda_i$ tiene módulo 1, entonces $\overline{\lambda_i} = \lambda_i^{-1}$, de esta forma $D^* =  (\lambda_1^{-1} e_1 \mid \cdots \mid  \lambda_n^{-1} e_n) $ y por propiedades de las matrices diagonales, tenemos que
   \[ DD^* = \begin{spmatrix}{c|c|c} \lambda_1\lambda_1^{-1} e_1 & \cdots &  \lambda_n \lambda_n^{-1} e_n \end{spmatrix} = \begin{spmatrix}{c|c|c}  e_1 & \cdots &  e_n \end{spmatrix} = I_n. \]
-  De esta forma tenemos que $D$ es unitaria, como la semejanza unitaria conserva la unitariedad, finalmente tenemos que $U$ es unitaria. Así $U$ es unitaria si y solo sí es unitariamente diagonalizable y sus valores propios tienen modulo 1.
+  De esta forma tenemos que $D$ es unitaria, como la semejanza unitaria conserva la unitariedad, finalmente tenemos que $U$ es unitaria. Así $U$ es unitaria si y solo si es unitariamente diagonalizable y sus valores propios tienen módulo 1.
 \end{proof}
 
 El siguiente tipo de matrices a caracterizar serán las matrices hermíticas. 
 
 \begin{teor}\label{teor:CaracMatHerm}
-  $H \in \M_n(\C)$ es hermítica si y solo sí es unitariamente diagonalizable y sus valores propios son reales.
+  $H \in \M_n(\C)$ es hermítica si y solo si es unitariamente diagonalizable y sus valores propios son reales.
 \end{teor}
 \begin{proof}
   Si $H$ es hermítica, entonces $H$ es normal y, por el teorema \ref{teor:CaracMatNorm}, es unitariamente semejante a una matriz diagonal $D$. Ahora, dado que la semejanza unitaria conserva la hermeticidad, entonces podemos ver que $D$ es también hermítica.
@@ -260,13 +260,13 @@ El siguiente tipo de matrices a caracterizar serán las matrices hermíticas.
  
  Ahora, si $H$ es unitariamente diagonalizable y sus valores propios son reales, entonces por el teorema \ref{teor:SemEspectro} y la proposición \ref{prop:EpecTriang}, $H$ es unitariamente semejante a una matriz diagonal $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$ donde $E(H) = \{\lambda_1, \ldots \lambda_n\}$. Ahora, dado que $\lambda_i$ es real, entonces, por propiedades de los complejos $\overline{\lambda_i} = \lambda$, de esta forma
  \[ D^* =  \begin{spmatrix}{c|c|c} \overline{\lambda_1} e_1 & \cdots &  \overline{\lambda_n} e_n \end{spmatrix} = \begin{spmatrix}{c|c|c} \lambda_1 e_1 & \cdots &  \lambda_n e_n \end{spmatrix} = D.\]
- Por tanto, tenemos que $D$ es hermítica, como la semejanza unitaria conserva la hermeticidad, finalmente tenemos que $H$ es hermítica. Así $H$ es hermítica si y solo sí es unitariamente diagonalizable y sus valores propios son reales.
+ Por tanto, tenemos que $D$ es hermítica, como la semejanza unitaria conserva la hermeticidad, finalmente tenemos que $H$ es hermítica. Así $H$ es hermítica si y solo si es unitariamente diagonalizable y sus valores propios son reales.
 \end{proof}
 
 Finalmente, con todas estas propiedades podemos dar la condición que nos faltaba para las matrices asociadas a los productos internos.
 
 \begin{teor}
-  $M \in \M_n(\C)$ es definida positiva si y solo sí es unitariamente diagonalizable y sus valores propios son positivos.
+  $M \in \M_n(\C)$ es definida positiva si y solo si es unitariamente diagonalizable y sus valores propios son positivos.
 \end{teor}
 \begin{proof}
   Si $M$ es definida positiva entonces es hermítica, entonces por el teorema \ref{teor:CaracMatHerm} tenemos que $M$ es unitariamente semejante a una matriz diagonal $D$ y sus valores propios son reales. Ahora, si $D = (\lambda_1 e_1 \mid \cdots \mid  \lambda_n e_n)$, dado que la semejanza unitaria preserva la definición positiva, entonces $D$ es definida positiva y por tanto, para todo $i\in\{1,\ldots,n\}$, se cumple que

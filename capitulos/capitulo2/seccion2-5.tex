@@ -1,6 +1,6 @@
-\section{El teorema de Cayley-Hamilton}
+\section{El teorema de Cayley-Hamilton} \label{sec:Cayley-Hamilton}
 
-Aunque ya tengamos una idea de cual es la forma del polinomio minimal de una matriz, existe otro teorema importante para poder encontrarlo. Además, mostremos una de las principales consecuencias de que toda matriz compleja sea triangularizable.
+Aunque ya tengamos una idea de cual es la forma del polinomio minimal de una matriz, existe otro teorema importante para poder calcularlo. Además, mostremos una de las principales consecuencias de que toda matriz compleja sea triangularizable.
 
 \begin{teor}\label{teor:CaracPolyForm}
   Sea $M \in \M_n(\C)$ y $p \in \C[x]$ su polinomio característico, entonces se cumple que
@@ -36,18 +36,18 @@ Aunque ya tengamos una idea de cual es la forma del polinomio minimal de una mat
   \]
 \end{proof}
 
-Este teorema implica que el polinomio característico siempre tiene grado $n$. Otra consecuencias interesante de que toda matriz sea triangularizable en los complejos, es la siguiente.
+Este teorema implica que el polinomio característico siempre tiene grado $n$. Otra consecuencia interesante de que toda matriz sea triangularizable en los complejos, es la siguiente.
 
 \begin{prop} \label{prop:FormCaracComplex}
-  Sea $M \in \M_n(\C)$ y $E(M) = \{\lambda_1, \cdots, \lambda_k\}$ entonces su polinomio característico $p \in \C[x]$ cumple que
+  Sea $M \in \M_n(\C)$ y $E(M) = \{\lambda_1, \ldots, \lambda_k\}$ entonces su polinomio característico $p \in \C[x]$ cumple que
     \[
       p = (-1)^n \prod_{i=1}^k (x-\lambda_i)^{m_i}
     \]
-  donde $m_1 + \cdots + m_n = n$. Al este valor $m_i$ se le conoce como la \emph{multiplicidad algebraica} de $\lambda_i$.
+  donde $m_1 + \cdots + m_n = n$. Al valor $m_i$ se le conoce como la \emph{multiplicidad algebraica} de $\lambda_i$.
 \end{prop}
 \begin{proof}
   Por el teorema \ref{teor:ComplexTriang} sabemos que existe una matriz $T \in \M_n(\C)$ triangular tal que $M \sim T$, además por la proposición \ref{prop:EpecTriang} y el teorema \ref{teor:SemEspectro} tenemos que
-    \[ \{\lambda_1, \cdots, \lambda_k\} = E(M) = E(T) = \{T_{ii} : i = 1,\ldots,n\}. \]
+    \[ \{\lambda_1, \ldots, \lambda_k\} = E(M) = E(T) = \{T_{ii} : i = 1,\ldots,n\}. \]
   
   Dado que, por el teorema \ref{teor:PropPCaract}, tenemos que $p$ también es el polinomio característico de $T$ y entonces, por lo mencionado con anterioridad, se debe cumplir que 
     \[
@@ -56,7 +56,7 @@ Este teorema implica que el polinomio característico siempre tiene grado $n$. O
   dado que $p$ es de grado $n$, es fácil de determinar que $m_1 + \cdots + m_n = n$.
 \end{proof}
 
-Ahora, para demostraremos otra propiedad necesaria para demostrar el teorema de Cayley-Hamilton.
+Ahora, demostraremos otra propiedad necesaria para demostrar el teorema de Cayley-Hamilton.
 
 \begin{lema} \label{lema:DescpminGrad}
   Sea $M$ una matriz de $n\times n$ con entradas en los polinomios $\F[x]$, si el polinomio de mayor grado en las entradas de $M$ es de grado $m$, entonces existen matrices $M_0, \ldots, M_m \in \M_n(\F)$ donde $M_m \neq \bec 0$ tal que
@@ -108,7 +108,7 @@ Ahora, para demostraremos otra propiedad necesaria para demostrar el teorema de 
     \end{align*}
   Dado que existe un polinomio de grado $m$, entonces podemos ver que al menos una entrada de $M_m$ es distinta de cero, por lo que $M_m \neq\bec 0$.
 
-  Ahora, si $M = N = x^p N_p + \cdots + x N_1  + N_0$ donde $N_0, \ldots, N_p \in \M_n(\F)$ y $M_p \neq 0$. Dado que dos matrices son iguales si y solo si sus entradas son iguales, entonces notemos que para cualesquiera $i,j \in \{1,\ldots,n\}$ se tiene que
+  Ahora, si $M = N = x^p N_p + \cdots + x N_1  + N_0$ donde $N_0, \ldots, N_p \in \M_n(\F)$ y $N_p \neq 0$. Dado que dos matrices son iguales si y solo si sus entradas son iguales, entonces notemos que para cualesquiera $i,j \in \{1,\ldots,n\}$ se tiene que
     \[
       (M_m)_{ij} x^m + \cdots + (M_1)_{ij}x + (M_0)_{ij} = M_{ij}
         =
@@ -126,7 +126,7 @@ Con todas estas propiedades podemos pasar a la demostración del teorema de Cayl
   Sea $A = \adj(M-xI)$, por propiedad conocidas de las determinantes, tenemos que
     \[ (M-xI)A = \det(M-xI) I = p I. \]
   
-  Ahora, por el lema \ref{lema:DescpminGrad} tenemos que existen matrices $A_0,\ldots,A_m \in \M_n(\C)$ con $A_m \neq \bec 0$ tal que $A = x^m A_n + \cdots + xA_1 + A_0$. Así veamos que
+  Ahora, por el lema \ref{lema:DescpminGrad} tenemos que existen matrices $A_0,\ldots,A_m \in \M_n(\C)$ con $A_m \neq \bec 0$ tal que $A = x^m A_m + \cdots + xA_1 + A_0$. Así veamos que
   \begin{align*}
     (M-xI)A &= (M-xI) \paren{ \sum_{i=0}^m x^i A_i } \\
       &= \sum_{i=0}^m M(x^i A_i) - \sum_{i=0}^m xI(x^i A_i) \\
@@ -135,15 +135,14 @@ Con todas estas propiedades podemos pasar a la demostración del teorema de Cayl
       &= MA_0 +  \sum_{i=1}^m x^i( M A_i  - A_{i-1})  - x^{m+1}A_m.
   \end{align*}
 
-  Ahora, por el teorema \ref{teor:CaracPolyForm} tenemos que is $p = c_n x^n + \cdots + c_1 + c_0 $ para algunos coeficiente $c_0,\ldots,c_1 \in \C$ y aplicando la descomposición del lema \ref{lema:DescpminGrad}, finalmente tenemos que
+  Ahora, por el teorema \ref{teor:CaracPolyForm} tenemos que $p = c_n x^n + \cdots + c_1 x + c_0 $ para algunos coeficientes $c_0,\ldots,c_1 \in \C$ y aplicando la descomposición del lema \ref{lema:DescpminGrad}, finalmente tenemos que
   \[
-    - x^{m+1}A_m +  \sum_{i=1}^m x^i( M A_i  - A_{i-1})  + MA_0 = (M-xI)A = pI = c_n x^n I + \cdots + c_1 I + c_0 I.
+    - x^{m+1}A_m +  \sum_{i=1}^m x^i( M A_i  - A_{i-1})  + MA_0 = (M-xI)A = pI = c_n x^n I + \cdots + c_1 x I + c_0 I.
   \]
-  Ahora, aplicando nuevamente el lema \ref{lema:DescpminGrad} tenemos que $m+1 = n$, $MA_0 =  c_0 I$ y para cada $i \in \{1,\ldots,n-1\}$ se cumple que
+  Ahora, aplicando nuevamente el lema \ref{lema:DescpminGrad} tenemos que $m+1 = n$, $MA_0 =  c_0 I$, $-A_{n-1} = c_n I$ y $M A_i  - A_{i-1} = c_i I$ para cada $i \in \{1,\ldots,n-1\}$. De este modo, multiplicando $M^n$ y $M^i$ por la izquierda la segunda y tercera igualdad, tenemos que
   \begin{align*}
-    -A_{n-1} &= c_n I  &  M A_i  - A_{i-1}    \\
-    M^n(-A_{n-1}) &= M^n(c_n I)  &  M^i(M A_i  - A_{i-1}) &= M^i(c_i I)   \\
-    -M^nA_{n-1} &= c_n M^n  &  M^{i+1} A_i  - M^iA_{i-1} &= c_i M^i .
+    M^n(-A_{n-1}) &= M^n(c_n I),  &  M^i(M A_i  - A_{i-1}) &= M^i(c_i I),   \\
+    -M^nA_{n-1} &= c_n M^n,  &  M^{i+1} A_i  - M^iA_{i-1} &= c_i M^i .
   \end{align*}
 
   De esta forma, usando las ecuaciones obtenidas y por propiedades de las sumas telescópicas, tenemos que
@@ -169,10 +168,10 @@ Asímismo, por la proposición \ref{prop:FormCaracComplex} el polinomio caracter
 \]
 donde $m_1 + \cdots + m_k = n$.
 
-Así, usando el teorema de Cayley-Hamilton, podemos determinar fácilmente que $1 \leq  n_i \leq m_i$ para todo $i\in\{1,\ldots,k\}$. Más aún, como $n_1 + \cdots + n_k \leq m_1 + \cdots + m_k = n$ entonces hemos demostrado la siguiente corolario.
+Así, usando el teorema de Cayley-Hamilton, podemos determinar fácilmente que $1 \leq  n_i \leq m_i$ para todo $i\in\{1,\ldots,k\}$. Más aún, como $n_1 + \cdots + n_k \leq m_1 + \cdots + m_k = n$ entonces hemos demostrado el siguiente corolario.
 
 \begin{coro}
-  Sea $M \in \M_n(\C)$ entonces $\grad(f_M) \leq n$. Además, si $p$ es el polinomio característico de $M$ entonces $p(\lambda) = 0$ si y solo si $f_M(\lambda) = 0$ para todo $\lambda \in \C$. \qed
+  Sea $M \in \M_n(\C)$ entonces $\grad(f_M) \leq n$. Además, si $p$ es el polinomio característico de $M$ y $\lambda \in \C$ entonces $p(\lambda) = 0$ si y solo si $f_M(\lambda) = 0$. \qed
 \end{coro}
 
 Todas estas propiedades facilitan la búsqueda del polinomio minimal, ya que nos da una cota superior para cada una de las potencias $n_i$ del corolario \ref{coro:PolyMinCompelx}, así, solo hay que probar finitas combinaciones para encontrar el polinomio minimal.
@@ -203,7 +202,7 @@ Todas estas propiedades facilitan la búsqueda del polinomio minimal, ya que nos
 
     Así, por el teorema \ref{teor:MinPolyTriang} y el teorema de Cayley-Hamilton tenemos que $f_A = x^{n_1} (x-1)^{n_2}$ donde $1\leq n_1, n_2\leq 2$.
     
-    Ahora, notemos que los únicos polinomios de menor grado posibles son $x^2(x-1)$, $x(x-1)^2$ y $x(x-1)$. Veamos cuanto da los primeros dos polinomios.
+    Ahora, notemos que los únicos polinomios de menor grado posibles son $x^2(x-1)$, $x(x-1)^2$ y $x(x-1)$. Veamos qué resulta de la evaluación de los primeros dos polinomios.
     \begin{align*}
       A^2(A-I) &= \begin{pmatrix}
         1 & 1 & 1 & 1 \\

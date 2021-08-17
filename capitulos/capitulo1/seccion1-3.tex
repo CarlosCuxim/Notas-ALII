@@ -10,7 +10,7 @@ Así vemos que $[T(v_i)]_{B'}$ es la $i$-ésima columna de la matriz $T_{BB'}$, 
   \[ T_{BB'} = \begin{spmatrix}{c|c|c}  [T(v_1)]_{B'} & \cdots & [T(v_n)]_{B'}  \end{spmatrix}. \]
 
 \begin{teor} \label{teor:MatTrLin}
-  Sean $V$ y $W$ dos $\F$-espacio vectorial con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces existe una única matriz $T_{BB'}$ de tamaño $m\times n$ tal que para toda $v \in V$ se cumple que
+  Sean $V$ y $W$ dos $\F$-espacios vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$, respectivamente, y sea $T\colon V \to W$ una transformación lineal, entonces existe una única matriz $T_{BB'}$ de tamaño $m\times n$ tal que para toda $v \in V$ se cumple que
     \[ T_{BB'} [v]_B = [T(v)]_{B'} \]
   Además $(T_{BB'})_{*i} = [T(v_i)]_{B'}$ para todo $i \in \{1,\ldots,n\}$.
 \end{teor}
@@ -58,7 +58,7 @@ mostrando que toda transformación lineal es inducida por alguna matriz.
 \end{example}
 
 \begin{teor}\label{teo:isomTrMat}
-  Sean $V$ y $W$ dos $\F$-espacio vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si consideramos la función $\Psi_{BB'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{BB'}(T) = T_{BB'}$, entonces $\Psi_{BB'}$ es un isomorfismo de $L(V,W)$ y $\M_{m\times n}(\F)$.
+  Sean $V$ y $W$ dos $\F$-espacios vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$ y $W' = (w_1,\ldots,w_m)$. Si consideramos la función $\Psi_{BB'}\colon L(V,W) \to \M_{m\times n}(\F)$ dada por $\Psi_{BB'}(T) = T_{BB'}$, entonces $\Psi_{BB'}$ es un isomorfismo de $L(V,W)$ y $\M_{m\times n}(\F)$.
 \end{teor}
 \begin{proof}
   Primero demostremos que la función $\Psi_{BB'}$ es una transformación lineal. Sean $T, S \in L(V,W)$ y $\lambda \in \F$, notemos que para todo $v \in V$ se cumple que
@@ -83,11 +83,11 @@ mostrando que toda transformación lineal es inducida por alguna matriz.
 La relación de las matrices y las transformaciones lineales va más allá de que sean isomorfos como espacios vectoriales, además existe una relación entre la multiplicación de matrices y la composición de transformaciones lineales.
 
 \begin{teor}
-  Sean $V$, $W$ y $U$ tres $\F$-espacios vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$, $B' = (w_1,\ldots,w_m)$ y $B'' = (u_1,\ldots,u_p)$. Si $T\colon V \to W$ y $S\colon W \to W$ son transformaciones lineales, entonces
+  Sean $V$, $W$ y $U$ tres $\F$-espacios vectoriales con bases ordenadas $B = (v_1,\ldots,v_n)$, $B' = (w_1,\ldots,w_m)$ y $B'' = (u_1,\ldots,u_p)$. Si $T\colon V \to W$ y $S\colon W \to U$ son transformaciones lineales, entonces
   \[ (S \circ T)_{BB''} = S_{B'B''} T_{BB'}. \]
 \end{teor}
 \begin{proof}
-  Sea $v \in V$, notemos que por definición que
+  Sea $v \in V$, notemos por definición que
     \begin{align*}
       S_{B'B''} T_{BB'}[v_B] &= S_{B'B''}[T(v)]_{B'} \\
         &= \bigl[ S\bigl(T(v)\bigr) \bigr]_{B''} \\
@@ -102,12 +102,12 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
 \end{coro}
 \begin{proof}
   Dado que $T$ es invertible entonces es biyectiva, por lo que $m = n$. Así, por el teorema anterior, tenemos que
-  \[ T^{-1}_{B'B} T_{BB'} = (T^{-1}\circ T)_{BB} = (\Id_{V,W})_{BB} = I_n, \]
+  \[ T^{-1}_{B'B} T_{BB'} = (T^{-1}\circ T)_{BB} = (\Id_V)_{BB} = I_n, \]
   pero esto impĺica que $T_{B'B}^{-1} = (T_{BB'})^{-1}$, por definición.
 
   Ahora, si $T_{BB'}$ es invertible entonces $m = n$ y por el teorema \ref{teo:isomTrMat} existe una transformación lineal $S\colon W \to V$ tal que $S_{B'B} =  (T_{BB'})^{-1}$. Aplicando el teorema anterior, esto implica que
-    \[ (S \circ T)_{BB} =  S_{B'B}T_{BB'} = I_n = (\Id_{V,W})_{BB}. \]
-  De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = \Id_{V,W}$ y análogamente se tiene que $T \circ S = \Id_{V,W}$, mostrando así que $T$ es invertible.
+    \[ (S \circ T)_{BB} =  S_{B'B}T_{BB'} = I_n = (\Id_V)_{BB}. \]
+  De nuevo, por el teorema \ref{teo:isomTrMat}, tenemos que $S \circ T = \Id_{V}$ y análogamente se tiene que $T \circ S = \Id_{V}$, mostrando así que $T$ es invertible.
 \end{proof}
 
 
@@ -119,25 +119,25 @@ La relación de las matrices y las transformaciones lineales va más allá de qu
       \item ¿Cual es la matriz de $T$ con respecto a las bases ordenadas $C$ y $B$?
       \item ¿Cual es la matriz de $T$ con respecto a las bases ordenadas $B$ y $C$?
       \item ¿Cual es la matriz de $T$ con respecto a la base ordenada $B$?
-      \item ¿Cual es la matriz de $T$ con respecto a la base ordenadas $(v_2, v_1)$?
+      \item ¿Cual es la matriz de $T$ con respecto a la base ordenada $(v_2, v_1)$?
     \end{enumerate}
 
   \item Sea $T$ la transformación lineal de $\R^3$ en $\R^2$ definida por 
     \[ T\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} x_1 + x_2 \\ 2x_3 - x_1 \end{pmatrix}. \]
     \begin{enumerate}
-      \item Si $C$ es la base canónica de $\R^3$ y $C'$ es la base canónica de $\R^2$ ¿cual es la matriz de $T$ con respecto a las bases ordenadas $C$ y $C'$?
+      \item Si $C$ es la base canónica de $\R^3$ y $C'$ es la base canónica de $\R^2$, ¿cuál es la matriz de $T$ con respecto a las bases ordenadas $C$ y $C'$?
       \item Si $B = (v_1, v_2, v_3)$ y $B' = (w_1, w_2)$, donde
         \[
           v_1 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, \quad
           v_2 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \quad
           v_3 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
           w_1 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \quad
-          w_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+          w_2 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
         \]
         ¿Cual es la matriz de $T$ respecto a las bases ordenadas $B$ y $B'$?
     \end{enumerate}
 
-  \item Sea $T$ una transformación lineal sobre $\F^n$, sea $A$ la matriz de $T$ en la base ordenada canónica de $\F^n$ y sea $W$ es subespacio de $\F^n$ generado por los vectores columna de $A$ ¿Qué relación existe entre $W$ y $T$?
+  \item Sea $T$ una transformación lineal sobre $\F^n$, sea $A$ la matriz de $T$ en la base ordenada canónica de $\F^n$ y sea $W$ es subespacio de $\F^n$ generado por los vectores columna de $A$, ¿qué relación existe entre $W$ y $T$?
   
   \item Sea $V$ un $\F$-espacio vectorial de dimensión 2 y sea $B$ una base ordenada de $V$. Si $T$ es una transformación lineal en $V$ y 
     \[ T_{BB} = \begin{pmatrix}

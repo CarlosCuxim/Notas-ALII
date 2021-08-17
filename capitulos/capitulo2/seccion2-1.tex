@@ -1,23 +1,23 @@
 \section{Valores propios}
 
-Como vimos en la sección \ref{sec:TyDdeMat2x2} las matrices complejas de $2\times 2$ tienen asociadas unos números que nos permiten caracterizar toda su clase de equivalencia y que nos permiten diagonalizarlas o triangularizarlas. Aunque el proceso lo hicimos para un tipo muy especial de matrices, este se puede generalizar.
+Como vimos en la sección \ref{sec:TyDdeMat2x2} las matrices complejas de $2\times 2$ tienen asociadas unos números que nos permiten caracterizar toda su clase de equivalencia y que nos permiten diagonalizarlas o triangularizarlas. Aunque el proceso lo hicimos para un tipo muy especial de matrices, éste se puede generalizar.
 
 Supongamos que tenemos una matriz $M\in\M_n(\F)$ diagonalizable, es decir, existe una matriz $D = (d_{ij})$ diagonal y una matriz invertible $P$ tal que $D =  P^{-1}MP$. Notemos que si $v_i = P_{*i}$ con $i \in \{1,\ldots,n\}$ y $D = \bigl( \lambda_1 e_1 \mid \cdots \mid \lambda_n e_n \bigr)$, dado que $PD = MP$, entonces se cumple que
   \[
     Mv_i = MPe_i = PD e_i = P(\lambda_i e_i) = \lambda_i P_{*i} = \lambda_i v_i
   \]
-De este modo, si quisiéramos determinar si una matriz $M$ es diagonalizable, es natural pensar que deberíamos buscar los valores $\lambda$ y vectores $v$ tales que $Mv = \lambda v$.
+De este modo, si quisiéramos determinar si una matriz $M$ es diagonalizable, es natural pensar que deberíamos buscar valores $\lambda$ y vectores $v$ tales que $Mv = \lambda v$.
 
 \begin{defi}
   Sea $M \in \M_n(\F)$, decimos que $\lambda \in \F$ es un \emph{valor propio} de $M$ si existe un vector $v \in \F^n$ no nulo, tal que
     \[Mv = \lambda v.\]
-  Si $\lambda$ es in valor propio de $M$ entonces cualquier $v \in \F^n$ no nulo tal que $Mv = \lambda v$ se dirá que es un \emph{vector propio} de $M$ asociado al valor propio $\lambda$. Al conjunto de valores propios de $M$ le llamaremos el \emph{espectro} de $M$ y lo denotaremos como $E(M)$.
+  Si $\lambda$ es un valor propio de $M$ entonces cualquier $v \in \F^n$ no nulo tal que $Mv = \lambda v$ se dirá que es un \emph{vector propio} de $M$ asociado al valor propio $\lambda$. Al conjunto de valores propios de $M$ le llamaremos el \emph{espectro} de $M$ y lo denotaremos como $E(M)$.
 \end{defi}
 
 Notemos que si $M$ es la matriz cero, entonces todo vector de $\F^n - \{\bec 0\}$ es un vector propio de $M$ asociado al valor propio $0$. De manera más general, si $M$ es una matriz no invertible, entonces todo vector en $\ker(M)-\{\bec 0\}$ es un vector propio de $M$ asociado al valor propio $0$.
 
 \begin{teor}\label{teor:PropVP}
-  Sean $M \in \M_n(\F)$ y $\lambda \in \F$, las siguientes afirmaciones son equivalentes
+  Sean $M \in \M_n(\F)$ y $\lambda \in \F$, las siguientes afirmaciones son equivalentes:
   \begin{enumerate}
     \item $\lambda$ es un valor propio de $M$.
     \item La matriz $M-\lambda I$ no es invertible.
@@ -25,7 +25,7 @@ Notemos que si $M$ es la matriz cero, entonces todo vector de $\F^n - \{\bec 0\}
   \end{enumerate}
 \end{teor}
 \begin{proof}
-  Por las propiedades de la determinante, es claro que $M-\lambda I$ es no invertible si y solo si $\det(M-\lambda I)=0$. Así, demostremos que $\lambda$ es un valor propio de $M$ si y solo sí $M-\lambda I$ no es invertible.
+  Por las propiedades de la determinante, es claro que $M-\lambda I$ es no invertible si y solo si $\det(M-\lambda I)=0$. Así, demostremos que $\lambda$ es un valor propio de $M$ si y solo si $M-\lambda I$ no es invertible.
 
   Para la ida, notemos que si $\lambda$ es un valor propio, entonces existe $v \in \F^n-\{\bec 0\}$ tal que 
     \[ Mv=\lambda v = \lambda Iv \implies (M-\lambda I)v = \bec 0. \]
@@ -47,7 +47,7 @@ Este último teorema nos da una forma muy sencilla de calcular los valores propi
 
   \examplesolution
 
-  Encontremos los valores propios de $A$ mediante el polinomio característico de este. Veamos que
+  Encontremos los valores propios de $A$ mediante su polinomio característico de este. Veamos que
   \[
     \det(M - \lambda I) = \det\begin{pmatrix} 3 - \lambda & 1 & -1 \\ 2 & 2 - \lambda & -1 \\ 2 & 2 & -\lambda \end{pmatrix}
       = -\lambda^3+5\lambda^2-8\lambda+4 = -(\lambda-1)(\lambda-2)^2.
@@ -55,13 +55,13 @@ Este último teorema nos da una forma muy sencilla de calcular los valores propi
   De esta forma, podemos ver que $\det(M - \lambda I) = 0$ si y solo si $\lambda=1$ o $\lambda = 2$, de este modo $E(A) = \{1, 2\}$. Para encontrar vectores propios asociados, basta con encontrar vectores no nulos en $\ker(M-\lambda I)$.
 \end{example}
 
-Como vimos en la sección \ref{sec:TyDdeMat2x2}, los valores propios de una matriz son iguales para todas las matrices semejantes a esta, aunque como se verá más adelante, no son suficientes para determinar a toda la clase de equivalencia. De igual forma, aunque para matrices complejas de $2\times 2$ siempre existen sus valores propios, no necesariamente todas las matrices tienen un valor propio.
+Como vimos en la sección \ref{sec:TyDdeMat2x2}, los valores propios de una matriz son iguales para todas las matrices semejantes a ésta, aunque como se verá más adelante, no son suficientes para determinar a toda la clase de equivalencia. De igual forma, aunque para matrices complejas de $2\times 2$ siempre existen sus valores propios, no necesariamente todas las matrices tienen un valor propio.
 
 \begin{teor}\label{teor:SemEspectro}
   Sean $M,N \in \M_n(\F)$, si $M \sim N$ entonces $E(M) = E(N)$.
 \end{teor}
 \begin{proof}
-  Primero, veamos que por definición debe existir una matriz invertible $P$ tal que $M = P^{-1} N P$. Sea $\lambda \in E(M)$, por definición debe existir un vector no nulo $n \in \F^n$ tal que $Mv = \lambda v$. De esta forma, sustituyendo $M$, notemos que
+  Primero, veamos que por definición debe existir una matriz invertible $P$ tal que $M = P^{-1} N P$. Sea $\lambda \in E(M)$, por definición debe existir un vector no nulo $v \in \F^n$ tal que $Mv = \lambda v$. De esta forma, sustituyendo $M$, notemos que
     \[ ( P^{-1} N P) v =  \lambda v  \implies  N(Pv) = P(\lambda v) = \lambda (Pv). \]
   Ahora, dado que $P$ es invertible y $v$ es un vector no nulo, entonces por propiedades de las matrices invertibles, tenemos que $Pv$ será un vector no nulo, pero por definición, esto implica que $\lambda \in E(N)$. Así $E(M) \subseteq E(N)$.
 

@@ -7,10 +7,10 @@ Ya con todas estas herramientas, podemos regresar a nuestro objetivo principal, 
 Nuestro primer objetivo será dar una condición para encontrar cuando una matriz es diagonalizable, así como dar con un método para diagonalizarlas. Para ello consideremos la siguiente proposición.
 
 \begin{prop}
-  Sea $M \in \M_n(\F)$, entonces la matriz $M$ es diagonalizable si y solo sí existe alguna base $B$ de $\F^n$ tal que todos los elementos de $B$ son vectores propios de $M$.
+  Sea $M \in \M_n(\F)$, entonces la matriz $M$ es diagonalizable si y solo si existe alguna base $B$ de $\F^n$ tal que todos los elementos de $B$ son vectores propios de $M$.
 \end{prop}
 \begin{proof}
-  Supongamos que $M$ es diagonalizable, es decir, existen matrices $P,D \in \M_n(\F)$, donde $D$ es diagonal y $P$ es invertible, tal que $M = P^{-1} D P$. Ahora, si $P^{-1} = \bigl( v_1 \mid \cdots \mid v_n\bigr)$ entonces por teoremas conocidos, $B = \{v_1,\ldots, v_n\}$ forma una base de $\F^n$. 
+  Supongamos que $M$ es diagonalizable, es decir, existen matrices $P,D \in \M_n(\F)$, donde $D$ es diagonal y $P$ es invertible, tales que $M = P^{-1} D P$. Ahora, si $P^{-1} = \bigl( v_1 \mid \cdots \mid v_n\bigr)$ entonces por teoremas conocidos, $B = \{v_1,\ldots, v_n\}$ forma una base de $\F^n$. 
 
   De igual forma, por propiedades de inversa de una matriz, sabemos que $P v_i = e_i$ para todo $i \in \{1,\ldots,n\}$, de esta forma, notemos que para todo $i \in \{1,\ldots,n\}$ se cumple que
   \[
@@ -40,10 +40,10 @@ Nuestro primer objetivo será dar una condición para encontrar cuando una matri
 Este teorema, nos da una condición para saber cuando una matriz es diagonalizable. Entonces, lo que tenemos que hacer es, primero, encontrar todos las raíces del polinomio característico y luego obtener vectores propios linealmente independientes. Para facilitar la búsqueda de esta base de vectores propios consideremos la siguiente definición.
 
 \begin{defi}
-  Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$, al conjunto $E_\lambda = \{v\in\F : Mv = \lambda v\}$ le llamaremos el \emph{espacio propio} de $\lambda$. A $\dim(E_\lambda)$ se le conoce como la multiplicidad geométrica.
+  Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$, al conjunto $E_\lambda = \{v\in\F : Mv = \lambda v\}$ le llamaremos el \emph{espacio propio} de $\lambda$. A $\dim(E_\lambda)$ se le conoce como la \emph{multiplicidad geométrica} de $\lambda$.
 \end{defi}
 
-Notemos que el espacio propio de un valor propio están compuesto por todos los vectores propios asociados a este y el vector cero. Además, este conjunto, como su nombre lo indica, es un subespacio vectorial de $\F^n$. Esto se puede comprobar ya que para cualesquiera $v,w \in V_\lambda$ y $c \in \F$ se cumple que $v+cw \in V_\lambda$, ya que
+Notemos que el espacio propio de un valor propio están compuesto por todos los vectores propios asociados a este y el vector cero. Además, este conjunto, como su nombre lo indica, es un subespacio vectorial de $\F^n$. Esto se puede comprobar ya que para cualesquiera $v,w \in E_\lambda$ y $c \in \F$ se cumple que $v+cw \in E_\lambda$, ya que
   \[
     (v+cw)M = Mv + cMw = \lambda v + c \lambda w = \lambda (v+cw).
   \]
@@ -51,15 +51,15 @@ Notemos que el espacio propio de un valor propio están compuesto por todos los 
   Sea $M \in \M_n(\F)$ y $\lambda \in E(M)$, entonces el espacio propio de $\lambda$ es un subespacio vectorial de $\F^n$. Más aún $E_\lambda = \ker(M-\lambda I)$.
 \end{prop}
 \begin{proof}
-  Ya vimos que $E_\lambda$ es un espacio propio, de este modo solo falta probar la segunda afirmación. Ahora, notemos que 
+  Ya vimos que $E_\lambda$ es un subespacio vectorial de $\F^n$, de este modo solo falta probar la segunda afirmación. Ahora, notemos que 
   \[ Mv = \lambda v \iff (M-\lambda I)v = \bec 0. \]
-  De aquí podemos comprobar de manera simple que $E_\lambda = \ker(M-\lambda I)$.
+  De aquí podemos comprobar de manera directa que $E_\lambda = \ker(M-\lambda I)$.
 \end{proof}
 
-Con esta propiedad, uno puede inferir que para encontrar vectores propios linealmente independientes se puede buscar bases de $\ker(M-\lambda I)$ para cada $\lambda \in E(M)$ y tomar las que sean linealmente independientes. Este proceso se puede simplificar con el siguiente teorema.
+Con esta propiedad, uno puede inferir que para encontrar una base de $\F^n$ compuesta de vectores propios se puede buscar bases de $\ker(M-\lambda I)$ para cada $\lambda \in E(M)$ y armar una base de $\F^n$ con éstos vectores. Este proceso se puede simplificar con el siguiente teorema.
 
 \begin{teor}\label{teor:IndepEP}
-  Sea $M \in \M_n(\F)$ y $E(M) = \{\lambda_1, \ldots, \lambda_k\}$, entonces $E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_k}$.
+  Sea $M \in \M_n(\F)$ y $E(M) = \{\lambda_1, \ldots, \lambda_k\}$, entonces los subespacios $E_{\lambda_1}, \ldots, E_{\lambda_k}$ son independientes.
 \end{teor}
 \begin{proof}
   Por inducción, probemos que para todo $1\leq m \leq k$, si $v_1 + \cdots + v_m = \bec 0$, donde $v_i \in E_{\lambda_i}$ para cada $i\in\{1,\ldots,m\}$, entonces $v_1 = \cdots = v_m = \bec 0$. Es claro que si $m = 1$, entonces $v_1 = 0$. Así, supongamos que existe $1 \leq s < n$ tal que se sostiene la propiedad.
@@ -85,7 +85,7 @@ Con esta propiedad, uno puede inferir que para encontrar vectores propios lineal
     Ahora, tomando el caso particular $m = k$, notemos que si tomamos $v_i \in E_{\lambda_i}$ para cada $i \in \{1\ldots,k\}$ tal que $v_1 + \cdots + v_n$, entonces $v_1 = \cdots = v_k = \bec 0$, pero por definición, esto implica que $E_{\lambda_1}, \ldots, E_{\lambda_k}$ son independientes y por tanto $E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_k}$.
 \end{proof}
 
-Con este teorema tenemos finalmente la ultima pieza para diagonalizar una matriz. En primer lugar podemos encontrar los valores propios de una matriz $M\in M_n(\F)$ con el polinomio característico, luego con estos podemos encontrar bases para los espacios $E_\lambda = \ker(M-\lambda I)$, dado que son independientes, al juntar todas las bases obtenemos un conjunto linealmente independientes. Si este conjunto linealmente independientes tiene exactamente $n$ términos, entonces tenemos que la matriz es diagonalizable. Todo este proceso se puede resumir con el siguiente teorema.
+Con este teorema tenemos finalmente la ultima pieza para diagonalizar una matriz. En primer lugar podemos encontrar los valores propios de una matriz $M\in M_n(\F)$ con el polinomio característico, luego con estos podemos encontrar bases para los espacios $E_\lambda = \ker(M-\lambda I)$, dado que son independientes, al juntar todas las bases obtenemos un conjunto linealmente independiente. Si este conjunto linealmente independiente tiene exactamente $n$ términos, entonces tenemos que la matriz es diagonalizable. Todo este proceso se puede resumir con el siguiente teorema.
 
 \begin{teor}\label{teor:DiagCond}
   Sea $M = \M_n(\F)$, entonces $M$ será diagonalizable si y solo si alguna de las siguiente condiciones se satisface.
@@ -95,7 +95,7 @@ Con este teorema tenemos finalmente la ultima pieza para diagonalizar una matriz
   \end{enumerate}
 \end{teor}
 \begin{proof}
-  En primer lugar, si $\dim(E_{\lambda_1}) + \cdots + \dim(E_{\lambda_k}) = n$ entonces $\F^n = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_k}$, pero eso implica que puedo encontrar una base de $\F^n$ conformada de solo vectores propios de $M$. Y ya sabemos por la proposición \ref{prop:BVPDiag} que esto implica que $M$ es diagonalizable.
+  En primer lugar, si $\dim(E_{\lambda_1}) + \cdots + \dim(E_{\lambda_k}) = n$ entonces $\F^n = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_k}$, pero eso implica que puedo encontrar una base de $\F^n$ conformada por solo vectores propios de $M$ y ya sabemos por la proposición \ref{prop:BVPDiag} que esto implica que $M$ es diagonalizable.
 
   Ahora si $\abs{E(M)} = n$ dado que $\dim(E_{\lambda_1}) \geq 1$, entonces tenemos que
   \[ n = \dim(\F^n) \geq \dim(E_{\lambda_1}) + \cdots + \dim(E_{\lambda_n}) \geq n, \]
@@ -155,21 +155,21 @@ Con este teorema tenemos finalmente la ultima pieza para diagonalizar una matriz
 
 \subsection{Triangularización de matrices complejas}
 
-Ya vimos las condiciones necesarias para que una matriz se diagonalizable. Ahora, no toda matriz se puede diagonalizar, ni siquiera toda matriz se puede triangular, para mostrar un ejemplo de esto demostremos el siguiente lema.
+Ya vimos las condiciones necesarias y suficientes para que una matriz sea diagonalizable. Ahora, no toda matriz es diagonalizable, ni siquiera toda matriz es triangularizable, para mostrar un ejemplo demostremos el siguiente lema.
 
 \begin{lema}\label{lema:CleanColumn1}
-  Sea $M \in \M_n(\F)$. La matriz $M$ tiene algún valor propio $\lambda$ si y solo sí es semejante a alguna matriz de la forma
+  Sea $M \in \M_n(\F)$. La matriz $M$ tiene algún valor propio $\lambda$ si y solo si es semejante a alguna matriz de la forma
   \[
     N = \begin{spmatrix}{c|c|c|c}
       \lambda e_1 & w_2 &  \ldots & w_n
     \end{spmatrix},
   \]
-  donde $w_2, \ldots, w_n \in \F^{n-1}$.
+  donde $w_2, \ldots, w_n \in \F^n$.
 \end{lema}
 \begin{proof}
-  Supongamos que $M$ tiene algún valor propio $\lambda$, de este modo existe vector no nulo $v$ tal que $Mv = \lambda v$. Ahora, por propiedades de los $\F$-espacios vectoriales, sabemos que debe existir vectores $v_2,\ldots,v_n \in \F^n$ tal que $B = \{v,v_2,\ldots,v_n\}$ es una base de $\F^n$.
+  Supongamos que $M$ tiene algún valor propio $\lambda$, de este modo existe algún vector no nulo $v$ tal que $Mv = \lambda v$. Ahora, por propiedades de los $\F$-espacios vectoriales, sabemos que deben existir vectores $v_2,\ldots,v_n \in \F^n$ tales que $B = \{v,v_2,\ldots,v_n\}$ es una base de $\F^n$.
 
-  De esta forma, consideremos la matríz $P = \bigl( v \mid v_2 \mid \cdots \mid v_n \bigr)$, en primer lugar, notemos que $P$ es invertible ya que sus columnas forman una base y por propiedades de la inversa $P^{-1}v = e_1$. De este modo, sea $N = P^{-1}MP$, notemos que 
+  De esta forma, consideremos la matriz $P = \bigl( v \mid v_2 \mid \cdots \mid v_n \bigr)$, en primer lugar, notemos que $P$ es invertible ya que sus columnas forman una base y por propiedades de la inversa $P^{-1}v = e_1$. De este modo, sea $N = P^{-1}MP$, notemos que 
   \begin{align*}
     N &= P^{-1} M \begin{spmatrix}{c|c|c|c} v & v_2 &  \ldots & v_n \end{spmatrix} 
        = P^{-1} \begin{spmatrix}{c|c|c|c} Mv & Mv_2 &  \ldots & Mv_n \end{spmatrix} \\
@@ -205,13 +205,13 @@ Como hemos visto en el ejemplo anterior, existen matrices que no se puede diagon
   Sea $M \in  \M_n(\C)$, entonces $M$ tiene al menos un valor propio.
 \end{prop}
 \begin{proof}
-  Sea $f \in \C[x]-\{0\}$ el polinomio minimal de $M$, por el teorema fundamental del cálculo, sabemos que debe haber alguna factorización $f = (x-\alpha_1)\cdots(x-\alpha_k)$, luego por la proposición \ref{prop:EvalPoly} tenemos que
+  Sea $f \in \C[x]-\{0\}$ el polinomio minimal de $M$, por el teorema fundamental del álgebra, sabemos que debe haber alguna factorización $f = (x-\alpha_1)\cdots(x-\alpha_k)$, luego por la proposición \ref{prop:EvalPoly} tenemos que
   \[ f(M) = (M-\alpha_1 I)\cdots(M-\alpha_k I) = \bec 0.\]
 
   Ahora, dado que la multiplicación de matrices invertibles es invertible, entonces debe existir al menos un $\alpha_i$ con $i \in \{1,\ldots,k\}$ tal que $M-\alpha_i I$ no es invertible, ya que en caso contrario implicaría que $\bec 0$ es invertible. Pero por el teorema \ref{teor:PropVP}, esto implica que $\alpha_i$ es un valor propio de $M$.
 \end{proof}
 
-Una consecuencia interesante de esta proposición, es que, aplicando el mismo proceso, podemos triangularizar cualquier matrices en los complejos.
+Una consecuencia interesante de esta proposición, es que, aplicando el mismo proceso, podemos triangularizar cualquier matriz en los complejos.
 
 \begin{teor}\label{teor:ComplexTriang}
   Sea $M \in  \M_n(\C)$ entonces $M$ es triangularizable.
@@ -250,7 +250,7 @@ Una consecuencia interesante de esta proposición, es que, aplicando el mismo pr
       \implies
     P^{-1} = \begin{spmatrix}{c|c}
       1 & \bec 0 \\\hline
-      \bec 0 & Q^{1}
+      \bec 0 & Q^{-1}
   \end{spmatrix}.
   \]
 
@@ -267,30 +267,30 @@ Una consecuencia interesante de esta proposición, es que, aplicando el mismo pr
   \end{align*}
   Notemos que por la forma, $T$ es una matriz triangular superior. De esta forma tenemos que $M$ es triangularizable.
 
-  De esta forma, por inducción, tenemos que para cualquier matriz cuadrada con entradas en los complejos es triangularizable.
+  De esta forma, por inducción, tenemos que cualquier matriz cuadrada con entradas en los complejos es triangularizable.
 \end{proof}
 
-Aunque todas las matrices se pueden triangularizar en los complejos, este proceso no es el más óptimo. Más adelante veremos que en los complejos no solo podemos triangularizar matrices, sino que además podemos encontrar una matriz semejante casi diagonal, donde es cero en todas sus entradas excepto en la diagonal principal y la diagonal por encima de la principal.
+Aunque todas las matrices se pueden triangularizar en los complejos, este proceso no nos da la forma más simple de una matriz. Más adelante veremos que en los complejos no solo podemos triangularizar matrices, sino que además podemos encontrar una matriz semejante casi diagonal, donde es cero en todas sus entradas excepto en la diagonal principal y la diagonal por encima de la principal.
 
 
 \subsection{Polinomio minimal de matrices complejas.}
 
-Para concluir con este capítulo, mostraremos la forma del polinomio minimal para matrices compleja. Para ello necesitaremos recordar una propiedad importante de las matrices.
+Para concluir con este capítulo, mostraremos la forma del polinomio minimal para matrices complejas. Para ello necesitaremos recordar una propiedad importante de algunas matrices.
 
 \begin{defi}
-  Sea $M \in \M_n(\F)$, decimos que $M$ es \emph{nilpotente} si existe algún $d\in\N$ tal que $M^d = \bec 0$. Si $M$ es nilpotente, al mínimo $d \in \N$ tal que $M^d = \bec 0$ se le denomina \emph{grado del nilpotencia} de $M$.
+  Sea $M \in \M_n(\F)$, decimos que $M$ es \emph{nilpotente} si existe algún $d\in\N$ tal que $M^d = \bec 0$. Si $M$ es nilpotente, al mínimo $d \in \N$ tal que $M^d = \bec 0$ se le denomina \emph{grado de nilpotencia} de $M$.
 \end{defi}
 
 En primer lugar, notemos que si tenemos una matriz $T$ triangular no estricta, entonces $T$ no será nilpotente. Esto se puede comprobar fácilmente, para ello hay que recordar que si tenemos dos matrices triangulares superiores (inferiores) $A$ y $B$, entonces
   \[
     (AB)_{ii} = A_{ii} B_{ii}
   \]
-para todo $i \in \{1,\ldots,n\}$. De este modo, si $T$ no es estricta, entonces para algún $j \in \{1,\ldots,n\}$ se debe cumplir que $T_{jj} \neq 0$ y por tanto $(T^k)_{ii} = (T_{ii})^k \neq 0$ para todo $k \in \N$.
+para todo $i \in \{1,\ldots,n\}$. De este modo, si $T$ no es estricta, entonces para algún $i \in \{1,\ldots,n\}$ se debe cumplir que $T_{ii} \neq 0$ y por tanto $(T^k)_{ii} = (T_{ii})^k \neq 0$ para todo $k \in \N$.
 
 De este modo, para que una matriz triangular sea nilpotente, tenemos que debe ser triangular estricta. La vuelta también es cierta y además podemos obtener una cota superior para su grado de nilpotencia.
 
 \begin{lema}\label{lema:TriangNilp}
-  Sea $T \in M_n(\F)$ una matriz triangular, entonces $T$ es nilpotente si y solo sí $T$ es triangular estricta. Además, si $T$ es nilpotente, entonces su grado de nilpotencia es menor o igual a $n$.
+  Sea $T \in M_n(\F)$ una matriz triangular, entonces $T$ es nilpotente si y solo si $T$ es triangular estricta. Además, si $T$ es nilpotente, entonces su grado de nilpotencia es menor o igual a $n$.
 \end{lema}
 \begin{proof}
   Por lo ya visto, sabemos que si $T$ es nilpotente entonces debe ser triangular estricta. De esta forma, solo falta ver que todas las matrices $T$ triangulares estrictas cumplen que $T^n = \bec 0$.
@@ -336,7 +336,7 @@ De este modo, para que una matriz triangular sea nilpotente, tenemos que debe se
   \end{align*}
   Ahora, por hipótesis de inducción tenemos que $U^k = U^{k+1} = \bec 0$ y de este modo $T^{k+1} = \bec 0$.
 
-  Así, cualquier matriz $T \in M_n(\F)$  triangular superior estricta es nilpotente, y su grado de nilpotencia es menor o iguala a $n$.
+  Así, cualquier matriz $T \in M_n(\F)$  triangular superior estricta es nilpotente, y su grado de nilpotencia es menor o igual a $n$.
 
   Ahora, si $T \in M_n(\F)$ es triangular inferior estricta, entonces $T^t$ es triangular superior estricta y por tanto $(T^t)^n = (T^n)^t = \bec 0$, lo que implica que $T^n =  \bec 0$. Lo que finalmente nos permite concluir la proposición.
 \end{proof}
@@ -364,7 +364,7 @@ Con todas estas propiedades ya demostradas, podemos demostrar el siguiente teore
     \[
       f_T = \prod_{i=1}^k (x-\lambda_i)^{n_i},
     \]
-  donde $1 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$.
+  donde $f_T$ es el polinomio minimal de $T$ y $1 \leq n_i \leq n$ para cada $i \in \{1,\ldots,k\}$.
 \end{teor}
 \begin{proof}
   Sea $U = (T-\lambda_1 I)\cdots(T-\lambda_n I)$ y $T = (t_{ij})$. Primero, notemos que, por la proposición \ref{prop:EpecTriang}, para cada $i \in \{1,\ldots,n\}$ existe $j\in\{1,\ldots,k\}$ tal que $t_{ii} = \lambda_j$. De esta forma por propiedades de las matrices triangulares, se cumple que $U$ es triangular y además

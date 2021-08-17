@@ -62,7 +62,7 @@ De esta forma, tenemos que toda matriz compleja de $2 \times 2$ es semejante a a
     \begin{pmatrix} a & b \\ c & d \end{pmatrix} \sim \begin{pmatrix} \alpha & 1 \\ 0 & \alpha \end{pmatrix}.
       \label{eq:M2Form}
 \end{equation}
-con $\alpha$ y $\beta$ arbitrarios. Aún queda por determinar si hay repeticiones entre los tipos de matrices calculados. Para realizar el cálculo más fácil, definamos las siguientes matrices 
+con $\alpha$ y $\gamma$ arbitrarios. Aún queda por determinar si hay repeticiones entre los tipos de matrices calculados. Para realizar el cálculo más fácil, definamos las siguientes matrices 
 \[
   D_{\alpha,\beta} = \begin{pmatrix} \alpha & 0 \\ 0 & \beta \end{pmatrix}
      \Eqand
@@ -79,10 +79,10 @@ Usando esta propiedad, notemos que si $c_k M^k + \cdots + c_2 M^2 + c_1 M + c_0 
     &= c_k P^{-1}N^k P + \cdots + c_2 P^{-1}N^2 P + c_1 P^{-1}N P + c_0 I \\
     &= P^{-1} (c_k N^k + \cdots + c_2 N^2 + c_1 N + c_0 I) P.
 \end{align*}
-De aquí es claro que $c_k N^k + \cdots + c_2 N^2 + c_1 N + c_0 I$, lo que nos deja con la siguiente proposición.
+De aquí es claro que $c_k N^k + \cdots + c_2 N^2 + c_1 N + c_0 I = \bec 0$, lo que nos deja con la siguiente proposición.
 
 \begin{prop} \label{prop:MPolySem}
-  Sean $M, N \in \M_n(\F)$ si $M \sim N$ entonces $\sum_{i=0}^k c_k M^k = \bec 0$ si y solo si $\sum_{i=0}^k c_k N^k = \bec 0$, donde $M^0 = N^0= I_n$. \qed
+  Sean $M, N \in \M_n(\F)$, si $M \sim N$ entonces $\sum_{i=0}^k c_k M^k = \bec 0$ si y solo si $\sum_{i=0}^k c_k N^k = \bec 0$, donde $M^0 = N^0= I_n$. \qed
 \end{prop}
 
 Primero, revisemos que las dos formas dadas en \eqref{eq:M2Form} a las que puede ser semejante una matriz son ajenas. Supongamos que existen $\alpha, \beta, \gamma \in \C$ tal que $ D_{\alpha, \beta} \sim T_\gamma $. Notemos que
@@ -110,9 +110,9 @@ pero la proposición \ref{prop:MPolySem}, esto implicaría que $T_\gamma - \gamm
   \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = T_\gamma - \gamma I = \begin{pmatrix} \gamma & 1 \\ 0 & \gamma \end{pmatrix} - \begin{pmatrix} \gamma & 0 \\ 0 & \gamma \end{pmatrix} = \begin{pmatrix}
     0 & 1 \\ 0 & 0 \end{pmatrix},
 \]
-pero claramente esto es una contradicción. De esta forma la clase de equivalencia de $D_{\alpha,\beta}$ es ajena a la clase de equivalencia de $T_\gamma$ para cualesquiera $\alpha,\beta,\gamma \in \C$.
+lo que claramente es una contradicción. De esta forma la clase de equivalencia de $D_{\alpha,\beta}$ es ajena a la clase de equivalencia de $T_\gamma$ para cualesquiera $\alpha,\beta,\gamma \in \C$.
 
-Ahora, qué pasa con las semejanza de matrices del mismo tipo. Supongamos que existen $\alpha, \beta, \gamma, \alpha', \beta', \gamma' \in \C$ tal que $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ y $T_\gamma \sim T_{\gamma'}$. Aplicando el mismo proceso, tenemos que $(D_{\alpha,\beta} - \alpha I)(D_{\alpha,\beta} - \beta I) = \bec 0$ y $(T_\gamma - \gamma I)^2 = \bec 0$, usando la proposición \ref{prop:MPolySem} sobre $D_{\alpha',\beta'}$ y $T_{\gamma'}$ y simplificando, se tiene que 
+Ahora, veamos qué pasa con las semejanza de matrices del mismo tipo. Supongamos que existen $\alpha, \beta, \gamma, \alpha', \beta', \gamma' \in \C$ tales que $D_{\alpha,\beta} \sim D_{\alpha',\beta'}$ y $T_\gamma \sim T_{\gamma'}$. Aplicando el mismo proceso, tenemos que $(D_{\alpha,\beta} - \alpha I)(D_{\alpha,\beta} - \beta I) = \bec 0$ y $(T_\gamma - \gamma I)^2 = \bec 0$, usando la proposición \ref{prop:MPolySem} sobre $D_{\alpha',\beta'}$ y $T_{\gamma'}$ y simplificando, se tiene que 
 \[
   D_{\alpha,\beta} \sim D_{\alpha',\beta'} \iff \{\alpha,\beta\} = \{\alpha',\beta'\}
     \Eqand

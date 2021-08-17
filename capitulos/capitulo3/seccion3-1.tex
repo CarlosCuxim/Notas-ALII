@@ -30,14 +30,14 @@ Notemos que si $\K=\R$ entonces el conjugado está de más, en este caso la prop
 
 Para continuar, por convención, a lo largo de todo el capítulo $\K$ será el campo de los números reales o de los complejos a menos que se indique lo contrario.
 
-Otra convención, es que los espacio $\K^n$ tienen un producto interno al que usualmente le llamamos \emph{canónico}, este es el producto interno $\bcdot\colon  \K^n \times \K^n$ dado por $v \bcdot w = v^t \overline{w}$. Por último, también se manejará la siguiente notación para matrices.
+Otra convención, es que los espacios $\K^n$ tienen un producto interno al que usualmente le llamamos \emph{canónico}, este es el producto interno $\bcdot\colon  \K^n \times \K^n$ dado por $v \bcdot w = v^t \overline{w}$. Por último, también se manejará la siguiente notación para matrices.
 
 \begin{defi}
   Sea $M \in \M_{n\times m}(\C)$ dada por $M = (m_{ij})$, definimos su \emph{conjugada} como la matriz dada por $\overline{M} = (\overline{m_{ij}})$. De igual forma, definimos su \emph{traspuesta conjugada} o \emph{adjunta} como la matriz dada por $M^* = \overline{M}^t$.
 \end{defi}
 
 \begin{example}
-  Sea $v = (x_1, y_1)$ y $w = (x_2, y_2)$ elementos de $\R^2$, definamos el producto $\inner{\cdot,\cdot}\colon \R^2 \times \R^2 \to \R$ dado por
+  Sean $v = (x_1, y_1)$ y $w = (x_2, y_2)$ elementos de $\R^2$, definamos el producto $\inner{\cdot,\cdot}\colon \R^2 \times \R^2 \to \R$ dado por
     \[ \inner{v,w} = x_1 x_2 - y_1x_2 - x_1y_2 + 4y_1y_2. \]
   Demostremos que es un producto interno sobre $\R^2$.
 
@@ -53,7 +53,7 @@ Otra convención, es que los espacio $\K^n$ tienen un producto interno al que us
    \[
      \inner{v,v} = (x_1 - y_1)^2 + 3 y_1^2,
    \]
-   es claro que si $v \neq 0$ entonces $\inner{v,v} \neq 0$.
+   es claro que si $v \neq 0$ entonces $\inner{v,v} > 0$.
 \end{example}
 
 \begin{defi}

@@ -41,11 +41,11 @@ Una propiedad interesante es que esta asociación de vectores de $V$ con las $n$
   Sea $B$ una base ordenada de un $\F$-espacio vectorial $V$ de dimensión $n$, entonces la función $[\cdot]_B\colon V \to \F^n$ es un isomorfismo.
 \end{prop}
 \begin{proof}
-  Sean $v,w \in V$ con $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, $w = \mu_1 v_1 + \cdots + \mu_n v_n$ y $\alpha \in \F$, entonces veamos que
+  Sean $v,w \in V$ con $v = \lambda_1 v_1 + \cdots + \lambda_n v_n$, $w = \mu_1 v_1 + \cdots + \mu_n v_n$ y $\alpha \in \F$, entonces vemos que
   \[
   \alpha v+w =  (\alpha\lambda_1+\mu_1) v_1 + \cdots + (\alpha\lambda_n+\mu_n) v_n,
   \]
-  de esta forma es claro que
+  por lo que es claro que
   \begin{align*}
     [\alpha v+w]_B 
       &= \begin{pmatrix} \alpha\lambda_1+\mu_n \\ \vdots \\ \alpha\lambda_n+\mu_n \end{pmatrix} \\
@@ -194,7 +194,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
   
   \item Halla el vector de coordenadas de $(1, 0, 1)$ en la base de $\C^3$ formada por los vectores $(2i, 1, 0)$, $(2, -1, 1)$, $(0, 1+i, 1-i)$, en ese orden.
   
-  \item Sea $V$ una $\F$-espacio vectorial de diménsión finita $n$ con una base ordenada $B$. Si $S = \{w_1, \ldots, w_n\} \subset V$, demuestra que $S$ es linealmente independiente si y solo si la matriz $M = \bigl( [w_1]_B \mid \cdots \mid [w_n]_B\bigr)$ es invertible.
+  \item Sea $V$ un $\F$-espacio vectorial de dimensión finita $n$ con una base ordenada $B$. Si $S = \{w_1, \ldots, w_n\} \subset V$, demuestra que $S$ es linealmente independiente si y solo si la matriz $M = \bigl( [w_1]_B \mid \cdots \mid [w_n]_B\bigr)$ es invertible.
   
   \item Sea $B = (v_1, v_2, v_3)$ la base ordenada de $\R^3$ formada por
     \[ 
@@ -202,7 +202,7 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
       v_2 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \quad
       v_3 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}.
     \]
-    ¿Cuales son las coordenadas del vector $(a,b,c)$ en la base ordenada $B$?
+    ¿Cuáles son las coordenadas del vector $(a,b,c)$ en la base ordenada $B$?
 
   \item Sea $W$ el subespacio de $\C^3$ generado por $v_1 = (1, 0, i)^t$ y $v_2 = (1+i, 1, -1)^t$.
     \begin{enumerate}
@@ -215,12 +215,12 @@ Este teorema nos afirma que si tenemos una base ordenada $B$, entonces para cual
     \[ x_1 y_1 + x_2 y_2 = 0, \quad x_1^2 + x_2^2 = y_1^2 + y_2^2 = 1. \]
     Demostrar que $B = (v, w)$ es una base ordenada de $\R^2$. Hallar las coordenadas del vector $(a,b)^t$ en la base ordenada $B$. (Las condiciones impuestas a $v$ y $w$ dicen, geométricamente, que $v$ y $w$ son perpendiculares y de longitud 1.)
 
-  \item Sea $V$ es espacio vectorial sobre los números complejos de todas las funciones de $\R$ en $\C$, dea $f_1(x) = 1$, $f_2(x) = e^{ix}$,  $f_3(x) = e^{-ix}$
+  \item Sea $V$ el espacio vectorial sobre los números complejos de todas las funciones de $\R$ en $\C$, sea $f_1(x) = 1$, $f_2(x) = e^{ix}$,  $f_3(x) = e^{-ix}$
     \begin{enumerate}
       \item Demostrar que $f_1$, $f_2$, $f_3$ son linealmente independientes.
       \item Sea $g_1(x)= 1$, $g_2(x) = \cos x$, $g_3(x) = \sen x$. Hallar una matriz invertible $P = (p_{ij})$ de $3 \times 3$ tal que
         \[ g_j = \sum_{i=1}^3 p_{ij} f_i, \qquad j \in \{1, 2, 3\}. \]
     \end{enumerate}
 
-  \item Sea $t$ un número real fijo y defínase $g_1(x) = 1$, $g_2(x) = x+t$ y $g_3(x) = (x+t)^2$. Demuestra que $B = (g_1, g_2, g_3)$ es una base ordenada de $\R[x]_{\leq 2}$. Si $f(x) = ax^2 + bx + c$ ¿Cuales son las coordenadas de $f$ en la base ordenada $B$?
+  \item Sea $t$ un número real fijo y defínase $g_1(x) = 1$, $g_2(x) = x+t$ y $g_3(x) = (x+t)^2$. Demuestra que $B = (g_1, g_2, g_3)$ es una base ordenada de $\R[x]_{\leq 2}$. Si $f(x) = ax^2 + bx + c$, ¿cuales son las coordenadas de $f$ en la base ordenada $B$?
 \end{exerciselist}
