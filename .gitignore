@@ -10,3 +10,5 @@ revisiones/
 *.out
 *.bbl
 *.blg
+*.bcf
+*.xml
