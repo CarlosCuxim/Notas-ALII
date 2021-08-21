@@ -2,7 +2,7 @@
 
 Hemos visto que podemos asociar una matriz a cada transformación siempre que definamos unas bases ordenadas. El siguiente paso, es ver cómo obtener la matriz asociada de la misma transformación pero con bases diferentes. Esto lo haremos con la matriz de cambio de base.
 
-\begin{teor}
+\begin{teor}\label{teor:TLCambioBase}
   Sean $V$ y $W$ dos $\F$-espacios vectoriales y $T \colon V \to W$ una transformación lineal. Si $B_1$ y $B_2$ son bases ordenadas de $V$, $B_1'$ y $B_2'$ son bases ordenadas de $W$ entonces
   \[T_{B_2 B_2'} = M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1}. \]
 \end{teor}
@@ -16,11 +16,54 @@ Hemos visto que podemos asociar una matriz a cada transformación siempre que de
   Y por la unicidad de la matriz asociada, tenemos que $T_{B_2 B_2'} = M_{B_1' B_2'} T_{B_1 B_1'}M_{B_2 B_1}$.
 \end{proof}
 
-Notemos que en el teorema anterior las matrices $T_{B_1B_1'}$ y $T_{B_2B_2'}$ son distintas, pero que son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B'$ son dos bases ordenadas de $V$ entonces $[\Id_V]_{BB'}[v]_B = [v]_B'$, por lo tanto $[\Id_V]_{BB'} = M_{BB'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertibles están asociadas a la transformación identidad, bajo unas ciertas bases.
+Notemos que en el teorema anterior las matrices $T_{B_1B_1'}$ y $T_{B_2B_2'}$ son distintas, pero son matrices asociadas a la misma transformación. Lo mismo ocurre con con la matriz de cambio de base, notemos que si $B$ y $B'$ son dos bases ordenadas de $V$ entonces $[\Id_V]_{BB'}[v]_B = [v]_B'$, por lo tanto $[\Id_V]_{BB'} = M_{BB'}$, dado que todas las matrices invertibles son de cambio de base, eso quiere decir que todas las matrices invertibles están asociadas a la transformación identidad, bajo unas ciertas bases.
 
-Esta idea se puede generalizar: si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tales que $M = T_{B_2 B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{BB'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$.
+Esta idea se puede generalizar: si $V$ y $W$ son $\F$-espacios vectoriales con bases ordenadas $B_1$ y $B_1'$, respectivamente, y $T\colon V \to W$ es una transformación lineal, si $M = PT_{B,B'}Q$ donde $P$ y $Q$ son dos matrices invertibles, por la proposición \ref{prop:ExBase} y el teorema anterior existirán bases ordenadas $B_2$ y $B_2'$ de $V$ y $W$, respectivamente, tales que $M = T_{B_2 B_2'}$. Esto quiere decir que todas las matrices de la forma $PT_{BB'}Q$, donde $P$ y $Q$ son dos matrices invertibles, están asociadas a $T$. Usando esta propiedad, podemos obtener la matriz más simple de una transformación lineal.
 
-Un caso de especial interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{BB}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{BB'} = (M_{B'B})^{-1}$ entonces 
+\begin{lema}
+  Sea $M \in \M_{n\times m}(\F)$, si $r = \rango(M)$ entonces existen matrices invertible $P \in \M_n(\F)$ y $Q \in \M_m(\F)$ tales que
+  \[ PMQ = \begin{spmatrix}{c|c}
+    I_r & \bec 0 \\ \hline
+    \bec 0 & \bec 0
+  \end{spmatrix} = C_r.\]
+\end{lema}
+\begin{proof}
+  Supongamos que $M$ está en su forma escalonada reducida por renglones. Notemos que si llevamos la matriz $M^t$ a su forma escalonada reducida por renglones, ésta matriz tiene la forma pedida. Es decir, existe una matriz invertible $E \in \M_m(\F)$ tal que 
+  \[
+    EM^t = C_r \implies ME^t = (C_r)^t = C_r.
+  \]
+  De este modo, si $Q = E^t$, dado que $E$ es invertible entonces $Q$ es invertible y hemos probado lo pedido.
+
+  Ahora si $M$ es una matriz cualquiera, existe una matriz invertible$P\in\M_n(\F)$ tal que $PM$ es la forma escalonada reducida por renglones de $M$ y por la parte anterior existe una matriz invertible $Q \in \M_m(\F)$ tal que
+    \[
+      PMQ = C_r.
+    \]
+\end{proof}
+
+\begin{teor}
+  Sea $V$ y $W$ espacios vectoriales de dimensión $n$ y $m$, respectivamente, si $T \colon V \to W$ es una transformación lineal, entonces existen bases ordenadas $B$ de $V$ y $B$ de $W$ tal que
+  \[
+    T_{BB'} =  \begin{spmatrix}{c|c}
+      I_r & \bec 0 \\ \hline
+      \bec 0 & \bec 0
+    \end{spmatrix} = C_r.
+  \]
+\end{teor}
+
+\begin{proof}
+  Sean $B_0$ y $B_0'$ dos bases ordenadas cualquiera de $V$ y $W$, por el lema anterior, existen matrices invertibles $P \in \M_m(\F)$ y $Q \in \M_n(\F)$ tal que
+    \[
+      PT_{B_0B_0'} Q = C_r
+    \]
+  Ahora, por la proposición \ref{prop:ExBase} y el teorema \ref{teor:TLCambioBase} existen bases $B$ de $V$ y $B'$ de $W$ tal que $Q = M_{BB_0}$ y $P = M_{B'B_0'}$ y por lo tanto
+  \[
+    T_{BB'} = M_{B'B_0'} T_{B_0B_0'} M_{BB_0} = C_r. \qedhere
+  \]
+\end{proof}
+
+La matriz $C_r$ del teorema anterior es conocida como la \emph{matriz canónica de equivalencia} y es la matriz asociada más simple.
+
+A pesar de esto, un caso de mayor interés son las matrices asociadas cuando $T$ es un endomorfismo de $V$ sobre la misma base. Si $B$ es una base ordenada de $V$, definiremos $T_B = T_{BB}$. Notemos que si deseamos obtener $T_{B'}$, dado que $M_{BB'} = (M_{B'B})^{-1}$ entonces 
   \[ T_{B'} = (M_{B'B})^{-1} T_B M_{B'B} \]
 y de nuevo,por la proposición \ref{prop:ExBase} podemos ver que todas las matrices $P^{-1}T_{B}P$, donde $P$ es una matriz invertible, están asociadas a la misma transformación. De esta forma, la meta será agrupar todas las matrices que están asociadas a una misma transformación lineal.
 
